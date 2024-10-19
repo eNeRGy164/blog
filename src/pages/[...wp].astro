@@ -1,0 +1,66 @@
+---
+import { sortedPosts } from '@/js/util.js'
+import MonthArchive from '@/layouts/MonthArchive.astro';
+import YearArchive from '@/layouts/YearArchive.astro';
+
+export async function getStaticPaths() {
+  const postFiles = sortedPosts(await Astro.glob('../posts/*.{md,mdx}'))
+
+  const years = new Set();
+  const months = new Set();
+
+  const posts = postFiles.map(post => {
+    const permalink = post.frontmatter.permalink.slice(1).slice(0, -1);
+    const date = permalink.split('/').splice(0, 2);
+    years.add(date[0]);
+    months.add({ year: date[0], month: date[1] });
+
+    return {
+      params: {
+        // these `.slice` calls are necessary and remove
+        // the `/` from the beginning and end of the permalink
+        wp: permalink,
+      },
+      props: post
+     }
+   })
+
+   Array.from(months).map(month => {
+     posts.push({
+       params: {
+         wp: `${month.year}/${month.month}`
+       },
+       props: {
+         posts: postFiles.filter(post => post.frontmatter.permalink.startsWith(`/${month.year}/${month.month}`)),
+         year: month.year,
+         month: month.month
+       }
+     })
+   })
+
+   Array.from(years).map(year => {
+     posts.push({
+       params: {
+         wp: `${year}`
+       },
+       props: {
+         posts: postFiles.filter(post => post.frontmatter.permalink.startsWith(`/${year}`)),
+         year: year,
+       }
+     })
+   })
+
+
+   return posts;
+}
+
+const { Content, posts, year, month } = Astro.props
+---
+
+{Content && <Content />}
+
+{posts && year && !month && <YearArchive Posts={posts} Year={year} />}
+
+{posts && year && month && <MonthArchive Posts={posts} Year={year} Month={month} />}
+
+

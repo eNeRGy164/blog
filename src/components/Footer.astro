@@ -1,0 +1,99 @@
+---
+import { urlifyToken } from '@/js/util.js'
+
+const { posts } = Astro.props
+
+let categories = posts
+  .flatMap((p: { frontmatter: { categories: any; }; }) => p.frontmatter.categories)
+  .filter((p: string) => p !== 'Uncategorized')
+  .map((p: string) => p === 'csharp' ? 'C#' : p);
+
+categories = Array.from(new Set(categories))
+  .sort((a, b) => a.localeCompare(b));
+
+const monthNames = Array.from({ length: 12 }, (_, i) => 
+  new Date(0, i).toLocaleString('en-US', { month: 'long' })
+);
+
+const postsByYearMonth = posts.reduce((acc: { [x: string]: string; }, post: { frontmatter: { date: string | number | Date; }; }) => {
+  const date = new Date(post.frontmatter.date);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const key = `${year}/${month.toString().padStart(2, '0')}`;
+
+  if (!acc[key]) {
+	acc[key] = `${monthNames[date.getMonth()]} ${year}`;
+  }
+
+  return acc;
+}, {});
+
+const limitedPostsByYearMonth = Object.fromEntries(Object.entries(postsByYearMonth).slice(0, 16));
+
+const today = new Date();
+---
+
+<footer id="footer">
+	<div class="widget">
+		<nav>
+			<h2>Links</h2>
+			<ul>
+				<li><a href="http://www.expiscornovus.com/" rel="noopener met co-worker colleague" title="Expiscornovus" target="_blank">Dennis Goedegebuure</a></li>
+				<li><a href="https://maarten.mulders.it/post/" rel="noopener met colleague" target="_blank">Maarten Mulders</a></li>
+				<li><a href="https://marcofolio.net/" rel="noopener met colleague noopener" target="_blank">Marco Kuiper</a></li>
+				<li><a href="https://techsps.wordpress.com/" rel="noopener met co-worker colleague" title="Something Technical about SharePoint" target="_blank">Mark Klifman</a></li>
+				<li><a href="https://www.powerplatformunicorn.com/" rel="noopener met co-worker colleague">Rebekka Aalbers</a></li>
+				<li><a href="http://www.sharepointblogs.be/blogs/vandest" rel="noopener met" target="_blank">Steven Van de Craen</a></li>
+			</ul>
+		</nav>
+	</div>
+	<div class="widget">
+		<nav>
+			<h2>Categories</h2>
+			<ul>
+			{categories?.map((category: String, idx: Number) =>
+				<li><a rel="nofollow" href={`/category/${urlifyToken(category.replace('C#', 'csharp'))}`} rel="category tag">{category}</a></li>
+			)}
+			</ul>
+		</nav>
+	</div>
+	<div class="widget">
+		<nav>
+			<h2>Pages</h2>
+			<ul>
+				<li><a rel="nofollow" href="/about">About</a></li>
+			</ul>
+		</nav>
+	</div>
+	<div class="widget">
+		<nav>
+			<h2>Archives</h2>
+			<ul>
+				{Object.entries(limitedPostsByYearMonth).map(([key, value]) => 
+					<li><a rel="nofollow" href={`/${key}`}>{value}</a></li>
+				)}
+			</ul>
+		</nav>
+	</div>
+</footer>
+
+<div id="copyright">
+	<div class="copyright-notice">Copyright © {today.getFullYear()} Michaël Hompus.  All rights reserved.</div>
+	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization" id="publisher">
+		<meta itemprop="name" content="Michaël’s coding thoughts">
+		<meta itemprop="description" content="In this blog I, Michaël Hompus, try to write about my experiences on Microsoft technologies I encounter while working on a variety of projects.">
+		<meta itemprop="url" content="/">
+		<meta itemprop="sameAs" content="https://www.facebook.com/michael.hompus">
+		<meta itemprop="sameAs" content="https://twitter.com/eNeRGy164">
+		<meta itemprop="sameAs" content="https://www.linkedin.com/in/mhompus">
+		<meta itemprop="sameAs" content="https://bsky.app/profile/energy164.bsky.social">
+		<span itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
+		<link itemprop="url" href="/wp-content/uploads/2015/12/Michaels-coding-thoughts.png">
+		<meta itemprop="width" content="402">
+		<meta itemprop="height" content="60">
+		</span>
+	</span>
+	<div class="attrib">
+		Design based on the <a href="http://thethemefoundry.com/paperpunch/" target="_blank" rel="nofollow external noopener">Paperpunch Theme</a> by <a href="http://thethemefoundry.com/" target="_blank" rel="nofollow external noopener">The Theme Foundry</a>
+	</div>
+</div>

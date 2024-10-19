@@ -1,0 +1,76 @@
+---
+import BaseHead from '@/components/BaseHead.astro'
+import Header from '@/components/Header.astro'
+import Footer from '@/components/Footer.astro'
+import { urlifyToken, sortedPosts } from '@/js/util.js'
+import { Debug } from 'astro/components'
+import { SITE_TITLE, SITE_DESCRIPTION } from '@/config.ts'
+import Sidebar from '@/components/Sidebar.astro'
+
+const posts = sortedPosts(await Astro.glob('../../posts/*.{md,mdx}'))
+
+export async function getStaticPaths() {
+  const posts = sortedPosts(await Astro.glob('../../posts/*.{md,mdx}'))
+  const categories = new Set()
+  posts.forEach(post => {
+    post.frontmatter.categories?.map(urlifyToken).forEach(c => categories.add(c))
+  })
+  return Array.from(categories).map(cat => {
+    const categoryPosts = posts.filter(post => post.frontmatter.categories?.map(urlifyToken).includes(cat))
+    return {
+      params: { slug: cat },
+      props: {
+        posts: categoryPosts,
+        category: categoryPosts[0].frontmatter.categories.find(x => urlifyToken(x) === cat)
+      }
+    }
+  })
+}
+---
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <BaseHead title={`${Astro.props.category} | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="archive category" itemprop="mainEntity" itemscope itemtype="http://schema.org/WebPage" id="body">
+    <meta itemprop="name" content={Astro.props.category} />
+		<meta itemprop="lastReviewed" content= />
+		<link itemprop="url" href="" />
+		<div class="skip-content"><a href="#content">Skip to content</a></div>
+		<div id="wrapper">
+      <Header />
+      <main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/CollectionPage" itemref="publisher">
+        <link itemprop="url" href="" />
+        <div class="post-box page-box" itemscope itemtype="http://schema.org/ItemList" itemprop="mainEntity">
+          <meta itemprop="itemListOrder" content="http://schema.org/ItemListOrderDescending">
+          <div class="meta clear">
+            <h1 class="pagetitle" itemprop="name">Posts from the ‘{Astro.props.category.replace('csharp', 'C#')}’ category</h1>
+          </div>
+          <div class="post-header">
+            <div class="entries">
+              <ul>
+                {Astro.props.posts.map(page => {
+                  const date = new Date(page.frontmatter.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: '2-digit' });
+
+                  return (
+                  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/BlogPosting" itemref="publisher">
+                    <a itemprop="url" href={page.frontmatter.permalink} rel="bookmark" title={page.frontmatter.title}>
+                      <span class="archdate">
+                        <time class="published" datetime={page.frontmatter.date} itemprop="datePublished">{date}</time>
+                      </span>
+                      <span itemprop="name headline">{page.frontmatter.title}</span>
+                    </a>
+                  </li>
+                );
+              })}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </main>
+      <Sidebar />
+      <Footer posts={[...posts]}/>
+    </div>
+  </body>
+</html>

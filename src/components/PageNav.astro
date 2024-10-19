@@ -1,0 +1,92 @@
+---
+const { posts, page } = Astro.props;
+
+const currentPage = parseInt(page);
+
+// Based on wp-pagenavi.php from the WP-PageNavi plugin
+
+// Settings
+const postsPerPage = 5;
+const pageRange = 5;
+const largerPageMultiple = 10;
+
+const totalPages = Math.ceil(posts.length / postsPerPage);
+const halfRange = Math.floor(pageRange / 2);
+
+// Calculate start and end page for the current range
+let startPage = Math.max(1, currentPage - halfRange);
+const endPage = Math.min(totalPages, startPage + pageRange - 1);
+
+// Adjust start page if necessary
+if (endPage - startPage + 1 < pageRange) {
+  startPage = Math.max(1, endPage - pageRange + 1);
+}
+
+const largerPages = Array.from({ length: Math.floor(totalPages / largerPageMultiple) }, (_, i) => (i + 1) * largerPageMultiple);
+const largerPagesBefore = largerPages.filter(page => page < startPage).slice(-3);
+const largerPagesAfter = largerPages.filter(page => page > endPage).slice(0, 3);
+---
+
+<nav class="wp-pagenavi" aria-label="Pagination Navigation">
+  <ul>
+    {/* Show "First" only if the page is not listed */}
+    {startPage > 1 && (
+        <li><a aria-label="First Page" href="/">🠈 First</a></li>
+    )}
+
+    {/* Show "Previous" button if not on the first page */}
+    {currentPage > 1 && (
+        <li><a rel="prev" aria-label={`Previous Page, Page ${currentPage - 1}`} href={currentPage === 2 ? '/' : `/page/${currentPage - 1}`}>🠈</a></li>
+    )}
+
+    {/* Show ellipsis when not all previous pages are listed  */}
+    {startPage > 1 && (
+        <li aria-hidden="true"><span>…</span></li>
+    )}
+
+    {/* Show ellipsis and larger pages before the current range */}
+    {startPage > 1 && largerPagesBefore.length > 0 && (
+      <>
+        {largerPagesBefore.map(page => (
+          <li><a aria-label={`Page ${page}`} href={`/page/${page}`}>{page}</a></li>
+        ))}
+        <li aria-hidden="true"><span>…</span></li>
+      </>
+    )}
+
+    {/* Display the page range */}
+    {Array.from({ length: endPage - startPage + 1 }, (_, i) => {
+      const pageNumber = i + startPage;
+      return pageNumber === currentPage ? (
+        <li class="current"><span aria-current="page">{pageNumber}</span></li>
+      ) : (
+        <li><a aria-label={`Page ${pageNumber}`}href={pageNumber === 1 ? '/' : `/page/${pageNumber}`}>{pageNumber}</a></li>
+      );
+    })}
+
+    {/* Show ellipsis and larger pages after the current range */}
+    {endPage < totalPages && largerPagesAfter.length > 0 && (
+      <>
+        <li aria-hidden="true"><span>…</span></li>
+        {largerPagesAfter.map(page => (
+          <li><a aria-label={`Page ${page}`} href={`/page/${page}`}>{page}</a></li>
+        ))}
+      </>
+    )}
+
+    {/* Show ellipsis when not all next pages are listed  */}
+    {endPage < totalPages && (
+        <li aria-hidden="true"><span>…</span></li>
+    )}
+
+    {/* Show "Next" button if not on the last page */}
+    {currentPage < totalPages && (
+        <li><a rel="next" aria-label={`Next Page, Page ${currentPage + 1}`} href={`/page/${currentPage + 1}`}>🠊</a></li>
+    )}
+
+    {/* Show "Last" button if the last page is not listed */}
+    {endPage < totalPages && (
+        <li><a aria-label={`Last Page, Page ${totalPages}`} href={`/page/${totalPages}`}>Last 🠊</a></li>
+    )}
+  </ul>
+</nav>
