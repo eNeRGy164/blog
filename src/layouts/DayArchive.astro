@@ -6,22 +6,22 @@ import moment from 'moment'
 
 export interface Frontmatter { date: string; permalink: string; title: string; excerpt: string; updated?: string | null; }
 export interface Post { frontmatter: Frontmatter; }
-export interface Props { posts: Post[]; year: string; month: string; }
+export interface Props { posts: Post[]; year: string; month: string; day: string; }
 
-const { posts, year, month } = Astro.props
+const { posts, year, month, day } = Astro.props
 
-var date = moment().set({'year': parseInt(year), 'month': (parseInt(month) - 1), 'date': 1});
+var date = moment().set({'year': parseInt(year), 'month': (parseInt(month) - 1), 'date': parseInt(day)});
 ---
 
 <BasePageLayout
-  title={`${date.format('yyyy MMMM')} | ${SITE_TITLE}`} 
+  title={`${date.format('yyyy MMMM D')} | ${SITE_TITLE}`} 
   description={SITE_DESCRIPTION} 
   classes={['archive']}
 >
-  <main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/CollectionPage" itemref="author">
+<main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/CollectionPage" itemref="author">
     <div class="post-box page-box">
       <div class="meta">
-        <h1 id="pagetitle" itemprop="name">Archive for {date.format('MMMM[, ]yyyy')}</h1>
+        <h1 id="pagetitle" itemprop="name">Archive for {date.format('MMMM Do[, ] yyyy')}</h1>
       </div>
       <div>
         <div class="entries" itemscope itemtype="http://schema.org/ItemList" itemprop="mainEntity">

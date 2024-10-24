@@ -1,54 +1,36 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
+import BasePageLayout from './BasePageLayout.astro'
+import ListItem from '@/components/ListItem.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config.ts'
-import { sortedPosts } from '@/js/util.js'
 
-const { Posts, Year } = Astro.props
-const posts = sortedPosts(await Astro.glob('../posts/*.{md,mdx}'))
+export interface Frontmatter { date: string; permalink: string; title: string; excerpt: string; updated?: string | null; }
+export interface Post { frontmatter: Frontmatter; }
+export interface Props { posts: Post[]; year: string; }
+
+const { posts, year } = Astro.props
 ---
 
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <BaseHead title={`${Year} | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="archive category" itemprop="mainEntity" itemscope itemtype="http://schema.org/WebPage" id="body">
-    <meta itemprop="name" content=`${Year}` />
-		<link itemprop="url" href="" />
-		<div class="skip-content"><a href="#content">Skip to content</a></div>
-		<div id="wrapper">
-      <Header />
-      <main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/CollectionPage" itemref="publisher">
-        <div class="post-box page-box" itemscope itemtype="http://schema.org/ItemList" itemprop="mainEntity">
+<BasePageLayout
+  title={`${year} | ${SITE_TITLE}`} 
+  description={SITE_DESCRIPTION} 
+  classes={['archive']}
+>
+  <main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/CollectionPage" itemref="author">
+    <div class="post-box page-box">
+      <div class="meta">
+        <h1 id="pagetitle" itemprop="name">Archive for {year}</h1>
+      </div>
+      <div>
+        <div class="entries" itemscope itemtype="http://schema.org/ItemList" itemprop="mainEntity">
           <meta itemprop="itemListOrder" content="http://schema.org/ItemListOrderDescending">
-          <div class="meta clear">
-            <h1 class="pagetitle" itemprop="name">Archive for {Year}</h1>
-          </div>
-          <div class="post-header">
-            <div class="entries">
-              <ul>
-                {Posts.map(page => {
-                  const date = new Date(page.frontmatter.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: '2-digit' });
-
-                  return (
-                  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/BlogPosting" itemref="publisher">
-                    <a itemprop="url" href={page.frontmatter.permalink} rel="bookmark" title={page.frontmatter.title}>
-                      <span class="archdate">
-                        <time class="published" datetime={page.frontmatter.date} itemprop="datePublished">{date}</time>
-                      </span>
-                      <span itemprop="name headline">{page.frontmatter.title}</span>
-                    </a>
-                  </li>
-                );
-              })}
-              </ul>
-            </div>
-          </div>
+          <ul>
+            {posts.map(p => 
+              <ListItem post={p} />
+            )}
+          </ul>
         </div>
-      </main>
-      <Footer posts={[...posts]}/>
+      </div>
     </div>
-  </body>
-</html>
+  </main>
+</BasePageLayout>
+

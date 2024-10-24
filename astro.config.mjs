@@ -1,36 +1,33 @@
-import { defineConfig } from 'astro/config'
-import mdx from '@astrojs/mdx'
-import sitemap from '@astrojs/sitemap'
-import remarkBreaks from 'remark-breaks' // improves support for newlines in markdown files
-import remarkGfm from 'remark-gfm' // support rendering tables in markdown files
-
-import { rehypeGithubAlerts } from 'rehype-github-alerts'
-
-// twitter & youtube auto-embed via remark
-import remarkEmbedder from '@remark-embedder/core'
-import oembedTransformer from '@remark-embedder/transformer-oembed'
-
-const remarkEmbedPlugin = [remarkEmbedder.default, {
-  transformers: [oembedTransformer.default],
-  // https://github.com/remark-embedder/transformer-oembed/issues/25#issuecomment-888613740
-  // https://github.com/remark-embedder/core#handleerror-errorinfo-errorinfo--gottenhtml--promisegottenhtml
-  handleError ({error, url, transformer}) {
-    if (transformer.name !== '@remark-embedder/transformer-oembed' || !url.includes('twitter.com')) {
-      // we're only handling errors from this specific transformer and the twitter URL
-      // so we'll rethrow errors from any other transformer/url
-      throw error
-    }
-    console.error("ERROR: couldn't embed:", url)
-    return `<p style="color:red">ERROR: Unable to embed <a href="${url}">this tweet</a> (possibly deleted).</p>`
-  }
-}]
+import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+import remarkGfm from "remark-gfm";
+import rehypeExternalLinks from "rehype-external-links";
+import abbreviate from './src/components/Abbreviate.js';
+import youTubeEmbed from './src/components/YouTube.js';
+import { rehypeGithubAlerts } from "rehype-github-alerts";
+import react from "@astrojs/react";
+import { ACRONYMS } from "./src/config";
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://blog.hompus.nl', // CHANGE THIS TO YOUR HOMEPAGE!
-	integrations: [mdx(), sitemap()],
-	markdown: {
-		remarkPlugins: [remarkEmbedPlugin, remarkGfm, remarkBreaks],
-    rehypePlugins: [rehypeGithubAlerts]
-	}
-})
+  site: "https://blog.hompus.nl",
+  integrations: [mdx(), sitemap(), react()],
+  markdown: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      rehypeGithubAlerts,
+      [
+        rehypeExternalLinks,
+        {
+          content: {},
+          rel: ['noopener', 'noreferrer', 'external'],
+          target: "_blank",
+          test: (node, _, __) => node.tagName === 'a' && typeof node.properties.href === 'string' && !node.properties.href.includes('linkedin.com'),
+        },
+      ],
+      [ abbreviate, { acronyms: ACRONYMS } ],
+      youTubeEmbed,
+    ],
+  },
+});

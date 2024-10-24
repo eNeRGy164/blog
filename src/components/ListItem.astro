@@ -1,0 +1,29 @@
+---
+import moment from 'moment';
+
+export interface Frontmatter { date: string; permalink: string; title: string; excerpt: string; updated?: string | null; }
+export interface Post { frontmatter: Frontmatter; }
+export interface Props { post: Post }
+
+const { post } = Astro.props;
+const publishedDate = moment(post.frontmatter.date);
+---
+
+<li itemprop="itemListElement" itemscope itemtype="http://schema.org/BlogPosting" itemref="author">
+  <meta itemprop="inLanguage" content="en-US">
+  <meta itemprop="copyrightYear" content={publishedDate.year().toString()} />
+  {post.frontmatter.updated && <meta itemprop="dateModified" content={post.frontmatter.updated} />}
+  
+  <div class="excerpt" itemprop="abstract">
+    {post.frontmatter.excerpt}
+  </div>
+  
+  <a itemprop="url" href={post.frontmatter.permalink} rel="bookmark" title={post.frontmatter.title}>
+    <span class="archdate">
+      <time datetime={post.frontmatter.date} itemprop="datePublished">
+        {publishedDate.format('DD MMM yyyy')}
+      </time>
+    </span>
+    <span itemprop="name headline">{post.frontmatter.title}</span>
+  </a>
+</li>

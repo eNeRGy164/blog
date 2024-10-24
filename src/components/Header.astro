@@ -1,39 +1,50 @@
 ---
-import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../config';
+
+const { mainEntry = false } = Astro.props;
 ---
 
-<header id="header" class="clear">
-	<div itemscope itemtype="http://schema.org/WebSite" itemref="body">
-		<div id="title" itemprop="name"><a href="/" itemprop="url">{SITE_TITLE}</a></div>
-	</div>
-	<div id="description"><q>Because I like to share knowledge</q></div>
-</header>
-<nav id="navigation" class="clear">
-	<ul id="nav" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home"><a href="/">Home</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about">About</a></li>
-		<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/category/azure">Azure</a></li>
-		<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children"><a href="/category/csharp">C#</a>
-			<ul class="sub-menu">
-				<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/category/visual-studio">Visual Studio</a></li>
-				<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/category/sql">SQL</a></li>
+{mainEntry &&  
+	<header id="header">
+		<div>
+			<div id="title" itemprop="name"><a href="/" itemprop="url">{SITE_TITLE}</a></div>
+		</div>
+		<div id="description"><q itemprop="alternativeHeadline">Because I like to share knowledge</q></div>
+	</header>}
+{!mainEntry &&  
+	<header id="header" itemprop="isPartOf" itemscope itemtype="http://schema.org/Blog">
+		<div>
+			<div id="title" itemprop="name"><a href="/" itemprop="url">{SITE_TITLE}</a></div>
+		</div>
+		<div id="description"><q itemprop="alternativeHeadline">Because I like to share knowledge</q></div>
+	</header>}
+
+<nav id="navigation">
+	<ul id="nav" class="menu">
+		<li><a href="/">Home</a></li>
+		<li><a href="/about">About</a></li>
+		<li><a href="/category/azure">Azure</a></li>
+		<li><a href="/category/csharp">C#</a>
+			<ul>
+				<li><a href="/category/visual-studio">Visual Studio</a></li>
+				<li><a href="/category/sql">SQL</a></li>
 			</ul>
 		</li>
-		<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/category/machine-learning">Machine Learning</a></li>
-		<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children"><a href="/category/microsoft-365">Microsoft 365</a>
-			<ul class="sub-menu">
-				<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/category/dynamics-crm">CRM</a></li>
-				<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/category/sharepoint">SharePoint</a></li>
-				<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/category/project-server">Project Server</a></li>
+		<li><a href="/category/machine-learning">Machine Learning</a></li>
+		<li><a href="/category/microsoft-365">Microsoft 365</a>
+			<ul>
+				<li><a href="/category/dynamics-crm">CRM</a></li>
+				<li><a href="/category/sharepoint">SharePoint</a></li>
+				<li><a href="/category/project-server">Project Server</a></li>
 			</ul>
 		</li>
-		<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/category/office">Office</a></li>
-		<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/category/powershell">PowerShell</a></li>
-		<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children"><a href="/category/windows">Windows</a>
-			<ul class="sub-menu">
-				<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/category/hyper-v">Hyper-V</a></li>
-				<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/category/surface">Surface</a></li>
-				<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="/category/windows-phone">Windows Phone</a></li>
+		<li><a href="/category/office">Office</a></li>
+		<li><a href="/category/powershell">PowerShell</a></li>
+		<li><a href="/category/windows">Windows</a>
+			<ul>
+				<li><a href="/category/hyper-v">Hyper-V</a></li>
+				<li><a href="/category/surface">Surface</a></li>
+				<li><a href="/category/windows-phone">Windows Phone</a></li>
 			</ul>
 		</li>
 	</ul>

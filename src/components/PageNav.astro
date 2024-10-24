@@ -1,5 +1,9 @@
 ---
-const { posts, page } = Astro.props;
+import { sortedPosts } from "@/js/util";
+
+const posts = sortedPosts(await Astro.glob('../posts/*.{md,mdx}'))
+
+const { page } = Astro.props;
 
 const currentPage = parseInt(page);
 

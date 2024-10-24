@@ -1,66 +1,67 @@
 ---
-import { sortedPosts } from '@/js/util.js'
 import MonthArchive from '@/layouts/MonthArchive.astro';
 import YearArchive from '@/layouts/YearArchive.astro';
+import DayArchive from '@/layouts/DayArchive.astro';
+import { sortedPosts } from '@/js/util.js'
 
-export async function getStaticPaths() {
-  const postFiles = sortedPosts(await Astro.glob('../posts/*.{md,mdx}'))
+export interface Frontmatter { date: string; permalink: string; title: string; excerpt: string; updated?: string | null; }
+export interface Post { frontmatter: Frontmatter; }
+export interface Params { wp: string; }
+export interface Posts { params: Params; props: Post; }
+export interface Page { params: Params; props: Post; }
+export interface Props { Content? : any; posts: Post[]; year: string; month?: string | null; day?: string | null; }
+export interface Archive { params: Params; props: Props; }
 
-  const years = new Set();
-  const months = new Set();
+export async function getStaticPaths(): Promise<(Page | Archive)[]> {
+  const postFiles: Post[] = sortedPosts(await Astro.glob('../posts/*.{md,mdx}'));
 
-  const posts = postFiles.map(post => {
+  const yearSet = new Set<string>();
+  const monthSet = new Set<{ year: string; month: string }>();
+  const daySet = new Set<{ year: string; month: string; day: string }>();
+
+  const posts: (Page | Archive)[] = postFiles.map(post => {
     const permalink = post.frontmatter.permalink.slice(1).slice(0, -1);
-    const date = permalink.split('/').splice(0, 2);
-    years.add(date[0]);
-    months.add({ year: date[0], month: date[1] });
+    const [year, month, day] = permalink.split('/').slice(0, 3);
+
+    yearSet.add(year);
+    monthSet.add({ year, month });
+    daySet.add({ year, month, day });
 
     return {
-      params: {
-        // these `.slice` calls are necessary and remove
-        // the `/` from the beginning and end of the permalink
-        wp: permalink,
-      },
+      params: { wp: permalink },
       props: post
-     }
-   })
+    };
+  });
 
-   Array.from(months).map(month => {
-     posts.push({
-       params: {
-         wp: `${month.year}/${month.month}`
-       },
-       props: {
-         posts: postFiles.filter(post => post.frontmatter.permalink.startsWith(`/${month.year}/${month.month}`)),
-         year: month.year,
-         month: month.month
-       }
-     })
-   })
+  const createArchive = (wp: string, filterFn: (post: Post) => boolean, props: {year: string, month?: string, day?: string}): Archive => ({
+    params: { wp },
+    props: {
+      posts: postFiles.filter(filterFn),
+      ...props
+    }
+  });
 
-   Array.from(years).map(year => {
-     posts.push({
-       params: {
-         wp: `${year}`
-       },
-       props: {
-         posts: postFiles.filter(post => post.frontmatter.permalink.startsWith(`/${year}`)),
-         year: year,
-       }
-     })
-   })
+  // Create archives by day, month, and year
+  daySet.forEach(({ year, month, day }) =>
+    posts.push(createArchive(`${year}/${month}/${day}`, post => post.frontmatter.permalink.startsWith(`/${year}/${month}/${day}`), { year, month, day }))
+  );
 
+  monthSet.forEach(({ year, month }) =>
+    posts.push(createArchive(`${year}/${month}`, post => post.frontmatter.permalink.startsWith(`/${year}/${month}`), { year, month }))
+  );
 
-   return posts;
+  yearSet.forEach(year =>
+    posts.push(createArchive(year, post => post.frontmatter.permalink.startsWith(`/${year}`), { year }))
+  );
+
+  return posts;
 }
 
-const { Content, posts, year, month } = Astro.props
+const { Content, posts, year, month, day } = Astro.props
 ---
 
 {Content && <Content />}
 
-{posts && year && !month && <YearArchive Posts={posts} Year={year} />}
-
-{posts && year && month && <MonthArchive Posts={posts} Year={year} Month={month} />}
-
-
+{posts && year && !month && !day && <YearArchive posts={posts} year={year} />}
+{posts && year && month && !day && <MonthArchive posts={posts} year={year} month={month} />}
+{posts && year && month && day && <DayArchive posts={posts} year={year} month={month} day={day} />}

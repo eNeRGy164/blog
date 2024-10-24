@@ -1,14 +1,14 @@
 ---
 import { urlifyToken } from '@/js/util.js'
+import moment from 'moment';
 
 const { categories, date, updated } = Astro.props
+
 const sortedCategories = Array.from(new Set(categories as string[]))
   .sort((a, b) => a.localeCompare(b));
 
 const lastUpdated = typeof updated !== 'undefined' ? updated : date;
-const lastUpdatedDate = new Date(lastUpdated);
-const shortMonth = lastUpdatedDate.toLocaleDateString(undefined, { month: 'short' })
-const fullTime = lastUpdatedDate.toLocaleTimeString(undefined, { timeStyle: 'short', hour12: false })
+const lastUpdatedMoment = moment(lastUpdated);
 ---
 
 <footer class="post-footer clear">
@@ -16,10 +16,10 @@ const fullTime = lastUpdatedDate.toLocaleTimeString(undefined, { timeStyle: 'sho
     Filed under 
     {sortedCategories.map((category, idx) =>
       <>
-        <a href={`/category/${urlifyToken(category)}`} rel="category tag">{category}</a>{(idx < categories.length - 1) ? ', ' : null}
+        <a href={`/category/${urlifyToken(category)}`} rel="category">{category}</a>{(idx < categories.length - 1) ? ', ' : null}
       </>
     )}
-    <div>Last update: <time class="updated" datetime={lastUpdated} itemprop="dateModified">{shortMonth} {lastUpdatedDate.getDate()} {fullTime}</time></div>
+    <div>Last update: <time datetime={lastUpdated} itemprop="dateModified">{lastUpdatedMoment.format('MMM D HH:mm')}</time></div>
   </div>
 </div>
 </footer>

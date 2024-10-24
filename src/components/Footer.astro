@@ -33,8 +33,8 @@ const limitedPostsByYearMonth = Object.fromEntries(Object.entries(postsByYearMon
 const today = new Date();
 ---
 
-<footer id="footer">
-	<div class="widget">
+<footer id="site-footer">
+	<div>
 		<nav>
 			<h2>Links</h2>
 			<ul>
@@ -47,7 +47,7 @@ const today = new Date();
 			</ul>
 		</nav>
 	</div>
-	<div class="widget">
+	<div>
 		<nav>
 			<h2>Categories</h2>
 			<ul>
@@ -57,7 +57,7 @@ const today = new Date();
 			</ul>
 		</nav>
 	</div>
-	<div class="widget">
+	<div>
 		<nav>
 			<h2>Pages</h2>
 			<ul>
@@ -65,7 +65,7 @@ const today = new Date();
 			</ul>
 		</nav>
 	</div>
-	<div class="widget">
+	<div>
 		<nav>
 			<h2>Archives</h2>
 			<ul>
@@ -78,20 +78,13 @@ const today = new Date();
 </footer>
 
 <div id="copyright">
-	<div class="copyright-notice">Copyright © {today.getFullYear()} Michaël Hompus.  All rights reserved.</div>
-	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization" id="publisher">
-		<meta itemprop="name" content="Michaël’s coding thoughts">
-		<meta itemprop="description" content="In this blog I, Michaël Hompus, try to write about my experiences on Microsoft technologies I encounter while working on a variety of projects.">
-		<meta itemprop="url" content="/">
+	<div class="copyright-notice" itemprop="copyrightNotice">Copyright © {today.getFullYear()} Michaël Hompus.  All rights reserved.</div>
+	<span itemprop="author copyrightHolder" itemscope itemtype="http://schema.org/Person" id="author">
+		<meta itemprop="name" content="Michaël Hompus">
 		<meta itemprop="sameAs" content="https://www.facebook.com/michael.hompus">
 		<meta itemprop="sameAs" content="https://twitter.com/eNeRGy164">
 		<meta itemprop="sameAs" content="https://www.linkedin.com/in/mhompus">
 		<meta itemprop="sameAs" content="https://bsky.app/profile/energy164.bsky.social">
-		<span itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject">
-		<link itemprop="url" href="/wp-content/uploads/2015/12/Michaels-coding-thoughts.png">
-		<meta itemprop="width" content="402">
-		<meta itemprop="height" content="60">
-		</span>
 	</span>
 	<div class="attrib">
 		Design based on the <a href="http://thethemefoundry.com/paperpunch/" target="_blank" rel="nofollow external noopener">Paperpunch Theme</a> by <a href="http://thethemefoundry.com/" target="_blank" rel="nofollow external noopener">The Theme Foundry</a>

@@ -1,16 +1,9 @@
 ---
-import BaseHead from '@/components/BaseHead.astro'
-import Header from '@/components/Header.astro'
-import Footer from '@/components/Footer.astro'
-import { urlifyToken, sortedPosts } from '@/js/util.js'
-import { Debug } from 'astro/components'
+import BasePageLayout from '@/layouts/BasePageLayout.astro'
+import { sortedPosts } from '@/js/util.js'
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/config.ts'
 import WPArticleSummary from '@/components/WPArticleSummary.astro'
 import PageNav from '@/components/PageNav.astro'
-import Sidebar from '@/components/Sidebar.astro'
-
-const posts = sortedPosts(await Astro.glob('../../posts/*.{md,mdx}'))
-const { page } = Astro.params
 
 export async function getStaticPaths() {
     const posts = sortedPosts(await Astro.glob('../../posts/*.{md,mdx}'))
@@ -24,26 +17,22 @@ export async function getStaticPaths() {
         }
   })
 }
+
+const { page } = Astro.params
+const { posts } = Astro.props
+
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<BaseHead title={`${SITE_TITLE} | Page ${page}`} description={SITE_DESCRIPTION} />
-	</head>
-	<body class="home blog" itemprop="mainEntity" itemscope="" itemtype="http://schema.org/WebPage" id="body">
-		<div class="skip-content"><a href="#content">Skip to content</a></div>
-		<div id="wrapper">
-			<Header />
-			<main id="content" itemprop="mainEntity" itemscope="" itemtype="http://schema.org/Blog" itemref="publisher">
-				<link itemprop="url" href="">
-				{Astro.props.posts.map((post: any, _: Number) =>
-					<WPArticleSummary page={post} articlePreview={true} />
-				)}
-                <PageNav posts={[...posts]} page={page} />
-			</main>
-            <Sidebar />
-			<Footer posts={[...posts]}/>
-		</div>
-	</body>
-</html>
+<BasePageLayout 
+  title={`${SITE_TITLE} | Page ${page}`}
+  description={SITE_DESCRIPTION}
+  mainEntry={true}
+>
+	<main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/Blog" itemref="author">
+		<link itemprop="url" href="">
+		{posts.slice(0, 5).map((post: any, _: Number) =>
+			<WPArticleSummary page={post} articlePreview={true} />
+		)}
+		<PageNav page={page} />
+	</main>
+</BasePageLayout>

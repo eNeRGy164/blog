@@ -1,58 +1,56 @@
 ---
 import PostFooter from "@/components/PostFooter.astro"
-import { stripHTML, urlifyToken } from '@/js/util.js'
-import Debug from "astro/components/Debug.astro"
+import moment from 'moment';
 
-const { page, maxWords = 46, showFooter = false, articlePreview = false } = Astro.props
-const { title, author, date, permalink, tags, categories, excerpt } = page.frontmatter
-const formattedDate = new Date(date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
-const formattedTime = new Date(date).toLocaleTimeString(undefined, { timeStyle: 'short', hour12: true })
-const authorURL = `/author/${urlifyToken(author || 'unknown')}`
+const { page, articlePreview = false } = Astro.props
+const { title, author, date, permalink, excerpt } = page.frontmatter
 const hasMoreTag = page.compiledContent().includes('<!--more-->')
 const showPreview = articlePreview && hasMoreTag
 
-const publishedDate = new Date(date);
-const shortMonth = publishedDate.toLocaleDateString(undefined, { month: 'short' })
+const publishedDate = moment(date);
 ---
 
 <div class="post-box">
-  <article class="post type-post status-publish format-standard hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" itemref="publisher">
+  <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" itemref="author" itemid={permalink}>
     <link itemprop="mainEntityOfPage" href={permalink}>
     <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
       <link itemprop="url" href="https://static.hompus.nl/wp-content/uploads/2021/04/post-1908-thumbnail.jpg">
       <meta itemprop="width" content="960">
       <meta itemprop="height" content="540">
     </span>
-    <div class="meta">
-      <div class="author vcard">
-        <time class="published" datetime={date} itemprop="datePublished">{shortMonth} {publishedDate.getDate()} {publishedDate.getFullYear() < new Date().getFullYear() && publishedDate.getFullYear()}</time>
-        <span>/ 
-          <span itemprop="author" itemscope itemtype="http://schema.org/Person" itemref="publisher">
-            <span class="fn" itemprop="name">{author}</span>
-          </span>
-        </span>
-      </div>
-    </div>
     <header class="post-header">
-      <h2 class="entry-title">
+      <div class="meta">
+          <time class="published" datetime={date} itemprop="datePublished">{publishedDate.format('MMM D')} {publishedDate.year() < moment().year() && publishedDate.format('yyyy')}</time>
+          <span>/ {author}</span>
+      </div>
+      <h1>
         <a href={permalink} rel="bookmark" itemprop="url">
           <span itemprop="name headline">{title}</span>
         </a>
-      </h2>
+      </h1>
     </header>
-    <div class="excerpt" itemprop="description">
-      {excerpt}
-    </div>
-    <div class="entry clear">
-      <div class="entry-content" itemprop="articleBody text">
-        {!showPreview &&
-          <Fragment set:html={page.compiledContent()} />
-        }
-        {showPreview &&
-          <Fragment set:html={page.compiledContent().split('<!--more-->')[0]} />
-          <a href={permalink} class="more-link">read more...</a>
-        }
-      </div>
+    
+    <div class="entry">
+      {!showPreview &&
+        <div class="excerpt" itemprop="abstract">
+          {excerpt}
+        </div>
+        <div itemprop="articleBody text">
+          <Fragment set:html={page.compiledContent()}/>
+        </div>
+      }
+      {showPreview &&
+        <>
+          <div itemprop="abstract">
+            <Fragment set:html={page.compiledContent().split('<!--more-->')[0]} />
+          </div>
+          <div>
+            <span itemprop="potentialAction" itemscope itemtype="https://schema.org/ReadAction">
+              <a href={permalink} class="more-link" itemprop="url"><span itemprop="name">read more...</span></a>
+            </span>
+          </div>
+        </>
+      }
     </div>
     <PostFooter {...page.frontmatter} />
   </article>

@@ -1,16 +1,14 @@
 ---
-import BaseHead from "../components/BaseHead.astro"
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer.astro"
-import PostFooter from "../components/PostFooter.astro"
-import { sortedPosts, urlifyToken } from '@/js/util.js'
+import BaseHead from "@/components/BaseHead.astro"
+import Header from "@/components/Header.astro"
+import Footer from "@/components/Footer.astro"
+import { sortedPosts } from '@/js/util.js'
 const posts = sortedPosts(await Astro.glob('../posts/*.{md,mdx}'))
 const {
-	frontmatter: { title, description, date, updatedDate, heroImage, tags },compiledContent
+	frontmatter: { title, description, date }
 } = Astro.props
-const formattedDate = date && new Date(date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
-import convertHtml from '../components/convertHtml'
 import Sidebar from "@/components/Sidebar.astro"
+import WPArticleSummary from "@/components/WPArticleSummary.astro"
 ---
 
 <html lang="en-US">
@@ -18,64 +16,15 @@ import Sidebar from "@/components/Sidebar.astro"
 		<BaseHead title={title} description={description} />
 	</head>
 	<body class="post-template-default single single-post single-format-standard" itemprop="mainEntity" itemscope itemtype="http://schema.org/ItemPage" id="body">
-		{<meta itemprop="name" content={title} />}
-		{<meta itemprop="lastReviewed" content={date} />}
+		<meta itemprop="name" content={title} />
+		<meta itemprop="lastReviewed" content={date} />
 		<link itemprop="url" href="" />
 		<div class="skip-content"><a href="#content">Skip to content</a></div>
 		<div id="wrapper">
 		<Header />
 		<main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/BlogPosting" itemref="publisher">
 			<link itemprop="url" href="" />
-			<div class="post-box">
-			<div id="post-2115" class="post-2115 post type-post status-publish format-standard has-post-thumbnail hentry category-architecture category-azure category-csharp tag-conference tag-speaking">
-			<link itemprop="mainEntityOfPage" href=""/>
-			<meta itemprop="copyrightYear" content="2022" />
-			<meta itemprop="inLanguage" content="en_US" />
-			<span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-				<link itemprop="url" href="/wp-content/uploads/2022/12/post-2115-thumbnail.jpg" />
-				<meta itemprop="width" content="960" />
-				<meta itemprop="height" content="540" />
-			</span>
-			<div class="meta clear">
-				<div class="author vcard">
-					<time class="published" datetime={date} itemprop="datePublished">{formattedDate}</time>
-					<span>/ <span id="post-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-						<span class="fn" itemprop="name">Michaël Hompus</span>
-						<meta itemprop="description" content="I&#039;m a software developer for Info Support in the Netherlands. I try to blog my experiences on Microsoft technologies I encounter while working on a variety of projects. My specialties are SharePoint, Project Server, LINQ, WCF, Pex, SQL Server, sharing knowledge and presenting." />
-						<meta itemprop="url" content="https://blog.hompus.nl/author/michael/" />
-						<meta itemprop="sameAs" content="https://twitter.com/eNeRGy164" />
-						<meta itemprop="sameAs" content="https://www.linkedin.com/in/mhompus" />
-						<meta itemprop="sameAs" content="https://blog.hompus.nl" />
-					</span>
-				</span>
-			</div>
-		</div><!--end meta-->
-		<div class="post-header">
-			<article>
-				{heroImage && (
-					<img
-						width={720}
-						height={360}
-						src={heroImage}
-						alt=""
-					/>
-				)}
-				<h1 class="entry-title title" itemprop="name headline">{title}</h1>
-				<div class="tags" itemprop="keywords">
-					{tags?.map((tag, idx) =>
-						<>
-						  <a href={`/tag/${urlifyToken(tag)}/`} rel="tag">{tag}</a>
-						  {(idx < tags.length - 1) ? ', ' : null}
-						</>
-					  )}
-				</div>					
-			</div>
-					<div class="entry clear">
-						<article class="entry-content" itemprop="articleBody text">
-				<hr/>
-				<Fragment set:html={convertHtml(compiledContent())} />
-			</article>
-			<PostFooter {...Astro.props.frontmatter} />
+			<WPArticleSummary page={Astro.props} />
 		</main>
 		<Sidebar />
 		<Footer posts={[...posts]}/>
