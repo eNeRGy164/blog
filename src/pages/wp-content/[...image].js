@@ -1,102 +1,28 @@
 import fs from "fs";
 import path from "path";
 import sharp from "sharp";
+import { getCache } from "../../utils/imageVariants";
 
 const imageCache = new Map();
 
-/** 
- * Recursively fetches all image files from a directory and its subdirectories.
- */
-function getAllFiles(dirPath) {
-  const files = fs.readdirSync(dirPath);
-  const allFiles = [];
-
-  files.forEach((file) => {
-    const filePath = path.join(dirPath, file);
-    if (fs.statSync(filePath).isDirectory()) {
-      allFiles.push(...getAllFiles(filePath));
-    } else if (/\.(jpg|jpeg|png|webp)$/i.test(file)) {
-      allFiles.push(filePath);
-    }
-  });
-
-  return allFiles;
-}
-
 /**
- * Calculates dimensions constrained by a maximum box size while maintaining aspect ratio.
- */
-function calculateBoxSize(originalWidth, originalHeight, maxWidth, maxHeight) {
-  const widthRatio = maxWidth / originalWidth;
-  const heightRatio = maxHeight / originalHeight;
-  const scale = Math.min(widthRatio, heightRatio);
-
-  return {
-    width: Math.round(originalWidth * scale),
-    height: Math.round(originalHeight * scale),
-  };
-}
-
-/**
- * Generates static paths for original and resized images.
+ * Generate static paths from the image cache.
+ * @returns {Array} - Static paths for all available images.
  */
 export async function getStaticPaths() {
-  const boxSizes = [
-    { label: "thumbnail", maxWidth: 150, maxHeight: 150 },
-    { label: "medium", maxWidth: 185, maxHeight: 185 },
-    { label: "medium_large", maxWidth: 630, maxHeight: 630 },
-  ];
-
-  const imagesDir = path.join(process.cwd(), "wp-content-org", "uploads");
-  const imageFiles = getAllFiles(imagesDir);
   const paths = [];
+  const imagePathCache = await getCache();
 
-  for (const file of imageFiles) {
-    const relativePath = path
-      .relative(imagesDir, file)
-      .split(path.sep)
-      .join("/");
-    const baseName = path.basename(relativePath, path.extname(relativePath));
-    const directory = path.dirname(relativePath);
-    const extension = path.extname(relativePath).toLowerCase();
-
-    const originalImage = sharp(file);
-    const metadata = await originalImage.metadata();
-
-    // Add original image
-    paths.push(generatePath(directory, baseName, extension, metadata, "original"));
-
-    // Add WebP for original
-    if (extension !== ".webp") {
-      paths.push(generatePath(directory, baseName, ".webp", metadata, "original-webp"));
-    }
-
-    // Add resized versions
-    boxSizes.forEach((size) => {
-      const { width, height } = calculateBoxSize(metadata.width, metadata.height, size.maxWidth, size.maxHeight);
-      if (metadata.width > width || metadata.height > height) {
-        paths.push(generatePath(directory, `${baseName}-${width}x${height}`, extension, { width, height }));
-        paths.push(generatePath(directory, `${baseName}-${width}x${height}`, ".webp", { width, height }, "webp"));
-      }
+  // Iterate over the cache to extract all valid paths
+  for (const [, variants] of Object.entries(imagePathCache)) {
+    variants.forEach((variant) => {
+      paths.push({
+        params: { image: variant.path.replace("/wp-content", "") },
+      });
     });
   }
 
   return paths;
-}
-
-/**
- * Utility to create a path entry for static images.
- */
-function generatePath(directory, name, extension, metadata, label = null) {
-  const fullPath = `/uploads/${directory}/${name}${extension}`.replace("wp-content-org/", "");
-  return {
-    params: { image: fullPath },
-    props: {
-      label,
-      width: metadata.width,
-      height: metadata.height,
-    },
-  };
 }
 
 /**
@@ -107,7 +33,7 @@ export async function GET({ params }) {
   
   if (imageCache.has(imagePath)) {
     const cached = imageCache.get(imagePath);
-    
+
     return new Response(cached.buffer, {
       status: 200,
       headers: { "Content-Type": cached.contentType },

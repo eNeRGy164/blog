@@ -641,6 +641,9 @@ video,
 iframe {
   max-width: 100%;
 }
+img {
+  max-height: fit-content;
+}
 iframe {
   border: 0 none;
 }

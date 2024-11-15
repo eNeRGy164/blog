@@ -8,6 +8,7 @@ import youTubeEmbed from './src/components/YouTube.js';
 import { rehypeGithubAlerts } from "rehype-github-alerts";
 import react from "@astrojs/react";
 import { ACRONYMS } from "./src/config";
+import rehypeCustomImage from "./src/plugins/rehypeCustomImage.js";
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,6 +29,7 @@ export default defineConfig({
       ],
       [ abbreviate, { acronyms: ACRONYMS } ],
       youTubeEmbed,
+      rehypeCustomImage
     ],
   },
 });
