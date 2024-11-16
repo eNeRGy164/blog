@@ -10,6 +10,7 @@ import rehypeAddContributorId from './src/plugins/rehypeAddMvpContributorId.js';
 import { rehypeGithubAlerts } from "rehype-github-alerts";
 import react from "@astrojs/react";
 import { ACRONYMS } from "./src/config";
+import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import yaml from '@rollup/plugin-yaml';
 
 // https://astro.build/config
@@ -32,6 +33,7 @@ export default defineConfig({
       [rehypeAbbreviate, { acronyms: ACRONYMS }],
       [rehypeAddContributorId, { contributorId: 'AZ-MVP-5004268'}],
       rehypeYouTubeEmbed,
+      rehypeAccessibleEmojis,
       rehypeCustomImage
     ],
   },
