@@ -7,7 +7,7 @@ let imageCache = {};
 /**
  * Rehype plugin to enhance images in Markdown with responsive handling.
  */
-export default function rehypeCustomImage() {
+export default function CustomImage() {
   return async (tree) => {
     // Ensure the image cache is loaded
     if (Object.keys(imageCache).length === 0) {

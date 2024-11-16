@@ -9,7 +9,7 @@ const YOUTUBE_OEMBED_URL = 'https://www.youtube.com/oembed';
  * @param {Object} options - The options object.
  * @param {number} options.defaultWidth - The default width for the YouTube embeds if not provided. Defaults to 635.
  */
-export default function rehypeYouTubeEmbed({ defaultWidth = 630 } = {}) {
+export default function YouTubeEmbed({ defaultWidth = 630 } = {}) {
   return async (tree) => {
     const promises = [];
 

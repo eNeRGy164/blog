@@ -13,6 +13,15 @@ export default function Abbreviate(options = {}) {
     const seenAcronyms = new Set();
 
     visit(tree, 'text', (node, index, parent) => {
+      // Skip processing if the parent node is inside a `code` or `pre` block
+      let current = parent;
+      while (current) {
+        if (current.tagName === 'code' || current.tagName === 'pre') {
+          return; // Skip this node
+        }
+        current = current.parent; // Traverse up the tree
+      }
+
       // Check if the parent node is already an 'abbr' or 'dfn' tag to avoid re-processing
       if (parent.tagName === 'abbr' || parent.tagName === 'dfn') {
         return;
