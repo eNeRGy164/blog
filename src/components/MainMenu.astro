@@ -1,0 +1,39 @@
+---
+import menuData from "@/config/main-menu.yaml";
+
+interface SubMenuItem {
+  title: string;
+  link: string;
+}
+interface MenuItem {
+  title: string;
+  link: string;
+  submenu?: SubMenuItem[];
+}
+interface MenuData {
+  menu: MenuItem[];
+}
+
+const typedMenuData: MenuData = menuData;
+---
+
+<nav id="navigation">
+  <menu id="nav" class="menu">
+    {
+      typedMenuData.menu.map((item) => (
+        <li>
+          <a href={item.link}>{item.title}</a>
+          {item.submenu ? (
+            <ul>
+              {item.submenu.map((subItem) => (
+                <li>
+                  <a href={subItem.link}>{subItem.title}</a>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </li>
+      ))
+    }
+  </menu>
+</nav>
