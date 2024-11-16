@@ -3,30 +3,82 @@ import BasePageLayout from '@/layouts/BasePageLayout.astro'
 import ListItem from '@/components/ListItem.astro'
 import { urlifyToken, sortedPosts } from '@/js/util.js'
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/config.ts'
+import menuData from "@/config/main-menu.yaml";
 
 export interface Frontmatter { date: string; permalink: string; title: string; excerpt: string; updated?: string | null; categories: string[]; }
 export interface Post { frontmatter: Frontmatter; }
 export interface Props { posts: Post[]; category: string; }
+interface SubMenuItem { title: string; link: string; }
+interface MenuItem { title: string; link: string; submenu?: SubMenuItem[]; }
+interface MenuData { menu: MenuItem[]; }
+
+export const typedMenuData: MenuData = menuData;
 
 const { posts } = Astro.props;
 const category = Astro.props.category.replace('csharp', 'C#');
 
+// Helper to create a dynamic category map from menuData
+export const buildCategoryMap = (menu: MenuItem[]) => {
+  const map: Record<string, string[]> = {};
+
+  menu.forEach((item) => {
+    const parentSlug = urlifyToken(item.title); // Convert title to slug
+    map[parentSlug] = [parentSlug]; // Include the parent category itself
+
+    if (item.submenu) {
+      item.submenu.forEach((subItem) => {
+        const childSlug = urlifyToken(subItem.title); // Convert child title to slug
+        map[parentSlug].push(childSlug); // Add child categories to the parent's group
+      });
+    }
+  });
+
+  return map;
+};
+
+// Build the category map dynamically
+export const categoryMap = buildCategoryMap(typedMenuData.menu);
+
 export async function getStaticPaths() {
-  const posts : Post[] = sortedPosts(await Astro.glob('../../posts/*.{md,mdx}'))
-  const categories = new Set()
-  posts.forEach(post => {
-    post.frontmatter.categories?.map(urlifyToken).forEach(c => categories.add(c))
-  })
-  return Array.from(categories).map(cat => {
-    const categoryPosts = posts.filter(post => post.frontmatter.categories?.map(urlifyToken).includes(cat))
+  const posts: Post[] = sortedPosts(await Astro.glob('../../posts/*.{md,mdx}'));
+
+  // Build category map dynamically from menuData
+  const categoryMap = buildCategoryMap(typedMenuData.menu);
+
+  // Ensure all categories from menuData are included in the category list
+  const allCategories = new Set(Object.keys(categoryMap));
+
+  // Add categories from posts
+  posts.forEach((post) => {
+    post.frontmatter.categories?.map(urlifyToken).forEach((category) => {
+      allCategories.add(category);
+
+      // Ensure subcategories are mapped to their parents dynamically
+      for (const [parent, children] of Object.entries(categoryMap)) {
+        if (children.includes(category)) {
+          allCategories.add(parent);
+        }
+      }
+    });
+  });
+
+  // Generate paths for all categories
+  return Array.from(allCategories).map((cat) => {
+    const includedCategories = categoryMap[cat] || [cat]; // Include subcategories if available
+    const categoryPosts = posts.filter((post) =>
+      post.frontmatter.categories?.map(urlifyToken).some((c) => includedCategories.includes(c))
+    );
+
     return {
       params: { slug: cat },
       props: {
         posts: categoryPosts,
-        category: categoryPosts[0].frontmatter.categories.find(x => urlifyToken(x) === cat)
-      }
-    }
-  })
+        category: typedMenuData.menu.find(
+          (item) => urlifyToken(item.title) === cat || item.submenu?.some((sub) => urlifyToken(sub.title) === cat)
+        )?.title || cat, // Find the category title dynamically
+      },
+    };
+  });
 }
 ---
 
