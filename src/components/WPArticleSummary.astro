@@ -1,11 +1,15 @@
 ---
 import PostFooter from "@/components/PostFooter.astro"
+import { urlifyToken } from "@/js/util";
 import moment from 'moment';
 
-const { page, articlePreview = false } = Astro.props
-const { title, author, date, permalink, excerpt } = page.frontmatter
+const { page, articlePreview = false, showTags = true } = Astro.props
+const { title, author, date, permalink, excerpt, tags } = page.frontmatter
 const hasMoreTag = page.compiledContent().includes('<!--more-->')
 const showPreview = articlePreview && hasMoreTag
+
+const sortedTags = Array.from(new Set(tags as string[]))
+  .sort((a, b) => a.localeCompare(b));
 
 const publishedDate = moment(date);
 ---
@@ -28,6 +32,15 @@ const publishedDate = moment(date);
           <span itemprop="name headline">{title}</span>
         </a>
       </h1>
+      {showTags && (
+        <div class="tags" itemprop="keywords">
+        {sortedTags.map((tag, idx) =>
+          <>
+            <a href={`/tag/${urlifyToken(tag)}`} rel="tag">{tag}</a>{(idx < tags.length - 1) ? ', ' : null}
+          </>
+        )}
+        </div>
+      )}
     </header>
     
     <div class="entry">
