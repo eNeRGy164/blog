@@ -16,7 +16,7 @@ const posts = sortedPosts(await Astro.glob('@/posts/*.{md,mdx}'))
 	<main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/Blog" itemref="author">
 		<link itemprop="url" href="">
 		{posts.slice(0, 5).map((post: any, _: Number) =>
-			<WPArticleSummary page={post} articlePreview={true} />
+			<WPArticleSummary page={post} articlePreview={true} showTags={false} />
 		)}
 		<PageNav posts={[...posts]} page="1" />
 	</main>
