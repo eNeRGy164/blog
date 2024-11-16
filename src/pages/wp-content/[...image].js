@@ -44,7 +44,7 @@ export async function GET({ params }) {
   const requestedFilePath = path.join(wpContentOrgBase, imagePath);
 
   const isWebPRequest = path.extname(imagePath).toLowerCase() === ".webp";
-  const resizeMatch = imagePath.match(/-(\d+)x(\d+)(\.webp|\.png|\.jpg|\.jpeg)$/i);
+  const resizeMatch = imagePath.match(/-(\d+)x(\d+)(\.webp|\.png|\.jpg|\.jpeg|\.gif)$/i);
   const requestedWidth = resizeMatch ? parseInt(resizeMatch[1], 10) : null;
   const requestedHeight = resizeMatch ? parseInt(resizeMatch[2], 10) : null;
 
@@ -70,7 +70,7 @@ export async function GET({ params }) {
  * Finds the source file for resizing or optimization.
  */
 function findSourceFile(requestedFilePath, resizeMatch, isWebPRequest) {
-  const possibleExtensions = [".png", ".jpg", ".jpeg"];
+  const possibleExtensions = [".png", ".jpg", ".jpeg", ".gif"];
   const baseFilePath = requestedFilePath.replace(/-\d+x\d+(\.\w+)?$/, "");
 
   if (resizeMatch) {
@@ -88,7 +88,7 @@ function findSourceFile(requestedFilePath, resizeMatch, isWebPRequest) {
  * Processes the image (resize and/or convert to WebP).
  */
 async function processImage(sourceFilePath, requestedWidth, requestedHeight, isWebPRequest) {
-  const sharpInstance = sharp(sourceFilePath).withMetadata(false);
+  const sharpInstance = sharp(sourceFilePath, { pages: -1 }).withMetadata(false);
 
   if (requestedWidth && requestedHeight) {
     sharpInstance.resize(requestedWidth, requestedHeight, { fit: "inside" });
@@ -106,6 +106,9 @@ async function processImage(sourceFilePath, requestedWidth, requestedHeight, isW
     if (extension === ".png") {
       buffer = await sharpInstance.png({ palette: true, compressionLevel: 9 }).toBuffer();
       contentType = "image/png";
+    } else if (extension === ".gif")  {
+      buffer = await sharpInstance.gif().toBuffer();
+      contentType = "image/gif";
     } else {
       buffer = await sharpInstance.jpeg({ quality: 90, mozjpeg: true }).toBuffer();
       contentType = "image/jpeg";
