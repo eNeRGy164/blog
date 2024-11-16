@@ -5,7 +5,7 @@ import Header from "@/components/Header.astro";
 import Sidebar from "@/components/Sidebar.astro";
 import { sortedPosts } from "@/js/util";
 
-export interface Props { title: string; description: string; classes?: string[] | null ; mainEntry: boolean; }
+export interface Props { title: string; description: string; classes?: string[] | null ; mainEntry?: boolean; }
 
 const allPosts = sortedPosts(await Astro.glob('../posts/*.{md,mdx}'))
 
