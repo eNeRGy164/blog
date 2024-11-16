@@ -5,10 +5,10 @@ const { posts } = Astro.props
 
 let categories = posts
   .flatMap((p: { frontmatter: { categories: any; }; }) => p.frontmatter.categories)
-  .filter((p: string) => p !== 'Uncategorized')
+  .filter((p: string) => p != null)
   .map((p: string) => p === 'csharp' ? 'C#' : p);
 
-categories = Array.from(new Set(categories))
+categories = Array.from(new Set<string>(categories))
   .sort((a, b) => a.localeCompare(b));
 
 const monthNames = Array.from({ length: 12 }, (_, i) => 
