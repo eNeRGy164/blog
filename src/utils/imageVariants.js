@@ -46,7 +46,7 @@ export async function generateImageVariants(dirPath) {
     if (file.isDirectory()) {
       // Recurse into subdirectories
       Object.assign(cache, await generateImageVariants(filePath));
-    } else if (/\.(jpg|jpeg|png|webp)$/i.test(file.name)) {
+    } else if (/\.(jpg|jpeg|png|webp|gif)$/i.test(file.name)) {
       // Process image files
       const ext = path.extname(file.name);
       const baseName = path.basename(file.name, ext);
