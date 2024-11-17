@@ -2,28 +2,32 @@
 import BaseHead from "@/components/BaseHead.astro"
 import Header from "@/components/Header.astro"
 import Footer from "@/components/Footer.astro"
-import { sortedPosts } from '@/js/util.js'
-const posts = sortedPosts(await Astro.glob('../posts/*.{md,mdx}'))
-const {
-	frontmatter: { title, description, date }
-} = Astro.props
 import Sidebar from "@/components/Sidebar.astro"
 import WPArticleSummary from "@/components/WPArticleSummary.astro"
+import { sortedPosts } from '@/js/util.js'
+
+interface Frontmatter { title: string; excerpt: string; date: string; modified?: string; author: string; categories: string[]; tags: string[]; permalink: string; }
+
+const posts = sortedPosts(await Astro.glob('../posts/*.{md,mdx}'))
+const { frontmatter } = Astro.props
+const { title, excerpt, date, modified, author, categories, tags, permalink } = frontmatter as Frontmatter;
+
+const description = excerpt.replaceAll(/[\r\n]{1,2}/g, ' ').trim();
 ---
 
 <html lang="en-US">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} author={author} article={{ published: date, modified: modified ?? date, sections: categories, tags: tags }} />
 	</head>
 	<body itemprop="mainEntity" itemscope itemtype="http://schema.org/ItemPage" id="body">
-		<meta itemprop="name" content={title} />
-		<meta itemprop="lastReviewed" content={date} />
-		<link itemprop="url" href="" />
+		<meta itemprop="inLanguage" content="en-US">
+		<link itemprop="url" href={Astro.url}>
+		<meta itemprop="name" content={title}>
+		<meta itemprop="lastReviewed" content={date}>
 		<div class="skip-content"><a href="#content">Skip to content</a></div>
 		<div id="wrapper">
 		<Header />
-		<main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/BlogPosting" itemref="publisher">
-			<link itemprop="url" href="" />
+		<main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/BlogPosting" itemref="author" itemid={permalink}>
 			<WPArticleSummary page={Astro.props} />
 		</main>
 		<Sidebar />

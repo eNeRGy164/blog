@@ -5,17 +5,17 @@ import Header from "@/components/Header.astro";
 import Sidebar from "@/components/Sidebar.astro";
 import { sortedPosts } from "@/js/util";
 
-export interface Props { title: string; description: string; classes?: string[] | null ; mainEntry?: boolean; }
+export interface Props { title: string; description: string; author: string, classes?: string[] | null ; mainEntry?: boolean; }
 
-const allPosts = sortedPosts(await Astro.glob('../posts/*.{md,mdx}'))
+const allPosts = sortedPosts(await Astro.glob('../posts/*.md'))
 
-const { title, description, classes, mainEntry = false } = Astro.props;
+const { title, description, author, classes, mainEntry = false } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en-us">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} author={author} />
   </head>
   <body
     class={classes ? classes.toString() : undefined}
@@ -25,7 +25,7 @@ const { title, description, classes, mainEntry = false } = Astro.props;
     itemref={mainEntry ? undefined : 'pagetitle'}
   >
     <meta itemprop="inLanguage" content="en-US" />
-    <link itemprop="url" href={Astro.url.pathname} />
+    <link itemprop="url" href={Astro.url} />
     <div class="skip-content"><a href="#content">Skip to content</a></div>
     <div id="wrapper">
       <Header mainEntry={mainEntry} />

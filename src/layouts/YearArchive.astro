@@ -1,24 +1,27 @@
 ---
 import BasePageLayout from './BasePageLayout.astro'
 import ListItem from '@/components/ListItem.astro'
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config.ts'
+import { SITE_TITLE, SITE_AUTHOR } from '../config.ts'
 
 export interface Frontmatter { date: string; permalink: string; title: string; excerpt: string; updated?: string | null; }
 export interface Post { frontmatter: Frontmatter; }
 export interface Props { posts: Post[]; year: string; }
 
 const { posts, year } = Astro.props
+
+const description = `Archive for ${year}`;
 ---
 
 <BasePageLayout
   title={`${year} | ${SITE_TITLE}`} 
-  description={SITE_DESCRIPTION} 
+  description={description}
+  author={SITE_AUTHOR}
   classes={['archive']}
 >
   <main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/CollectionPage" itemref="author">
     <div class="post-box page-box">
       <div class="meta">
-        <h1 id="pagetitle" itemprop="name">Archive for {year}</h1>
+        <h1 id="pagetitle" itemprop="name">{description}</h1>
       </div>
       <div>
         <div class="entries" itemscope itemtype="http://schema.org/ItemList" itemprop="mainEntity">
@@ -33,4 +36,3 @@ const { posts, year } = Astro.props
     </div>
   </main>
 </BasePageLayout>
-

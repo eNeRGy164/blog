@@ -2,7 +2,7 @@
 import BasePageLayout from '@/layouts/BasePageLayout.astro'
 import ListItem from '@/components/ListItem.astro'
 import { urlifyToken, sortedPosts } from '@/js/util.js'
-import { SITE_TITLE, SITE_DESCRIPTION } from '@/config.ts'
+import { SITE_TITLE } from '@/config.ts'
 import menuData from "@/config/main-menu.yaml";
 
 export interface Frontmatter { date: string; permalink: string; title: string; excerpt: string; updated?: string | null; categories: string[]; }
@@ -80,17 +80,19 @@ export async function getStaticPaths() {
     };
   });
 }
+
+const description = `Posts from the ‘${category}’ category`;
 ---
 
 <BasePageLayout 
   title={`${category} | ${SITE_TITLE}`} 
-  description={SITE_DESCRIPTION} 
+  description={description} 
   classes={['archive']}
 >
   <main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/CollectionPage" itemref="author">
     <div class="post-box page-box">
       <div class="meta">
-        <h1 id="pagetitle" itemprop="name">Posts from the ‘{category}’ category</h1>
+        <h1 id="pagetitle" itemprop="name">{description}</h1>
       </div>
       <div>
         <div class="entries" itemscope itemtype="http://schema.org/ItemList" itemprop="mainEntity">

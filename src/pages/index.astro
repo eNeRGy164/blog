@@ -1,6 +1,6 @@
 ---
 import BasePageLayout from '@/layouts/BasePageLayout.astro'
-import { SITE_TITLE, SITE_DESCRIPTION } from '@/config.ts'
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_AUTHOR } from '@/config.ts'
 import { sortedPosts } from '@/js/util.js'
 import WPArticleSummary from '@/components/WPArticleSummary.astro'
 import PageNav from '@/components/PageNav.astro'
@@ -11,10 +11,11 @@ const posts = sortedPosts(await Astro.glob('@/posts/*.{md,mdx}'))
 <BasePageLayout 
   title={SITE_TITLE}
   description={SITE_DESCRIPTION}
+  author={SITE_AUTHOR}
   mainEntry={true}
 >
 	<main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/Blog" itemref="author">
-		<link itemprop="url" href="">
+		<link itemprop="url" href={Astro.url}>
 		{posts.slice(0, 5).map((post: any, _: Number) =>
 			<WPArticleSummary page={post} articlePreview={true} showTags={false} />
 		)}

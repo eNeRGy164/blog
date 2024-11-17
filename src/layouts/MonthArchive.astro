@@ -1,7 +1,7 @@
 ---
 import BasePageLayout from './BasePageLayout.astro'
 import ListItem from '@/components/ListItem.astro'
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config.ts'
+import { SITE_TITLE, SITE_AUTHOR } from '../config.ts'
 import moment from 'moment'
 
 export interface Frontmatter { date: string; permalink: string; title: string; excerpt: string; updated?: string | null; }
@@ -10,18 +10,20 @@ export interface Props { posts: Post[]; year: string; month: string; }
 
 const { posts, year, month } = Astro.props
 
-var date = moment().set({'year': parseInt(year), 'month': (parseInt(month) - 1), 'date': 1});
+const date = moment().set({'year': parseInt(year), 'month': (parseInt(month) - 1), 'date': 1});
+const description = `Archive for ${date.format('MMMM[, ]yyyy')}`;
 ---
 
 <BasePageLayout
   title={`${date.format('yyyy MMMM')} | ${SITE_TITLE}`} 
-  description={SITE_DESCRIPTION} 
+  description={description} 
+  author={SITE_AUTHOR}
   classes={['archive']}
 >
   <main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/CollectionPage" itemref="author">
     <div class="post-box page-box">
       <div class="meta">
-        <h1 id="pagetitle" itemprop="name">Archive for {date.format('MMMM[, ]yyyy')}</h1>
+        <h1 id="pagetitle" itemprop="name">{description}</h1>
       </div>
       <div>
         <div class="entries" itemscope itemtype="http://schema.org/ItemList" itemprop="mainEntity">
@@ -36,4 +38,3 @@ var date = moment().set({'year': parseInt(year), 'month': (parseInt(month) - 1),
     </div>
   </main>
 </BasePageLayout>
-
