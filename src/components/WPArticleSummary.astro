@@ -15,7 +15,15 @@ const publishedDate = moment(date);
 ---
 
 <div class="post-box">
-  <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" itemref="author" itemid={permalink}>
+  <article 
+    {...(showPreview && {
+      itemprop: "blogPost",
+      itemscope: true,
+      itemtype: "http://schema.org/BlogPosting",
+      itemref: "author",
+      itemid: permalink
+    })}
+  >
     <link itemprop="mainEntityOfPage" href={permalink}>
     <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
       <link itemprop="url" href="https://static.hompus.nl/wp-content/uploads/2021/04/post-1908-thumbnail.jpg">

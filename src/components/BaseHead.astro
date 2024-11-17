@@ -1,40 +1,44 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
 
-export interface Props {
-	title: string;
-	description: string;
-	image?: string;
-}
+export interface Article { published: string; modified: string; sections: string[]; tags: string[]; }
+export interface Props { title: string; description: string; image?: string; author: string; article?: Article; }
 
-const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
+const { title, description, image = '/placeholder-social.jpg', author, article } = Astro.props;
 ---
 
-<!-- Global Metadata -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="generator" content={Astro.generator} />
-
-<!-- Primary Meta Tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+<meta name="author" content={author}>
+<meta name="description" content={description}>
+<meta name="generator" content={Astro.generator}>
 
-<link href="https://mastodon.nl/@eNeRGy164" rel="me" />
+<link rel="shortcut icon" href="/favicon.ico">
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta name="geo.country" content="NL">
+<meta name="geo.region" content="NL-GE">
+<meta name="geo.a1" content="GE">
+<meta name="geo.placename" content="Nijmegen">
+<meta name="dc.language" content="en">
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<link href="https://mastodon.nl/@eNeRGy164" rel="me">
+
+<meta property="og:url" content={Astro.url}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:image" content={new URL(image, Astro.url)}>
+{article && (
+	<meta property="og:type" content="article" />
+	<meta property="article:published_time" content={article.published} />
+	<meta property="article:modified_time" content={article.modified} />
+)}
+{article && article.sections && article.sections.map((section) => 
+	<meta property="article:section" content={section}>
+)}
+{article && article.tags && article.tags.map((tag) => 
+	<meta property="article:tag" content={tag}>
+)}
+
+<meta property="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@eNeRGy164">

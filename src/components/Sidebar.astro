@@ -1,8 +1,8 @@
 ---
 import { urlifyToken, sortedPosts, getTagsWithPosts } from '@/js/util.js'
 
-const unsortedPosts = await Astro.glob('../posts/*.{md,mdx}');
-const posts = sortedPosts(unsortedPosts)
+const unsortedPosts = await Astro.glob('../posts/*.md');
+const posts : { frontmatter: { permalink: string; title: string; }; }[] = sortedPosts(unsortedPosts)
 
 function generateTagCloud() {
   const tagsMap = getTagsWithPosts(unsortedPosts);
@@ -47,7 +47,7 @@ const tags = generateTagCloud();
 
   <aside id="sidebar-image">
     <a href="/about">
-      <img src="/wp-content/themes/paperpunch_pro_child/images/sidebar/michael-hompus-blog.png" alt="Michaël Hompus"/>
+      <img src="/michael-hompus-blog.png" width="263" height="245" alt="Michaël Hompus"/>
     </a>
   </aside>
   
@@ -67,9 +67,9 @@ const tags = generateTagCloud();
     <div>
       <nav>
         <ol class="rpwe-ul">
-        {posts.slice(0, 5).map(post =>
+        {posts.slice(0, 5).map((post) =>
           <li>
-            <h3><a href={post.frontmatter.permalink}  target="_self">{post.frontmatter.title}</a></h3>
+            <h3><a href={post.frontmatter.permalink} target="_self">{post.frontmatter.title}</a></h3>
           </li>
         )}
         </ol>

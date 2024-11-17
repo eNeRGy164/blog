@@ -52,7 +52,7 @@ const today = new Date();
 			<h2>Categories</h2>
 			<ul>
 			{categories?.map((category: String, idx: Number) =>
-				<li><a rel="nofollow" href={`/category/${urlifyToken(category.replace('C#', 'csharp'))}`} rel="category tag">{category}</a></li>
+				<li><a href={`/category/${urlifyToken(category.replace('C#', 'csharp'))}`} rel="nofollow category">{category}</a></li>
 			)}
 			</ul>
 		</nav>
@@ -78,7 +78,7 @@ const today = new Date();
 </footer>
 
 <div id="copyright">
-	<div class="copyright-notice" itemprop="copyrightNotice">Copyright © {today.getFullYear()} Michaël Hompus.  All rights reserved.</div>
+	<small itemprop="copyrightNotice">Copyright © {today.getFullYear()} Michaël Hompus.  All rights reserved.</small>
 	<span itemprop="author copyrightHolder" itemscope itemtype="http://schema.org/Person" id="author">
 		<meta itemprop="name" content="Michaël Hompus">
 		<meta itemprop="sameAs" content="https://www.facebook.com/michael.hompus">
