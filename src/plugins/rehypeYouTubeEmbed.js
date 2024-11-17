@@ -122,6 +122,17 @@ async function createEmbedBlock(originalUrl, defaultWidth, captionText) {
         properties: { itemprop: 'description' }
       });
     }
+console.log(data);
+    // If thumbnail_url exists, add a <meta> tag for it
+    if (data.thumbnail_url) {
+      figureChildren.push({
+      type: 'element',
+      tagName: 'meta',
+      properties: {
+        content: data.thumbnail_url,
+        itemprop: 'thumbnailUrl',
+      }}
+    );
 
     return {
       type: 'element',
@@ -134,6 +145,7 @@ async function createEmbedBlock(originalUrl, defaultWidth, captionText) {
       },
       children: figureChildren
     };
+  }
   } catch (error) {
     console.error(`Failed to fetch oEmbed data for ${originalUrl}:`, error);
     return null;
