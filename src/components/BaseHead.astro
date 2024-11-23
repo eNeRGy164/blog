@@ -1,13 +1,19 @@
 ---
-import { SITE_TITLE } from '@/config';
+import { SITE_TITLE, SITE_KEYWORDS } from '@/config';
 import '../styles/global.css';
-import { SITE_KEYWORDS } from '@/config';
 
 export interface Article { published: string; modified: string; sections: string[]; tags: string[]; }
 export interface Props { title: string; description: string; image?: string; author: string; article?: Article; }
 
 const { title, description, image = '/placeholder-social.jpg', author, article } = Astro.props;
-const keywords = (article ? [...article.tags, ...article.sections] : SITE_KEYWORDS).sort((a, b) => a.localeCompare(b)).join(',') ;
+
+const articleKeywords = article
+  ? [...(article.tags || []), ...(article.sections || [])]
+  : [];
+
+const keywords = (articleKeywords.length > 0 ? articleKeywords : SITE_KEYWORDS)
+  .sort((a, b) => a.localeCompare(b))
+  .join(',');
 ---
 
 <meta charset="utf-8">
