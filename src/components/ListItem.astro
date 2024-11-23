@@ -18,7 +18,7 @@ const publishedDate = moment(post.frontmatter.date);
     {post.frontmatter.excerpt}
   </div>
   
-  <a itemprop="url" href={post.frontmatter.permalink} rel="bookmark" title={post.frontmatter.title}>
+  <a itemprop="url" href={post.frontmatter.permalink.replace(/\/+$/, '')} rel="bookmark" title={post.frontmatter.title}>
     <span class="archdate">
       <time datetime={post.frontmatter.date} itemprop="datePublished">
         {publishedDate.format('DD MMM yyyy')}

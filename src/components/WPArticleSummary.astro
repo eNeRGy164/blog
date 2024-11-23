@@ -25,8 +25,8 @@ if (image != undefined) {
 
   thumbnail = {
     url: image,
-    width: metadata.width,
-    height: metadata.height
+    width: metadata.width?.toString(),
+    height: metadata.height?.toString()
   };
 }
 ---
@@ -41,7 +41,7 @@ if (image != undefined) {
       itemid: permalink
     })}
   >
-    <link itemprop="mainEntityOfPage" href={permalink}>
+    <link itemprop="mainEntityOfPage" href={permalink.replace(/\/+$/, '')}>
     {thumbnail &&
       <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
         <link itemprop="url" href={thumbnail.url}>
