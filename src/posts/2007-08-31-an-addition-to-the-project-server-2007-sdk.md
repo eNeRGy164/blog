@@ -3,6 +3,8 @@ id: 7
 title: An addition to the Project Server 2007 SDK
 date: 2007-08-31T11:39:00+02:00
 author: Michaël Hompus
+excerpt: >
+  Currently I'm working on a project which uses Microsoft Project Server 2007. However, the SDK is poorly documented.
 layout: ../layouts/BlogPost.astro
 permalink: /2007/08/31/an-addition-to-the-project-server-2007-sdk/
 categories:
