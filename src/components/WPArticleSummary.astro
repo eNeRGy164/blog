@@ -55,7 +55,7 @@ if (image != undefined) {
           <span>/ {author}</span>
       </div>
       <h1>
-        <a href={permalink} rel="bookmark" itemprop="url">
+        <a href={permalink.replace(/\/+$/, '')} rel="bookmark" itemprop="url">
           <span itemprop="name headline">{title}</span>
         </a>
       </h1>
