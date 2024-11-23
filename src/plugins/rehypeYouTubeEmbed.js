@@ -9,7 +9,7 @@ const YOUTUBE_OEMBED_URL = 'https://www.youtube.com/oembed';
  * @param {Object} options - The options object.
  * @param {number} options.defaultWidth - The default width for the YouTube embeds if not provided. Defaults to 635.
  */
-export default function YouTubeEmbed({ defaultWidth = 630 } = {}) {
+export default function YouTubeEmbed({ defaultWidth = 625 } = {}) {
   return async (tree) => {
     const promises = [];
 
@@ -93,7 +93,6 @@ async function createEmbedBlock(originalUrl, defaultWidth, captionText) {
             allow:
               'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share',
             allowfullscreen: '',
-            frameborder: '0',
             height: height,
             loading: 'lazy',
             referrerpolicy: 'strict-origin-when-cross-origin',
@@ -122,7 +121,7 @@ async function createEmbedBlock(originalUrl, defaultWidth, captionText) {
         properties: { itemprop: 'description' }
       });
     }
-console.log(data);
+
     // If thumbnail_url exists, add a <meta> tag for it
     if (data.thumbnail_url) {
       figureChildren.push({
