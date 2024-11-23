@@ -1,0 +1,98 @@
+---
+import Fuse from "fuse.js";
+
+interface Frontmatter {
+  title: string;
+  tags?: string[];
+  categories?: string[];
+  permalink: string;
+  image?: string;
+}
+interface Post {
+  frontmatter: Frontmatter;
+  compiledContent: () => string;
+}
+interface ProcessedPost extends Frontmatter {
+  body: string;
+}
+interface RelatedPost extends ProcessedPost {
+  image: string;
+}
+interface Props {
+  frontmatter: Frontmatter;
+  posts: Post[];
+}
+
+const { frontmatter, posts }: Props = Astro.props;
+
+const processedPosts: ProcessedPost[] = posts.map((post) => {
+  return {
+    title: post.frontmatter.title,
+    body: post.compiledContent(),
+    tags: post.frontmatter.tags,
+    categories: post.frontmatter.categories,
+    permalink: post.frontmatter.permalink,
+    image: post.frontmatter.image,
+  };
+});
+
+const fuse = new Fuse(processedPosts, {
+  keys: ["tags", "categories", "title", "body"],
+  includeScore: false,
+  threshold: 0.55,
+  ignoreLocation: true,
+  findAllMatches: true,
+  minMatchCharLength: 2,
+});
+
+let results: RelatedPost[] | null = null;
+
+if (frontmatter.tags !== undefined && frontmatter.categories !== undefined) {
+  const searchValue = `${frontmatter.tags.join(" ")} ${frontmatter.categories.join(" ")}`;
+
+  results = fuse
+    .search(searchValue, { limit: 4 })
+    .filter((result) => result.item.permalink !== frontmatter.permalink)
+    .map((result) => ProcessThumbnail(result.item));
+}
+
+function ProcessThumbnail(post: ProcessedPost): RelatedPost {
+  const { image, ...rest } = post;
+  return {
+    ...rest,
+    image: image
+      ? image.replace(/(\.jpg|\.png)/, "-185x185.webp")
+      : "/default-thumbnail-185x185.webp",
+  };
+}
+---
+
+{
+  results && (
+    <section id="related-posts">
+      <aside>
+        <h2>Related Posts</h2>
+        <ol>
+          {results.map((result) => (
+            <li>
+              <a href={result.permalink} title={result.title}>
+                <figure>
+                  <img
+                    src={result.image}
+                    width="185"
+                    height="185"
+                    alt={result.title}
+                    loading="lazy"
+                    decoding="async"
+                    data-image-component="true"
+                  />
+                  <figcaption>{result.title}</figcaption>
+                </figure>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </aside>
+    </section>
+  )
+}
