@@ -8,16 +8,34 @@ import { sortedPosts } from "@/js/util.js";
 const posts = sortedPosts(await Astro.glob("@/posts/*.md"));
 ---
 
-<BasePageLayout title={SITE_TITLE} description={SITE_DESCRIPTION} author={SITE_AUTHOR} mainEntry={true}>
-  <main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/Blog" itemref="author">
+<BasePageLayout
+  title={SITE_TITLE}
+  description={SITE_DESCRIPTION}
+  author={SITE_AUTHOR}
+  mainEntry={true}
+>
+  <main
+    id="content"
+    itemprop="mainEntity"
+    itemscope
+    itemtype="http://schema.org/Blog"
+    itemref="author"
+  >
     <link itemprop="url" href={Astro.url} />
     {
       posts
         .slice(0, 5)
-        .map((post: any, _: Number) => <WPArticleSummary page={post} articlePreview={false} showTags={false} />)
+        .map((post: any, _: Number) => (
+          <WPArticleSummary
+            page={post}
+            articlePreview={false}
+            showTags={false}
+            inList={true}
+          />
+        ))
     }
   </main>
   <section>
-    <PageNav posts={[...posts]} page="1" />
+    <PageNav {posts} page="1" />
   </section>
 </BasePageLayout>

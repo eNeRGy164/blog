@@ -5,7 +5,7 @@ import moment from 'moment';
 import path from "path";
 import sharp from "sharp";
 
-const { page, articlePreview = false, showTags = true } = Astro.props
+const { page, articlePreview = false, showTags = true, inList = false } = Astro.props
 const { title, author, date, permalink, excerpt, tags, image } = page.frontmatter
 const hasMoreTag = page.compiledContent().includes('<!--more-->')
 const showPreview = articlePreview && hasMoreTag
@@ -19,21 +19,21 @@ const imagesDir = path.join(process.cwd(), "wp-content-org", "uploads");
 
 let thumbnail = null;
 
-if (image != undefined){
-  thumbnail = {};
-  thumbnail.url = image;
-
+if (image != undefined) {
   const filePath = path.join(imagesDir, image.replace('/wp-content/uploads/', ''));
   const metadata = await sharp(filePath).metadata()
 
-  thumbnail.width = metadata.width;
-  thumbnail.height = metadata.height;
+  thumbnail = {
+    url: image,
+    width: metadata.width,
+    height: metadata.height
+  };
 }
 ---
 
 <div class="post-box">
   <article 
-    {...(showPreview && {
+    {...(inList && {
       itemprop: "blogPost",
       itemscope: true,
       itemtype: "http://schema.org/BlogPosting",

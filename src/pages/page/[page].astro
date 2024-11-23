@@ -40,11 +40,11 @@ const { posts } = Astro.props;
       posts
         .slice(0, 5)
         .map((post: any, _: Number) => (
-          <WPArticleSummary page={post} articlePreview={true} />
+          <WPArticleSummary page={post} articlePreview={true} inList={true} />
         ))
     }
   </main>
   <section>
-    <PageNav posts={[...posts]} page={page} />
+    <PageNav {posts} {page} />
   </section>
 </BasePageLayout>
