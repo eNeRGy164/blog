@@ -16,16 +16,24 @@ export async function getStaticPaths(): Promise<(Page | Archive)[]> {
   const postFiles: Post[] = sortedPosts(await Astro.glob('../posts/*.{md,mdx}'));
 
   const yearSet = new Set<string>();
-  const monthSet = new Set<{ year: string; month: string }>();
-  const daySet = new Set<{ year: string; month: string; day: string }>();
+  const monthMap = new Map<string, { year: string; month: string }>();
+  const dayMap = new Map<string, { year: string; month: string; day: string }>();
 
   const posts: (Page | Archive)[] = postFiles.map(post => {
     const permalink = post.frontmatter.permalink.slice(1).slice(0, -1);
     const [year, month, day] = permalink.split('/').slice(0, 3);
 
     yearSet.add(year);
-    monthSet.add({ year, month });
-    daySet.add({ year, month, day });
+
+    const monthKey = `${year}-${month}`;
+    if (!monthMap.has(monthKey)) {
+      monthMap.set(monthKey, { year, month });
+    }
+    
+    const dayKey = `${year}-${month}-${day}`;
+    if (!dayMap.has(dayKey)) {
+      dayMap.set(dayKey, { year, month, day });
+    }
 
     return {
       params: { wp: permalink },
@@ -42,11 +50,11 @@ export async function getStaticPaths(): Promise<(Page | Archive)[]> {
   });
 
   // Create archives by day, month, and year
-  daySet.forEach(({ year, month, day }) =>
+  dayMap.forEach(({ year, month, day }) =>
     posts.push(createArchive(`${year}/${month}/${day}`, post => post.frontmatter.permalink.startsWith(`/${year}/${month}/${day}`), { year, month, day }))
   );
 
-  monthSet.forEach(({ year, month }) =>
+  monthMap.forEach(({ year, month }) =>
     posts.push(createArchive(`${year}/${month}`, post => post.frontmatter.permalink.startsWith(`/${year}/${month}`), { year, month }))
   );
 
