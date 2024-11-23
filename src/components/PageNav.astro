@@ -1,7 +1,7 @@
 ---
 import { sortedPosts } from "@/js/util";
 
-const posts = sortedPosts(await Astro.glob('../posts/*.{md,mdx}'))
+const posts = sortedPosts(await Astro.glob('../posts/*.md'))
 
 const { page } = Astro.props;
 
