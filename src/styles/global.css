@@ -231,6 +231,10 @@ pre.astro-code code {
   gap: var(--spacing-medium);
 }
 
+#sidebar h1 {
+  display: none;
+}
+
 #sidebar aside {
   background-color: #fff;
 }
@@ -717,11 +721,6 @@ div.tags a:hover {
   flex-direction: column;
   gap: var(--spacing-small);
   font-size: var(--font-size-content);
-}
-
-#recent-posts h3 {
-  font-weight: normal;
-  font-size: 100%;
 }
 
 /* Responsive
