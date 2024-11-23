@@ -35,7 +35,7 @@ const pageDescription = excerpt == undefined ? description : excerpt.replaceAll(
       article={{ published: date, modified: modified ?? date, sections: categories, tags: tags }}
     />
   </head>
-  <body itemprop="mainEntity" itemscope itemtype="http://schema.org/ItemPage" id="body">
+  <body itemscope itemtype="http://schema.org/ItemPage" id="body">
     <meta itemprop="inLanguage" content="en-US" />
     <link itemprop="url" href={Astro.url} />
     <meta itemprop="name" content={title} />
