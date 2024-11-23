@@ -28,6 +28,8 @@ const keywords = (articleKeywords.length > 0 ? articleKeywords : SITE_KEYWORDS)
 <link rel="sitemap" href="/sitemap-index.xml">
 <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL("rss.xml", Astro.site)}>
 
+<link rel='dns-prefetch' href="https://piwik.hompus.nl">
+
 <meta name="geo.country" content="NL">
 <meta name="geo.region" content="NL-GE">
 <meta name="geo.a1" content="GE">
@@ -52,3 +54,18 @@ const keywords = (articleKeywords.length > 0 ? articleKeywords : SITE_KEYWORDS)
 
 <meta property="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@eNeRGy164">
+
+<script async>
+  var _paq = window._paq = window._paq || [];
+  _paq.push(["disableCampaignParameters"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://piwik.hompus.nl/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="https://piwik.hompus.nl/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
