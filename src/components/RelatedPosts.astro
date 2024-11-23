@@ -69,7 +69,7 @@ function ProcessThumbnail(post: ProcessedPost): RelatedPost {
 ---
 
 {
-  results && (
+  results && results.length > 0 && (
     <div id="related-posts">
       <aside>
         <h2>Related Posts</h2>
