@@ -8,6 +8,10 @@ import { visit } from 'unist-util-visit';
 export default function Abbreviate(options = {}) {
   const { acronyms } = options;
 
+  if (!acronyms || typeof acronyms !== 'object') {
+    throw new Error('The "acronyms" option must be a valid object.');
+  }
+
   return (tree) => {
     // Reset seenAcronyms for each page/tree
     const seenAcronyms = new Set();

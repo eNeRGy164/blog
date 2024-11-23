@@ -8,8 +8,6 @@ import rehypeAbbreviate from "./src/plugins/rehypeAbbreviate.js";
 import rehypeYouTubeEmbed from "./src/plugins/rehypeYouTubeEmbed.js";
 import rehypeAddContributorId from './src/plugins/rehypeAddMvpContributorId.js';
 import { rehypeGithubAlerts } from "rehype-github-alerts";
-import react from "@astrojs/react";
-import { ACRONYMS } from "./src/config";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import sitemap from '@astrojs/sitemap';
 
@@ -30,8 +28,14 @@ export default defineConfig({
           test: (node, _, __) => node.tagName === 'a' && typeof node.properties.href === 'string' && !node.properties.href.includes('linkedin.com'),
         },
       ],
-      [rehypeAbbreviate, { acronyms: ACRONYMS }],
-      [rehypeAddContributorId, { contributorId: 'AZ-MVP-5004268'}],
+      [
+        rehypeAbbreviate,
+        {
+          acronyms: yamlParser.parse(
+            readFileSync("./src/config/acronyms.yaml", "utf8"),
+          ).ACRONYMS,
+        },
+      ],
       rehypeYouTubeEmbed,
       rehypeAccessibleEmojis,
       rehypeCustomImage
