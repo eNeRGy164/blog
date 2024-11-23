@@ -2,9 +2,11 @@
 import PostFooter from "@/components/PostFooter.astro"
 import { urlifyToken } from "@/js/util";
 import moment from 'moment';
+import path from "path";
+import sharp from "sharp";
 
 const { page, articlePreview = false, showTags = true } = Astro.props
-const { title, author, date, permalink, excerpt, tags } = page.frontmatter
+const { title, author, date, permalink, excerpt, tags, image } = page.frontmatter
 const hasMoreTag = page.compiledContent().includes('<!--more-->')
 const showPreview = articlePreview && hasMoreTag
 
@@ -12,6 +14,21 @@ const sortedTags = Array.from(new Set(tags as string[]))
   .sort((a, b) => a.localeCompare(b));
 
 const publishedDate = moment(date);
+
+const imagesDir = path.join(process.cwd(), "wp-content-org", "uploads");
+
+let thumbnail = null;
+
+if (image != undefined){
+  thumbnail = {};
+  thumbnail.url = image;
+
+  const filePath = path.join(imagesDir, image.replace('/wp-content/uploads/', ''));
+  const metadata = await sharp(filePath).metadata()
+
+  thumbnail.width = metadata.width;
+  thumbnail.height = metadata.height;
+}
 ---
 
 <div class="post-box">
@@ -25,11 +42,13 @@ const publishedDate = moment(date);
     })}
   >
     <link itemprop="mainEntityOfPage" href={permalink}>
-    <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-      <link itemprop="url" href="https://static.hompus.nl/wp-content/uploads/2021/04/post-1908-thumbnail.jpg">
-      <meta itemprop="width" content="960">
-      <meta itemprop="height" content="540">
-    </span>
+    {thumbnail &&
+      <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+        <link itemprop="url" href={thumbnail.url}>
+        <meta itemprop="width" content={thumbnail.width}>
+        <meta itemprop="height" content={thumbnail.height}>
+      </span>
+    }
     <header class="post-header">
       <div class="meta">
           <time class="published" datetime={date} itemprop="datePublished">{publishedDate.format('MMM D')} {publishedDate.year() < moment().year() && publishedDate.format('yyyy')}</time>
