@@ -34,21 +34,23 @@ export default function CustomImage() {
       const original = variants.find((v) => v.label === "original");
       const resized = variants.find((v) => v.label === "medium_large");
 
-      // Consolidate srcset
-      const srcsetEntries = new Map(); // Prevent duplicate paths
-      variants.forEach((variant) => {
-        if (variant.width) {
-          const entry = `${variant.path} ${variant.width}w`;
-          if (!srcsetEntries.has(variant.path)) {
-            srcsetEntries.set(variant.path, entry);
-          }
+      // Filter variants for unique widths
+      const uniqueVariants = [];
+      const seenWidths = new Set();
+      for (const variant of variants) {
+        if (variant.width && !seenWidths.has(variant.width)) {
+          uniqueVariants.push(variant);
+          seenWidths.add(variant.width);
         }
-      });
+      }
 
-      const srcset = Array.from(srcsetEntries.values()).join(", ");
+      // Consolidate srcset
+      const srcset = uniqueVariants
+        .map((variant) => `${variant.path} ${variant.width}w`)
+        .join(", ");
 
       // Default rendering size
-      const sizes = "(max-width: 630px) 100vw, 630px";
+      const sizes = "(max-width: 625px) 100vw, 625px";
 
       const imgElement = {
         type: "element",
