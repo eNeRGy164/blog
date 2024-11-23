@@ -771,7 +771,7 @@ article > .more-link,
       "copyright";
   }
 
-  .list:not() .post-header h1 {
+  :not(.list) .post-header h1 {
     font-size: 2em;
     line-height: 1.2;
   }
