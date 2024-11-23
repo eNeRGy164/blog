@@ -4,9 +4,7 @@ import moment from "moment";
 
 const { categories, date, updated } = Astro.props;
 
-const sortedCategories = Array
-  .from(new Set(categories as string[]))
-  .sort((a, b) => a.localeCompare(b));
+const sortedCategories = Array.from(new Set(categories as string[])).sort((a, b) => a.localeCompare(b));
 
 const lastUpdated = typeof updated !== "undefined" ? updated : date;
 const lastUpdatedMoment = moment(lastUpdated);
@@ -20,10 +18,7 @@ const lastUpdatedMoment = moment(lastUpdated);
           Filed under
           {sortedCategories.map((category, idx) => (
             <>
-              <a href={`/category/${urlifyToken(category)}`} rel="category">
-                {category}
-              </a>
-              {idx < categories.length - 1 ? ", " : null}
+              <a href={`/category/${urlifyToken(category)}`} rel="category">{category.replace('csharp', 'C#')}</a>{idx < categories.length - 1 ? ", " : null}
             </>
           ))}
         </>

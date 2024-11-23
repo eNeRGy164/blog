@@ -1,4 +1,5 @@
-singleQuote: true
+singleQuote: false
 quoteProps: as-needed
-bracketSameLine: true
-printWidth: 160
+bracketSameLine: false
+printWidth: 80
+singleAttributePerLine: true

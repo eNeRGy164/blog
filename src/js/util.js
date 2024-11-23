@@ -18,12 +18,12 @@ export function stripHTML (html = '') {
   return decodeHTML(html.replace(htmlReg, '').replace(commentReg, '')).trim()
 }
 
-export function sortedPosts (paths) {
+export function sortedPosts(paths) {
   return paths
     .filter(p => !p.frontmatter.draft)
     .sort(
-    (a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf()
-  )
+      (a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf()
+    );
 }
 
 export function getTagsWithPosts(paths) {

@@ -9,5 +9,9 @@
         "STSADM",
         "TSQL",
         "VSTS"
-    ]
+    ],
+    "prettier.printWidth": 120,
+    "prettier.trailingComma": "all",
+    "astroAllowShorthand": true,
+    "prettier.bracketSameLine": true
 }
