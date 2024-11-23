@@ -13,7 +13,7 @@ export interface Props { Content? : any; posts: Post[]; year: string; month?: st
 export interface Archive { params: Params; props: Props; }
 
 export async function getStaticPaths(): Promise<(Page | Archive)[]> {
-  const postFiles: Post[] = sortedPosts(await Astro.glob('../posts/*.{md,mdx}'));
+  const postFiles: Post[] = sortedPosts(await Astro.glob('../posts/*.md'));
 
   const yearSet = new Set<string>();
   const monthMap = new Map<string, { year: string; month: string }>();

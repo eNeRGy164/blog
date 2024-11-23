@@ -11,7 +11,7 @@ export interface Props { posts: Post[]; tag: string; }
 const { posts } = Astro.props;
 
 export async function getStaticPaths() {
-  const tagsMap = getTagsWithPosts(await Astro.glob('../../posts/*.{md,mdx}'));
+  const tagsMap = getTagsWithPosts(await Astro.glob('../../posts/*.md'));
   
   return Array.from(tagsMap.entries()).map(([tag, tagPosts]) => ({
     params: { 

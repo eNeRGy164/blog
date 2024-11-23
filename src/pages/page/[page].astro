@@ -6,7 +6,7 @@ import WPArticleSummary from "@/components/WPArticleSummary.astro";
 import PageNav from "@/components/PageNav.astro";
 
 export async function getStaticPaths() {
-  const posts = sortedPosts(await Astro.glob("../../posts/*.{md,mdx}"));
+  const posts = sortedPosts(await Astro.glob("../../posts/*.md"));
 
   return Array.from({ length: Math.ceil(posts.length / 5) }).map((_, index) => {
     return {

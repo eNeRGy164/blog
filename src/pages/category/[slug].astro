@@ -40,7 +40,7 @@ export const buildCategoryMap = (menu: MenuItem[]) => {
 export const categoryMap = buildCategoryMap(typedMenuData.menu);
 
 export async function getStaticPaths() {
-  const posts: Post[] = sortedPosts(await Astro.glob('../../posts/*.{md,mdx}'));
+  const posts: Post[] = sortedPosts(await Astro.glob('../../posts/*.md'));
 
   // Build category map dynamically from menuData
   const categoryMap = buildCategoryMap(typedMenuData.menu);

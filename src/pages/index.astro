@@ -5,7 +5,7 @@ import PageNav from "@/components/PageNav.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_AUTHOR } from "@/config.ts";
 import { sortedPosts } from "@/js/util.js";
 
-const posts = sortedPosts(await Astro.glob("@/posts/*.{md,mdx}"));
+const posts = sortedPosts(await Astro.glob("@/posts/*.md"));
 ---
 
 <BasePageLayout title={SITE_TITLE} description={SITE_DESCRIPTION} author={SITE_AUTHOR} mainEntry={true}>
