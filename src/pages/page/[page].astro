@@ -1,40 +1,49 @@
 ---
-import BasePageLayout from '@/layouts/BasePageLayout.astro'
-import { sortedPosts } from '@/js/util.js'
-import { SITE_TITLE, SITE_DESCRIPTION } from '@/config.ts'
-import WPArticleSummary from '@/components/WPArticleSummary.astro'
-import PageNav from '@/components/PageNav.astro'
+import BasePageLayout from "@/layouts/BasePageLayout.astro";
+import { sortedPosts } from "@/js/util.js";
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_AUTHOR } from "@/config.ts";
+import WPArticleSummary from "@/components/WPArticleSummary.astro";
+import PageNav from "@/components/PageNav.astro";
 
 export async function getStaticPaths() {
-    const posts = sortedPosts(await Astro.glob('../../posts/*.{md,mdx}'))
+  const posts = sortedPosts(await Astro.glob("../../posts/*.{md,mdx}"));
 
-    return Array.from({ length: Math.ceil(posts.length / 5) }).map((_, index) => {
-        return {
-            params: { page: index + 1 },
-            props: {
-                posts: posts.slice(index * 5, (index + 1) * 5)
-            }
-        }
-  })
+  return Array.from({ length: Math.ceil(posts.length / 5) }).map((_, index) => {
+    return {
+      params: { page: index + 1 },
+      props: {
+        posts: posts.slice(index * 5, (index + 1) * 5),
+      },
+    };
+  });
 }
 
-const { page } = Astro.params
-const { posts } = Astro.props
-
+const { page } = Astro.params;
+const { posts } = Astro.props;
 ---
 
-<BasePageLayout 
+<BasePageLayout
   title={`${SITE_TITLE} | Page ${page}`}
   description={SITE_DESCRIPTION}
   mainEntry={true}
+  author={SITE_AUTHOR}
 >
-	<main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/Blog" itemref="author">
-		<link itemprop="url" href="">
-		{posts.slice(0, 5).map((post: any, _: Number) =>
-			<WPArticleSummary page={post} articlePreview={true} />
-		)}
-		
-	</main>
+  <main
+    id="content"
+    itemprop="mainEntity"
+    itemscope
+    itemtype="http://schema.org/Blog"
+    itemref="author"
+  >
+    <link itemprop="url" href="" />
+    {
+      posts
+        .slice(0, 5)
+        .map((post: any, _: Number) => (
+          <WPArticleSummary page={post} articlePreview={true} />
+        ))
+    }
+  </main>
   <section>
     <PageNav posts={[...posts]} page={page} />
   </section>
