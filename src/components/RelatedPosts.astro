@@ -53,6 +53,7 @@ if (frontmatter.tags !== undefined && frontmatter.categories !== undefined) {
   results = fuse
     .search(searchValue, { limit: 4 })
     .filter((result) => result.item.permalink !== frontmatter.permalink)
+    .slice(0, 3)
     .map((result) => ProcessThumbnail(result.item));
 }
 

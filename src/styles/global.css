@@ -399,6 +399,10 @@ div.expressive-code {
   background-color: #fff;
 }
 
+.post-box + .post-box {
+  margin-top: var(--spacing-medium);
+}
+
 .post-header {
   padding: var(--spacing-medium);
   padding-bottom: 0;
@@ -578,6 +582,7 @@ div.tags a:hover {
 .post-footer {
   display: flex;
   flex-direction: row-reverse;
+  padding-top: var(--spacing-tiny);
   padding-right: var(--spacing-medium);
 }
 
