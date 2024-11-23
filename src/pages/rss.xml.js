@@ -4,7 +4,7 @@ import { sortedPosts } from '@/js/util.js'
 
 // https://docs.astro.build/en/guides/rss/#using-glob-imports
 export function GET (context) {
-  const postImportResult = import.meta.glob('../posts/**/*.{md,mdx}', { eager: true })
+  const postImportResult = import.meta.glob('../posts/**/*.md', { eager: true })
   const posts = sortedPosts(Object.values(postImportResult))
   return rss({
     title: SITE_TITLE,

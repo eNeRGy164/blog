@@ -11,12 +11,12 @@ import { rehypeGithubAlerts } from "rehype-github-alerts";
 import react from "@astrojs/react";
 import { ACRONYMS } from "./src/config";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
-import yaml from '@rollup/plugin-yaml';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://blog.hompus.nl",
-  integrations: [mdx(), sitemap(), react()],
+  integrations: [sitemap(), expressiveCode({ defaultProps: { wrap: true } })],
   markdown: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

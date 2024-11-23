@@ -1,4 +1,5 @@
 ---
+import { SITE_TITLE } from '@/config';
 import '../styles/global.css';
 
 export interface Article { published: string; modified: string; sections: string[]; tags: string[]; }
@@ -15,14 +16,14 @@ const { title, description, image = '/placeholder-social.jpg', author, article }
 <meta name="generator" content={Astro.generator}>
 
 <link rel="shortcut icon" href="/favicon.ico">
+<link rel="sitemap" href="/sitemap-index.xml">
+<link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL("rss.xml", Astro.site)}>
 
 <meta name="geo.country" content="NL">
 <meta name="geo.region" content="NL-GE">
 <meta name="geo.a1" content="GE">
 <meta name="geo.placename" content="Nijmegen">
 <meta name="dc.language" content="en">
-
-<link href="https://mastodon.nl/@eNeRGy164" rel="me">
 
 <meta property="og:url" content={Astro.url}>
 <meta property="og:title" content={title}>
