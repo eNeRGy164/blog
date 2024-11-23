@@ -1,8 +1,8 @@
 ---
-import { urlifyToken, sortedPosts, getTagsWithPosts } from '@/js/util.js'
+import { urlifyToken, sortedPosts, getTagsWithPosts } from "@/js/util.js";
 
-const unsortedPosts = await Astro.glob('../posts/*.md');
-const posts : { frontmatter: { permalink: string; title: string; }; }[] = sortedPosts(unsortedPosts)
+const unsortedPosts = await Astro.glob("../posts/*.md");
+const posts: { frontmatter: { permalink: string; title: string } }[] = sortedPosts(unsortedPosts);
 
 function generateTagCloud() {
   const tagsMap = getTagsWithPosts(unsortedPosts);
@@ -44,37 +44,49 @@ const tags = generateTagCloud();
 ---
 
 <section itemprop="hasPart" id="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
-
   <aside id="sidebar-image">
     <a href="/about">
-      <img src="/michael-hompus-blog.png" width="263" height="245" alt="Michaël Hompus"/>
+      <img src="/michael-hompus-blog.png" width="263" height="245" alt="Michaël Hompus" />
     </a>
   </aside>
-  
-  <aside id="tagcloud">
+
+  <aside id="tag-cloud">
     <h2>Tags</h2>
-    <div class="tagcloud">
-    {tags.map(tagItem => (
-        <>
-        <a href={`/tag/${urlifyToken(tagItem.tag)}`} title={tagItem.count} rel="tag" style={`font-size: ${tagItem.fontSize}pt;`}>{tagItem.tag}</a>
-        </>
-    ))}
+    <div>
+      {
+        tags.map((tagItem) => (
+          <>
+            <a
+              href={`/tag/${urlifyToken(tagItem.tag)}`}
+              title={`${tagItem.count} posts tagged with "${tagItem.tag}"`}
+              rel="tag"
+              style={`font-size: ${tagItem.fontSize}pt;`}>
+              {tagItem.tag}
+            </a>
+          </>
+        ))
+      }
     </div>
   </aside>
-  
+
   <aside id="recent-posts">
-    <h2>Recent Posts</h3>
+    <h2>Recent Posts</h2>
     <div>
       <nav>
-        <ol class="rpwe-ul">
-        {posts.slice(0, 5).map((post) =>
-          <li>
-            <h3><a href={post.frontmatter.permalink} target="_self">{post.frontmatter.title}</a></h3>
-          </li>
-        )}
+        <ol>
+          {
+            posts.slice(0, 5).map((post) => (
+              <li>
+                <h3>
+                  <a href={post.frontmatter.permalink} target="_self">
+                    {post.frontmatter.title}
+                  </a>
+                </h3>
+              </li>
+            ))
+          }
         </ol>
       </nav>
     </div>
   </aside>
-
 </section>
