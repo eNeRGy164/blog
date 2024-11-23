@@ -13,6 +13,7 @@ const posts = sortedPosts(await Astro.glob("@/posts/*.md"));
   description={SITE_DESCRIPTION}
   author={SITE_AUTHOR}
   mainEntry={true}
+  classes={["list"]}
 >
   <main
     id="content"

@@ -1,17 +1,23 @@
 ---
-import PostFooter from "@/components/PostFooter.astro"
+import PostFooter from "@/components/PostFooter.astro";
 import { urlifyToken } from "@/js/util";
-import moment from 'moment';
+import moment from "moment";
 import path from "path";
 import sharp from "sharp";
 
-const { page, articlePreview = false, showTags = true, inList = false } = Astro.props
-const { title, author, date, permalink, excerpt, tags, image } = page.frontmatter
-const hasMoreTag = page.compiledContent().includes('<!--more-->')
-const showPreview = articlePreview && hasMoreTag
+const {
+  page,
+  articlePreview = false,
+  showTags = true,
+  inList = false,
+} = Astro.props;
+const { title, author, date, permalink, excerpt, tags, image } = page.frontmatter;
+const hasMoreTag = page.compiledContent().includes("<!--more-->");
+const showPreview = articlePreview && hasMoreTag;
 
-const sortedTags = Array.from(new Set(tags as string[]))
-  .sort((a, b) => a.localeCompare(b));
+const sortedTags = Array.from(new Set(tags as string[])).sort((a, b) =>
+  a.localeCompare(b),
+);
 
 const publishedDate = moment(date);
 
@@ -20,78 +26,110 @@ const imagesDir = path.join(process.cwd(), "wp-content-org", "uploads");
 let thumbnail = null;
 
 if (image != undefined) {
-  const filePath = path.join(imagesDir, image.replace('/wp-content/uploads/', ''));
-  const metadata = await sharp(filePath).metadata()
+  const filePath = path.join(
+    imagesDir,
+    image.replace("/wp-content/uploads/", ""),
+  );
+  const metadata = await sharp(filePath).metadata();
 
   thumbnail = {
     url: image,
     width: metadata.width?.toString(),
-    height: metadata.height?.toString()
+    height: metadata.height?.toString(),
   };
 }
 ---
 
 <div class="post-box">
-  <article 
-    {...(inList && {
+  <article
+    {...inList && {
       itemprop: "blogPost",
       itemscope: true,
       itemtype: "http://schema.org/BlogPosting",
       itemref: "author",
-      itemid: permalink
-    })}
+      itemid: permalink,
+    }}
   >
-    <link itemprop="mainEntityOfPage" href={permalink.replace(/\/+$/, '')}>
-    {thumbnail &&
-      <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-        <link itemprop="url" href={thumbnail.url}>
-        <meta itemprop="width" content={thumbnail.width}>
-        <meta itemprop="height" content={thumbnail.height}>
-      </span>
+    <link itemprop="mainEntityOfPage" href={permalink.replace(/\/+$/, "")} />
+    {
+      thumbnail && (
+        <span
+          itemprop="image"
+          itemscope
+          itemtype="https://schema.org/ImageObject"
+        >
+          <link itemprop="url" href={thumbnail.url} />
+          <meta itemprop="width" content={thumbnail.width} />
+          <meta itemprop="height" content={thumbnail.height} />
+        </span>
+      )
     }
     <header class="post-header">
       <div class="meta">
-          <time class="published" datetime={date} itemprop="datePublished">{publishedDate.format('MMM D')} {publishedDate.year() < moment().year() && publishedDate.format('yyyy')}</time>
-          <span>/ {author}</span>
+        <time class="published" datetime={date} itemprop="datePublished"
+          >{publishedDate.format("MMM D")}
+          {
+            publishedDate.year() < moment().year() &&
+              publishedDate.format("yyyy")
+          }</time
+        >
+        <span>/ {author}</span>
       </div>
       <h1>
-        <a href={permalink.replace(/\/+$/, '')} rel="bookmark" itemprop="url">
+        <a href={permalink.replace(/\/+$/, "")} rel="bookmark" itemprop="url">
           <span itemprop="name headline">{title}</span>
         </a>
       </h1>
-      {showTags && (
-        <div class="tags" itemprop="keywords">
-        {sortedTags.map((tag, idx) =>
-          <>
-            <a href={`/tag/${urlifyToken(tag)}`} rel="tag">{tag}</a>{(idx < tags.length - 1) ? ', ' : null}
-          </>
-        )}
-        </div>
-      )}
+      {
+        showTags && (
+          <div class="tags" itemprop="keywords">
+            {sortedTags.map((tag, idx) => (
+              <>
+                <a href={`/tag/${urlifyToken(tag)}`} rel="tag">
+                  {tag}
+                </a>
+                {idx < tags.length - 1 ? ", " : null}
+              </>
+            ))}
+          </div>
+        )
+      }
     </header>
-    
-    <div class="entry">
-      {!showPreview &&
-        <div class="excerpt" itemprop="abstract">
-          {excerpt}
-        </div>
-        <div itemprop="articleBody text">
-          <Fragment set:html={page.compiledContent()}/>
-        </div>
-      }
-      {showPreview &&
-        <>
-          <div itemprop="abstract">
-            <Fragment set:html={page.compiledContent().split('<!--more-->')[0]} />
-          </div>
-          <div>
-            <span itemprop="potentialAction" itemscope itemtype="https://schema.org/ReadAction">
-              <a href={permalink} class="more-link" itemprop="url"><span itemprop="name">read more...</span></a>
-            </span>
-          </div>
-        </>
-      }
+    <div class="excerpt" itemprop="abstract">
+      {excerpt}
     </div>
+    <div class="more-link">
+      <span
+        itemprop="potentialAction"
+        itemscope
+        itemtype="https://schema.org/ReadAction"
+      >
+        <a href={permalink} itemprop="url"
+          ><span itemprop="name">Full article…</span></a
+        >
+      </span>
+    </div>
+    {
+      !showPreview && (
+        <div class="entry" itemprop="articleBody text">
+          <Fragment set:html={page.compiledContent()} />
+        </div>
+      )
+    }
+    {
+      showPreview && (
+        <div class="entry">
+          <div itemprop="abstract">
+            <Fragment
+              set:html={page.compiledContent().split("<!--more-->")[0]}
+            />
+          </div>
+          <a href={permalink} class="more-link">
+            read more…
+          </a>
+        </div>
+      )
+    }
     <PostFooter {...page.frontmatter} />
   </article>
 </div>

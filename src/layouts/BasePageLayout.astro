@@ -5,11 +5,11 @@ import Header from "@/components/Header.astro";
 import Sidebar from "@/components/Sidebar.astro";
 import { sortedPosts } from "@/js/util";
 
-export interface Props { title: string; description: string; author: string, classes?: string[] | null ; mainEntry?: boolean; }
+export interface Props { title: string; description: string; author: string, classes?: string[]; mainEntry?: boolean; }
 
 const allPosts = sortedPosts(await Astro.glob('../posts/*.md'))
 
-const { title, description, author, classes, mainEntry = false } = Astro.props;
+const { title, description, author, classes = [], mainEntry = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -18,7 +18,7 @@ const { title, description, author, classes, mainEntry = false } = Astro.props;
     <BaseHead title={title} description={description} author={author} />
   </head>
   <body
-    class={classes ? classes.toString() : undefined}
+    class:list={[...classes]} 
     itemscope
     itemtype="http://schema.org/WebPage"
     id="body"
