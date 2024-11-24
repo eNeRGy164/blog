@@ -4,3 +4,4 @@ MD033:
   allowed_elements:
     - time
     - kbd
+    - br

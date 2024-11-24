@@ -565,19 +565,48 @@ div.tags a:hover {
 
 /* Tables */
 .entry table {
-  border-collapse: collapse;
+  box-shadow: 3px 3px 3px #ccc;
+  border-radius: 0.25rem;
+  border-spacing: 0;
+  margin-bottom: 1em;
 }
 
 .entry th {
   font-weight: 600;
   text-align: left;
+  color: var(--color-text-light);
+  background-color: var(--color-bg-dark);
+}
+
+.entry th:first-child {
+  border-radius: 0.25rem 0 0 0;
+}
+
+.entry th:last-child {
+  border-radius: 0 0.25rem 0 0;
+}
+
+.entry tr:last-child td:first-child {
+  border-radius: 0 0 0 0.25rem;
+}
+
+.entry tr:last-child td:last-child {
+  border-radius: 0 0 0.25rem 0;
 }
 
 .entry th,
 .entry td {
-  border: solid 1px #ccc;
-  padding: 5px;
+  padding: var(--spacing-small);
   vertical-align: top;
+}
+
+.entry td {
+  border-bottom: solid 1px #ccc;
+  border-right: solid 1px #ccc;
+}
+
+.entry td:first-child {
+  border-left: solid 1px #ccc;
 }
 
 /*---------------------------------------
