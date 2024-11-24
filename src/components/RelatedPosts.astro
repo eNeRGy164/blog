@@ -3,8 +3,8 @@ import Fuse from "fuse.js";
 
 interface Frontmatter {
   title: string;
-  tags?: string[];
-  categories?: string[];
+  tags?: string[] | null;
+  categories?: string[] | null;
   permalink: string;
   image?: string;
 }
@@ -47,7 +47,7 @@ const fuse = new Fuse(processedPosts, {
 
 let results: RelatedPost[] | null = null;
 
-if (frontmatter.tags !== undefined && frontmatter.categories !== undefined) {
+if (frontmatter.tags != null && frontmatter.categories != null) {
   const searchValue = `${frontmatter.tags.join(" ")} ${frontmatter.categories.join(" ")}`;
 
   results = fuse
