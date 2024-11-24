@@ -1,5 +1,7 @@
 MD013:
   line_length: -1
+MD024:
+  siblings_only: true
 MD033:
   allowed_elements:
     - time
