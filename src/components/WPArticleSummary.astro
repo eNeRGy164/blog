@@ -85,10 +85,7 @@ if (image != undefined) {
           <div class="tags" itemprop="keywords">
             {sortedTags.map((tag, idx) => (
               <>
-                <a href={`/tag/${urlifyToken(tag)}`} rel="tag">
-                  {tag}
-                </a>
-                {idx < tags.length - 1 ? ", " : null}
+                <a href={`/tag/${urlifyToken(tag)}`} rel="tag">{tag}</a>{idx < tags.length - 1 ? ", " : null}
               </>
             ))}
           </div>
