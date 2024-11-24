@@ -58,7 +58,6 @@ export default function CustomImage() {
         properties: {
           src: resized ? resized.path : original.path,
           alt: node.properties.alt || "",
-          title: node.properties.title || "",
           loading: "lazy",
           decoding: "async",
           width: resized ? resized.width : original.width,
