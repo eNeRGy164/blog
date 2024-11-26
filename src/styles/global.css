@@ -4,7 +4,9 @@
 :root {
   --font-base: "Segoe UI", Segoe, Candara, "DejaVu Sans", "Bitstream Vera Sans",
     "Trebuchet MS", Verdana, sans-serif;
-  --font-monospace: "Cascadia Code", Consolas, "Courier New", monospace;
+  --font-monospace: "CaskaydiaCove Nerd Font", "CaskaydiaCove Nerd Font Mono",
+    "Cascadia Code", "Cascadia Mono", Inconsolata, Consolas, "Source Code Pro",
+    "Liberation Mono", "Courier New", Courier, monospace;
   --font-title: "Segoe UI Light", "DejaVu Sans ExtraLight", var(--font-base);
 
   --color-primary: #069;
@@ -119,6 +121,10 @@ ul {
 
 pre.astro-code code {
   background-color: transparent;
+}
+
+.expressive-code :nth-child(1 of .ec-line) .code {
+  padding-inline-end: unset !important;
 }
 
 /*---------------------------------------
