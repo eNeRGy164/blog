@@ -324,7 +324,6 @@ small {
 blockquote {
   padding: var(--spacing-small) var(--spacing-medium);
   margin-bottom: var(--spacing-small);
-  color: #666;
   border-left: 0.25rem solid var(--color-bg-dark);
   background-color: #eaeaea;
   border-radius: 0 0.25rem 0.25rem 0;
