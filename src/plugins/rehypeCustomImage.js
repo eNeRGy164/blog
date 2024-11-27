@@ -123,8 +123,15 @@ export default function CustomImage() {
         });
       }
 
-      // Replace the <img> element with the <figure>
-      parent.children[index] = figureElement;
+      // If the parent is a <p> containing only this <img>, replace the <p>
+      if (parent.tagName === "p" && parent.children.length === 1) {
+        parent.tagName = "figure";
+        parent.properties = figureElement.properties;
+        parent.children = figureElement.children;
+      } else {
+        // Otherwise, replace just the <img> with <figure>
+        parent.children[index] = figureElement;
+      }
     });
   };
 }
