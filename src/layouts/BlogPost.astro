@@ -12,7 +12,7 @@ interface Frontmatter {
   description: string;
   excerpt: string;
   date: string;
-  modified?: string;
+  updated?: string;
   author: string;
   categories: string[];
   tags: string[];
@@ -21,7 +21,7 @@ interface Frontmatter {
 
 const posts = sortedPosts(await Astro.glob("../posts/*.md"));
 const { frontmatter } = Astro.props;
-const { title, description, excerpt, date, modified, author, categories, tags, permalink } = frontmatter as Frontmatter;
+const { title, description, excerpt, date, updated, author, categories, tags, permalink } = frontmatter as Frontmatter;
 
 const pageDescription = excerpt == undefined ? description : excerpt.replaceAll(/[\r\n]{1,2}/g, " ").trim();
 ---
@@ -32,14 +32,14 @@ const pageDescription = excerpt == undefined ? description : excerpt.replaceAll(
       title={title}
       description={pageDescription}
       author={author}
-      article={{ published: date, modified: modified ?? date, sections: categories, tags: tags }}
+      article={{ published: date, updated: updated ?? date, sections: categories, tags: tags }}
     />
   </head>
   <body itemscope itemtype="http://schema.org/ItemPage" id="body">
     <meta itemprop="inLanguage" content="en-US" />
     <link itemprop="url" href={Astro.url} />
     <meta itemprop="name" content={title} />
-    <meta itemprop="lastReviewed" content={date} />
+    <meta itemprop="lastReviewed" content={updated ?? date} />
     <div class="skip-content"><a href="#content">Skip to content</a></div>
     <div id="wrapper">
       <Header />

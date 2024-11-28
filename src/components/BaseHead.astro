@@ -2,7 +2,7 @@
 import { SITE_TITLE, SITE_KEYWORDS } from '@/config';
 import '../styles/global.css';
 
-export interface Article { published: string; modified: string; sections: string[]; tags: string[]; }
+export interface Article { published: string; updated: string; sections: string[]; tags: string[]; }
 export interface Props { title: string; description: string; image?: string; author: string; article?: Article; }
 
 const { title, description, image = '/placeholder-social.jpg', author, article } = Astro.props;
@@ -43,7 +43,7 @@ const keywords = (articleKeywords.length > 0 ? articleKeywords : SITE_KEYWORDS)
 {article && (
 	<meta property="og:type" content="article" />
 	<meta property="article:published_time" content={article.published} />
-	<meta property="article:modified_time" content={article.modified} />
+	<meta property="article:modified_time" content={article.updated} />
 )}
 {article && article.sections && article.sections.map((section) => 
 	<meta property="article:section" content={section}>
