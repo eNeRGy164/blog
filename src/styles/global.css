@@ -390,7 +390,7 @@ kbd::after {
 
 cite,
 dfn {
-  font-style: normal;
+  font-style: unset;
 }
 
 q {
