@@ -432,6 +432,7 @@ div.expressive-code {
   color: var(--color-accent);
 }
 
+figure + P > small,
 pre + p > small,
 div + p > small {
   line-height: normal;
