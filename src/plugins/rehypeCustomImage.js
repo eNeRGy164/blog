@@ -50,7 +50,7 @@ export default function CustomImage() {
         .join(", ");
 
       // Default rendering size
-      const sizes = "(max-width: 625px) 100vw, 625px";
+      const sizes = "(max-width: 636px) 100vw, 636px";
 
       const imgElement = {
         type: "element",

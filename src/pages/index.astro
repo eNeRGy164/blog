@@ -36,7 +36,5 @@ const posts = sortedPosts(await Astro.glob("@/posts/*.md"));
         ))
     }
   </main>
-  <div>
-    <PageNav {posts} page="1" />
-  </div>
+  <PageNav {posts} page="1" />
 </BasePageLayout>

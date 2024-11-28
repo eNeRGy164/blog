@@ -10,7 +10,7 @@ const sizes = [
   { label: "original", width: null, height: null },
   { label: "thumbnail", width: 150, height: 150 },
   { label: "medium", width: 185, height: 185 },
-  { label: "medium_large", width: 625, height: null },
+  { label: "medium_large", width: 636, height: null },
 ];
 
 // Initialize the image path cache

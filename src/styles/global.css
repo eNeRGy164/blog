@@ -65,6 +65,7 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
   min-width: 310px;
+  padding: var(--spacing-medium)
 }
 
 a {
@@ -99,19 +100,18 @@ ul {
 ---------------------------------------*/
 #wrapper {
   max-width: var(--max-width);
-  padding: var(--spacing-small);
   margin: 0 auto;
   display: grid;
   grid-template-rows: auto auto auto 1fr auto auto;
-  grid-template-columns: 70% calc(30% - var(--spacing-medium));
+  grid-template-columns: auto var(--spacing-medium) 274px;
   grid-template-areas:
-    "header header"
-    "nav nav"
-    "content sidebar"
-    "related sidebar"
-    "footer footer"
-    "copyright copyright";
-  gap: var(--spacing-medium);
+    "header header header"
+    "nav nav nav"
+    "content . sidebar"
+    "related . sidebar"
+    "paging paging paging"
+    "footer footer footer"
+    "copyright copyright copyright";
 }
 
 #content {
@@ -134,7 +134,6 @@ pre.astro-code code {
   grid-area: header;
   background-color: var(--color-bg-dark);
   color: var(--color-text-light);
-  margin-bottom: calc(var(--spacing-medium) * -1);
 }
 
 #title {
@@ -171,6 +170,7 @@ pre.astro-code code {
   background-color: var(--color-bg-dark);
   text-transform: uppercase;
   font-size: 11pt;
+  margin-bottom: var(--spacing-medium);
 }
 
 #nav a {
@@ -254,13 +254,17 @@ pre.astro-code code {
   text-align: right;
 }
 
-#sidebar aside#sidebar-image {
-  line-height: 0;
+#sidebar #sidebar-image {
   background-color: transparent;
 }
 
-#sidebar aside#sidebar-image a {
+#sidebar #sidebar-image a,
+#sidebar #sidebar-image img {
   display: block;
+}
+
+#sidebar #sidebar-image img {
+  margin: 0 auto;
 }
 
 #sidebar aside div {
@@ -278,6 +282,7 @@ pre.astro-code code {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-medium);
+  margin-top: var(--spacing-medium);
 }
 
 #site-footer h2 {
@@ -297,6 +302,7 @@ pre.astro-code code {
 
 #copyright {
   grid-area: copyright;
+  line-height: 1.5;
   font-size: 9pt;
 }
 
@@ -661,12 +667,13 @@ article > .more-link,
 
 .entries ul li {
   border-top: 1px solid #dedede;
+  padding: 0 var(--spacing-small);
 }
 
 .entries ul li a {
   display: grid;
   grid-template-columns: 75px auto;
-  gap: 13px;
+  gap: var(--spacing-medium);
   padding: 7px 0;
 }
 
@@ -688,6 +695,7 @@ article > .more-link,
 
 #related-posts {
   grid-area: related;
+  margin-top: var(--spacing-medium);
 }
 
 #related-posts aside {
@@ -703,28 +711,24 @@ article > .more-link,
 #related-posts ol {
   padding: var(--spacing-medium);
   display: flex;
-  flex-direction: row;
-  gap: var(--spacing-medium);
+  gap: var(--spacing-small);
 }
 
 #related-posts li {
-  padding: 6px;
-  flex-grow: 0;
-  width: 197px;
   border: 1px solid rgba(127, 127, 127, .1);
 }
 
 #related-posts img {
-  display: inline-block;
+  display: block;
 }
 
-#related-posts figure{
-  margin: 0;
+#related-posts figure {
+  margin: var(--spacing-small);
+  line-height: unset;
 }
 
 #related-posts figcaption {
   margin-top: var(--spacing-small);
-  width: 185px;
   font-weight: bold;
   line-height: 1.4em;
   font-style: normal;
@@ -735,24 +739,40 @@ article > .more-link,
   -webkit-box-orient: vertical;
 }
 
-.wp-pagenavi li {
-  display: inline-block;
-  margin: 0 var(--spacing-small) 0 0;
-  background-color: var(--color-bg-dark);
+#wp-pagenavi {
+  grid-area: paging;
+  margin-top: var(--spacing-medium);
+  overflow: hidden;
 }
 
-.wp-pagenavi a,
-.wp-pagenavi span {
+#wp-pagenavi ul {
+  display: flex;
+  gap: 10px;
+}
+
+#wp-pagenavi li {
+  background-color: var(--color-bg-dark);
+  height: 40px;
+  min-width: 40px;
+}
+
+#wp-pagenavi a,
+#wp-pagenavi span {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
   text-decoration: none;
   color: var(--color-text-light);
   font-size: var(--font-size-content);
   font-weight: 700;
-  display: inline-block;
-  padding: 10px 15px;
+  white-space: nowrap;
+  line-height: 40px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
-.wp-pagenavi li a:hover,
-.wp-pagenavi li.current {
+#wp-pagenavi li a:hover,
+#wp-pagenavi li.current {
   background-color: #666;
 }
 
@@ -773,6 +793,7 @@ article > .more-link,
       "nav"
       "content"
       "related"
+      "paging"
       "sidebar"
       "footer"
       "copyright";
@@ -788,6 +809,19 @@ article > .more-link,
 
   #nav {
     line-height: 2;
+  }
+
+  #wp-pagenavi {
+    margin: var(--spacing-medium) auto 0 auto;
+  }
+
+  #wp-pagenavi ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #sidebar {
+    margin-top: var(--spacing-medium);
   }
 
   #sidebar-image {
@@ -806,7 +840,9 @@ article > .more-link,
       "nav"
       "content"
       "related"
+      "paging"
       "sidebar"
+      "footer"
       "copyright";
   }
 

@@ -7,9 +7,9 @@ const YOUTUBE_OEMBED_URL = 'https://www.youtube.com/oembed';
 /**
  * Plugin to transform YouTube links into embed blocks with configurable width and height.
  * @param {Object} options - The options object.
- * @param {number} options.defaultWidth - The default width for the YouTube embeds if not provided. Defaults to 635.
+ * @param {number} options.defaultWidth - The default width for the YouTube embeds if not provided. Defaults to 636.
  */
-export default function YouTubeEmbed({ defaultWidth = 625 } = {}) {
+export default function YouTubeEmbed({ defaultWidth = 636 } = {}) {
   return async (tree) => {
     const promises = [];
 
@@ -95,7 +95,7 @@ async function createEmbedBlock(originalUrl, defaultWidth, captionText) {
             allowfullscreen: '',
             height: height,
             loading: 'lazy',
-            referrerpolicy: 'strict-origin-when-cross-origin',
+            referrerpolicy: 'no-referrer',
             src: `${embedUrl}?${embedQueryParams.toString()}`, // Retain allowed parameters like list
             title: data.title,
             width: width,
