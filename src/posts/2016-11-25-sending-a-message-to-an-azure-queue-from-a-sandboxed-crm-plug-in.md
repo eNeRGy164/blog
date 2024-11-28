@@ -74,7 +74,7 @@ To deserialize these settings we use `JsonConvert` with a nested `PluginSettings
 
 ```csharp
 PluginSettings pluginSettings =
-  JsonConvert.DeserializeObject<PluginSettings>(this.secureString);
+      JsonConvert.DeserializeObject<PluginSettings>(this.secureString);
 ```
 
 ### Initializing the Cloud Queue Client
@@ -85,11 +85,13 @@ To initialize this class, we need to provide the URL and the [StorageCredentials
 
 ```csharp
 StorageCredentials storageCredentials =
-  new StorageCredentials(pluginSettings.AccountName, pluginSettings.Key);
+      new StorageCredentials(pluginSettings.AccountName, pluginSettings.Key);
 
-Uri baseUri = new Uri($"https://{pluginSettings.AccountName}.queue.core.windows.net");
+Uri baseUri =
+      new Uri($"https://{pluginSettings.AccountName}.queue.core.windows.net");
 
-CloudQueueClient queueClient = new CloudQueueClient(baseUri, storageCredentials);
+CloudQueueClient queueClient =
+      new CloudQueueClient(baseUri, storageCredentials);
 ```
 
 ### Creating a reference to the queue
@@ -123,7 +125,7 @@ var messageData = new
 };
 
 CloudQueueMessage queueMessage =
-  new CloudQueueMessage(JsonConvert.SerializeObject(messageData));
+      new CloudQueueMessage(JsonConvert.SerializeObject(messageData));
 
 queue.AddMessage(queueMessage);
 ```

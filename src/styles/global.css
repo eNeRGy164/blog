@@ -519,16 +519,14 @@ div.tags a:hover {
   font-weight: 600;
 }
 
-.entry h3,
+.entry h3 {
+  font-size: 1em;
+  font-weight: 600;
+  font-style: italic;
+}
+
 .entry h4 {
   font-size: 1em;
-}
-
-.entry h3 {
-  font-weight: 600;
-}
-
-.entry h4 {
   font-weight: normal;
   font-style: italic;
 }
