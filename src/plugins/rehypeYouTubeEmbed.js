@@ -25,8 +25,15 @@ export default function YouTubeEmbed({ defaultWidth = 636 } = {}) {
           promises.push(
             createEmbedBlock(url, defaultWidth, captionText).then((embedNode) => {
               if (embedNode) {
-                // Replace the <a> tag with the generated embed block
-                parent.children.splice(index, 1, embedNode);
+                // If the parent is a <p> containing only this <a>, replace the <p>
+                if (parent.tagName === "p" && parent.children.length === 1) {
+                  parent.tagName = embedNode.tagName;
+                  parent.properties = embedNode.properties;
+                  parent.children = embedNode.children;
+                } else {
+                  // Otherwise, replace just the <a> with <figure>
+                  parent.children[index] = figureElement;
+                }
               }
             })
           );
