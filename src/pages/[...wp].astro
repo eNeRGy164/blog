@@ -2,25 +2,27 @@
 import MonthArchive from '@/layouts/MonthArchive.astro';
 import YearArchive from '@/layouts/YearArchive.astro';
 import DayArchive from '@/layouts/DayArchive.astro';
+import BlogPost from '@/layouts/BlogPost.astro';
+import { getCollection } from 'astro:content';
 import { sortedPosts } from '@/js/util.js'
 
-export interface Frontmatter { date: string; permalink: string; title: string; excerpt: string; updated?: string | null; }
-export interface Post { frontmatter: Frontmatter; }
+import type { CollectionEntry } from 'astro:content';
+
 export interface Params { wp: string; }
-export interface Posts { params: Params; props: Post; }
-export interface Page { params: Params; props: Post; }
-export interface Props { Content? : any; posts: Post[]; year: string; month?: string | null; day?: string | null; }
+export interface Posts { params: Params; props: CollectionEntry<'posts'>; }
+export interface Page { params: Params; props: CollectionEntry<'posts'>; }
+export interface Props { post?: CollectionEntry<'posts'>; posts: CollectionEntry<'posts'>[]; year: string; month?: string | null; day?: string | null; }
 export interface Archive { params: Params; props: Props; }
 
 export async function getStaticPaths(): Promise<(Page | Archive)[]> {
-  const postFiles: Post[] = sortedPosts(await Astro.glob('../posts/*.md'));
+  const postFiles: CollectionEntry<'posts'>[] = sortedPosts(await getCollection('posts'));
 
   const yearSet = new Set<string>();
   const monthMap = new Map<string, { year: string; month: string }>();
   const dayMap = new Map<string, { year: string; month: string; day: string }>();
 
   const posts: (Page | Archive)[] = postFiles.map(post => {
-    const permalink = post.frontmatter.permalink.slice(1).slice(0, -1);
+    const permalink = post.data.permalink.slice(1).slice(0, -1);
     const [year, month, day] = permalink.split('/').slice(0, 3);
 
     yearSet.add(year);
@@ -41,7 +43,7 @@ export async function getStaticPaths(): Promise<(Page | Archive)[]> {
     };
   });
 
-  const createArchive = (wp: string, filterFn: (post: Post) => boolean, props: {year: string, month?: string, day?: string}): Archive => ({
+  const createArchive = (wp: string, filterFn: (post: CollectionEntry<'posts'>) => boolean, props: {year: string, month?: string, day?: string}): Archive => ({
     params: { wp },
     props: {
       posts: postFiles.filter(filterFn),
@@ -51,24 +53,24 @@ export async function getStaticPaths(): Promise<(Page | Archive)[]> {
 
   // Create archives by day, month, and year
   dayMap.forEach(({ year, month, day }) =>
-    posts.push(createArchive(`${year}/${month}/${day}`, post => post.frontmatter.permalink.startsWith(`/${year}/${month}/${day}`), { year, month, day }))
+    posts.push(createArchive(`${year}/${month}/${day}`, post => post.data.permalink.startsWith(`/${year}/${month}/${day}`), { year, month, day }))
   );
 
   monthMap.forEach(({ year, month }) =>
-    posts.push(createArchive(`${year}/${month}`, post => post.frontmatter.permalink.startsWith(`/${year}/${month}`), { year, month }))
+    posts.push(createArchive(`${year}/${month}`, post => post.data.permalink.startsWith(`/${year}/${month}`), { year, month }))
   );
 
   yearSet.forEach(year =>
-    posts.push(createArchive(year, post => post.frontmatter.permalink.startsWith(`/${year}`), { year }))
+    posts.push(createArchive(year, post => post.data.permalink.startsWith(`/${year}`), { year }))
   );
 
   return posts;
 }
 
-const { Content, posts, year, month, day } = Astro.props
+const { post, posts, year, month, day } = Astro.props
 ---
 
-{Content && <Content />}
+{post && <BlogPost post={post} />}
 
 {posts && year && !month && !day && <YearArchive posts={posts} year={year} />}
 {posts && year && month && !day && <MonthArchive posts={posts} year={year} month={month} />}

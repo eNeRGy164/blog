@@ -11,8 +11,9 @@ const {
   showTags = true,
   inList = false,
 } = Astro.props;
-const { title, author, date, permalink, excerpt, tags, image } = page.frontmatter;
-const hasMoreTag = page.compiledContent().includes("<!--more-->");
+const { title, author, date, permalink, excerpt, tags, image } = page.data;
+const content = page.rendered.html;
+const hasMoreTag = content.includes("<!--more-->");
 const showPreview = articlePreview && hasMoreTag;
 
 const sortedTags = Array.from(new Set(tags as string[])).sort((a, b) =>
@@ -109,7 +110,7 @@ if (image != undefined) {
     {
       !showPreview && (
         <div class="entry" itemprop="articleBody text">
-          <Fragment set:html={page.compiledContent()} />
+          <Fragment set:html={content} />
         </div>
       )
     }
@@ -118,7 +119,7 @@ if (image != undefined) {
         <div class="entry">
           <div itemprop="abstract">
             <Fragment
-              set:html={page.compiledContent().split("<!--more-->")[0]}
+              set:html={content.split("<!--more-->")[0]}
             />
           </div>
           <a href={permalink} class="more-link">

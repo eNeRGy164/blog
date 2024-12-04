@@ -3,11 +3,8 @@ import BaseHead from "@/components/BaseHead.astro";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import Sidebar from "@/components/Sidebar.astro";
-import { sortedPosts } from "@/js/util";
 
 export interface Props { title: string; description: string; author: string, classes?: string[]; mainEntry?: boolean; }
-
-const allPosts = sortedPosts(await Astro.glob('../posts/*.md'))
 
 const { title, description, author, classes = [], mainEntry = false } = Astro.props;
 ---
@@ -31,7 +28,7 @@ const { title, description, author, classes = [], mainEntry = false } = Astro.pr
       <Header mainEntry={mainEntry} />
       <slot />
       <Sidebar />
-      <Footer posts={allPosts} />
+      <Footer />
     </div>
     <noscript><div><img referrerpolicy="no-referrer-when-downgrade" src="https://piwik.hompus.nl/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></div></noscript>
   </body>

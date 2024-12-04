@@ -2,10 +2,11 @@
 import BasePageLayout from "@/layouts/BasePageLayout.astro";
 import WPArticleSummary from "@/components/WPArticleSummary.astro";
 import PageNav from "@/components/PageNav.astro";
+import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_AUTHOR } from "@/config.ts";
 import { sortedPosts } from "@/js/util.js";
 
-const posts = sortedPosts(await Astro.glob("@/posts/*.md"));
+const posts = sortedPosts(await getCollection('posts'));
 ---
 
 <BasePageLayout
@@ -36,5 +37,5 @@ const posts = sortedPosts(await Astro.glob("@/posts/*.md"));
         ))
     }
   </main>
-  <PageNav {posts} page="1" />
+  <PageNav page="1" />
 </BasePageLayout>

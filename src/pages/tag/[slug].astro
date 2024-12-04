@@ -3,15 +3,19 @@ import BasePageLayout from '@/layouts/BasePageLayout.astro';
 import ListItem from '@/components/ListItem.astro';
 import { urlifyToken, getTagsWithPosts } from '@/js/util.js'
 import { SITE_TITLE, SITE_AUTHOR } from '@/config.ts'
+import { getCollection } from 'astro:content';
 
-export interface Frontmatter { date: string; permalink: string; title: string; excerpt: string; updated?: string | null; }
-export interface Post { frontmatter: Frontmatter; }
-export interface Props { posts: Post[]; tag: string; }
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  tag: string;
+  posts: CollectionEntry<'posts'>[];
+}
 
 const { posts } = Astro.props;
 
 export async function getStaticPaths() {
-  const tagsMap = getTagsWithPosts(await Astro.glob('../../posts/*.md'));
+  const tagsMap = getTagsWithPosts(await getCollection('posts'));
   
   return Array.from(tagsMap.entries()).map(([tag, tagPosts]) => ({
     params: { 

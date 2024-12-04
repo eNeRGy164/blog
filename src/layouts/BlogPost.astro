@@ -4,42 +4,34 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Sidebar from "@/components/Sidebar.astro";
 import WPArticleSummary from "@/components/WPArticleSummary.astro";
-import { sortedPosts } from "@/js/util.js";
 import RelatedPosts from "@/components/RelatedPosts.astro";
 
-interface Frontmatter {
-  title: string;
-  description: string;
-  excerpt: string;
-  date: string;
-  updated?: string;
-  author: string;
-  categories: string[];
-  tags: string[];
-  permalink: string;
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
 }
 
-const posts = sortedPosts(await Astro.glob("../posts/*.md"));
-const { frontmatter } = Astro.props;
-const { title, description, excerpt, date, updated, author, categories, tags, permalink } = frontmatter as Frontmatter;
+const { post } = Astro.props;
+const { data } = post;
 
-const pageDescription = excerpt == undefined ? description : excerpt.replaceAll(/[\r\n]{1,2}/g, " ").trim();
+const pageDescription = data.excerpt.replaceAll(/[\r\n]{1,2}/g, " ").trim();
 ---
 
 <html lang="en-US">
   <head>
     <BaseHead
-      title={title}
+      title={data.title}
       description={pageDescription}
-      author={author}
-      article={{ published: date, updated: updated ?? date, sections: categories, tags: tags }}
+      author={data.author}
+      article={{ published: data.date, updated: data.updated ?? data.date, sections: data.categories ?? [], tags: data.tags ?? [] }}
     />
   </head>
   <body itemscope itemtype="http://schema.org/ItemPage" id="body">
     <meta itemprop="inLanguage" content="en-US" />
     <link itemprop="url" href={Astro.url} />
-    <meta itemprop="name" content={title} />
-    <meta itemprop="lastReviewed" content={updated ?? date} />
+    <meta itemprop="name" content={data.title} />
+    <meta itemprop="lastReviewed" content={(data.updated ?? data.date).toISOString()} />
     <div class="skip-content"><a href="#content">Skip to content</a></div>
     <div id="wrapper">
       <Header />
@@ -49,12 +41,12 @@ const pageDescription = excerpt == undefined ? description : excerpt.replaceAll(
         itemscope
         itemtype="http://schema.org/BlogPosting"
         itemref="author"
-        itemid={permalink}>
-        <WPArticleSummary page={Astro.props} />
+        itemid={data.permalink}>
+        <WPArticleSummary page={post} />
       </main>
-      <RelatedPosts {frontmatter} posts={[...posts]} />
+      <RelatedPosts {post} />
       <Sidebar />
-      <Footer posts={[...posts]} />
+      <Footer />
     </div>
     <noscript><div><img referrerpolicy="no-referrer-when-downgrade" src="https://piwik.hompus.nl/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></div></noscript>
   </body>

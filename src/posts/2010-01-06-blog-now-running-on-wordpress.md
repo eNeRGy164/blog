@@ -8,7 +8,7 @@ excerpt: >
 layout: ../layouts/BlogPost.astro
 permalink: /2010/01/06/blog-now-running-on-wordpress/
 image: /wp-content/uploads/2010/01/post-61-thumnail-1.png
-categories:
+categories: []
 tags:
   - Blog
   - Plugin

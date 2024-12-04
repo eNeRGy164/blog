@@ -4,9 +4,9 @@ import ListItem from '@/components/ListItem.astro'
 import { SITE_TITLE, SITE_AUTHOR } from '../config.ts'
 import moment from 'moment'
 
-export interface Frontmatter { date: string; permalink: string; title: string; excerpt: string; updated?: string | null; }
-export interface Post { frontmatter: Frontmatter; }
-export interface Props { posts: Post[]; year: string; month: string; day: string; }
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { posts: CollectionEntry<'posts'>[]; year: string; month: string; day: string; }
 
 const { posts, year, month, day } = Astro.props
 
@@ -20,7 +20,7 @@ const description = `Archive for ${date.format('MMMM Do[,] yyyy')}`;
   author={SITE_AUTHOR}
   classes={['archive']}
 >
-<main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/CollectionPage" itemref="author">
+  <main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/CollectionPage" itemref="author">
     <div class="post-box page-box">
       <header class="post-header">
         <div class="meta">

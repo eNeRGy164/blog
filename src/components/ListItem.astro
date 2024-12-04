@@ -1,29 +1,31 @@
 ---
 import moment from 'moment';
 
-export interface Frontmatter { date: string; permalink: string; title: string; excerpt: string; updated?: string | null; }
-export interface Post { frontmatter: Frontmatter; }
-export interface Props { post: Post }
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
 
 const { post } = Astro.props;
-const publishedDate = moment(post.frontmatter.date);
+const publishedDate = moment(post.data.date);
 ---
 
 <li itemprop="itemListElement" itemscope itemtype="http://schema.org/BlogPosting" itemref="author">
   <meta itemprop="inLanguage" content="en-US">
-  <meta itemprop="copyrightYear" content={publishedDate.year().toString()} />
-  {post.frontmatter.updated && <meta itemprop="dateModified" content={post.frontmatter.updated} />}
+  <meta itemprop="copyrightYear" content={publishedDate.year().toString()}>
+  {post.data.updated && <meta itemprop="dateModified" content={post.data.updated.toISOString()}>}
   
   <div class="excerpt" itemprop="abstract">
-    {post.frontmatter.excerpt}
+    {post.data.excerpt}
   </div>
   
-  <a itemprop="url" href={post.frontmatter.permalink.replace(/\/+$/, '')} rel="bookmark" title={post.frontmatter.title}>
+  <a itemprop="url" href={post.data.permalink.replace(/\/+$/, '')} rel="bookmark" title={post.data.title}>
     <span class="archdate">
-      <time datetime={post.frontmatter.date} itemprop="datePublished">
+      <time datetime={post.data.date.toISOString()} itemprop="datePublished">
         {publishedDate.format('DD MMM yyyy')}
       </time>
     </span>
-    <span itemprop="name headline">{post.frontmatter.title}</span>
+    <span itemprop="name headline">{post.data.title}</span>
   </a>
 </li>

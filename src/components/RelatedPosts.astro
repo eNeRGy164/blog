@@ -1,40 +1,35 @@
 ---
+import { getCollection } from "astro:content";
 import Fuse from "fuse.js";
 
-interface Frontmatter {
-  title: string;
-  tags?: string[] | null;
-  categories?: string[] | null;
-  permalink: string;
-  image?: string;
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
 }
-interface Post {
-  frontmatter: Frontmatter;
-  compiledContent: () => string;
-}
-interface ProcessedPost extends Frontmatter {
+
+interface ProcessedPost extends CollectionEntry<'posts'> {
   body: string;
 }
 interface RelatedPost extends ProcessedPost {
   image: string;
 }
-interface Props {
-  frontmatter: Frontmatter;
-  posts: Post[];
-}
 
-const { frontmatter, posts }: Props = Astro.props;
+const { post } = Astro.props;
+const { data } = post;
 
-const processedPosts: ProcessedPost[] = posts.map((post) => {
-  return {
-    title: post.frontmatter.title,
-    body: post.compiledContent(),
-    tags: post.frontmatter.tags,
-    categories: post.frontmatter.categories,
-    permalink: post.frontmatter.permalink,
-    image: post.frontmatter.image,
-  };
-});
+const posts = await getCollection("posts");
+
+const processedPosts: ProcessedPost[] = posts.map((post) => (
+  {
+    title: post.data.title,
+    body: post.rendered?.html,
+    tags: post.data.tags,
+    categories: post.data.categories,
+    permalink: post.data.permalink,
+    image: post.data.image,
+  }
+));
 
 const fuse = new Fuse(processedPosts, {
   keys: ["tags", "categories", "title", "body"],
@@ -47,12 +42,12 @@ const fuse = new Fuse(processedPosts, {
 
 let results: RelatedPost[] | null = null;
 
-if (frontmatter.tags != null && frontmatter.categories != null) {
-  const searchValue = `${frontmatter.tags.join(" ")} ${frontmatter.categories.join(" ")}`;
+if (data.tags != null && data.categories != null) {
+  const searchValue = `${data.tags.join(" ")} ${data.categories.join(" ")}`;
 
   results = fuse
     .search(searchValue, { limit: 4 })
-    .filter((result) => result.item.permalink !== frontmatter.permalink)
+    .filter((result) => result.item.permalink !== data.permalink)
     .slice(0, 3)
     .map((result) => ProcessThumbnail(result.item));
 }

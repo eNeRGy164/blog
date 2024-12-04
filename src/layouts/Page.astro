@@ -1,0 +1,88 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Sidebar from "@/components/Sidebar.astro";
+import moment from "moment";
+import PostFooter from "@/components/PostFooter.astro";
+
+const { content } = Astro.props;
+const { title, author, excerpt, date, updated, categories, tags, permalink } = content;
+
+const pageDescription = excerpt.replaceAll(/[\r\n]{1,2}/g, " ").trim();
+const publishedDate = moment(new Date(date));
+
+const Content = await Astro.props.compiledContent();
+---
+
+<html lang="en-US">
+  <head>
+    <BaseHead
+      title={title}
+      description={pageDescription}
+      author={author}
+      article={{ published: new Date(date), updated: new Date(updated ?? date), sections: categories ?? [], tags: tags ?? [] }}
+    />
+  </head>
+  <body itemscope itemtype="http://schema.org/ItemPage" id="body">
+    <meta itemprop="inLanguage" content="en-US" />
+    <link itemprop="url" href={Astro.url} />
+    <meta itemprop="name" content={title} />
+    <meta itemprop="lastReviewed" content={(updated ?? date)} />
+    <div class="skip-content"><a href="#content">Skip to content</a></div>
+    <div id="wrapper">
+      <Header />
+      <main
+        id="content"
+        itemprop="mainEntity"
+        itemscope
+        itemtype="http://schema.org/BlogPosting"
+        itemref="author"
+        itemid={permalink}>
+        <div class="post-box">
+          <article>
+            <link itemprop="mainEntityOfPage" href={permalink.replace(/\/+$/, "")} />
+            <header class="post-header">
+              <div class="meta">
+                <time class="published" datetime={date} itemprop="datePublished"
+                  >{publishedDate.format("MMM D")}
+                  {
+                    publishedDate.year() < moment().year() &&
+                      publishedDate.format("yyyy")
+                  }</time
+                >
+                <span>/ {author}</span>
+              </div>
+              <h1>
+                <a href={permalink.replace(/\/+$/, "")} rel="bookmark" itemprop="url">
+                  <span itemprop="name headline">{title}</span>
+                </a>
+              </h1>
+            </header>
+            <div class="excerpt" itemprop="abstract">
+              {excerpt}
+            </div>
+            <div class="more-link">
+              <span
+                itemprop="potentialAction"
+                itemscope
+                itemtype="https://schema.org/ReadAction"
+              >
+                <a href={permalink} itemprop="url"
+                  ><span itemprop="name">Full article…</span></a
+                >
+              </span>
+            </div>
+            <div class="entry" itemprop="articleBody text">
+              <Fragment set:html={Content} />
+            </div>
+            <PostFooter />
+          </article>
+        </div>
+      </main>
+      <Sidebar />
+      <Footer />
+    </div>
+    <noscript><div><img referrerpolicy="no-referrer-when-downgrade" src="https://piwik.hompus.nl/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" /></div></noscript>
+  </body>
+</html>

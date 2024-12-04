@@ -1,10 +1,10 @@
 ---
 id: 26
-layout: ../layouts/BlogPost.astro
+layout: ../layouts/Page.astro
 title: About
 author: Michaël Hompus
 permalink: /about/
-description: >
+excerpt: >
     Meet Michaël Hompus, a passionate developer, architect, and Microsoft MVP from the Netherlands, who loves sharing his knowledge and expertise in Microsoft technologies.
 date: 2022-09-26T22:59:59.790Z
 updated: 2023-04-24T04:01:58+02:00

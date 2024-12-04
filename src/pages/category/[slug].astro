@@ -4,10 +4,10 @@ import ListItem from '@/components/ListItem.astro'
 import { urlifyToken, sortedPosts } from '@/js/util.js'
 import { SITE_AUTHOR, SITE_TITLE } from '@/config.ts'
 import menuData from "@/config/main-menu.yaml";
+import { getCollection } from 'astro:content';
 
-export interface Frontmatter { date: string; permalink: string; title: string; excerpt: string; updated?: string | null; categories: string[]; }
-export interface Post { frontmatter: Frontmatter; }
-export interface Props { posts: Post[]; category: string; }
+import type { CollectionEntry } from 'astro:content';
+
 interface SubMenuItem { title: string; link: string; }
 interface MenuItem { title: string; link: string; submenu?: SubMenuItem[]; }
 interface MenuData { menu: MenuItem[]; }
@@ -40,7 +40,7 @@ export const buildCategoryMap = (menu: MenuItem[]) => {
 export const categoryMap = buildCategoryMap(typedMenuData.menu);
 
 export async function getStaticPaths() {
-  const posts: Post[] = sortedPosts(await Astro.glob('../../posts/*.md'));
+  const posts: CollectionEntry<'posts'>[] = sortedPosts(await getCollection('posts'));
 
   // Build category map dynamically from menuData
   const categoryMap = buildCategoryMap(typedMenuData.menu);
@@ -50,7 +50,7 @@ export async function getStaticPaths() {
 
   // Add categories from posts
   posts.forEach((post) => {
-    post.frontmatter.categories?.map(urlifyToken).forEach((category) => {
+    post.data.categories?.map(urlifyToken).forEach((category) => {
       allCategories.add(category);
 
       // Ensure subcategories are mapped to their parents dynamically
@@ -66,7 +66,7 @@ export async function getStaticPaths() {
   return Array.from(allCategories).map((cat) => {
     const includedCategories = categoryMap[cat] || [cat]; // Include subcategories if available
     const categoryPosts = posts.filter((post) =>
-      post.frontmatter.categories?.map(urlifyToken).some((c) => includedCategories.includes(c))
+      post.data.categories?.map(urlifyToken).some((c) => includedCategories.includes(c))
     );
 
     return {

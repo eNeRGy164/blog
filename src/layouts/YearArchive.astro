@@ -3,9 +3,9 @@ import BasePageLayout from './BasePageLayout.astro'
 import ListItem from '@/components/ListItem.astro'
 import { SITE_TITLE, SITE_AUTHOR } from '../config.ts'
 
-export interface Frontmatter { date: string; permalink: string; title: string; excerpt: string; updated?: string | null; }
-export interface Post { frontmatter: Frontmatter; }
-export interface Props { posts: Post[]; year: string; }
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { posts: CollectionEntry<'posts'>[]; year: string; }
 
 const { posts, year } = Astro.props
 

@@ -1,7 +1,7 @@
 ---
-import { sortedPosts } from "@/js/util";
+import { getCollection } from 'astro:content';
 
-const posts = sortedPosts(await Astro.glob('../posts/*.md'))
+const posts = await getCollection('posts');
 
 const { page } = Astro.props;
 

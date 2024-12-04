@@ -4,9 +4,9 @@ import ListItem from '@/components/ListItem.astro'
 import { SITE_TITLE, SITE_AUTHOR } from '../config.ts'
 import moment from 'moment'
 
-export interface Frontmatter { date: string; permalink: string; title: string; excerpt: string; updated?: string | null; }
-export interface Post { frontmatter: Frontmatter; }
-export interface Props { posts: Post[]; year: string; month: string; }
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { posts: CollectionEntry<'posts'>[]; year: string; month: string; }
 
 const { posts, year, month } = Astro.props
 

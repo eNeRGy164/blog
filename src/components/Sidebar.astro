@@ -1,8 +1,9 @@
 ---
 import { urlifyToken, sortedPosts, getTagsWithPosts } from "@/js/util.js";
+import { getCollection } from 'astro:content';
 
-const unsortedPosts = await Astro.glob("../posts/*.md");
-const posts: { frontmatter: { permalink: string; title: string } }[] = sortedPosts(unsortedPosts);
+const unsortedPosts = await getCollection('posts')
+const posts: { data: { permalink: string; title: string } }[] = sortedPosts(unsortedPosts);
 
 function generateTagCloud() {
   const tagsMap = getTagsWithPosts(unsortedPosts);
@@ -79,8 +80,8 @@ const tags = generateTagCloud();
           {
             posts.slice(0, 5).map((post) => (
               <li>
-                <a href={post.frontmatter.permalink} target="_self">
-                  {post.frontmatter.title}
+                <a href={post.data.permalink} target="_self">
+                  {post.data.title}
                 </a>
               </li>
             ))
