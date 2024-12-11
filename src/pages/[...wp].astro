@@ -11,8 +11,7 @@ import type { CollectionEntry } from 'astro:content';
 export interface Params { wp: string; }
 export interface Posts { params: Params; props: CollectionEntry<'posts'>; }
 export interface Page { params: Params; props: CollectionEntry<'posts'>; }
-export interface Props { post?: CollectionEntry<'posts'>; posts: CollectionEntry<'posts'>[]; year: string; month?: string | null; day?: string | null; }
-export interface Archive { params: Params; props: Props; }
+export interface Archive { params: Params; props: { posts?: CollectionEntry<'posts'>[]; year: string; month?: string | null; day?: string | null; }; }
 
 export async function getStaticPaths(): Promise<(Page | Archive)[]> {
   const postFiles: CollectionEntry<'posts'>[] = sortedPosts(await getCollection('posts'));
@@ -67,10 +66,15 @@ export async function getStaticPaths(): Promise<(Page | Archive)[]> {
   return posts;
 }
 
-const { post, posts, year, month, day } = Astro.props
+let post;
+const { posts, year, month, day } = Astro.props
+
+if (posts == null) {
+  post = Astro.props as CollectionEntry<'posts'>;
+}
 ---
 
-{post && <BlogPost post={post} />}
+{post && <BlogPost {post} />}
 
 {posts && year && !month && !day && <YearArchive posts={posts} year={year} />}
 {posts && year && month && !day && <MonthArchive posts={posts} year={year} month={month} />}
