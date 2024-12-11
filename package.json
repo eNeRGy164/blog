@@ -12,13 +12,13 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
-    "@astrojs/rss": "4.0.9",
+    "@astrojs/rss": "4.0.10",
     "@astrojs/sitemap": "3.2.1",
-    "astro": "5.0.2",
+    "astro": "5.0.5",
     "astro-expressive-code": "0.38.3",
-    "entities": "4.5.0",
+    "entities": "5.0.0",
     "remark-gfm": "4.0.0",
-    "typescript": "5.6.3"
+    "typescript": "5.7.2"
   },
   "devDependencies": {
     "@expressive-code/plugin-line-numbers": "0.38.3",
@@ -26,7 +26,7 @@
     "fuse.js": "7.0.0",
     "moment": "2.30.1",
     "node-fetch": "3.3.2",
-    "prettier": "3.3.3",
+    "prettier": "3.4.2",
     "prettier-plugin-astro": "0.14.1",
     "rehype-accessible-emojis": "0.3.2",
     "rehype-external-links": "3.0.0",
