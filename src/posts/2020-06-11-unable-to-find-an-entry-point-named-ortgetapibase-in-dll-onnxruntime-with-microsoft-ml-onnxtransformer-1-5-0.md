@@ -25,6 +25,8 @@ tags:
   - Machine Learning
   - ML.NET
   - ONNX
+
+# cSpell:ignore MKLML
 ---
 
 When trying to have an application work with an ONNX model I downloaded from the Microsoft [Custom Vision](https://www.customvision.ai/) portal,

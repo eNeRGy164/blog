@@ -23,7 +23,7 @@ tags:
   - x64
   - x86
 
-# Spell:ignore VS2008SPLEVEL, VS2008CSPROJSUPPORT,VCSEXP2008SPLEVEL, DEXPLORE, VCSHARP90EXPRESS
+# Spell:ignore VS2008SPLEVEL, VS2008CSPROJSUPPORT,VCSEXP2008SPLEVEL, DEXPLORE, VCSHARP90EXPRESS, VS90DEVENV
 ---
 
 With the launch of Visual Studio 2010 this week a lot of people will start upgrading to the new version.
