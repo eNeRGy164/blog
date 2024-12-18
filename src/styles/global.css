@@ -446,8 +446,9 @@ figure + P > small,
 pre + p > small,
 div + p > small {
   line-height: normal;
-  margin-top: -10px;
+  margin-top: calc(var(--spacing-small) * -1);
   display: block;
+  font-style: italic;
 }
 
 a + p > small {
