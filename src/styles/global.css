@@ -719,6 +719,7 @@ article > .more-link,
 }
 
 #related-posts li {
+  width: 202px;
   border: 1px solid rgba(127, 127, 127, .1);
 }
 
