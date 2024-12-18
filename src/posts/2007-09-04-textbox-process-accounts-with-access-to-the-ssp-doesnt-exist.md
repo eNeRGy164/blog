@@ -15,6 +15,8 @@ tags:
   - SSP
   - stsadm
   - WSS 3.0
+
+# cSpell:ignore editssp, sspname, enumssp
 ---
 
 I had a lot of trouble using impersonation with the PSI web services in Project Server 2007. I found some posts on the web suggesting that you need to add the account to the `Process Accounts with Access to the SSP` textbox, but guess what? That box was nowhere to be found!

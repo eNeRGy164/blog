@@ -15,14 +15,14 @@ layout: ../layouts/BlogPost.astro
 permalink: /2020/05/22/link-an-azure-web-app-to-a-container-registry-using-arm-templates/
 image: /wp-content/uploads/2020/05/post-1389-thumbnail.png
 categories:
-    - Azure
+  - Azure
 tags:
-    - ARM
-    - Azure
-    - Container Registry
-    - Linux
-    - Template
-    - Web App
+  - ARM
+  - Azure
+  - Container Registry
+  - Linux
+  - Template
+  - Web App
 ---
 
 Using Docker images for your Azure web app is not brand-new functionality.
@@ -74,7 +74,7 @@ Next, we link the Docker image we want to use. This is set with the `linuxFxVers
 But, unless you deploy in the same resource group as the container registry, this will fail.
 
 If you use the Azure portal to create a web app with a connection to your container registry,
-you can see three *appsettings* on the app that contain the connection properties with a URL,
+you can see three _appsettings_ on the app that contain the connection properties with a URL,
 a username, and a password.
 
 ## The solution
@@ -110,7 +110,7 @@ So, we will have to settle for using the Resource Manager to get the details of 
 
 For this to work we need a [`resourceId`](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions-resource#resourceid) pointing to the container registry.
 
-Besides the required `resourceType` and `resourceName` of the container registry, you will need to supply the `resourceGroupName` and, if the registry is in another subscription, the `subsriptionId`.
+Besides the required `resourceType` and `resourceName` of the container registry, you will need to supply the `resourceGroupName` and, if the registry is in another subscription, the `subscriptionId`.
 
 First, we add variables (or parameters) to build the `resourceId`.
 

@@ -22,6 +22,8 @@ tags:
   - Search
   - SharePoint 2007
   - Windows Server 2008
+
+# Spell:ignore mysite
 ---
 
 I have a clean install on the latest and greatest: Windows Server 2008, SQL Server 2008 and MOSS 2007 SP1 with all updates.

@@ -19,6 +19,8 @@ tags:
   - Linux
   - Windows Server 2008
   - Windows Server 2008R2
+
+# cSpell:ignore kernel-xen-devel, seth0
 ---
 
 I am running Linux in Hyper-V VMs since the launch of the Windows Server 2008 RTM.
@@ -35,7 +37,7 @@ So, here is the list of steps to install CentOS with the integration components.
    (I use the x86_64 version).
 2. Create a VM, I suggest:
 
-   * &gt;400MB memory
+   * >400MB memory
    * Add a Legacy Network Adapter (connect to network)
    * Add a Network Adapter (connect to network)
 

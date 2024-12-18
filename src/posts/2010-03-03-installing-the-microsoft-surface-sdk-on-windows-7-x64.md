@@ -21,6 +21,8 @@ tags:
   - Vista
   - Windows 7
   - x64
+
+# cSpell:ignore SurfaceSDKWE
 ---
 
 If you want to develop for the **Microsoft Surface** (the table, not the tablet) you need a Surface device.

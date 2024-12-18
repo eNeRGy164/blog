@@ -13,6 +13,8 @@ categories:
 tags:
   - Project Server 2007
   - SDK
+
+# cSpell:ignore WPRD_UID
 ---
 
 I was browsing through the Project Server 2007 [`TimePeriodDataSet.TimePeriodsRow` members](https://learn.microsoft.com/previous-versions/office/developer/office-2007/ms479524(v=office.12)) and found there were some empty entries in the SDK.

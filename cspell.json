@@ -1,0 +1,46 @@
+{
+  "version": "0.2",
+  "language": "en,nl",
+  "import": ["@cspell/dict-nl-nl/cspell-ext.json"],
+  "patterns": [
+    {
+      "name": "MARKDOWN-code-block",
+      "pattern": "/^([^\\S\\r\\n]*?`{3,}).*[\\s\\S]*?\\1/gm"
+    },
+    {
+      "name": "FRONTMATTER-permalink",
+      "pattern": "/permalink: [a-z0-9/-]+$/gm"
+    }
+  ],
+  "languageSettings": [
+    {
+      "languageId": "markdown",
+      "locale": "*",
+      "ignoreRegExpList": ["MARKDOWN-code-block", "FRONTMATTER-permalink"]
+    }
+  ],
+  "dictionaries": ["custom-words"],
+  "dictionaryDefinitions": [
+    {
+      "name": "custom-words",
+      "path": ".cspell/custom-words.txt",
+      "addWords": true
+    }
+  ],
+  "allowCompoundWords": true,
+  "ignorePaths": [
+    ".cspell/**",
+    "dist/**",
+    "**/*.css",
+    "package*.json",
+    "*.js",
+    "*.mjs",
+    "tsconfig.json",
+    "**/vscode-theme.jsonc",
+    "**/acronyms.yaml"
+  ],
+  "ignoreWords": [
+    "loopback",
+    "technologies"
+  ]
+}
