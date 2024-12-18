@@ -91,7 +91,7 @@ async function processImage(sourceFilePath, requestedWidth, requestedHeight, isW
   const sharpInstance = sharp(sourceFilePath, { pages: -1 }).withMetadata(false);
 
   if (requestedWidth && requestedHeight) {
-    sharpInstance.resize(requestedWidth, requestedHeight, { fit: "inside" });
+    sharpInstance.resize(requestedWidth, requestedHeight, { fit: "cover" });
   }
 
   let buffer;
