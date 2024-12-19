@@ -164,7 +164,7 @@ Now you have stored your connection string securely without it ever surfacing ou
 If you use access policies so your application reads the connection string directly from Key Vault,
 you do not have to store your connection string anywhere where it is readable like in a `web.config` file.
 
-### Source code
+## Source code
 
 I have created a GitHub Gist with a full working
 [Key Vault deployment template sample](https://gist.github.com/eNeRGy164/19c9dea85994526052e666f4d0e734c7) for reference.

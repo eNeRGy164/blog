@@ -117,7 +117,7 @@ az network private-endpoint create --resource-group "hompus-vnet-we-rg" \
                                    --subnet "default"
 ```
 
-### Creating the private DNS zone
+## Creating the private DNS zone
 
 When any application connected to the private network resolves the DNS name
 `hompus-db-group.database.windows.net` the response will contain the external IP-address.

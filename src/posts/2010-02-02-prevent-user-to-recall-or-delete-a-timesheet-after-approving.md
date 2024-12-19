@@ -24,7 +24,7 @@ After discussing the issue with Microsoft, they gave us a workaround which solve
 
 <!--more-->
 
-### The problem
+## The problem
 
 After a user has submitted a timesheet and the timesheet manager approves this timesheet as well, the data is exported to an external system for invoicing.
 
@@ -34,7 +34,7 @@ It is even possible to delete the timesheet.
 Our first thought was to close the period of the submitted timesheets.
 But this only works partially. The user cannot modify the timesheet anymore, but is still able to retract and delete it. Not a very solid solution.
 
-### The cause
+## The cause
 
 After discussing the issue with Microsoft, we got this response:
 
@@ -42,7 +42,7 @@ After discussing the issue with Microsoft, we got this response:
 
 So, this is pretty much "*by design*".
 
-### The solution
+## The solution
 
 Lucky enough for us the answer of Microsoft did not stop there:
 

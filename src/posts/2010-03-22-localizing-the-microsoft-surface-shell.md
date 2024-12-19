@@ -35,11 +35,11 @@ This article will summarize the different steps to localize the Surface shell.
 
 <!--more-->
 
-### Microsoft Surface Device vs. Microsoft Surface Simulator
+## Microsoft Surface Device vs. Microsoft Surface Simulator
 
 The settings work for both the Microsoft Surface device and the "Surface Simulator".
 
-#### Note for x64 machines (Running the SDK)
+### Note for x64 machines (Running the SDK)
 
 If you are running the Surface Simulator on a x64 machine (see my post about "[Installing the Microsoft Surface SDK on Windows 7 x64](/2010/03/03/installing-the-microsoft-surface-sdk-on-windows-7-x64)") the registry entries are slightly different.
 
@@ -57,7 +57,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Surface\v1.0
 
 All my examples in this post will use the x86 path.
 
-### Setting the Surface Shell interface language
+## Setting the Surface Shell interface language
 
 With service pack 1, the shell now supports 10 UI languages.
 
@@ -87,7 +87,7 @@ To set the required language you need to edit the registry.
 
 ![Surface button displaying "Alles sluiten" (Dutch) as caption.](/wp-content/uploads/2010/03/image5.png "Close button with caption <q>Alles sluiten</q> in Dutch (localized).")
 
-### Setting the Surface Keyboard mapping
+## Setting the Surface Keyboard mapping
 
 There are 19 supported keyboard mappings.
 
@@ -127,7 +127,7 @@ To set the desired keyboard mapping you need to edit the registry.
 
 ![Keyboard using Korean mapping.](/wp-content/uploads/2010/03/keyboard-localized-in-korean.png "Surface Keyboard with Korean mapping (localized).")
 
-### Setting the Surface Date and Number formatting
+## Setting the Surface Date and Number formatting
 
 For date and number formatting you can use all locales supported by the .NET Framework. The complete list can be found on the [Language Identifier Constants and Strings](https://learn.microsoft.com/windows/win32/intl/language-identifier-constants-and-strings) MSDN page.
 

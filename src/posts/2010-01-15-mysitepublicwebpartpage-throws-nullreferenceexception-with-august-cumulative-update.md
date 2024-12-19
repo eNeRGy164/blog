@@ -21,7 +21,7 @@ tags:
   - SharePoint 2007
 ---
 
-### The problem
+## The problem
 
 With the introduction of the **August Cumulative Update for SharePoint 2007** (KB973399) we encountered `System.NullReferenceException: Object reference not set to an instance of an object.` on all pages inheriting from [`MySitePublicWebPartPage`](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms547244(v=office.15)).
 
@@ -31,7 +31,7 @@ With the introduction of the **August Cumulative Update for SharePoint 2007** (K
 
 As can be seen in the stack trace the error occurs from a call by the [`ProfilePropertyImage` control](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms565011(v=office.15)), which is on the page by default.
 
-### The cause
+## The cause
 
 This call was not present in the control prior to the august update, so let’s take a look at the **description of the update** (KB973409).
 
@@ -39,7 +39,7 @@ This call was not present in the control prior to the august update, so let’s 
 
 So, this explains why the control was changed, it now looks if the image should be rendered for the current visitor of the page.
 
-### The reason
+## The reason
 
 We already know the problem starts inside the ProfilePropertyImage which is calling the [`MySitePublicWebPartPage.GetEffectivePrivacy` method](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms499526(v=office.15)).
 This method reads the value of the [`MySitePublicWebPartPage.PrivacySelected` property](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms549073(v=office.15)).
@@ -58,7 +58,7 @@ Analysis of the code shows only the [`AsSeenBy` class](https://learn.microsoft.c
 As this control is on the `person.aspx` page by default, the property is set and that page works fine.
 As we do not have this control on our page, we get a `NullReferenceException`.
 
-### The solution
+## The solution
 
 If you are bound to the August release the solution is simple: add the `AsSeenBy` control to your page.
 

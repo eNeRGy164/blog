@@ -104,7 +104,7 @@ CloudBlobContainer container = blobClient.GetContainerReference(FolderName);
 container.CreateIfNotExists();
 ```
 
-#### Creating an entity directory
+### Creating an entity directory
 
 Now we want to create a directory inside the container to store entity specific records.
 

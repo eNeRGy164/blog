@@ -25,7 +25,7 @@ He probably didn't know some of the hidden gems in SharePoint.
 
 <!--more-->
 
-### Get the full URL
+## Get the full URL
 
 Sometimes you need the full URL and only have the relative one.
 For example, when opening a new [`SPSite`](https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint2003/dd587403(v=office.11)) or when writing code in a [`SPNavigationProvider`](https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint-services/ms470908(v=office.12)).
@@ -51,7 +51,7 @@ SPUtility.GetFullUrl(SPContext.Current.Site, webUrl);
 // "http://localhosthttp://localhost/sub/default.aspx"
 ```
 
-### Check the type of URL
+## Check the type of URL
 
 The former example is nice, but you would still need to write code to check if the input already contains the full URL. Nope!
 
@@ -84,7 +84,7 @@ if (string.IsNullOrEmpty(webUrl) || SPUrlUtility.IsUrlRelative(webUrl))
 
 Now `webUrl` will always be the full URL.
 
-### URL concatenation
+## URL concatenation
 
 Ever did `web.ServerRelativeUrl + "/something"` and found out it did work nicely except it start doing something really weird on your root web?
 On the `rootweb` the relative URL is `/`, and this results in the URL `//something` which on its own turn gets translated to `http://something`, and that URL doesn't exist (most of the time).

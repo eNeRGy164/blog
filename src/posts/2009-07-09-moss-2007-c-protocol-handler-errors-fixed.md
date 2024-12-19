@@ -32,7 +32,7 @@ Both solutions are posted in the discussions and/or submitted as patch and I wil
 
 <!--more-->
 
-### Running on x64
+## Running on x64
 
 The first problem is the code not working in x64 environments.
 Since we are talking to native code, there are a lot of [structs](https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/struct) in the code.
@@ -48,7 +48,7 @@ Lucky enough, the following is written in the remarks section:
 
 This solves our problem! Now the same code runs fine on both x86 and x64 systems.
 
-### Using Security Descriptors
+## Using Security Descriptors
 
 One of the most important features of SharePoint search is security trimming.
 To make this possible an [ACL Structure](https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-acl) is stored with the crawled item in the index database.

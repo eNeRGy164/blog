@@ -28,7 +28,7 @@ In this article, I explain the reason behind this issue and how I resolved it by
 
 <!--more-->
 
-### The problem
+## The problem
 
 When I connect to the same development machine repeatedly using RDP,
 I want to store my credentials for easier access.
@@ -43,7 +43,7 @@ After entering my password 1387 times in the past year,
 I started searching for the reason why it does not use my stored credentials.
 As it turns out this is because of a local policy.
 
-### The solution
+## The solution
 
 1. Start <kbd>GPEdit.msc</kbd> and navigate to `Computer Configuration` > `Administrative Templates` > `System` > `Credentials Delegation`
 2. Open the policy `Allow Saved Credentials with NTLM-only Server Authentication`

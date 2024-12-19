@@ -55,7 +55,7 @@ I started searching if anyone has done this before.
 It looks like this is not the case, so seeing this as a challenge,
 I started working on my own solution.
 
-### Extracting all used addresses
+## Extracting all used addresses
 
 First you need to get every email address ever used by others as a recipient.
 
@@ -83,7 +83,7 @@ sort Maildir.dump | uniq -c | sort -k1nr | awk 'BEGIN {OFS = ";";} {print $1,$2}
 This allows you to open the file using Excel and remove all entries you don’t want to be an alias.  
 I counted 385 unique email addresses, too many to add manually.
 
-### Adding the aliases to a mailbox
+## Adding the aliases to a mailbox
 
 First, I configured and connected to Exchange Online using the "[Windows PowerShell to the Service](https://learn.microsoft.com/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps)" article.
 

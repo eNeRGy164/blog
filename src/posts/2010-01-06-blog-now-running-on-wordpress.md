@@ -23,7 +23,7 @@ I did consider SharePoint Server 2010 for hosting my blog, but the out-of-the-bo
 
 <!--more-->
 
-### Configuration
+## Configuration
 
 After trying some themes, I settled for the "Paperpunch Theme" by [The Theme Foundry](https://thethemefoundry.com/).
 

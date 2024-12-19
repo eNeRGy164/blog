@@ -50,7 +50,7 @@ CS0122: 'foo.bar.x' is inaccessible due to its protection level
 
 Now you have only one choice: make `x` public. Or maybe not?
 
-### The solution
+## The solution
 
 It is also possible to make your assembly share their internals with other assemblies. Add the following to you code (in `foo.bar`):
 

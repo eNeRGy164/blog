@@ -43,7 +43,7 @@ starting today with _branding_.
 
 <!--more-->
 
-### Branding
+## Branding
 
 You want the Bing for business search result to feel familiar for everybody in the company.
 Therefore, you can configure some settings that change the look and feel.
