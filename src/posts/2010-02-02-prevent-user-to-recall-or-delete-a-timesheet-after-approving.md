@@ -56,7 +56,7 @@ Lucky enough for us the answer of Microsoft did not stop there:
 >
 > After the flag is set to true then no action can be performed on the timesheet except by duly authorized system administrators for adjustments theoretically coming from the third-party system.
 
-I already knew about the [`TS_IS_PROCESSED` property](https://learn.microsoft.com/previous-versions/office/ms507406(v=office.14)) as it is described by the **Project Server SDK**.
+I already knew about the [`TS_IS_PROCESSED` property][TS_IS_PROCESSED_PROPERTY] as it is described by the **Project Server SDK**.
 But the description there only states:
 
 > Indicates whether the timesheet is finalized and should not be changed.
@@ -66,3 +66,5 @@ But the description there only states:
 The, important, missing piece of information is that this field is supposed to be altered by custom code instead of Project Server itself.
 
 This allows us to lock the timesheet when it is appropriate to do so.
+
+[TS_IS_PROCESSED_PROPERTY]: https://learn.microsoft.com/previous-versions/office/ms507406(v=office.14)

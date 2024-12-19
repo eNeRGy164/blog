@@ -34,8 +34,8 @@ I made an overview so nobody has to hardcode those pesky GUIDs, ContentTypeId’
 
 ## WSS/Core - Microsoft.SharePoint.SPBuiltInFieldId
 
-The [`SPBuiltInFieldId` class](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms435407(v=office.15)) contains 314 GUIDs for the default SharePoint fields.
-You can find them all on the [`SPBuiltInFieldId` fields](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms439470(v=office.15)) page, but I name some of the more common ones:
+The [`SPBuiltInFieldId` class][SP_BUILT_IN_FIELD_ID_CLASS] contains 314 GUIDs for the default SharePoint fields.
+You can find them all on the [`SPBuiltInFieldId` fields][SP_BUILT_IN_FIELD_ID_FIELDS] page, but I name some of the more common ones:
 
 * `Created`
 * `Created_x0020_By`
@@ -47,8 +47,8 @@ You can find them all on the [`SPBuiltInFieldId` fields](https://learn.microsoft
 
 ## WSS/Core - Microsoft.SharePoint.SPBuiltInContentTypeId
 
-The [`SPBuiltInContentTypeId` class](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms461338(v=office.15)) contains 34 content type IDs for the default SharePoint content types.
-You can find them all on the [`SPBuiltInContentTypeId` fields](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms434482(v=office.15)) page, but I name some of the more common ones:
+The [`SPBuiltInContentTypeId` class][SP_BUILT_IN_CONTENT_TYPE_ID_CLASS] contains 34 content type IDs for the default SharePoint content types.
+You can find them all on the [`SPBuiltInContentTypeId` fields][SP_BUILT_IN_CONTENT_TYPE_ID_FIELDS] page, but I name some of the more common ones:
 
 * `Announcement`
 * `Document`
@@ -58,9 +58,9 @@ You can find them all on the [`SPBuiltInContentTypeId` fields](https://learn.mic
 
 ## WSS/Core - Microsoft.SharePoint.SPListTemplateType
 
-The [`SPListTemplateType` enumeration](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms413878(v=office.15))
-is more commonly known and used but what’s more special about this enumeration is to use it in combination with the
-[`SPSite.GetCatalog` method](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms480807(v=office.15)).
+The [`SPListTemplateType` enumeration][SP_LIST_TEMPLATE_TYPE_ENUMERATION]
+is more commonly known and used but what's more special about this enumeration is to use it in combination with the
+[`SPSite.GetCatalog` method][GET_CATALOG_METHOD].
 
 With this method you can easily retrieve the `MasterPageCatalog` for the current site collection:
 
@@ -84,8 +84,8 @@ The enumerations contain four list template IDs for the default SharePoint catal
 
 ## MOSS - Microsoft.SharePoint.Publishing.FeatureIds
 
-The [`FeatureIds` class](https://learn.microsoft.comprevious-versions/office/sharepoint-server/ms583113(v=office.15)) contains 16 GUIDs for the MOSS publishing features.
-You can find them all on the [`FeatureIds` fields](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms559490(v=office.15)) page,
+The [`FeatureIds` class][FEATURE_IDS_CLASS] contains 16 GUIDs for the MOSS publishing features.
+You can find them all on the [`FeatureIds` fields][FEATURE_IDS_FIELDS] page,
 but I name the most common ones:
 
 * `Navigation`
@@ -125,8 +125,8 @@ Because this class is not documented I list all fields:
 
 ## Server - Microsoft.SharePoint.Publishing.FieldId
 
-The [`FieldId` class](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms498502(v=office.15)) contains 61 GUIDs for the publishing fields.
-You can find them all on the [`FieldId` properties](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms552092(v=office.15)) page,
+The [`FieldId` class][FIELD_ID_CLASS] contains 61 GUIDs for the publishing fields.
+You can find them all on the [`FieldId` properties][FIELD_ID_PROPERTIES] page,
 but I name some of the more common ones:
 
 * `Contact`
@@ -138,8 +138,8 @@ but I name some of the more common ones:
 
 ## Server - Microsoft.SharePoint.Publishing.ContentTypeId
 
-The [`ContentTypeId` class](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms584122(v=office.15)) contains 10 content type IDs for the publishing content types.
-You can find them all on the [`ContentTypeId` properties](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms500588(v=office.15)) page,
+The [`ContentTypeId` class][CONTENT_TYPE_ID_CLASS] contains 10 content type IDs for the publishing content types.
+You can find them all on the [`ContentTypeId` properties][CONTENT_TYPE_ID_PROPERTIES] page,
 but I name some of the more common ones:
 
 * `ArticlePage`
@@ -149,8 +149,8 @@ but I name some of the more common ones:
 
 ## MOSS - Microsoft.Office.Server.UserProfiles.PropertyConstants
 
-The [`PropertyConstants` class](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms564607(v=office.15)) contains 42 names of the standard user profile properties.
-You can find them all on the [`PropertyConstants` fields](https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms549392(v=office.15)) page,
+The [`PropertyConstants` class][PROPERTY_CONSTANTS_CLASS] contains 42 names of the standard user profile properties.
+You can find them all on the [`PropertyConstants` fields][PROPERTY_CONSTANTS_FIELDS] page,
 but I name some of the more common ones:
 
 * `BirthDay`
@@ -164,3 +164,18 @@ but I name some of the more common ones:
 * `Title`
 * `WorkEmail`
 * `WorkPhone`
+
+[SP_BUILT_IN_FIELD_ID_CLASS]: https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms435407(v=office.15)
+[SP_BUILT_IN_FIELD_ID_FIELDS]: https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms439470(v=office.15)
+[SP_BUILT_IN_CONTENT_TYPE_ID_CLASS]: https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms461338(v=office.15)
+[SP_BUILT_IN_CONTENT_TYPE_ID_FIELDS]: https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms434482(v=office.15)
+[SP_LIST_TEMPLATE_TYPE_ENUMERATION]: https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms413878(v=office.15)
+[GET_CATALOG_METHOD]: https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms480807(v=office.15)
+[FEATURE_IDS_CLASS]: https://learn.microsoft.comprevious-versions/office/sharepoint-server/ms583113(v=office.15)
+[FEATURE_IDS_FIELDS]: https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms559490(v=office.15)
+[FIELD_ID_CLASS]: https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms498502(v=office.15)
+[FIELD_ID_PROPERTIES]: https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms552092(v=office.15)
+[CONTENT_TYPE_ID_CLASS]: https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms584122(v=office.15)
+[CONTENT_TYPE_ID_PROPERTIES]: https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms500588(v=office.15)
+[PROPERTY_CONSTANTS_CLASS]: https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms564607(v=office.15)
+[PROPERTY_CONSTANTS_FIELDS]: https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms549392(v=office.15)

@@ -28,8 +28,8 @@ In this article I will show you how I did this.
 
 <!--more-->
 
-The users I have to query are stored in a `DataView` (represented by the variable `webUsers`) so that's my starting point.
-First, I have to create an instance of the [`UserProfileManager` class](https://learn.microsoft.com/previous-versions/office/developer/sharepoint-2007/ms499834(v=office.12)).
+The users I have to query are stored in a `DataView` (represented by the variable `webUsers`) so that is my starting point.
+First, I have to create an instance of the [`UserProfileManager` class][USER_PROFILE_MANAGER_CLASS].
 This is the connection with the User Profile Database.
 
 Then I iterate the `DataView` and `Cast` every item to the `row` variable.
@@ -38,8 +38,9 @@ Because it is an `object` and I need it multiple times I store it in a locale va
 
 One of the great things is that you are allowed to combine multiple `let`'s and `where` statements. So, every `AccountName` that is `null` or `empty` will be filtered out.
 
-If I would use the [`GetUserProfile` method](https://learn.microsoft.com/previous-versions/office/developer/sharepoint-2007/ms562764(v=office.12)) and pass an account which is not (yet) present in the profile database, this would result in an exception.
-That is why I first use a `where` query in combination with the [`UserExists` method](https://learn.microsoft.com/previous-versions/office/developer/sharepoint-2007/ms517538(v=office.12)).
+If I would use the [`GetUserProfile` method][GET_USER_PROFILE_METHOD] and pass an account which is not (yet) present in the profile database,
+this would result in an exception.
+That is why I first use a `where` query in combination with the [`UserExists` method][USER_EXISTS_METHOD].
 
 For readability, I use another `let` to store the value I need in the comparison.
 Now I can create an anonymous object with a `boolean` if the title was equal to `student`, and some other profile properties.
@@ -77,3 +78,7 @@ var students = from student in users
 
 Now, I can easily get all students and employees in different collections based on that boolean property.
 And never call the ProfileManager more than necessary.
+
+[USER_PROFILE_MANAGER_CLASS]: https://learn.microsoft.com/previous-versions/office/developer/sharepoint-2007/ms499834(v=office.12)
+[GET_USER_PROFILE_METHOD]: https://learn.microsoft.com/previous-versions/office/developer/sharepoint-2007/ms562764(v=office.12)
+[USER_EXISTS_METHOD]: https://learn.microsoft.com/previous-versions/office/developer/sharepoint-2007/ms517538(v=office.12)

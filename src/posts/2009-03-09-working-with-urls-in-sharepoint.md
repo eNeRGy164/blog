@@ -20,7 +20,7 @@ tags:
   - URI
 ---
 
-While working on a project with some existing code I noticed the developer did write large portions of code to get from an URL to a [SPList](https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint2003/dd587308(v=office.11)).
+While working on a project with some existing code I noticed the developer did write large portions of code to get from an URL to a [SPList][SP_LIST].
 He probably didn't know some of the hidden gems in SharePoint.
 
 <!--more-->
@@ -28,8 +28,8 @@ He probably didn't know some of the hidden gems in SharePoint.
 ## Get the full URL
 
 Sometimes you need the full URL and only have the relative one.
-For example, when opening a new [`SPSite`](https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint2003/dd587403(v=office.11)) or when writing code in a [`SPNavigationProvider`](https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint-services/ms470908(v=office.12)).
-For this you could use the [`SPUtility` class](https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint2003/dd587669(v=office.11)):
+For example, when opening a new [`SPSite`][SP_SITE] or when writing code in a [`SPNavigationProvider`][SP_NAVIGATION_PROVIDER].
+For this you could use the [`SPUtility` class][SP_UTILITY_CLASS]:
 
 ```csharp
 SPUtility.GetFullUrl(SPSite Site, string WebUrl)
@@ -55,7 +55,7 @@ SPUtility.GetFullUrl(SPContext.Current.Site, webUrl);
 
 The former example is nice, but you would still need to write code to check if the input already contains the full URL. Nope!
 
-For this, two gems are found in the [`SPUrlUtility` class](https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint-services/ms461295(v=office.12)).
+For this, two gems are found in the [`SPUrlUtility` class][SP_URL_UTILITY_CLASS].
 
 ```csharp
 SPUrlUtility.IsUrlRelative(string url);
@@ -110,3 +110,8 @@ SPUrlUtility.CombineUrl(path, doc);  // "/sub/sub/default.aspx"
 ```
 
 That's the final (hidden) gem for today.
+[SP_LIST]: https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint2003/dd587308(v=office.11)
+[SP_SITE]: https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint2003/dd587403(v=office.11)
+[SP_NAVIGATION_PROVIDER]: https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint-services/ms470908(v=office.12)
+[SP_UTILITY_CLASS]: https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint2003/dd587669(v=office.11)
+[SP_URL_UTILITY_CLASS]: https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint-services/ms461295(v=office.12)

@@ -57,7 +57,7 @@ So, here is the list of steps to install CentOS with the integration components.
    ```
 
 6. Reboot into the latest kernel
-7. Download the [Linux Integration Components](https://www.microsoft.com/en-us/download/details.aspx?id=55106)
+7. Download the [Linux Integration Components][LIC_DOWNLOAD]
 8. Mount the CD-ROM and copy the contents  
 
    ```shell
@@ -86,3 +86,5 @@ So, here is the list of steps to install CentOS with the integration components.
 
 > [!IMPORTANT]
 > Remember, every time you update the kernel you have to run the `setup.pl drivers` command.
+
+[LIC_DOWNLOAD]: https://www.microsoft.com/en-us/download/details.aspx?id=55106

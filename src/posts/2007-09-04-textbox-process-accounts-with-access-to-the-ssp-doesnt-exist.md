@@ -27,7 +27,7 @@ I had a lot of trouble using impersonation with the PSI web services in Project 
 
 <!--more-->
 
-I found one post in the [Setup/Installation Related FAQ's](https://web.archive.org/web/20101012014536/https://pstfsconnector.codeplex.com/wikipage?title=Setup%2fInstallation%20Related%20FAQ%27s&referringTitle=Home) of the "Project Server 2007 VSTS Connector" on CodePlex.
+I found one post in the [Setup/Installation Related FAQ's][SETUP_INSTALLATION_RELATED_FAQ] of the "Project Server 2007 VSTS Connector" on CodePlex.
 It says:
 
 > Sometimes the textbox for "Process Accounts with Access to the SSP" will not exist on the web page. To add the account in this circumstance, go to the command line, navigate to Program Files\Common Files\Microsoft Shared\web server extensions\12\BIN and run:
@@ -40,7 +40,8 @@ So, since my SSP is called `SharedServices1` to following line did miracles:
 stsadm.exe -o editssp -title SharedServices1 -setaccounts domain\user
 ```
 
-Reading the [documentation](https://learn.microsoft.com/previous-versions/office/sharepoint-2007-products-and-technologies/cc262727(v=office.12)) of the `stsadm` application, it mentions that "New process accounts should be appended to the existing list".
+Reading the [documentation][STSADM_EDITSSP] of the `stsadm` application,
+it mentions that "New process accounts should be appended to the existing list".
 So, if you execute the above line any existing configuration of accounts will be gone.
 
 To view a list of current configured account you can use the `-enumssp` option:
@@ -72,3 +73,6 @@ This will return the details of the SSP (in XML):
 ```
 
 You can use this to prevent loss of your current configured accounts.
+
+[SETUP_INSTALLATION_RELATED_FAQ]: https://web.archive.org/web/20101012014536/https://pstfsconnector.codeplex.com/wikipage?title=Setup%2fInstallation%20Related%20FAQ%27s&referringTitle=Home
+[STSADM_EDITSSP]: https://learn.microsoft.com/previous-versions/office/sharepoint-2007-products-and-technologies/cc262727(v=office.12)

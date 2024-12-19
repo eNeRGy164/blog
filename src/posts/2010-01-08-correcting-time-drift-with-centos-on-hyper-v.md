@@ -28,11 +28,12 @@ Using the Network Time Protocol (NTP) only slowed the drift a bit down but often
 <!--more-->
 
 I tried a lot of NTP configurations, but basically the local clock was just unreliable.
-Even using [rdate](https://linux.die.net/man/1/rdate) every 10 minutes was already showing backwards jumps of several seconds.
-As one of my VMs is running dovecot this really was a problem because [dovecot](https://www.dovecot.org/) hates [time moving backwards](https://doc.dovecot.org/2.3/admin_manual/errors/time_moved_backwards/).
+Even using [rdate][RDATE] every 10 minutes was already showing backwards jumps of several seconds.
+As one of my VMs is running dovecot this really was a problem because
+[dovecot][DOVECOT] hates [time moving backwards][DOVECOT_TIME_MOVING_BACKWARDS].
 
 I finally found the solution posted by Mat Mirabito in the blogpost
-"[Linux (specifically CentOS running trixbox) gains excessive time on system clock](https://bloggymcblogface.blog/linux-specifically-centos-running-trixbox-gains-excessive-time-on-system-clock/)".
+"[Linux (specifically CentOS running trixbox) gains excessive time on system clock][LINUX_GAINS_TIME_ON_SYSTEM_CLOCK]".
 
 Edit `grub.conf` and add the following to the kernel line:
 
@@ -41,3 +42,8 @@ divider=10 clocksource=acpi_pm
 ```
 
 After this it works like… clockwork 🙂
+
+[RDATE]: https://linux.die.net/man/1/rdate
+[DOVECOT]: https://www.dovecot.org/
+[DOVECOT_TIME_MOVING_BACKWARDS]: https://doc.dovecot.org/2.3/admin_manual/errors/time_moved_backwards/
+[LINUX_GAINS_TIME_ON_SYSTEM_CLOCK]: https://bloggymcblogface.blog/linux-specifically-centos-running-trixbox-gains-excessive-time-on-system-clock/

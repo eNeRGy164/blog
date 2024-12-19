@@ -20,8 +20,7 @@ tags:
   - WSS 3.0
 ---
 
-When you want to use the PSI interface you need to have a [`PSContextInfo` class](https://learn.microsoft.com/previous-versions/office/developer/office-2007/ms482944(v=office.12)).
-Inside a Project Server Event this will be provided automatically, so you don't need to worry about its contents (except when you want to impersonate as a different user).
+When you want to use the PSI interface you need to have a [`PSContextInfo` class][PS_CONTEXT_INFO_CLASS].
 But outside the Event you will need to create one from scratch.
 
 <!--more-->
@@ -39,3 +38,5 @@ I requested the URL `http://localhost/PWA/` and that was a mistake.
 The trailing `/` results in getting the GUID of the root site, not the PWA site!
 
 I am sure that I am not the first one falling in this pitfall, so this article is to prevent you from doing the same.
+
+[PS_CONTEXT_INFO_CLASS]: https://learn.microsoft.com/previous-versions/office/developer/office-2007/ms482944(v=office.12)

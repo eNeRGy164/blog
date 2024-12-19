@@ -27,7 +27,7 @@ tags:
 ---
 
 The past couple of weeks I am working with Silverlight controls embedded in SharePoint 2007.  
-For one of the controls, I need to retrieve the data using the [Search Query Web Service](https://learn.microsoft.com/previous-versions/office/developer/sharepoint-2007/ms543175(v=office.12)).
+For one of the controls, I need to retrieve the data using the [Search Query Web Service][SEARCH_QUERY_WEB_SERVICE].
 
 This was working perfectly in the development environment.
 But when deploying the control to the production environment it did not work.
@@ -57,7 +57,7 @@ After some digging, I found that the control did actually work, but only when th
 As visitors were accessing the page over an HTTPS connection, I was pointed in the direction of the connection between the control and the web service.
 
 As can be seen in the code the WCF client is used and I remembered that the binding security mode is different if you want to work with HTTPS.
-So, I changed the [BasicHttpSecurityMode](https://learn.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms586334(v=vs.95)) from `None` to `Transport`.
+So, I changed the [BasicHttpSecurityMode][BASIC_HTTP_SECURITY_MODE] from `None` to `Transport`.
 
 ```diff
 -var binding = new BasicHttpBinding(BasicHttpSecurityMode.None)
@@ -67,7 +67,9 @@ So, I changed the [BasicHttpSecurityMode](https://learn.microsoft.com/previous-v
 After deploying the control again, it worked nicely over the HTTPS connection, so I knew what the source of my problem is.
 But naturally I want a generic solution so the configuration of the access mapping is not influencing the functioning of the control.
 
-The question is how to detect if the control is hosted on a page over an HTTP or HTTPS connection. This can be found in the [`SilverlightHost.Source` property](https://learn.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc190409(v=vs.95)) which can be compared against the [`Uri.UriSchemeHttp` field](https://learn.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/x3fzefx3(v=vs.95)) or the [`Uri.UriSchemeHttps` field](https://learn.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/3s8hx381(v=vs.95)).
+The question is how to detect if the control is hosted on a page over an HTTP or HTTPS connection.
+This can be found in the [`SilverlightHost.Source` property][SOURCE_PROPERTY] which can be compared against the
+[`Uri.UriSchemeHttp` field][URI_SCHEME_HTTP_FIELD] or the [`Uri.UriSchemeHttps` field][URI_SCHEME_HTTPS_FIELD].
 
 As a result, this is my final code:
 
@@ -94,3 +96,9 @@ private void Page_Loaded(object sender, RoutedEventArgs e)
 ```
 
 Works like a charm.
+
+[SEARCH_QUERY_WEB_SERVICE]: https://learn.microsoft.com/previous-versions/office/developer/sharepoint-2007/ms543175(v=office.12)
+[BASIC_HTTP_SECURITY_MODE]: https://learn.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/ms586334(v=vs.95)
+[SOURCE_PROPERTY]: https://learn.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc190409(v=vs.95)
+[URI_SCHEME_HTTP_FIELD]: https://learn.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/x3fzefx3(v=vs.95)
+[URI_SCHEME_HTTPS_FIELD]: https://learn.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/3s8hx381(v=vs.95)

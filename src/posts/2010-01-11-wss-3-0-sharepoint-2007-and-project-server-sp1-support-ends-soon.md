@@ -24,9 +24,10 @@ tags:
 
 > [!NOTE]
 > _Update on <time datetime="2010-03-24">March 24th, 2010</time>_  
-> [Microsoft extends support for WSS 3.0, SharePoint 2007 and Project Server SP1](/2010/03/24/microsoft-extends-support-for-wss-3-0-sharepoint-2007-and-project-server-sp1/)
+> [Microsoft extends support for WSS 3.0, SharePoint 2007 and Project Server SP1][BLOG_MICROSOFT_EXTENDS_SUPPORT]
 
-Stefan Goßner [reminds](https://blog.stefan-gossner.com/2010/01/07/is-your-sharepoint-2007-farm-already-on-service-pack-2-if-not-read-this/) us of the fact that support for WSS 3.0 SP1, SharePoint 2007 SP1 and Project Server SP1 will soon end.
+Stefan Goßner [reminds][SP2007_FARM_READY_FOR_SP2] us of the fact that support for WSS 3.0 SP1,
+SharePoint 2007 SP1 and Project Server SP1 will soon end.
 
 <!--more-->
 
@@ -34,3 +35,6 @@ Support ends when the next service pack is out for over a year.
 And SP2 was released <time datetime="2009-04-28">April 28th 2009</time> so SP1 won’t be supported from <time datetime="2010-04-29">April 29th 2010</time>, so roughly in 3 months.
 
 Be sure to test & deploy your upgrade soon!
+
+[BLOG_MICROSOFT_EXTENDS_SUPPORT]: /2010/03/24/microsoft-extends-support-for-wss-3-0-sharepoint-2007-and-project-server-sp1
+[SP2007_FARM_READY_FOR_SP2]: https://blog.stefan-gossner.com/2010/01/07/is-your-sharepoint-2007-farm-already-on-service-pack-2-if-not-read-this/

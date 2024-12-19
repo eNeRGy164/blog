@@ -17,15 +17,17 @@ tags:
   - WordPress
 ---
 
-After having major, and unsolvable, problems with [MovableType](https://movabletype.org/) (MovableType was causing segfaults in Perl) for over half a year I finally switched to WordPress for hosting my blog.
+After having major, and unsolvable, problems with [MovableType][MOVABLETYPE] (MovableType was causing segfaults in Perl)
+for over half a year I finally switched to WordPress for hosting my blog.
 
-I did consider SharePoint Server 2010 for hosting my blog, but the out-of-the-box support is nowhere near the possibilities with [WordPress](https://wordpress.org/) (or any other major blogging framework).
+I did consider SharePoint Server 2010 for hosting my blog,
+but the out-of-the-box support is nowhere near the possibilities with [WordPress][WORDPRESS] (or any other major blogging framework).
 
 <!--more-->
 
 ## Configuration
 
-After trying some themes, I settled for the "Paperpunch Theme" by [The Theme Foundry](https://thethemefoundry.com/).
+After trying some themes, I settled for the "Paperpunch Theme" by [The Theme Foundry][THEME_FOUNDRY].
 
 This is completed with the following plugins:
 
@@ -44,3 +46,7 @@ This is completed with the following plugins:
    Very fast caching plugin for WordPress.
 
 If somebody has comments or suggestions, please let me now.
+
+[MOVABLETYPE]: https://movabletype.org/
+[WORDPRESS]: https://wordpress.org/
+[THEME_FOUNDRY]: https://thethemefoundry.com/

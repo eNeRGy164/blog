@@ -24,7 +24,8 @@ Currently I'm working on a project which uses Microsoft Project Server 2007. How
 
 <!--more-->
 
-I have researched the connection between PWA's "Task Settings and Display" page and the properties on the [`StatusingSettingsRow` class](https://learn.microsoft.com/previous-versions/office/developer/office-2007/ms419700(v=office.12)) which were not described. See the following image:
+I have researched the connection between PWA's "Task Settings and Display" page and the properties on the
+[`StatusingSettingsRow` class][STATUSING_SETTINGS_ROW_CLASS] which were not described. See the following image:
 
 ![Screenshot of "Task Settings and Display"](/wp-content/uploads/2007/08/task-settings-and-display.png)
 
@@ -40,3 +41,5 @@ So, in addition to the SDK:
 | WADMIN_STAT_TIMESHEET_TIED       | Time entry by Timesheet only.<br>Users will sync to update tasks.                                                                |                                                                                                                            |
 | WADMIN_TS_DEF_ENTRY_MODE_ENUM    | Specify how you want resources to report their hours.                                                                         | 0 = Resources should report their hours worked every day.<br>1 = Resources should report their total hours worked for a week. |
 | WADMIN_WEEK_START_ON_ENUM        | Week starts on this day.                                                                                                      | 0 = Sunday<br>1 = Monday <br>2 = Tuesday<br>3 = Wednesday<br>4 = Thursday<br>5 = Friday<br>6 = Saturday                                       |
+
+[STATUSING_SETTINGS_ROW_CLASS]: https://learn.microsoft.com/previous-versions/office/developer/office-2007/ms419700(v=office.12)

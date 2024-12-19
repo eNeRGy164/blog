@@ -59,7 +59,7 @@ It is also possible to make your assembly share their internals with other assem
 ```
 
 But the public key is not your public key token.
-Thanks to Burt Harris’s comment at the [`InternalsVisibleToAttribute` class](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.internalsvisibletoattribute?view=net-5.0),
+Thanks to Burt Harris's comment at the [`InternalsVisibleToAttribute` class][INTERNALS_VISIBLE_TO_ATTRIBUTE_CLASS],
 you can find your real public key using the following command:
 
 ```shell
@@ -67,3 +67,5 @@ sn.exe -Tp foo.bar.dll
 ```
 
 Now compile your project and there you go!
+
+[INTERNALS_VISIBLE_TO_ATTRIBUTE_CLASS]: https://learn.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.internalsvisibletoattribute?view=net-5.0

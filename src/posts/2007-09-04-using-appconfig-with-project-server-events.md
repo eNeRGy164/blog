@@ -20,7 +20,8 @@ tags:
   - Project Server 2007
 ---
 
-When building custom Project Server Event Receivers, the result is a DLL file. Using app.config and the [`ConfigurationManagement` class](https://learn.microsoft.com/dotnet/api/system.configuration.configurationmanager?view=netframework-2.0) will not work.  
+When building custom Project Server Event Receivers, the result is a DLL file.
+Using app.config and the [`ConfigurationManagement` class][CONFIGURATION_MANAGEMENT_CLASS] will not work.  
 Well actually it’s possible!
 
 <!--more-->
@@ -50,3 +51,5 @@ ConfigurationManager.AppSettings["SSP Location"]
 ```
 
 This can make your event just a bit easier to deploy in different configurations without the recompiling or use of extra configuration libraries.
+
+[CONFIGURATION_MANAGEMENT_CLASS]: https://learn.microsoft.com/dotnet/api/system.configuration.configurationmanager?view=netframework-2.0
