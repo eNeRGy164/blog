@@ -22,6 +22,8 @@ tags:
 
 Currently I'm working on a project which uses Microsoft Project Server 2007. However, the SDK is poorly documented. Today I was looking at the Admin web service which can be used to configure settings on the server. In this article I am not going in to detail how to do this yourself, but the details that I have discovered.
 
+<!--more-->
+
 I have researched the connection between PWA's "Task Settings and Display" page and the properties on the [`StatusingSettingsRow` class](https://learn.microsoft.com/previous-versions/office/developer/office-2007/ms419700(v=office.12)) which were not described. See the following image:
 
 ![Screenshot of "Task Settings and Display"](/wp-content/uploads/2007/08/task-settings-and-display.png)

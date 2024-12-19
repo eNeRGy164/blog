@@ -22,6 +22,8 @@ tags:
 To deploy our code, we create MSI installers using [Visual Studio](https://visualstudio.microsoft.com/).
 One problem I encountered is that there is no property available in code to know where the user has chosen to install the application.
 
+<!--more-->
+
 After some searching and testing, I now use the following code to get the installation path:
 
 ```csharp

@@ -21,6 +21,8 @@ tags:
 
 I was browsing through the Project Server 2007 [`TimePeriodDataSet.TimePeriodsRow` members](https://learn.microsoft.com/previous-versions/office/developer/office-2007/ms479524(v=office.12)) and found there were some empty entries in the SDK.
 
+<!--more-->
+
 The following empty entries I could fill:
 
 | Name                  | Description                                                                                             | Enumeration                                                                          |

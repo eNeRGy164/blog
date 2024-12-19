@@ -23,6 +23,8 @@ tags:
 When building custom Project Server Event Receivers, the result is a DLL file. Using app.config and the [`ConfigurationManagement` class](https://learn.microsoft.com/dotnet/api/system.configuration.configurationmanager?view=netframework-2.0) will not work.  
 Well actually it’s possible!
 
+<!--more-->
+
 The `Microsoft Office Project Server Events Service` executable has its own `app.config` where you can add entries.
 If you go to the Project Server bin directory (default: `C:\Program Files\Microsoft Office Servers\12.0\Bin`) you will find the config file named `Microsoft.Office.Project.Server.Eventing.exe.config`.
 

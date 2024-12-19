@@ -25,6 +25,8 @@ tags:
 
 I had a lot of trouble using impersonation with the PSI web services in Project Server 2007. I found some posts on the web suggesting that you need to add the account to the `Process Accounts with Access to the SSP` textbox, but guess what? That box was nowhere to be found!
 
+<!--more-->
+
 I found one post in the [Setup/Installation Related FAQ's](https://web.archive.org/web/20101012014536/https://pstfsconnector.codeplex.com/wikipage?title=Setup%2fInstallation%20Related%20FAQ%27s&referringTitle=Home) of the "Project Server 2007 VSTS Connector" on CodePlex.
 It says:
 
