@@ -37,7 +37,7 @@ I finally found the solution posted by Mat Mirabito in the blogpost
 
 Edit `grub.conf` and add the following to the kernel line:
 
-```ini
+```ini title="grub.conf"
 divider=10 clocksource=acpi_pm
 ```
 
