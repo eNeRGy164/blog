@@ -88,7 +88,8 @@ Key Length:               0
 I had a hard time finding the solution, until I encountered Ron Grzywacz's Blog:
 [Crawling Issue with .NET 3.5 SP1][CRAWLING_ISSUE].
 
-Although **KB896861** only mentions Windows XP and Windows Server 2003, it seems to fix the issue on Windows Server 2008 as well.
+Although **KB896861** only mentions Windows XP and Windows Server 2003,
+it seems to fix the issue on Windows Server 2008 as well.
 
 So to fix this:
 

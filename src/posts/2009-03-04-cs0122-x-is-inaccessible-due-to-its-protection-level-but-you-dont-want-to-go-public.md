@@ -29,7 +29,7 @@ tags:
 Sometimes you have to split your code into different assemblies.
 For example, when I created a custom `Admin Page` which inherits from `WebAdminPageBase` (`Microsoft.SharePoint.ApplicationPages`).
 
-The problem with `Microsoft.SharePoint.ApplicationPages` is that it’s not deployed to the GAC.
+The problem with `Microsoft.SharePoint.ApplicationPages` is that it is not deployed to the GAC.
 
 <!--more-->
 
@@ -52,7 +52,8 @@ Now you have only one choice: make `x` public. Or maybe not?
 
 ## The solution
 
-It is also possible to make your assembly share their internals with other assemblies. Add the following to you code (in `foo.bar`):
+It is also possible to make your assembly share their internals with other assemblies.
+Add the following to you code (in `foo.bar`):
 
 ```csharp
 [assembly: InternalsVisibleTo("foo.bar.ApplicationPages, PublicKey=0a240a … c2f34c7")]

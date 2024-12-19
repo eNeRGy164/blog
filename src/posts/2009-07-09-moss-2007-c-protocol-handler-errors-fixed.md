@@ -59,7 +59,8 @@ The problem is when the ACL is larger then 1kB the crawler goes into an endless 
 The way it should go is the search service calling the [`GetSecurityDescriptor` method][GET_SECURITY_DESCRIPTOR_METHOD] with a pointer and a size.
 This size is `1024` by default.
 When the ACL is larger an `ERROR_INSUFFICIENT_BUFFER` error message should be returned and the required size should be set.
-The search service then should allocate enough memory and call the `GetSecurityDescriptor` method again, which is now able to assign the complete ACL to the pointer.
+The search service then should allocate enough memory and call the `GetSecurityDescriptor` method again,
+which is now able to assign the complete ACL to the pointer.
 
 The problem with the current version on CodePlex is the value of the error message is incorrect.
 Instead of [`0x00000122`][0X00000122_ERROR] it should be `0x8007007A` ([which is also 112][0X8007007A_ERROR]).

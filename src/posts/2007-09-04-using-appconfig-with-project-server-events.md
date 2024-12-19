@@ -27,7 +27,8 @@ Well actually it’s possible!
 <!--more-->
 
 The `Microsoft Office Project Server Events Service` executable has its own `app.config` where you can add entries.
-If you go to the Project Server bin directory (default: `C:\Program Files\Microsoft Office Servers\12.0\Bin`) you will find the config file named `Microsoft.Office.Project.Server.Eventing.exe.config`.
+If you go to the Project Server bin directory (default: `C:\Program Files\Microsoft Office Servers\12.0\Bin`)
+you will find the config file named `Microsoft.Office.Project.Server.Eventing.exe.config`.
 
 Add the `appSettings` section like this:
 

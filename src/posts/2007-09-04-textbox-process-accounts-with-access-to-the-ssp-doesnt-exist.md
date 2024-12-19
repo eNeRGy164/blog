@@ -23,14 +23,18 @@ tags:
 # cSpell:ignore editssp, sspname, enumssp
 ---
 
-I had a lot of trouble using impersonation with the PSI web services in Project Server 2007. I found some posts on the web suggesting that you need to add the account to the `Process Accounts with Access to the SSP` textbox, but guess what? That box was nowhere to be found!
+I had a lot of trouble using impersonation with the PSI web services in Project Server 2007.
+I found some posts on the web suggesting that you need to add the account to the `Process Accounts with Access to the SSP` textbox,
+but guess what? That box was nowhere to be found!
 
 <!--more-->
 
 I found one post in the [Setup/Installation Related FAQ's][SETUP_INSTALLATION_RELATED_FAQ] of the "Project Server 2007 VSTS Connector" on CodePlex.
 It says:
 
-> Sometimes the textbox for "Process Accounts with Access to the SSP" will not exist on the web page. To add the account in this circumstance, go to the command line, navigate to Program Files\Common Files\Microsoft Shared\web server extensions\12\BIN and run:
+> Sometimes the textbox for "Process Accounts with Access to the SSP" will not exist on the web page.
+> To add the account in this circumstance, go to the command line, navigate to
+> Program Files\Common Files\Microsoft Shared\web server extensions\12\BIN and run:
 >
 > stsadm.exe -o editssp -title &lt;sspname&gt; -setaccounts &lt;accounts&gt;
 

@@ -36,7 +36,8 @@ Then I iterate the `DataView` and `Cast` every item to the `row` variable.
 In the `DataRowView` the `AccountName` column contains a `domain\user` value.
 Because it is an `object` and I need it multiple times I store it in a locale variable using the `let` keyword so I only have to cast it one time.
 
-One of the great things is that you are allowed to combine multiple `let`'s and `where` statements. So, every `AccountName` that is `null` or `empty` will be filtered out.
+One of the great things is that you are allowed to combine multiple `let`'s and `where` statements.
+So, every `AccountName` that is `null` or `empty` will be filtered out.
 
 If I would use the [`GetUserProfile` method][GET_USER_PROFILE_METHOD] and pass an account which is not (yet) present in the profile database,
 this would result in an exception.

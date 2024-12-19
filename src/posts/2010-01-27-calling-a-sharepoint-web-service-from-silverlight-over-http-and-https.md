@@ -53,8 +53,10 @@ private void Page_Loaded(object sender, RoutedEventArgs e)
 }
 ```
 
-After some digging, I found that the control did actually work, but only when the page was visited over an HTTP connection.
-As visitors were accessing the page over an HTTPS connection, I was pointed in the direction of the connection between the control and the web service.
+After some digging, I found that the control did actually work,
+but only when the page was visited over an HTTP connection.
+As visitors were accessing the page over an HTTPS connection,
+I was pointed in the direction of the connection between the control and the web service.
 
 As can be seen in the code the WCF client is used and I remembered that the binding security mode is different if you want to work with HTTPS.
 So, I changed the [BasicHttpSecurityMode][BASIC_HTTP_SECURITY_MODE] from `None` to `Transport`.
@@ -64,7 +66,8 @@ So, I changed the [BasicHttpSecurityMode][BASIC_HTTP_SECURITY_MODE] from `None` 
 +var binding = new BasicHttpBinding(BasicHttpSecurityMode.Transport)
 ```
 
-After deploying the control again, it worked nicely over the HTTPS connection, so I knew what the source of my problem is.
+After deploying the control again, it worked nicely over the HTTPS connection,
+so I knew what the source of my problem is.
 But naturally I want a generic solution so the configuration of the access mapping is not influencing the functioning of the control.
 
 The question is how to detect if the control is hosted on a page over an HTTP or HTTPS connection.

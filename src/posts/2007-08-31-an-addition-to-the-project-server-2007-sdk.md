@@ -20,7 +20,10 @@ tags:
 # cSpell:ignore WADMIN_PROTECT_ACTUALS
 ---
 
-Currently I'm working on a project which uses Microsoft Project Server 2007. However, the SDK is poorly documented. Today I was looking at the Admin web service which can be used to configure settings on the server. In this article I am not going in to detail how to do this yourself, but the details that I have discovered.
+Currently I am working on a project which uses Microsoft Project Server 2007.
+However, the SDK is poorly documented.
+Today I was looking at the Admin web service which can be used to configure settings on the server.
+In this article I am not going in to detail how to do this yourself, but the details that I have discovered.
 
 <!--more-->
 

@@ -32,7 +32,8 @@ SharePoint 2007 SP1 and Project Server SP1 will soon end.
 <!--more-->
 
 Support ends when the next service pack is out for over a year.
-And SP2 was released <time datetime="2009-04-28">April 28th 2009</time> so SP1 won’t be supported from <time datetime="2010-04-29">April 29th 2010</time>, so roughly in 3 months.
+And SP2 was released <time datetime="2009-04-28">April 28th 2009</time> so SP1 won't be supported from
+<time datetime="2010-04-29">April 29th 2010</time>, so roughly in 3 months.
 
 Be sure to test & deploy your upgrade soon!
 

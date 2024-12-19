@@ -21,7 +21,7 @@ tags:
   - VM
 ---
 
-I was having trouble with the clock in my Linux Hyper-V VM’s.
+I was having trouble with the clock in my Linux Hyper-V VMs.
 The time was constantly drifting forward.
 Using the Network Time Protocol (NTP) only slowed the drift a bit down but often the NTP-service gave up after several days.
 

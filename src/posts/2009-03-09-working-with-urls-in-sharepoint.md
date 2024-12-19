@@ -87,9 +87,10 @@ Now `webUrl` will always be the full URL.
 ## URL concatenation
 
 Ever did `web.ServerRelativeUrl + "/something"` and found out it did work nicely except it start doing something really weird on your root web?
-On the `rootweb` the relative URL is `/`, and this results in the URL `//something` which on its own turn gets translated to `http://something`, and that URL doesn't exist (most of the time).
+On the `rootweb` the relative URL is `/`, and this results in the URL `//something` which on its own turn gets translated to `http://something`,
+and that URL does not exist (most of the time).
 
-When working with file system locations, you should always use `Path.Combine()` instead of concatenating path's yourself.
+When working with file system locations, you should always use `Path.Combine()` instead of concatenating paths yourself.
 But there is no `Uri.Combine().`
 
 You could write an extension method. But the SharePoint team made it easier.
@@ -109,7 +110,8 @@ SPUrlUtility.CombineUrl(root, doc);  // "/sub/default.aspx"
 SPUrlUtility.CombineUrl(path, doc);  // "/sub/sub/default.aspx"
 ```
 
-That's the final (hidden) gem for today.
+That is the final (hidden) gem for today.
+
 [SP_LIST]: https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint2003/dd587308(v=office.11)
 [SP_SITE]: https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint2003/dd587403(v=office.11)
 [SP_NAVIGATION_PROVIDER]: https://learn.microsoft.com/en-us/previous-versions/office/developer/sharepoint-services/ms470908(v=office.12)

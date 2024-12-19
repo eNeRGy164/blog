@@ -38,7 +38,9 @@ which is on the page by default.
 
 This call was not present in the control prior to the august update, so let’s take a look at the **description of the update** (KB973409).
 
-> A Shared Services Provider administrator edits the **About me** property or the **Picture** property to make the property display "Only me". However, these properties continue to be visible when the profile owner sets their **As Seen By** option to "Everyone", "My Colleagues", "My Workgroup" or "My Manager" on their own Person.aspx page.
+> A Shared Services Provider administrator edits the **About me** property or the **Picture** property to make the property display "Only me".
+> However, these properties continue to be visible when the profile owner sets their **As Seen By** option to "Everyone", "My Colleagues",
+> "My Workgroup" or "My Manager" on their own Person.aspx page.
 
 So, this explains why the control was changed, it now looks if the image should be rendered for the current visitor of the page.
 
@@ -54,7 +56,8 @@ object obj2 = this.ViewState["__PrivacySelected__"];
 return (Privacy) obj2;
 ```
 
-As we all know SharePoint's code is never about defensive programming and so is the case here if there is no `ViewState` Property available, it will return a `null`.
+As we all know SharePoint's code is never about defensive programming and so is the case here if there is no `ViewState` Property available,
+it will return a `null`.
 And of course, there is no check anywhere for that.
 
 But this code works for the default `person.aspx` page, so the setter for this property has to be called somewhere.

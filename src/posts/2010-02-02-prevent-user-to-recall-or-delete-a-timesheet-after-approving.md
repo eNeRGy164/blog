@@ -51,10 +51,11 @@ Lucky enough for us the answer of Microsoft did not stop there:
 > This can be set by a custom event or script when the period is closed for timesheets within the period or as originally designed,
 > when the timesheet has been exported to a third-party system for processing.
 >
-> In 2007, we are looking at the data from a position where the system of record can modify the data and to help customers determine when Project Server is no longer the system of record,
-> we are leaving it up to the customer to check that flag.
+> In 2007, we are looking at the data from a position where the system of record can modify the data and to help customers determine
+> when Project Server is no longer the system of record, we are leaving it up to the customer to check that flag.
 >
-> After the flag is set to true then no action can be performed on the timesheet except by duly authorized system administrators for adjustments theoretically coming from the third-party system.
+> After the flag is set to true then no action can be performed on the timesheet except by duly authorized system administrators
+> for adjustments theoretically coming from the third-party system.
 
 I already knew about the [`TS_IS_PROCESSED` property][TS_IS_PROCESSED_PROPERTY] as it is described by the **Project Server SDK**.
 But the description there only states:

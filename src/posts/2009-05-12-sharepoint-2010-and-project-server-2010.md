@@ -30,7 +30,8 @@ But they went even further.
 
 <!--more-->
 
-Because of their experience with customer implementations of the 2007 series they recognize that having Windows Server 2008 and SQL Server on 64bit is a must for ensuring the best performance possible.
+Because of their experience with customer implementations of the 2007 series they recognize that
+having Windows Server 2008 and SQL Server on 64bit is a must for ensuring the best performance possible.
 Therefore the 2010 series of products will only be available on those versions!
 
 Also, on the client side there will be an improvement as Internet Explorer 6 will not be supported anymore.

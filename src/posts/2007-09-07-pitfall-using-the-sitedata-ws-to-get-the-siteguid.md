@@ -21,6 +21,8 @@ tags:
 ---
 
 When you want to use the PSI interface you need to have a [`PSContextInfo` class][PS_CONTEXT_INFO_CLASS].
+Inside a Project Server Event this will be provided automatically,
+so you don't need to worry about its contents (except when you want to impersonate as a different user).
 But outside the Event you will need to create one from scratch.
 
 <!--more-->

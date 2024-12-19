@@ -20,8 +20,12 @@ tags:
 
 It has been a while having time and content to post on this blog but I am back again. 🙂
 
-I am currently at the Project Conference 2007 in Seattle and by visiting the sessions and talking to the guys at Microsoft developing the solution I got a lot of answers for things I could not find on the web or in the SDK.  
+I am currently at the Project Conference 2007 in Seattle and by visiting the sessions and talking to the people
+at Microsoft developing the solution I got a lot of answers for things I could not find on the web or in the SDK.  
 The next couple of weeks I will try to post the things I found out.
 
 <!--more-->
 
+Also, [Prometric](https://www.prometric.com/) was present so you could do the official Project exams.
+Being bold I just entered the "Managing Projects with Microsoft Office Project Server" exam and guess what,
+I am now a _Microsoft Certified Technology Specialist_!
