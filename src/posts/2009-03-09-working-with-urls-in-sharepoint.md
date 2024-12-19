@@ -78,7 +78,7 @@ Great! Now we can combine the two:
 ```csharp
 if (string.IsNullOrEmpty(webUrl) || SPUrlUtility.IsUrlRelative(webUrl))
 {
-    webUrl = SPUtility.GetFullUrl(SPContext.Current.Site, webUrl);
+  webUrl = SPUtility.GetFullUrl(SPContext.Current.Site, webUrl);
 }
 ```
 

@@ -39,17 +39,17 @@ I was using the following code:
 ```csharp
 private void Page_Loaded(object sender, RoutedEventArgs e)
 {
-    var endpoint = new EndpointAddress(GetParam("SharePointWeb") + "/_vti_bin/search.asmx");
-    var binding = new BasicHttpBinding(BasicHttpSecurityMode.None)
-                      {
-                          Name = "QueryServiceSoap",
-                          MaxReceivedMessageSize = 2147483647,
-                          MaxBufferSize = 2147483647
-                      };
+  var endpoint = new EndpointAddress(GetParam("SharePointWeb") + "/_vti_bin/search.asmx");
+  var binding = new BasicHttpBinding(BasicHttpSecurityMode.None)
+                {
+                    Name = "QueryServiceSoap",
+                    MaxReceivedMessageSize = 2147483647,
+                    MaxBufferSize = 2147483647
+                };
 
-    var client = new QueryServiceSoapClient(binding, endpoint);
-    client.QueryExCompleted += this.ClientQueryExCompleted;
-    client.QueryExAsync(GetParam("Query"));
+  var client = new QueryServiceSoapClient(binding, endpoint);
+  client.QueryExCompleted += this.ClientQueryExCompleted;
+  client.QueryExAsync(GetParam("Query"));
 }
 ```
 
@@ -74,22 +74,22 @@ As a result, this is my final code:
 ```csharp
 private void Page_Loaded(object sender, RoutedEventArgs e)
 {
-    var basicHttpSecurityMode =
-        (Application.Current.Host.Source.Scheme == Uri.UriSchemeHttp)
-            ? BasicHttpSecurityMode.None
-            : BasicHttpSecurityMode.Transport;
+  var basicHttpSecurityMode =
+      (Application.Current.Host.Source.Scheme == Uri.UriSchemeHttp)
+        ? BasicHttpSecurityMode.None
+        : BasicHttpSecurityMode.Transport;
 
-    var endPoint = new EndpointAddress(GetParam("SharePointWeb") + "/_vti_bin/search.asmx");
-    var binding = new BasicHttpBinding(basicHttpSecurityMode)
-                      {
-                          Name = "QueryServiceSoap",
-                          MaxReceivedMessageSize = 2147483647,
-                          MaxBufferSize = 2147483647
-                      };
+  var endPoint = new EndpointAddress(GetParam("SharePointWeb") + "/_vti_bin/search.asmx");
+  var binding = new BasicHttpBinding(basicHttpSecurityMode)
+                {
+                    Name = "QueryServiceSoap",
+                    MaxReceivedMessageSize = 2147483647,
+                    MaxBufferSize = 2147483647
+                };
 
-    var client = new QueryServiceSoapClient(binding, endPoint);
-    client.QueryExCompleted += this.ClientQueryExCompleted;
-    client.QueryExAsync(GetParam("Query"));
+  var client = new QueryServiceSoapClient(binding, endPoint);
+  client.QueryExCompleted += this.ClientQueryExCompleted;
+  client.QueryExAsync(GetParam("Query"));
 }
 ```
 

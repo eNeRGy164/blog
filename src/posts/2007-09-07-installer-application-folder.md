@@ -33,7 +33,7 @@ installPath = installPath.Substring(0, installPath.LastIndexOf("\\"));
 
 if (!installPath.EndsWith("\\"))
 {
-    installPath += "\\";
+  installPath += "\\";
 }
 ```
 

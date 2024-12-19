@@ -32,14 +32,14 @@ Add the `appSettings` section like this:
 
 ```xml
 <configuration>
-   <runtime>
-      <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
-         <probing privatePath="ProjectServerEventHandlers"/>
-      </assemblyBinding>
-   </runtime>
-   <appSettings>
-      <add key="SSP Location" value="http://localhost:56737/SharedServices1" />
-   </appSettings>
+  <runtime>
+  <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+    <probing privatePath="ProjectServerEventHandlers"/>
+  </assemblyBinding>
+  </runtime>
+  <appSettings>
+    <add key="SSP Location" value="http://localhost:56737/SharedServices1" />
+  </appSettings>
 </configuration>
 ```
 

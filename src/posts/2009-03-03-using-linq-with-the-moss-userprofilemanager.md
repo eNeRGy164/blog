@@ -52,17 +52,17 @@ var users = (from DataRowView row in webUsers
              where profileManager.UserExists(accountName)
              let userProfile = profileManager.GetUserProfile(accountName)
              let title = (userProfile["Title"] != null)
-                     ? (string)userProfile["Title"].Value
-                     : string.Empty
+                ? (string)userProfile["Title"].Value
+                : string.Empty
              select new
              {
-                 IsStudent = title == "student",
-                 Initials = (userProfile["Initials"] != null)
-                     ? (string)userProfile["Initials"].Value
-                     : string.Empty,
-                 LastName = (userProfile["LastName"] != null)
-                     ? (string)userProfile["LastName"].Value
-                     : string.Empty,
+                IsStudent = title == "student",
+                Initials = (userProfile["Initials"] != null)
+                  ? (string)userProfile["Initials"].Value
+                  : string.Empty,
+                LastName = (userProfile["LastName"] != null)
+                  ? (string)userProfile["LastName"].Value
+                  : string.Empty,
              }).AsEnumerable();
 
 
