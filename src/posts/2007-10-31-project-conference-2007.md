@@ -2,6 +2,7 @@
 id: 13
 title: Project Conference 2007
 date: 2007-10-31T14:18:00+01:00
+updated: 2020-12-02T22:37:05+01:00
 author: Michaël Hompus
 excerpt: >
   I am currently at the Project Conference 2007 in Seattle and by visiting the sessions and talking to the guys at Microsoft developing the solution I got a lot of answers for things I could not find on the web or in the SDK.

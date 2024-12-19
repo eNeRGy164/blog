@@ -2,6 +2,7 @@
 id: 100
 title: Prevent hardcoded SharePoint ID’s in your code
 date: 2010-02-05T12:44:39+01:00
+updated: 2020-12-03T23:12:40+01:00
 author: Michaël Hompus
 excerpt: >
   Now and again I come across code with hardcoded SharePoint ID's in it. Or scary loops matching a field, list or property name.

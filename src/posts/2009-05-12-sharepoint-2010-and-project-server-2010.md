@@ -2,6 +2,7 @@
 id: 21
 title: SharePoint 2010 and Project Server 2010 system requirements
 date: 2009-05-12T02:14:28+02:00
+updated: 2020-12-02T23:08:03+01:00
 author: Michaël Hompus
 excerpt: >
   As announced yesterday by Microsoft the Office 2010 products will be 64bit only. Well no surprise there, we already knew that. But they went even further: Windows Server 2008 and SQL Server on 64bit is a must for ensuring the best performance possible.

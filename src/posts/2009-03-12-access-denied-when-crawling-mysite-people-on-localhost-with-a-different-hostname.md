@@ -2,6 +2,7 @@
 id: 17
 title: Access Denied when crawling mysite / people on localhost with a different hostname
 date: 2009-03-12T22:55:34+01:00
+updated: 2020-12-02T22:59:25+01:00
 author: Michaël Hompus
 excerpt: >
   I have a clean install on the latest and greatest: Windows Server 2008, SQL Server 2008 and MOSS 2007 SP1 with all updates.

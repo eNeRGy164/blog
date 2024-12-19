@@ -2,6 +2,7 @@
 id: 8
 title: "Textbox “Process Accounts with Access to the SSP” doesn’t exist"
 date: 2007-09-04T15:23:00+02:00
+updated: 2020-12-02T22:22:09+01:00
 author: Michaël Hompus
 excerpt: >
   I had a lot of trouble using impersonation with the PSI web services in Project Server 2007. I found some posts on the web suggesting that you need to add the account to the “Process Accounts with Access to the SSP” textbox, but guess what? That box was nowhere to find!

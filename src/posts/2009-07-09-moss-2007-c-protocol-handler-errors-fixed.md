@@ -2,6 +2,7 @@
 id: 22
 title: MOSS 2007 – C# Protocol Handler errors fixed
 date: 2009-07-09T19:44:24+02:00
+updated: 2020-12-02T23:15:59+01:00
 author: Michaël Hompus
 excerpt: >
   On CodePlex you can find the “MOSS 2007 - C# Protocol Handler” project. When working with the code I discovered 2 issues which I both fixed. Both solutions are summarized here.

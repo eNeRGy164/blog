@@ -2,6 +2,7 @@
 id: 84
 title: MySitePublicWebPartPage throws NullReferenceException with August Cumulative Update
 date: 2010-01-15T13:27:31+01:00
+updated: 2020-12-03T22:54:59+01:00
 author: Michaël Hompus
 excerpt: >
   With the introduction of the August Cumulative Update for SharePoint 2007 (KB973399) we encountered “System.NullReferenceException: Object reference not set to an instance of an object.” on all pages inheriting from MySitePublicWebPartPage.

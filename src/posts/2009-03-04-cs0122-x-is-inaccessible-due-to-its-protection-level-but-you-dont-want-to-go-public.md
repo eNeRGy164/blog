@@ -2,6 +2,7 @@
 id: 15
 title: "“CS0122: ‘x’ is inaccessible due to its protection level” but you don’t want to go public"
 date: 2009-03-04T11:00:16+01:00
+updated: 2020-12-02T22:49:40+01:00
 author: Michaël Hompus
 excerpt: >
   Sometimes you have to split your code into different assemblies. For example when I created a custom Admin Page which inherits from WebAdminPageBase (Microsoft.SharePoint.ApplicationPages). The problem with Microsoft.SharePoint.ApplicationPages is that it's not deployed to the GAC.

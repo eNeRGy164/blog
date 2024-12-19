@@ -2,6 +2,7 @@
 id: 78
 title: Correcting time drift with CentOS on Hyper-V
 date: 2010-01-08T12:34:58+01:00
+updated: 2020-12-03T22:43:54+01:00
 author: Michaël Hompus
 excerpt: >
   I was having trouble with the clock in my Linux Hyper-V VMs. The time was constantly drifting forward.

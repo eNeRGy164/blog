@@ -2,6 +2,7 @@
 id: 16
 title: Working with URL’s in SharePoint
 date: 2009-03-09T19:58:04+01:00
+updated: 2020-12-02T22:52:37+01:00
 author: Michaël Hompus
 excerpt: >
   While working on a project with some existing code I noticed the developer did write large portions of code to get from an URL to a SPList. He probably didn’t know some of the hidden gems in SharePoint.

@@ -2,6 +2,7 @@
 id: 122
 title: Installing the Microsoft Surface SDK on Windows 7 x64
 date: 2010-03-03T17:22:49+01:00
+updated: 2020-12-03T23:31:06+01:00
 author: Michaël Hompus
 excerpt: >
   If you want to develop for the Microsoft Surface you need a Surface device,

@@ -2,6 +2,7 @@
 id: 98
 title: Calling a SharePoint Web Service from Silverlight over HTTP and HTTPS
 date: 2010-01-27T11:52:58+01:00
+upodated: 2020-12-03T23:02:39+01:00
 author: Michaël Hompus
 excerpt: >
   The past couple of weeks I'm working with Silverlight controls embedded in SharePoint 2007.

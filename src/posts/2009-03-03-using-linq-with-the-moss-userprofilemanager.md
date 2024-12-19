@@ -2,6 +2,7 @@
 id: 14
 title: Using LINQ with the MOSS UserProfileManager
 date: 2009-03-03T21:40:17+01:00
+updated: 2020-12-02T22:44:08+01:00
 author: Michaël Hompus
 excerpt: >
   Lately I am working a lot with LINQ and al types like LINQ to XML, LINQ to XSD, LINQ to objects, etc.

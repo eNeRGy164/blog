@@ -2,6 +2,7 @@
 id: 20
 title: Generate integer lists using LINQ
 date: 2009-03-25T14:35:00+01:00
+updated: 2020-12-02T23:06:10+01:00
 author: Michaël Hompus
 excerpt: >
   I was working on some old code which created three DropDown controls with hours, minutes and seconds.

@@ -2,6 +2,7 @@
 id: 12
 title: An addition to the Project Server 2007 SDK (Part 2)
 date: 2007-09-07T14:16:00+02:00
+updated: 2020-12-02T22:32:24+01:00
 author: Michaël Hompus
 excerpt: >
   I was browsing through the Project Server 2007 TimePeriodDataSet.TimePeriodsRow Members and found the following empty entries I could fill.

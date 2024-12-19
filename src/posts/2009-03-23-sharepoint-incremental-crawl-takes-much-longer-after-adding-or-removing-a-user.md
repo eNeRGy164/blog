@@ -2,6 +2,7 @@
 id: 19
 title: SharePoint Incremental Crawl takes much longer after adding or removing a user
 date: 2009-03-23T08:15:38+01:00
+updated: 2020-12-02T23:03:47+01:00
 author: Michaël Hompus
 excerpt: >
   It is a sad and known fact that having lots of ACLs in your SharePoint database has a negative effect on the performance of your site.

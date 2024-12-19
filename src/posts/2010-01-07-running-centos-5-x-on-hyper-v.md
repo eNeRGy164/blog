@@ -2,6 +2,7 @@
 id: 71
 title: Running CentOS 5.x on Hyper-V
 date: 2010-01-07T16:31:47+01:00
+updated: 2020-12-02T23:36:26+01:00
 author: Michaël Hompus
 excerpt: >
   I’m running Linux in Hyper-V VMs since the launch of the Windows Server 2008 RTM. It was quite complex to get performance and support for the network drivers.

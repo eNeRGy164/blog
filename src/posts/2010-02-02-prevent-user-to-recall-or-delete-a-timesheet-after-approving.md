@@ -2,6 +2,7 @@
 id: 99
 title: Prevent user to recall or delete a timesheet after approving
 date: 2010-02-02T13:49:30+01:00
+updated: 2020-12-03T23:07:10+01:00
 author: Michaël Hompus
 excerpt: >
   Working on a Project Server project we discovered it's quite easy to get issues with data integrity when users start retracting and deleting timesheets.

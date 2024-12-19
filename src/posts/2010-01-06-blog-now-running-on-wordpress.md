@@ -2,6 +2,7 @@
 id: 61
 title: Blog now running on WordPress
 date: 2010-01-06T17:01:24+01:00
+updated: 2020-12-02T23:18:39+01:00
 author: Michaël Hompus
 excerpt: >
   After having major, and unsolvable, problems with MovableType (MovableType was causing segfaults in Perl) for over half a year I finally switched to WordPress for hosting my blog.
