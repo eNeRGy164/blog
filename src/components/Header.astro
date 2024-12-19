@@ -1,8 +1,8 @@
 ---
-import { SITE_TITLE } from "../config";
+import { SITE_TITLE } from "@/config";
 import MainMenu from '@/components/MainMenu.astro';
 
-const { mainEntry = false } = Astro.props;
+const { mainEntry = false, currentCategories = [] } = Astro.props;
 ---
 
 {
@@ -43,4 +43,4 @@ const { mainEntry = false } = Astro.props;
   )
 }
 
-<MainMenu />
+<MainMenu  currentCategories={currentCategories} />

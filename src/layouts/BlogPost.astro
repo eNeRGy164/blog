@@ -16,6 +16,7 @@ const { post } = Astro.props;
 const { data } = post;
 
 const pageDescription = data.excerpt.replaceAll(/[\r\n]{1,2}/g, " ").trim();
+const currentCategories = data.categories ?? [];
 ---
 
 <html lang="en-US">
@@ -34,7 +35,7 @@ const pageDescription = data.excerpt.replaceAll(/[\r\n]{1,2}/g, " ").trim();
     <meta itemprop="lastReviewed" content={(data.updated ?? data.date).toISOString()} />
     <div class="skip-content"><a href="#content">Skip to content</a></div>
     <div id="wrapper">
-      <Header />
+      <Header currentCategories={currentCategories} />
       <main
         id="content"
         itemprop="mainEntity"

@@ -1,5 +1,6 @@
 ---
 import menuData from "@/config/main-menu.yaml";
+import { urlifyToken } from "@/js/util";
 
 interface SubMenuItem {
   title: string;
@@ -15,13 +16,59 @@ interface MenuData {
 }
 
 const typedMenuData: MenuData = menuData;
+const { currentCategories = [] } = Astro.props;
+
+let categories = currentCategories.map((c: string) => urlifyToken(c));
+
+const currentPath = Astro.url.pathname;
+
+if (currentPath.startsWith('/category/')) {
+  const currentCategory = currentPath.replace('/category/', '');
+  categories = [urlifyToken(currentCategory)];
+}
+
+function isActive(item: MenuItem): boolean {
+  // Check Home
+  if (item.link === '/' && (currentPath === '/' || currentPath.startsWith('/page/'))) {
+    return true;
+  }
+
+  // Check About
+  if (item.link === '/about' && currentPath.replace(/\/$/, '') === '/about') {
+    return true;
+  }
+
+  // Check categories
+  if (item.link.startsWith('/category/')) {
+    // Extract the category slug from the link
+    const topCategory = item.link.replace('/category/', '');
+
+    // Check top-level category
+    if (categories.includes(topCategory)) {
+      return true;
+    }
+
+    // Check if any submenu matches
+    if (item.submenu) {
+      for (const sub of item.submenu) {
+        const subCat = sub.link.replace('/category/', '');
+
+        if (categories.includes(subCat)) {
+          return true;
+        }
+      }
+    }
+  }
+
+  return false;
+}
 ---
 
 <nav id="navigation">
   <menu id="nav" class="menu">
     {
       typedMenuData.menu.map((item) => (
-        <li>
+        <li class={isActive(item) ? "current" : ""}>
           <a href={item.link}>{item.title}</a>
           {item.submenu ? (
             <ul>
