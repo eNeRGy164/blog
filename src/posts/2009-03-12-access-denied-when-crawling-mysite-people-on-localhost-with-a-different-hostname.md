@@ -43,7 +43,7 @@ Everything works fine, except the search crawl gave Access Denied errors on `htt
 
 I checked everything, but could only find this in the Application event log:
 
-```plain
+```plain frame="shell" title="Application Event Log"
 The start address <http://mysite> cannot be crawled.
 Context: Application 'SharedServices1', Catalog 'Portal_Content'
 Details:
@@ -54,7 +54,7 @@ content.   (0x80041205)
 
 Also the Security event log says:
 
-```plain
+```plain  frame="shell" title="Security Event Log"
 An account failed to log on.
 Subject:
 Security ID:              NULL SID

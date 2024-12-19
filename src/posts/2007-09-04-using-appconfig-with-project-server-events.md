@@ -30,7 +30,7 @@ If you go to the Project Server bin directory (default: `C:\Program Files\Micros
 
 Add the `appSettings` section like this:
 
-```xml
+```xml title="Microsoft.Office.Project.Server.Eventing.exe.config"
 <configuration>
   <runtime>
   <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
