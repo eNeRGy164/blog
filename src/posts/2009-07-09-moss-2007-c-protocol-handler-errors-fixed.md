@@ -5,7 +5,9 @@ date: 2009-07-09T19:44:24+02:00
 updated: 2020-12-02T23:15:59+01:00
 author: Michaël Hompus
 excerpt: >
-  On CodePlex you can find the “MOSS 2007 - C# Protocol Handler” project. When working with the code I discovered 2 issues which I both fixed. Both solutions are summarized here.
+  On CodePlex you can find the “MOSS 2007 - C# Protocol Handler” project.
+  When working with the code I discovered 2 issues which I both fixed.
+  Both solutions are summarized here.
 layout: ../layouts/BlogPost.astro
 permalink: /2009/07/09/moss-2007-c-protocol-handler-errors-fixed/
 image: /wp-content/uploads/2009/07/post-22-thumnail-1.png

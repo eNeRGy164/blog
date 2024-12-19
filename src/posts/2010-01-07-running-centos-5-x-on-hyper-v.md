@@ -5,7 +5,8 @@ date: 2010-01-07T16:31:47+01:00
 updated: 2020-12-02T23:36:26+01:00
 author: Michaël Hompus
 excerpt: >
-  I’m running Linux in Hyper-V VMs since the launch of the Windows Server 2008 RTM. It was quite complex to get performance and support for the network drivers.
+  I’m running Linux in Hyper-V VMs since the launch of the Windows Server 2008 RTM.
+  It was quite complex to get performance and support for the network drivers.
   Recently with the launch of Windows Server 2008 R2 there are also new Linux Integration Components which also work for 2008 RTM.
   Here is the list of steps to install CentOS with these components.
 layout: ../layouts/BlogPost.astro

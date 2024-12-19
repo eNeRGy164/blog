@@ -5,7 +5,9 @@ date: 2007-09-04T16:50:00+02:00
 updated: 2020-12-02T22:27:58+01:00
 author: Michaël Hompus
 excerpt: >
-  When building custom Project Server Event Receivers the result is a dll file. Using app.config and the ConfigurationManagement class will not work. Well actually, it’s possible!
+  When building custom Project Server Event Receivers the result is a dll file.
+  Using app.config and the ConfigurationManagement class will not work.
+  Well actually, it’s possible!
 layout: ../layouts/BlogPost.astro
 permalink: /2007/09/04/using-appconfig-with-project-server-events/
 image: /wp-content/uploads/2007/09/post-9-thumnail-1.png

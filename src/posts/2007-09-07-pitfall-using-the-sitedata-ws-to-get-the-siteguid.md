@@ -5,9 +5,9 @@ date: 2007-09-07T16:50:00+02:00
 updated: 2020-12-02T22:35:30+01:00
 author: Michaël Hompus
 excerpt: >
-  When you want to use the PSI interface you need to have a PSContextInfo Class. Inside a Project Server Event this will be provided so you don’t need to worry about it’s contents. But outside the Event you will need to create one from scratch.
-  One of the properties you need is the Site GUID. According to the SDK you can get this value in your code using three different methods.
-  I use the third option in my application, but it returned the wrong GUID. After some debugging I finally found the problem.
+  When you want to use the PSI interface you need to have a PSContextInfo Class.
+  Inside a Project Server Event this will be provided so you don’t need to worry about it’s contents.
+  But outside the Event you will need to create one from scratch.
 layout: ../layouts/BlogPost.astro
 permalink: /2007/09/07/pitfall-using-the-sitedata-ws-to-get-the-siteguid/
 image: /wp-content/uploads/2007/09/post-10-thumnail-1.png

@@ -5,7 +5,8 @@ date: 2007-08-31T11:39:00+02:00
 updated: 2020-12-02T22:12:35+01:00
 author: Michaël Hompus
 excerpt: >
-  Currently I'm working on a project which uses Microsoft Project Server 2007. However, the SDK is poorly documented.
+  Currently I'm working on a project which uses Microsoft Project Server 2007.
+  However, the SDK is poorly documented.
 layout: ../layouts/BlogPost.astro
 permalink: /2007/08/31/an-addition-to-the-project-server-2007-sdk/
 image: /wp-content/uploads/2007/08/post-7-thumbnail.png

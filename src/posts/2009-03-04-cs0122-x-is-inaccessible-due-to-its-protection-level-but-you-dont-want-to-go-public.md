@@ -5,7 +5,9 @@ date: 2009-03-04T11:00:16+01:00
 updated: 2020-12-02T22:49:40+01:00
 author: Michaël Hompus
 excerpt: >
-  Sometimes you have to split your code into different assemblies. For example when I created a custom Admin Page which inherits from WebAdminPageBase (Microsoft.SharePoint.ApplicationPages). The problem with Microsoft.SharePoint.ApplicationPages is that it's not deployed to the GAC.
+  Sometimes you have to split your code into different assemblies.
+  For example when I created a custom Admin Page which inherits from WebAdminPageBase (Microsoft.SharePoint.ApplicationPages).
+  The problem with Microsoft.SharePoint.ApplicationPages is that it's not deployed to the GAC.
   When compiling you will get the following message: “CS0122: 'foo.bar.x' is inaccessible due to its protection level”
 
   Now you have only one choice: make x public. Or maybe not?
