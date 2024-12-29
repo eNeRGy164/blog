@@ -30,7 +30,7 @@ export async function getStaticPaths() {
  */
 export async function GET({ params }) {
   const imagePath = params.image;
-  
+
   if (imageCache.has(imagePath)) {
     const cached = imageCache.get(imagePath);
 
@@ -40,7 +40,7 @@ export async function GET({ params }) {
     });
   }
 
-  const wpContentOrgBase = path.join(process.cwd(), "wp-content-org");
+  const wpContentOrgBase = path.join(process.cwd(), "wp-content");
   const requestedFilePath = path.join(wpContentOrgBase, imagePath);
 
   const isWebPRequest = path.extname(imagePath).toLowerCase() === ".webp";

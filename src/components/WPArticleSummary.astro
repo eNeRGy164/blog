@@ -22,7 +22,7 @@ const sortedTags = Array.from(new Set(tags as string[])).sort((a, b) =>
 
 const publishedDate = moment(date);
 
-const imagesDir = path.join(process.cwd(), "wp-content-org", "uploads");
+const imagesDir = path.join(process.cwd(), "wp-content", "uploads");
 
 let thumbnail = null;
 

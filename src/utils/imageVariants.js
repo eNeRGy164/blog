@@ -3,7 +3,7 @@ import path from "path";
 import sharp from "sharp";
 
 // Directory containing source images
-const imagesDir = path.join(process.cwd(), "wp-content-org", "uploads");
+const imagesDir = path.join(process.cwd(), "wp-content", "uploads");
 
 // Define common sizes
 const sizes = [
