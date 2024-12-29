@@ -13,7 +13,6 @@ excerpt: >
 
   In this article I show how to make a SQL database failover group reachable via the
   Private Link service and make sure the database stays reachable after a failover.
-layout: ../layouts/BlogPost.astro
 permalink: /2021/04/27/using-private-link-with-a-failover-group-for-azure-sql-database/
 image: /wp-content/uploads/2021/04/post-1908-thumbnail.jpg
 categories:

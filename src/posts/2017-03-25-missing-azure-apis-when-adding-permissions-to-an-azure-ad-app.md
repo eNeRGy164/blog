@@ -10,7 +10,6 @@ excerpt: >
   It did cost me a full day to find out the Azure Portal user interface has an unexpected user interaction when it comes to selecting APIs.
 
   In this post, I’ll explain how you can find all APIs available for your application.
-layout: ../layouts/BlogPost.astro
 permalink: /2017/03/25/missing-azure-apis-when-adding-permissions-to-an-azure-ad-app/
 image: /wp-content/uploads/2017/03/post-1177-thumbnail.png
 categories:

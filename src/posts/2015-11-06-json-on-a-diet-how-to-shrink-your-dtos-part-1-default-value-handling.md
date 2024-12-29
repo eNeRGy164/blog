@@ -14,7 +14,6 @@ excerpt: >
   In this and following blog posts I will describe the different options you can use and combine.
 
   You can download the source code at the end of my article.
-layout: ../layouts/BlogPost.astro
 permalink: /2015/11/06/json-on-a-diet-how-to-shrink-your-dtos-part-1-default-value-handling/
 image: /wp-content/uploads/2015/11/post-2015-11-06-thumbnail.png
 categories:

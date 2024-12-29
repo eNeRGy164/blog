@@ -10,7 +10,6 @@ excerpt: >
   able to execute failovers to another region, enabling a failover group is the solution for you.
 
   In this article I will show you how to create a SQL database failover group in two regions using the Azure CLI.
-layout: ../layouts/BlogPost.astro
 permalink: /2021/01/30/create-an-azure-sql-database-failover-group-with-the-azure-cli/
 image: /wp-content/uploads/2021/01/post-1919-thumbnail.jpg
 categories:

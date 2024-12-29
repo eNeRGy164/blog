@@ -12,7 +12,6 @@ excerpt: >
   the URLs will be automatically translated to corresponding zone URL.
 
   There are however some places this is not the case.
-layout: ../layouts/BlogPost.astro
 permalink: /2011/02/23/translating-urls-using-the-alternate-access-mappings/
 image: /wp-content/uploads/2011/02/post-218-thumnail-1.png
 categories:

@@ -13,7 +13,6 @@ excerpt: >
   So, this is not possible, or is it?
 
   In this article I will show you how to make an Azure pipeline in charge of apps in your Azure AD.
-layout: ../layouts/BlogPost.astro
 permalink: /2020/11/11/manage-azure-ad-applications-from-an-azure-devops-pipeline/
 image: /wp-content/uploads/2020/11/post-1688-thumbnail.jpg
 categories:

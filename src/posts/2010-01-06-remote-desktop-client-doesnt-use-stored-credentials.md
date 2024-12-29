@@ -6,7 +6,6 @@ updated: 2023-03-31T17:55:44+02:00
 author: Michaël Hompus
 excerpt: >
   Learn how I solved the problem of the Remote Desktop Client not using stored credentials due to a local policy setting, and simplified my RDP connections.
-layout: ../layouts/BlogPost.astro
 permalink: /2010/01/06/remote-desktop-client-doesnt-use-stored-credentials/
 image: /wp-content/uploads/2010/01/post-66-thumnail-1.png
 categories:

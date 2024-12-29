@@ -8,7 +8,6 @@ excerpt: >
   The past couple of weeks I'm working with Silverlight controls embedded in SharePoint 2007.
   For one of the controls I need to retrieve the data using the Search Query Web Service.
   This was working perfectly in the development environment. But when deploying the control to the production environment it didn't work.
-layout: ../layouts/BlogPost.astro
 permalink: /2010/01/27/calling-a-sharepoint-web-service-from-silverlight-over-http-and-https/
 image: /wp-content/uploads/2010/01/post-98-thumnail-1.png
 categories:

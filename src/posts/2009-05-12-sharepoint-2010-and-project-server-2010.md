@@ -8,7 +8,6 @@ excerpt: >
   As announced yesterday by Microsoft the Office 2010 products will be 64bit only.
   Well no surprise there, we already knew that. But they went even further:
   Windows Server 2008 and SQL Server on 64bit is a must for ensuring the best performance possible.
-layout: ../layouts/BlogPost.astro
 permalink: /2009/05/12/sharepoint-2010-and-project-server-2010/
 image: /wp-content/uploads/2009/05/post-21-thumnail-1.png
 categories:

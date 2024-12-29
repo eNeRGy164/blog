@@ -10,7 +10,6 @@ excerpt: >
   Sandboxable enables your project to utilize functionality provided by other (Microsoft) libraries that normally are not available in a Partial Trust environment like the Microsoft Dynamics CRM sandbox process.
 
   The project offers modified NuGet packages that will run with Partial Trust.
-layout: ../layouts/BlogPost.astro
 permalink: /2016/07/13/introducing-sandboxable-use-your-favorite-azure-nuget-packages-in-a-sandbox-environment/
 image: /wp-content/uploads/2016/07/post-895-thumbnail.png
 categories:

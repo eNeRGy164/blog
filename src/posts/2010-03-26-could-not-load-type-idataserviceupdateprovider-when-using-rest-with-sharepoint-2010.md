@@ -8,7 +8,6 @@ excerpt: >
   I wanted to use the new REST services in SharePoint 2010.
 
   But when I navigated to the ListData.svc service. I got the following error: “Could not load type 'System.Data.Services.Providers.IDataServiceUpdateProvider' from assembly 'System.Data.Services, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.”
-layout: ../layouts/BlogPost.astro
 permalink: /2010/03/26/could-not-load-type-idataserviceupdateprovider-when-using-rest-with-sharepoint-2010/
 image: /wp-content/uploads/2010/03/post-140-thumnail-1.png
 categories:

@@ -10,7 +10,6 @@ excerpt: >
   But how do you get the other labels and their corresponding scores?
 
   In this article I will show how to you can get these values.
-layout: ../layouts/BlogPost.astro
 permalink: /2020/09/14/get-all-prediction-scores-from-your-ml-net-model/
 image: /wp-content/uploads/2020/09/post-1626-thumbnail.png
 categories:

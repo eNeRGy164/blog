@@ -9,7 +9,6 @@ excerpt: >
   It was quite complex to get performance and support for the network drivers.
   Recently with the launch of Windows Server 2008 R2 there are also new Linux Integration Components which also work for 2008 RTM.
   Here is the list of steps to install CentOS with these components.
-layout: ../layouts/BlogPost.astro
 permalink: /2010/01/07/running-centos-5-x-on-hyper-v/
 image: /wp-content/uploads/2010/01/post-71-thumnail-1.png
 categories:

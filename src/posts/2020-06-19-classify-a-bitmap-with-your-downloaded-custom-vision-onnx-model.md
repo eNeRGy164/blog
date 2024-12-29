@@ -16,7 +16,6 @@ excerpt: >
   But none of them combine the use of the Bitmap class with a downloaded ONNX model from the custom vision portal.
 
   In this article I will walk through the steps to set up an application to classify bitmaps using a custom vision model with ML.NET.
-layout: ../layouts/BlogPost.astro
 permalink: /2020/06/19/classify-a-bitmap-with-your-downloaded-custom-vision-onnx-model/
 image: /wp-content/uploads/2020/06/post-1459-thumbnail.png
 categories:

@@ -12,7 +12,6 @@ excerpt: >
   but the SharePoint People Picker doesn't show any accounts from this domain.
 
   It has been documented by others before, but as I ran into this recently I'll give my summary how I fixed this.
-layout: ../layouts/BlogPost.astro
 permalink: /2010/06/01/using-the-people-picker-over-a-one-way-trust/
 image: /wp-content/uploads/2010/06/post-181-thumnail-1.png
 categories:

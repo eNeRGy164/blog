@@ -13,7 +13,6 @@ excerpt: >
   SharePoint 2010 introduces several cmdlets to replace the “old” STSADM commands.
   Microsoft has posted an overview of the STSADM to Windows PowerShell mapping.
   However the commands for configuring the people picker are not available.
-layout: ../layouts/BlogPost.astro
 permalink: /2011/01/17/configure-people-picker-over-a-one-way-trust-using-powershell/
 image: /wp-content/uploads/2011/01/post-201-thumnail-1.png
 categories:

@@ -8,7 +8,6 @@ excerpt: >
     With the introduction of LINQ the difference between writing code for accessing a lists of objects in memory and accessing a list of data in an external data source like SQL is vanishing.
     Combining a in memory with a external list in a single query was not yet possible.
     With the introduction of .NET Framework 4.0 this has changed.
-layout: ../layouts/BlogPost.astro
 permalink: /2010/08/26/joining-an-iqueryable-with-an-ienumerable/
 image: /wp-content/uploads/2010/08/post-194-thumnail-1.png
 categories:

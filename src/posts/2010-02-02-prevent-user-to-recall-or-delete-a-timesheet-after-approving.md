@@ -7,7 +7,6 @@ author: Michaël Hompus
 excerpt: >
   Working on a Project Server project we discovered it's quite easy to get issues with data integrity when users start retracting and deleting timesheets.
   After discussing the issue with Microsoft they gave us a workaround which solves our problem.
-layout: ../layouts/BlogPost.astro
 permalink: /2010/02/02/prevent-user-to-recall-or-delete-a-timesheet-after-approving/
 image: /wp-content/uploads/2010/02/post-99-thumnail-1.png
 categories:

@@ -17,7 +17,6 @@ excerpt: >
   After I added the PullDownToRefreshPanel control to my list and started testing it on my phone, I ran into some issues.
 
   In this blog post I will describe my contributions to fix these 2 issues and I will supply the source code for you to use.
-layout: ../layouts/BlogPost.astro
 permalink: /2015/02/04/make-pull-down-to-refresh-work-with-a-windows-phone-virtualizing-list-control/
 image: /wp-content/uploads/2015/02/post-2015-02-04-thumnail-1.png
 categories:

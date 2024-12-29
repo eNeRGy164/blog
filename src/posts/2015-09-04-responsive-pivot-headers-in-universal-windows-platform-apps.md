@@ -10,7 +10,6 @@ excerpt: >
   However, no code samples are supplied so there is no indication how to actually create this in your own Xaml app.
 
   In this blogpost I will show the different steps to get the basics done and I will supply the source code for you to use.
-layout: ../layouts/BlogPost.astro
 permalink: /2015/09/04/responsive-pivot-headers-in-universal-windows-platform-apps/
 image: /wp-content/uploads/2015/09/post-2015-09-04-thumbnail.png
 categories:

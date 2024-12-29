@@ -9,7 +9,6 @@ excerpt: >
   I share more on the techniques, frameworks and libraries I have used and I finish with a demonstration of the finished application.
 
   As there was so much to share, it did not fit in a single episode, so we recorded three parts!
-layout: ../layouts/BlogPost.astro
 permalink: /2020/10/19/three-episodes-about-machine-learning-and-xbox-achievements-at-dotnetflix/
 image: /wp-content/uploads/2020/10/dotnetFlix.jpg
 categories:

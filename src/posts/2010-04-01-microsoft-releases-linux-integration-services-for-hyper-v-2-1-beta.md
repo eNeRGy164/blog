@@ -8,7 +8,6 @@ excerpt: >
   Today the Microsoft Virtualization Team announced the availability of the new beta version of the Linux Integration Services for Hyper-V.
 
   In this post I will try the new features.
-layout: ../layouts/BlogPost.astro
 permalink: /2010/04/01/microsoft-releases-linux-integration-services-for-hyper-v-2-1-beta/
 image: /wp-content/uploads/2010/04/post-154-thumnail-1.png
 categories:

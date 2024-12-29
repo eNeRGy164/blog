@@ -12,7 +12,6 @@ excerpt: >
   The problem is, if you don't run any tests, the parser task will fail. There are no configuration settings to influence this behavior or to disable the task conditionally. I could disable the task manually, but that would affect all other branches at the same time.
 
   So, I found it was time to create a quick work around.
-layout: ../layouts/BlogPost.astro
 permalink: /2020/07/07/trick-bamboos-mstest-parser-when-we-skip-running-our-tests/
 image: /wp-content/uploads/2020/07/post-1495-thumbnail.png
 categories:

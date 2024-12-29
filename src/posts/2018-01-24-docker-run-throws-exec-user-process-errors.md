@@ -11,7 +11,6 @@ excerpt: >
   But luckily some suggestions put me on the right track.
 
   In this post I write about the solutions I found.
-layout: ../layouts/BlogPost.astro
 permalink: /2018/01/24/docker-run-throws-exec-user-process-errors/
 image: /wp-content/uploads/2018/01/post-1275-thumbnail.png
 categories:

@@ -14,7 +14,6 @@ excerpt: >
   So, what if we could use the actual name of the camera instead of the index value?
 
   In this article I will show how to achieve this.
-layout: ../layouts/BlogPost.astro
 permalink: /2021/01/04/using-the-opencv-videocapture-class-with-the-name-of-a-camera/
 image: /wp-content/uploads/2021/01/post-1899-thumbnail.jpg
 categories:

@@ -11,7 +11,6 @@ excerpt: >
 
   In this article we will walk through the steps how we can make a connection to the container registry.
   In the end we will also make sure we do not have to pass along the password during the deployment.
-layout: ../layouts/BlogPost.astro
 permalink: /2020/05/22/link-an-azure-web-app-to-a-container-registry-using-arm-templates/
 image: /wp-content/uploads/2020/05/post-1389-thumbnail.png
 categories:

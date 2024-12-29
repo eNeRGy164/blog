@@ -14,7 +14,6 @@ excerpt: >
   Reducing the number of delimiters someone has to read or write even further.
 
   How can this work with C#, a strongly typed language?
-layout: ../layouts/BlogPost.astro
 permalink: /2020/08/17/yaml-properties-as-scalar-or-sequence-or-both/
 image: /wp-content/uploads/2020/08/post-1580-thumbnail.png
 categories:

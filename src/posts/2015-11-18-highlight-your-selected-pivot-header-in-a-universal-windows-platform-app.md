@@ -12,7 +12,6 @@ excerpt: >
   It's a great question and I'm sorry I didn't cover this part so the pivot looks more like the example image.
 
   An omission I want to correct with this blog post.
-layout: ../layouts/BlogPost.astro
 permalink: /2015/11/18/highlight-your-selected-pivot-header-in-a-universal-windows-platform-app/
 image: /wp-content/uploads/2015/11/post-642-thumbnail.png
 categories:

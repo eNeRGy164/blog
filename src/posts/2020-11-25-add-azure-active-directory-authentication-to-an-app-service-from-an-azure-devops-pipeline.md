@@ -9,7 +9,6 @@ excerpt: >
   But how do you add Azure AD as a provider using Infrastructure as Code?
 
   In this article I will show you the steps of deploying and securing an Azure App Service with AAD authentication using an Azure pipeline.
-layout: ../layouts/BlogPost.astro
 permalink: /2020/11/25/add-azure-active-directory-authentication-to-an-app-service-from-an-azure-devops-pipeline/
 image: /wp-content/uploads/2020/11/post-1742-thumbnail.jpg
 categories:

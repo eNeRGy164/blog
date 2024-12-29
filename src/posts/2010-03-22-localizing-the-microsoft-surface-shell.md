@@ -9,7 +9,6 @@ excerpt: >
   This shell is by default localized for US English. It is possible to localize for other locales,
   but there is no configuration screen to set the desired localization.
   This post will summarize the different steps to localize the Surface shell.
-layout: ../layouts/BlogPost.astro
 permalink: /2010/03/22/localizing-the-microsoft-surface-shell/
 image: /wp-content/uploads/2010/03/post-123-thumnail-1.png
 categories:

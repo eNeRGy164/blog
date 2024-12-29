@@ -7,7 +7,6 @@ author: Michaël Hompus
 excerpt: >
   I was having trouble with the clock in my Linux Hyper-V VMs. The time was constantly drifting forward.
   Using NTP only slowed the drift a bit down but often NTP gave up after several days.
-layout: ../layouts/BlogPost.astro
 permalink: /2010/01/08/correcting-time-drift-with-centos-on-hyper-v/
 image: /wp-content/uploads/2010/01/post-78-thumnail-1.png
 categories:

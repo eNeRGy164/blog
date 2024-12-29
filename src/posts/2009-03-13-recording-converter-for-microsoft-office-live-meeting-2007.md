@@ -10,7 +10,6 @@ excerpt: >
   The problem is that the codec used doesn't work on x64 systems or Windows 7 (Server).
   Watching the separate streams isn't really an option because there is no audio included in the video streams.
   But I got lucky as it seems Microsoft has released a new tool called “Recording Converter for Microsoft Office Live Meeting 2007” only last month.
-layout: ../layouts/BlogPost.astro
 permalink: /2009/03/13/recording-converter-for-microsoft-office-live-meeting-2007/
 image: /wp-content/uploads/2009/03/post-18-thumnail-1.png
 categories:

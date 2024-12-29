@@ -10,7 +10,6 @@ excerpt: >
   I noticed during the exams I was being tested on skills not mentioned on the Microsoft Learning web site.
 
   In this post I’ll cover these differences and how I prepared for the exams so it’ll be easier for you to get certified.
-layout: ../layouts/BlogPost.astro
 permalink: /2016/02/11/my-road-to-mcsd-universal-windows-platform/
 image: /wp-content/uploads/2016/02/post-863-thumbnail.png
 categories:

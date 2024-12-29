@@ -8,7 +8,6 @@ excerpt: >
   I have a clean install on the latest and greatest: Windows Server 2008, SQL Server 2008 and MOSS 2007 SP1 with all updates.
   Everything works fine, except the search crawl gave Access Denied errors on http://mysite and sps3://mysite.
   This post explains how I fixed the problem.
-layout: ../layouts/BlogPost.astro
 permalink: /2009/03/12/access-denied-when-crawling-mysite-people-on-localhost-with-a-different-hostname/
 image: /wp-content/uploads/2009/03/post-17-thumnail-1.png
 categories:

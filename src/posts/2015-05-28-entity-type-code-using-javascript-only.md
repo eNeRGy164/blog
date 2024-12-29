@@ -11,7 +11,6 @@ excerpt: >
   The SDK has no real solution for this, and hard-coding is no option as the numbers can change per deployment.
 
   Digging through the client side object model I found a nice, although still unsupported, treasure which works with CRM 2011 and up, including the latest installment: 2015 update 1.
-layout: ../layouts/BlogPost.astro
 permalink: /2015/05/28/entity-type-code-using-javascript-only/
 image: /wp-content/uploads/2015/05/post-2015-05-28-thumbnail.png
 categories:

@@ -7,7 +7,6 @@ author: Michaël Hompus
 excerpt: >
   To deploy our code, we create MSI installers using Visual Studio.
   One problem I encountered is that there is no property available in code to know where the user has chosen to install the application.
-layout: ../layouts/BlogPost.astro
 guid: http://hompus.wordpress.com/2007/09/07/installer_application_folder/
 permalink: /2007/09/07/installer-application-folder/
 image: /wp-content/uploads/2007/09/post-11-thumnail-1.png

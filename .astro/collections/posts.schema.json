@@ -48,9 +48,6 @@
         "excerpt": {
           "type": "string"
         },
-        "layout": {
-          "type": "string"
-        },
         "permalink": {
           "type": "string"
         },
@@ -85,7 +82,6 @@
         "date",
         "author",
         "excerpt",
-        "layout",
         "permalink"
       ],
       "additionalProperties": false

@@ -9,7 +9,6 @@ excerpt: >
   one of the first things I do is build the infrastructure and automate the deployment using VSTS or TFS.
 
   In this post I‘ll explain how you can extend Azure Web Apps with Virtual Applications and Virtual Directories using ARM templates.
-layout: ../layouts/BlogPost.astro
 permalink: /2017/03/13/create-virtual-applications-and-directories-in-your-azure-web-app-using-arm-templates/
 image: /wp-content/uploads/2017/03/post-1148-thumbnail.png
 categories:

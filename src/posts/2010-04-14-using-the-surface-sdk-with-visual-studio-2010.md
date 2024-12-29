@@ -8,7 +8,6 @@ excerpt: >
   After the installation was complete I noticed the Surface project and item templates were not available.
 
   In this post I explain how to get the entries in Visual Studio 2010.
-layout: ../layouts/BlogPost.astro
 permalink: /2010/04/14/using-the-surface-sdk-with-visual-studio-2010/
 image: /wp-content/uploads/2010/04/post-158-thumnail-1.png
 categories:

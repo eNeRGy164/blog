@@ -7,7 +7,6 @@ author: Michaël Hompus
 excerpt: >
   Recently I was challenged with the task to set the layout and content of a wiki page when a new page is added to a team site.
   As I'm used to work with SharePoint publishing the task sounded easy, but I was wrong.
-layout: ../layouts/BlogPost.astro
 permalink: /2012/06/07/provisioning-a-default-layout-and-content-when-adding-a-wiki-page/
 image: /wp-content/uploads/2012/06/post-255-thumnail-1.png
 categories:

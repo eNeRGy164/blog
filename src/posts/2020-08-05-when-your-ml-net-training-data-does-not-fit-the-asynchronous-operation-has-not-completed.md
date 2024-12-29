@@ -12,7 +12,6 @@ excerpt: >
   System.InvalidOperationException: 'The asynchronous operation has not completed.'
 
   The application did work for weeks, so what has changed? And more importantly, how to fix this situation?
-layout: ../layouts/BlogPost.astro
 permalink: /2020/08/05/when-your-ml-net-training-data-does-not-fit-the-asynchronous-operation-has-not-completed/
 image: /wp-content/uploads/2020/08/post-1565-thumbnail.png
 categories:

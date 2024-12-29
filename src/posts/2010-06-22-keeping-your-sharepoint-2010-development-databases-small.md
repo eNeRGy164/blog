@@ -8,7 +8,6 @@ excerpt: >
   With SharePoint 2010 the amount of databases on your SQL server has grown quite a bit.
   By default most of these databases have their recovery model set to 'FULL'.
   After some time you will discover you're running out of space.
-layout: ../layouts/BlogPost.astro
 permalink: /2010/06/22/keeping-your-sharepoint-2010-development-databases-small/
 image: /wp-content/uploads/2010/06/post-186-thumnail-1.png
 categories:

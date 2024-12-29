@@ -8,7 +8,6 @@ excerpt: >
   I received a couple of comments on my article about making the pull-down-to-refresh work with a Windows Phone virtualizing list control.
   The problem was that the functionality stopped working after navigating away from the page containing the ItemsControl.
   Today I committed the code to GitHub to fix this issue.
-layout: ../layouts/BlogPost.astro
 permalink: /2015/06/18/updated-pull-down-to-refresh-panel-to-work-after-navigating/
 image: /wp-content/uploads/2015/06/post-2015-06-18-thumbnail.png
 categories:

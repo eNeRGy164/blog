@@ -13,7 +13,6 @@ excerpt: >
   the data types of the downloaded Azure Custom Vision ONNX model are very hard to map on the .NET data types we use.
 
   In this article I will show how we can get the labels and scores from an ONNX model prediction in C#.
-layout: ../layouts/BlogPost.astro
 permalink: /2020/09/25/get-all-prediction-scores-from-your-onnx-model-with-ml-net/
 image: /wp-content/uploads/2020/09/post-1640-thumbnail.png
 categories:

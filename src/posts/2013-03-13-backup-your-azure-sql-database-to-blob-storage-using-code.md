@@ -12,7 +12,6 @@ excerpt: >
   To have a backup in time I wrote some code to allow a Worker Role to backup my Windows Azure SQL Database every hour.
   Most solutions you find online are relying on the REST Endpoints but the address of the endpoint is different depending on which datacenter your database is hosted.
   I found a different solution where you only need the connection string to your database using the DacServices.
-layout: ../layouts/BlogPost.astro
 permalink: /2013/03/13/backup-your-azure-sql-database-to-blob-storage-using-code/
 image: /wp-content/uploads/2013/03/post-336-thumbnail.jpg
 categories:

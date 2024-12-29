@@ -8,7 +8,6 @@ excerpt: >
   Recently I worked on an HttpHandler implementation that is serving images from a backend system.
   Although everything seemed to work as expected it was discovered images were requested by the browser on every page refresh instead of caching the browser them locally.
   Together with my colleague Bert-Jan I investigated and solved the problem which will be explained in this post.
-layout: ../layouts/BlogPost.astro
 permalink: /2011/03/11/make-your-browser-cache-the-output-of-an-httphandler/
 image: /wp-content/uploads/2011/03/post-230-thumnail-1.png
 categories:

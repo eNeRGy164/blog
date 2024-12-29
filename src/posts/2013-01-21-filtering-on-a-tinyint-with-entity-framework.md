@@ -10,7 +10,6 @@ excerpt: >
   But we should not trust it blindly, as the EF can also generate a bad query.
 
   It will return the correct data yes, but at what performance cost?
-layout: ../layouts/BlogPost.astro
 permalink: /2013/01/21/filtering-on-a-tinyint-with-entity-framework/
 image: /wp-content/uploads/2013/01/post-257-thumbnail.png
 categories:

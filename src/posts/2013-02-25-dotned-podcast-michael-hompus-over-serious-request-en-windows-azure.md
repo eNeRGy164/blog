@@ -7,7 +7,6 @@ author: Michaël Hompus
 excerpt: >
   dotNed is the Dutch .NET user group and organizes several meetings each year for the .NET community.
   Maurice de Beijer interviewed me about my experiences using Windows Azure to build a high available and scaling platform for 3FM Serious Request.
-layout: ../layouts/BlogPost.astro
 permalink: /2013/02/25/dotned-podcast-michael-hompus-over-serious-request-en-windows-azure/
 image: /wp-content/uploads/2013/02/post-288-thumbnail.png
 categories:

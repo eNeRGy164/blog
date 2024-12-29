@@ -7,7 +7,6 @@ author: Michaël Hompus
 excerpt: >
   I was working on some old code which created three DropDown controls with hours, minutes and seconds.
   I wanted to LINQify it using the LINQ Range method.
-layout: ../layouts/BlogPost.astro
 permalink: /2009/03/25/generate-integer-lists-using-linq/
 image: /wp-content/uploads/2009/03/post-20-thumnail-1.png
 categories:

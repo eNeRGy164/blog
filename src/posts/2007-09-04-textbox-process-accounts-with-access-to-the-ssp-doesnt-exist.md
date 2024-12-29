@@ -9,7 +9,6 @@ excerpt: >
   I found some posts on the web suggesting that you need to add the account to the
   “Process Accounts with Access to the SSP” textbox, but guess what?
   That box was nowhere to find!
-layout: ../layouts/BlogPost.astro
 permalink: /2007/09/04/textbox-process-accounts-with-access-to-the-ssp-doesnt-exist/
 image: /wp-content/uploads/2007/09/post-8-thumnail-1.png
 categories:

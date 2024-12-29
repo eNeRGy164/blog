@@ -10,7 +10,6 @@ excerpt: >
   some that are long available but maybe not that well known.
 
   I share my code and list of concepts that might inspire you to discover a feature you were not aware of yet!
-layout: ../layouts/BlogPost.astro
 permalink: /2022/01/03/my-advent-of-code-2021/
 image: /wp-content/uploads/2022/01/advent-of-code-2019.jpeg
 categories:

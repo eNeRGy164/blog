@@ -7,7 +7,6 @@ author: Michaël Hompus
 excerpt: >
   Today the news broke Microsoft has extended the support for installations of Windows SharePoint Services 3.0 SP1,
   Microsoft Office SharePoint Server 2007 SP1 and Project Server 2007 SP1.
-layout: ../layouts/BlogPost.astro
 permalink: /2010/03/24/microsoft-extends-support-for-wss-3-0-sharepoint-2007-and-project-server-sp1/
 image: /wp-content/uploads/2010/03/post-136-thumnail-1.png
 categories:

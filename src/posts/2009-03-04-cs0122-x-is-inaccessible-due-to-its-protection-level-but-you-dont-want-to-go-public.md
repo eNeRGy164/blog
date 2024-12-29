@@ -11,7 +11,6 @@ excerpt: >
   When compiling you will get the following message: “CS0122: 'foo.bar.x' is inaccessible due to its protection level”
 
   Now you have only one choice: make x public. Or maybe not?
-layout: ../layouts/BlogPost.astro
 permalink: /2009/03/04/cs0122-x-is-inaccessible-due-to-its-protection-level-but-you-dont-want-to-go-public/
 image: /wp-content/uploads/2009/03/post-15-thumnail-1.png
 categories:

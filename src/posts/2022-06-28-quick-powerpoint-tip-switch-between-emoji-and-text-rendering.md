@@ -10,7 +10,6 @@ excerpt: >
   For example, PowerPoint renders the emoticon only in a textual, monochrome variant on the slide.
 
   So, how can we influence this behavior?
-layout: ../layouts/BlogPost.astro
 permalink: /2022/06/28/quick-powerpoint-tip-switch-between-emoji-and-text-rendering/
 image: /wp-content/uploads/2022/06/post-2095-thumbnail.png
 categories:

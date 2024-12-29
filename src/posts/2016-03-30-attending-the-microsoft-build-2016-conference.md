@@ -8,7 +8,6 @@ excerpt: >
   This week I’ll be attending the Microsoft Build 2016 conference in San Francisco.
 
   Lots of news to be expected for developers covering the many technologies Microsoft is putting on the market.
-layout: ../layouts/BlogPost.astro
 permalink: /2016/03/30/attending-the-microsoft-build-2016-conference/
 image: /wp-content/uploads/2016/03/post-882-thumbnail.png
 categories:

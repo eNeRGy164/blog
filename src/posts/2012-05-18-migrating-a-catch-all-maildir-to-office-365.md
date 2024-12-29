@@ -14,7 +14,6 @@ excerpt: >
   This is not possible at all!
 
   So I made my own scripts to add all email addresses I used in the past as an alias on my mailbox.
-layout: ../layouts/BlogPost.astro
 permalink: /2012/05/18/migrating-a-catch-all-maildir-to-office-365/
 image: /wp-content/uploads/2012/05/post-246-thumnail-1.png
 categories:

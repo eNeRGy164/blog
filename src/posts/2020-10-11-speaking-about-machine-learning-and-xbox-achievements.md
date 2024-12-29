@@ -8,7 +8,6 @@ excerpt: >
   A couple of my recent articles were about machine learning and image classification in C#.
   These posts were the results of a pet project on which I was working.
   I will be speaking about this project at a couple of events in the coming weeks.
-layout: ../layouts/BlogPost.astro
 permalink: /2020/10/11/speaking-about-machine-learning-and-xbox-achievements/
 image: /wp-content/uploads/2020/10/post-1660-thumbnail.png
 categories:

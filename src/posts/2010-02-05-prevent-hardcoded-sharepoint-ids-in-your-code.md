@@ -8,7 +8,6 @@ excerpt: >
   Now and again I come across code with hardcoded SharePoint IDs in it. Or scary loops matching a field, list or property name.
   SharePoint provides some classes containing the out of the box IDs, you only have to know they exist.
   I made an overview so nobody has to hardcode those pesky GUIDs, ContentTypeId's or property names.
-layout: ../layouts/BlogPost.astro
 permalink: /2010/02/05/prevent-hardcoded-sharepoint-ids-in-your-code/
 image: /wp-content/uploads/2010/02/post-100-thumnail-1.png
 categories:

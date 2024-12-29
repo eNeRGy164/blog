@@ -11,7 +11,6 @@ excerpt: >
   As I couldn’t find any existing PowerShell scripts on the web that I could use, I just wrote one myself.
 
   Now I like to share this script with you.
-layout: ../layouts/BlogPost.astro
 permalink: /2017/02/11/powershell-script-convertfrom-sitemap/
 image: /wp-content/uploads/2017/02/post-1128-thumbnail.png
 categories:

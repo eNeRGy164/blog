@@ -8,7 +8,6 @@ excerpt: >
   This is the second part in a series of posts about reducing the amount of data transferred between ASP.NET Web API or Azure Mobile App Service and the (mobile) client.
 
   In this post we will squeeze a little bit more from our DTOs (Data Transfer Objects).
-layout: ../layouts/BlogPost.astro
 permalink: /2015/12/04/json-on-a-diet-how-to-shrink-your-dtos-part-2-skip-empty-collections/
 image: /wp-content/uploads/2015/12/post-672-thumbnail.png
 categories:

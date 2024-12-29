@@ -11,7 +11,6 @@ excerpt: >
   With restrictions being lifted during 2022,
   new opportunities presented themselves and I was able to be in front of a live audience again,
   even outside the country!
-layout: ../layouts/BlogPost.astro
 permalink: /2022/12/31/2022-my-year-as-a-speaker/
 image: /wp-content/uploads/2022/12/post-2115-thumbnail.jpg
 categories:

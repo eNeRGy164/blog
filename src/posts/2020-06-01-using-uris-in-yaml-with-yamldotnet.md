@@ -13,7 +13,6 @@ excerpt: >
   but when serializing back to a YAML file, things were not going as intended.
 
   In this short article, I will explain how I did fix this.
-layout: ../layouts/BlogPost.astro
 permalink: /2020/06/01/using-uris-in-yaml-with-yamldotnet/
 image: /wp-content/uploads/2020/05/post-1432-thumbnail.png
 categories:

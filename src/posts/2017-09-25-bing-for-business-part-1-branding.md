@@ -12,7 +12,6 @@ excerpt: >
   I’m now allowed to show you what the service is offering our company.
 
   In the coming days I will be posting about several parts of Bing for business, starting with “branding”.
-layout: ../layouts/BlogPost.astro
 permalink: /2017/09/25/bing-for-business-part-1-branding/
 image: /wp-content/uploads/2017/09/post-1224-thumbnail.png
 categories:

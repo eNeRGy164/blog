@@ -10,7 +10,6 @@ excerpt: >
   which uses AI and the Microsoft Graph to deliver more relevant search results based on your organizational context”.
 
   In this post, we will be focusing on “People Search”.
-layout: ../layouts/BlogPost.astro
 permalink: /2017/09/28/bing-for-business-part-2-people-search/
 image: /wp-content/uploads/2017/09/post-1245-thumbnail.png
 categories:

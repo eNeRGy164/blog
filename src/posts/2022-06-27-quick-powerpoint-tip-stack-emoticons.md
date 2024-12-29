@@ -7,7 +7,6 @@ author: Michaël Hompus
 excerpt: >
   Learn how to stack emoticons in PowerPoint to create engaging and visually appealing slide titles.
   Bring your presentations to life with this quick and easy tip!
-layout: ../layouts/BlogPost.astro
 permalink: /2022/06/27/quick-powerpoint-tip-stack-emoticons/
 image: /wp-content/uploads/2022/06/post-2068-thumbnail.png
 categories:

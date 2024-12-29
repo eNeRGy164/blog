@@ -9,7 +9,6 @@ excerpt: >
   It's a means to use NuGet packages that normally are not available for code that runs with Partial Trust.
 
   In this post, we will walk through the steps to create a Microsoft Dynamics CRM plug-in that will add a message to an Azure queue.
-layout: ../layouts/BlogPost.astro
 permalink: /2016/11/25/sending-a-message-to-an-azure-queue-from-a-sandboxed-crm-plug-in/
 image: /wp-content/uploads/2016/11/post-911-thumbnail.png
 categories:

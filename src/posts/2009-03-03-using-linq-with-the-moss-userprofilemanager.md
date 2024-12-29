@@ -8,7 +8,6 @@ excerpt: >
   Lately I am working a lot with LINQ and al types like LINQ to XML, LINQ to XSD, LINQ to objects, etc.
   Today I had to build some functionality in SharePoint where I had to split users in 2 groups based on a profile property in their User Profile.
   In this post I will show you how I did this.
-layout: ../layouts/BlogPost.astro
 permalink: /2009/03/03/using-linq-with-the-moss-userprofilemanager/
 image: /wp-content/uploads/2009/03/post-14-thumnail-1.png
 categories:

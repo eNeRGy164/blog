@@ -9,7 +9,6 @@ excerpt: >
 
   I first suspected the security settings on the directories were the problem, but my changes didn't fix anything.
   After browsing around the internet, I found a couple of fixes that might help you if you have the same problem.
-layout: ../layouts/BlogPost.astro
 permalink: /2015/10/20/hyper-v-vms-missing-in-windows-10-insiders-build-slow-ring/
 image: /wp-content/uploads/2015/10/post-2015-10-20-thumbnail.png
 categories:

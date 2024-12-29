@@ -10,7 +10,6 @@ const posts = defineCollection({
         updated: z.coerce.date().optional(),
         author: z.string(),
         excerpt: z.string(),
-        layout: z.string(),
         permalink: z.string(),
         image: z.string().optional(),
         categories: z.array(z.string()).optional().default([]),

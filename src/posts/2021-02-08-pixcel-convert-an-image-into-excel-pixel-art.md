@@ -10,7 +10,6 @@ excerpt: >
   I thought: "How hard can it be".
 
   Well, it is about 25 lines of C# 9.0 hard! 😁
-layout: ../layouts/BlogPost.astro
 permalink: /2021/02/08/pixcel-convert-an-image-into-excel-pixel-art/
 image: /wp-content/uploads/2021/02/post-1940-thumbnail.png
 categories:

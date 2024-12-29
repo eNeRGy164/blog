@@ -11,7 +11,6 @@ excerpt: >
   I was honored to take part in this series and have people learn about the Open Application Model (OAM) and the Distributed Application Runtime (Dapr).
 
   Here I share with you the recording and slides.
-layout: ../layouts/BlogPost.astro
 permalink: /2020/05/20/advanced-lockdown-lecture-oam-dapr/
 image: /wp-content/uploads/2020/05/post-1391-thumbnail.png
 categories:

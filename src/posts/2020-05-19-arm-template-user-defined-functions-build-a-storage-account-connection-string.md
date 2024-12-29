@@ -12,7 +12,6 @@ excerpt: >
   Even worse if you have multiple connection strings in the same template.
 
   In this article I will show that adding a User-Defined Function to our template can improve on this.
-layout: ../layouts/BlogPost.astro
 permalink: /2020/05/19/arm-template-user-defined-functions-build-a-storage-account-connection-string/
 image: /wp-content/uploads/2020/05/post-1373-thumbnail.png
 categories:

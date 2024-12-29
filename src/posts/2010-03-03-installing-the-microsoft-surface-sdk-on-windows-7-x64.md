@@ -10,7 +10,6 @@ excerpt: >
   specially when there are more developers than Surface devices.
   The solution for this is to install the Surface SDK on you local development machine.
   This post will address some limitations you have to work around.
-layout: ../layouts/BlogPost.astro
 permalink: /2010/03/03/installing-the-microsoft-surface-sdk-on-windows-7-x64/
 image: /wp-content/uploads/2010/03/post-122-thumnail-1.png
 categories:

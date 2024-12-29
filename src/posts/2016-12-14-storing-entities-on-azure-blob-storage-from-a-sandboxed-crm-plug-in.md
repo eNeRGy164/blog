@@ -9,7 +9,6 @@ excerpt: >
 
   We will walk through the steps to create a Microsoft Dynamics CRM plug-in that on deletion of any record,
   stores the deleted data as a file on Azure blob storage.
-layout: ../layouts/BlogPost.astro
 permalink: /2016/12/14/storing-entities-on-azure-blob-storage-from-a-sandboxed-crm-plug-in/
 image: /wp-content/uploads/2016/12/post-1003-thumbnail.png
 categories:

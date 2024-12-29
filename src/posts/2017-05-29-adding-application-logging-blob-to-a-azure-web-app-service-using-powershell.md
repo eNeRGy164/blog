@@ -9,7 +9,6 @@ excerpt: >
   And this is something an ARM template can’t provide for you.
 
   In this post, I will walk you through the necessary PowerShell code to run.
-layout: ../layouts/BlogPost.astro
 permalink: /2017/05/29/adding-application-logging-blob-to-a-azure-web-app-service-using-powershell/
 image: /wp-content/uploads/2017/05/post-1205-thumbnail.png
 categories:

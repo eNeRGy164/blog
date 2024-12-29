@@ -8,7 +8,6 @@ excerpt: >
   When you want to use the PSI interface you need to have a PSContextInfo Class.
   Inside a Project Server Event this will be provided so you don’t need to worry about it’s contents.
   But outside the Event you will need to create one from scratch.
-layout: ../layouts/BlogPost.astro
 permalink: /2007/09/07/pitfall-using-the-sitedata-ws-to-get-the-siteguid/
 image: /wp-content/uploads/2007/09/post-10-thumnail-1.png
 categories:

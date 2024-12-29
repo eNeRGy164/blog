@@ -9,7 +9,6 @@ excerpt: >
   Since his desktop was in a 16:10 resolution the application was falling of the screen on both sides.
 
   While I was preparing a presentation myself I wanted to be sure my presentation would be in the same resolution as my desktop as I would be switching between my slides and Visual Studio.
-layout: ../layouts/BlogPost.astro
 permalink: /2010/04/16/make-your-powerpoint-presentation-look-good-on-a-wide-screen-projector/
 image: /wp-content/uploads/2010/04/post-167-thumnail-1.png
 categories:
