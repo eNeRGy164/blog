@@ -26,7 +26,7 @@ const keywords = (articleKeywords.length > 0 ? articleKeywords : SITE_KEYWORDS)
 
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="sitemap" href="/sitemap-index.xml">
-<link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL("rss.xml", Astro.site)}>
+<link rel="alternate" type="application/rss+xml" title={`${SITE_TITLE} » Feed`} href={new URL("feed.xml", Astro.site)}>
 
 <link rel='dns-prefetch' href="https://piwik.hompus.nl">
 
@@ -45,10 +45,10 @@ const keywords = (articleKeywords.length > 0 ? articleKeywords : SITE_KEYWORDS)
 	<meta property="article:published_time" content={article.published.toISOString()} />
 	<meta property="article:modified_time" content={article.updated.toISOString()} />
 )}
-{article && article.sections && article.sections.map((section) => 
+{article && article.sections && article.sections.map((section) =>
 	<meta property="article:section" content={section}>
 )}
-{article && article.tags && article.tags.map((tag) => 
+{article && article.tags && article.tags.map((tag) =>
 	<meta property="article:tag" content={tag}>
 )}
 
