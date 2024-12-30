@@ -1,14 +1,16 @@
 {
+  "trailingSlash": "never",
   "routes": [
     {
-      "route": "feed",
+      "route": "/feed",
       "methods": [
         "get",
         "head"
       ],
-      "rewrite": "/feed",
-      "redirect": "/feed.xml",
-      "statusCode": 301
+      "rewrite": "/feed.xml"
     }
-  ]
+  ],
+  "mimeTypes": {
+    ".xml": "text/xml"
+  }
 }
