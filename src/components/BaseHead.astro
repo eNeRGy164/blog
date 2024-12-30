@@ -3,9 +3,9 @@ import { SITE_TITLE, SITE_KEYWORDS } from '@/config';
 import '../styles/global.css';
 
 export interface Article { published: Date; updated: Date; sections: string[]; tags: string[]; }
-export interface Props { title: string; description: string; image?: string; author: string; article?: Article; }
+export interface Props { title: string; description: string; image?: string; author: string; article?: Article; feed?: { title: string; link: string; }; }
 
-const { title, description, image = '/placeholder-social.jpg', author, article } = Astro.props;
+const { title, description, image = '/placeholder-social.jpg', author, article, feed } = Astro.props;
 
 const articleKeywords = article
   ? [...(article.tags || []), ...(article.sections || [])]
@@ -27,6 +27,7 @@ const keywords = (articleKeywords.length > 0 ? articleKeywords : SITE_KEYWORDS)
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="sitemap" href="/sitemap-index.xml">
 <link rel="alternate" type="application/rss+xml" title={`${SITE_TITLE} » Feed`} href={new URL("feed.xml", Astro.site)}>
+{feed && <link rel="alternate" type="application/rss+xml" title={`${SITE_TITLE} » ${feed.title} Feed`} href={new URL(`${feed.link}`, Astro.site)}>}
 
 <link rel='dns-prefetch' href="https://piwik.hompus.nl">
 
