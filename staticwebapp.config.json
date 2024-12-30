@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "route": "feed",
+      "methods": [
+        "get",
+        "head"
+      ],
+      "rewrite": "/feed",
+      "redirect": "/feed.xml",
+      "statusCode": 301
+    }
+  ]
+}
