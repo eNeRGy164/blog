@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss'
 import { sortedPosts } from '@/js/util.js'
 
-export async function buildFeed(title, description, site, requestUrl, posts) {
+export function buildFeed(title, description, site, requestUrl, posts) {
   const orderedPosts = sortedPosts(posts)
 
   return rss({
@@ -15,7 +15,7 @@ export async function buildFeed(title, description, site, requestUrl, posts) {
       link: post.data.permalink,
       title: post.data.title,
       pubDate: post.data.date,
-      description: postSummary(post),
+      description: post.data.excerpt.trim().replace(/\n/g, '<br/>'),
       categories: [...post.data.tags, ...post.data.categories],
       customData:
         '<language>en-us</language>' +
@@ -31,15 +31,4 @@ export async function buildFeed(title, description, site, requestUrl, posts) {
       slash: 'http://purl.org/rss/1.0/modules/slash/',
     }
   });
-}
-
-function postSummary (post) {
-  return post.rendered.html
-    .slice(0, 1000)
-    .split(' ')
-    .slice(0, 100) // about 100 words
-    .join(' ')
-    // remove unclosed tags so that the 'Read more' link renders correctly
-    .replace(/<\/[a-zA-Z]+$/, '')
-    + ` &hellip; <a href="${post.data.permalink.replace(/(\/$)/, "")}">Read more</a>`
 }

@@ -69,8 +69,8 @@ export async function getStaticPaths() {
   });
 }
 
-export async function GET (context) {
+export function GET (context) {
   const description = `Posts from the ‘${context.props.category}’ category`;
 
-  return await buildFeed(`${context.props.category} | ${SITE_TITLE}`, description, context.site, context.request.url, context.props.posts);
+  return buildFeed(`${context.props.category} | ${SITE_TITLE}`, description, context.site, context.request.url, context.props.posts);
 }
