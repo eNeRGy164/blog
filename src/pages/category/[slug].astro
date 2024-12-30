@@ -7,6 +7,7 @@ import menuData from "@/config/main-menu.yaml";
 import { getCollection } from 'astro:content';
 
 import type { CollectionEntry } from 'astro:content';
+import { buildFeed } from '@/utils/rss';
 
 interface SubMenuItem { title: string; link: string; }
 interface MenuItem { title: string; link: string; submenu?: SubMenuItem[]; }
@@ -82,13 +83,18 @@ export async function getStaticPaths() {
 }
 
 const description = `Posts from the ‘${category}’ category`;
+const feed = {
+  title: `${category} Category`,
+  link: `category/${urlifyToken(category)}/feed.xml`
+};
 ---
 
-<BasePageLayout 
-  title={`${category} | ${SITE_TITLE}`} 
-  description={description} 
+<BasePageLayout
+  title={`${category} | ${SITE_TITLE}`}
+  description={description}
   classes={['archive']}
   author={SITE_AUTHOR}
+  feed={feed}
 >
   <main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/CollectionPage" itemref="author">
     <div class="post-box page-box">
@@ -101,7 +107,7 @@ const description = `Posts from the ‘${category}’ category`;
         <div class="entries" itemscope itemtype="http://schema.org/ItemList" itemprop="mainEntity">
           <meta itemprop="itemListOrder" content="http://schema.org/ItemListOrderDescending">
           <ul>
-            {posts.map(p => 
+            {posts.map(p =>
               <ListItem post={p} />
             )}
           </ul>
