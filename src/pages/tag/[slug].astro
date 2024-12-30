@@ -12,14 +12,14 @@ interface Props {
   posts: CollectionEntry<'posts'>[];
 }
 
-const { posts } = Astro.props;
+const { posts, tag } = Astro.props;
 
 export async function getStaticPaths() {
   const tagsMap = getTagsWithPosts(await getCollection('posts'));
-  
+
   return Array.from(tagsMap.entries()).map(([tag, tagPosts]) => ({
-    params: { 
-      slug: urlifyToken(tag) 
+    params: {
+      slug: urlifyToken(tag)
     },
     props: {
       tag: tag,
@@ -28,14 +28,19 @@ export async function getStaticPaths() {
   }));
 }
 
-const description = `Posts tagged ‘${Astro.props.tag}’`;
+const description = `Posts tagged ‘${tag}’`;
+const feed = {
+  title: `${tag} Tag`,
+  link: `category/${urlifyToken(tag)}/feed.xml`
+};
 ---
 
-<BasePageLayout 
-  title={`${Astro.props.tag} | ${SITE_TITLE}`} 
-  description={description} 
+<BasePageLayout
+  title={`${tag} | ${SITE_TITLE}`}
+  description={description}
   classes={['archive']}
   author={SITE_AUTHOR}
+  feed={feed}
 >
   <main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/CollectionPage" itemref="author">
     <div class="post-box page-box">
@@ -48,7 +53,7 @@ const description = `Posts tagged ‘${Astro.props.tag}’`;
         <div class="entries" itemscope itemtype="http://schema.org/ItemList" itemprop="mainEntity">
           <meta itemprop="itemListOrder" content="http://schema.org/ItemListOrderDescending">
           <ul>
-            {posts.map(p => 
+            {posts.map(p =>
               <ListItem post={p} />
             )}
           </ul>
