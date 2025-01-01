@@ -2,37 +2,37 @@ menu:
   - title: Home
     link: /
   - title: About
-    link: /about
+    link: /about/
   - title: Azure
-    link: /category/azure
+    link: /category/azure/
   - title: "C#"
-    link: /category/csharp
+    link: /category/csharp/
     submenu:
       - title: Visual Studio
-        link: /category/visual-studio
+        link: /category/visual-studio/
       - title: SQL
-        link: /category/sql
+        link: /category/sql/
   - title: Machine Learning
-    link: /category/machine-learning
+    link: /category/machine-learning/
   - title: Microsoft 365
-    link: /category/microsoft-365
+    link: /category/microsoft-365/
     submenu:
       - title: CRM
-        link: /category/dynamics-crm
+        link: /category/dynamics-crm/
       - title: SharePoint
-        link: /category/sharepoint
+        link: /category/sharepoint/
       - title: Project Server
-        link: /category/project-server
+        link: /category/project-server/
   - title: Office
-    link: /category/office
+    link: /category/office/
   - title: PowerShell
-    link: /category/powershell
+    link: /category/powershell/
   - title: Windows
-    link: /category/windows
+    link: /category/windows/
     submenu:
       - title: Hyper-V
-        link: /category/hyper-v
+        link: /category/hyper-v/
       - title: Surface
-        link: /category/surface
+        link: /category/surface/
       - title: Windows Phone
-        link: /category/windows-phone
+        link: /category/windows-phone/

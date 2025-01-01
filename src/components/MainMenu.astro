@@ -23,7 +23,7 @@ let categories = currentCategories.map((c: string) => urlifyToken(c));
 const currentPath = Astro.url.pathname;
 
 if (currentPath.startsWith('/category/')) {
-  const currentCategory = currentPath.replace('/category/', '');
+  const currentCategory = currentPath.replace('/category/', '').replace(/\/$/, '');
   categories = [urlifyToken(currentCategory)];
 }
 
@@ -41,7 +41,7 @@ function isActive(item: MenuItem): boolean {
   // Check categories
   if (item.link.startsWith('/category/')) {
     // Extract the category slug from the link
-    const topCategory = item.link.replace('/category/', '');
+    const topCategory = item.link.replace('/category/', '').replace(/\/$/, '');
 
     // Check top-level category
     if (categories.includes(topCategory)) {
@@ -51,7 +51,7 @@ function isActive(item: MenuItem): boolean {
     // Check if any submenu matches
     if (item.submenu) {
       for (const sub of item.submenu) {
-        const subCat = sub.link.replace('/category/', '');
+        const subCat = sub.link.replace('/category/', '').replace(/\/$/, '');
 
         if (categories.includes(subCat)) {
           return true;

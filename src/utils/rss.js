@@ -21,7 +21,6 @@ export function buildFeed(title, description, site, requestUrl, posts) {
         '<language>en-us</language>' +
         `<dc:creator>${post.data.author}</dc:creator>`
     })),
-    trailingSlash: false,
     xmlns: {
       content: 'http://purl.org/rss/1.0/modules/content/',
       wfw: 'http://wellformedweb.org/CommentAPI/',
