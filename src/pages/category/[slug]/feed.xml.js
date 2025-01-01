@@ -6,10 +6,11 @@ import { buildFeed } from '@/utils/rss.js';
 
 // Helper to create a dynamic category map from menuData
 export const buildCategoryMap = (menuData) => {
-  console.log(menuData.menu)
   const map = {};
 
-  menuData.menu.forEach((item) => {
+  menuData.menu
+  .filter((item) => item.title !== "Home" && item.title !== "About")
+  .forEach((item) => {
     const parentSlug = urlifyToken(item.title); // Convert title to slug
     map[parentSlug] = [parentSlug]; // Include the parent category itself
 
