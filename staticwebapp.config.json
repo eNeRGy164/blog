@@ -15,7 +15,7 @@
         "get",
         "head"
       ],
-      "redirect": "/category/dynamics-365/",
+      "redirect": "/category/dynamics-crm/",
       "statusCode": 301
     },
     {
