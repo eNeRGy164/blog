@@ -51,7 +51,7 @@ if (image != undefined) {
       itemid: permalink,
     }}
   >
-    <link itemprop="mainEntityOfPage" href={permalink.replace(/\/+$/, "")} />
+    <link itemprop="mainEntityOfPage" href={permalink} />
     {
       thumbnail && (
         <span
@@ -77,7 +77,7 @@ if (image != undefined) {
         <span>/ {author}</span>
       </div>
       <h1>
-        <a href={permalink.replace(/\/+$/, "")} rel="bookmark" itemprop="url">
+        <a href={permalink} rel="bookmark" itemprop="url">
           <span itemprop="name headline">{title}</span>
         </a>
       </h1>
@@ -86,7 +86,7 @@ if (image != undefined) {
           <div class="tags" itemprop="keywords">
             {sortedTags.map((tag, idx) => (
               <>
-                <a href={`/tag/${urlifyToken(tag)}`} rel="tag">{tag}</a>{idx < tags.length - 1 ? ", " : null}
+                <a href={`/tag/${urlifyToken(tag)}/`} rel="tag">{tag}</a>{idx < tags.length - 1 ? ", " : null}
               </>
             ))}
           </div>

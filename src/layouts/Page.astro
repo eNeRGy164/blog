@@ -41,7 +41,7 @@ const Content = await Astro.props.compiledContent();
         itemid={permalink}>
         <div class="post-box">
           <article>
-            <link itemprop="mainEntityOfPage" href={permalink.replace(/\/+$/, "")} />
+            <link itemprop="mainEntityOfPage" href={permalink} />
             <header class="post-header">
               <div class="meta">
                 <time class="published" datetime={date} itemprop="datePublished"
@@ -54,7 +54,7 @@ const Content = await Astro.props.compiledContent();
                 <span>/ {author}</span>
               </div>
               <h1>
-                <a href={permalink.replace(/\/+$/, "")} rel="bookmark" itemprop="url">
+                <a href={permalink} rel="bookmark" itemprop="url">
                   <span itemprop="name headline">{title}</span>
                 </a>
               </h1>

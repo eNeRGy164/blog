@@ -48,7 +48,7 @@ const tags = generateTagCloud();
   <h1>Other content</h1>
 
   <aside id="sidebar-image">
-    <a href="/about">
+    <a href="/about/">
       <img srcset="/michael-hompus-blog-4x.png 4x, /michael-hompus-blog-2x.png 2x, /michael-hompus-blog.png 1x" src="/michael-hompus-blog.png" width="263" height="245" alt="Michaël Hompus" loading="eager" decoding="async" data-image-component="true" />
     </a>
   </aside>
@@ -60,7 +60,7 @@ const tags = generateTagCloud();
         tags.map((tagItem) => (
           <>
             <a
-              href={`/tag/${urlifyToken(tagItem.tag)}`}
+              href={`/tag/${urlifyToken(tagItem.tag)}/`}
               title={`${tagItem.count} posts tagged with "${tagItem.tag}"`}
               rel="tag"
               style={`font-size: ${tagItem.fontSize}pt;`}>

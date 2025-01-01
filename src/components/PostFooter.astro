@@ -18,7 +18,7 @@ const lastUpdatedMoment = moment(lastUpdated);
           Filed under
           {sortedCategories.map((category, idx) => (
             <>
-              <a href={`/category/${urlifyToken(category)}`} rel="category">{category.replace('csharp', 'C#')}</a>{idx < categories.length - 1 ? ", " : null}
+              <a href={`/category/${urlifyToken(category)}/`} rel="category">{category.replace('csharp', 'C#')}</a>{idx < categories.length - 1 ? ", " : null}
             </>
           ))}
         </>

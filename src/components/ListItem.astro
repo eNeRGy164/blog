@@ -15,12 +15,12 @@ const publishedDate = moment(post.data.date);
   <meta itemprop="inLanguage" content="en-US">
   <meta itemprop="copyrightYear" content={publishedDate.year().toString()}>
   {post.data.updated && <meta itemprop="dateModified" content={post.data.updated.toISOString()}>}
-  
+
   <div class="excerpt" itemprop="abstract">
     {post.data.excerpt}
   </div>
-  
-  <a itemprop="url" href={post.data.permalink.replace(/\/+$/, '')} rel="bookmark" title={post.data.title}>
+
+  <a itemprop="url" href={post.data.permalink} rel="bookmark" title={post.data.title}>
     <span class="archdate">
       <time datetime={post.data.date.toISOString()} itemprop="datePublished">
         {publishedDate.format('DD MMM yyyy')}

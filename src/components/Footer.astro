@@ -12,7 +12,7 @@ let categories = posts
 categories = Array.from(new Set<string>(categories))
   .sort((a, b) => a.localeCompare(b));
 
-const monthNames = Array.from({ length: 12 }, (_, i) => 
+const monthNames = Array.from({ length: 12 }, (_, i) =>
   new Date(0, i).toLocaleString('en-US', { month: 'long' })
 );
 
@@ -53,7 +53,7 @@ const today = new Date();
 			<h2>Categories</h2>
 			<ul>
 			{categories?.map((category: String, idx: Number) =>
-				<li><a href={`/category/${urlifyToken(category.replace('C#', 'csharp'))}`} rel="nofollow category">{category}</a></li>
+				<li><a href={`/category/${urlifyToken(category)}/`} rel="nofollow category">{category}</a></li>
 			)}
 			</ul>
 		</nav>
@@ -62,7 +62,7 @@ const today = new Date();
 		<nav>
 			<h2>Pages</h2>
 			<ul>
-				<li><a rel="nofollow" href="/about">About</a></li>
+				<li><a rel="nofollow" href="/about/">About</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -70,8 +70,8 @@ const today = new Date();
 		<nav>
 			<h2>Archives</h2>
 			<ul>
-				{Object.entries(limitedPostsByYearMonth).map(([key, value]) => 
-					<li><a rel="nofollow" href={`/${key}`}>{value}</a></li>
+				{Object.entries(limitedPostsByYearMonth).map(([key, value]) =>
+					<li><a rel="nofollow" href={`/${key}/`}>{value}</a></li>
 				)}
 			</ul>
 		</nav>
