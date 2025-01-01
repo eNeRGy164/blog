@@ -4,19 +4,21 @@ import WPArticleSummary from "@/components/WPArticleSummary.astro";
 import PageNav from "@/components/PageNav.astro";
 import { sortedPosts } from "@/js/util.js";
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_AUTHOR } from "@/config.ts";
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = sortedPosts(await getCollection('posts'));
+  const posts = sortedPosts(await getCollection("posts"));
 
-  return Array.from({ length: Math.ceil(posts.length / 5) }).map((_, index) => {
-    return {
-      params: { page: index + 1 },
-      props: {
-        posts: posts.slice(index * 5, (index + 1) * 5),
-      },
-    };
-  });
+  return Array.from({ length: Math.ceil(posts.length / 5) }, (_, index) => index + 1)
+    .filter((page) => page > 1)
+    .map((page) => {
+      return {
+        params: { page },
+        props: {
+          posts: posts.slice((page - 1) * 5, page * 5),
+        },
+      };
+    });
 }
 
 const { page } = Astro.params;
