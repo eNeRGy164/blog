@@ -1,13 +1,12 @@
 ---
-import BasePageLayout from '@/layouts/BasePageLayout.astro'
-import ListItem from '@/components/ListItem.astro'
-import { urlifyToken, sortedPosts } from '@/js/util.js'
-import { SITE_AUTHOR, SITE_TITLE } from '@/config.ts'
+import BasePageLayout from "@/layouts/BasePageLayout.astro";
+import ListItem from "@/components/ListItem.astro";
+import { urlifyToken, sortedPosts } from "@/js/util.js";
+import { SITE_AUTHOR, SITE_TITLE } from "@/config.ts";
 import menuData from "@/config/main-menu.yaml";
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
-import type { CollectionEntry } from 'astro:content';
-import { buildFeed } from '@/utils/rss';
+import type { CollectionEntry } from "astro:content";
 
 interface SubMenuItem { title: string; link: string; }
 interface MenuItem { title: string; link: string; submenu?: SubMenuItem[]; }
@@ -16,23 +15,25 @@ interface MenuData { menu: MenuItem[]; }
 export const typedMenuData: MenuData = menuData;
 
 const { posts } = Astro.props;
-const category = Astro.props.category.replace('csharp', 'C#');
+const category = Astro.props.category.replace("csharp", "C#");
 
 // Helper to create a dynamic category map from menuData
 export const buildCategoryMap = (menu: MenuItem[]) => {
   const map: Record<string, string[]> = {};
 
-  menu.forEach((item) => {
-    const parentSlug = urlifyToken(item.title); // Convert title to slug
-    map[parentSlug] = [parentSlug]; // Include the parent category itself
+  menu
+    .filter((item) => item.title !== "Home" && item.title !== "About")
+    .forEach((item) => {
+      const parentSlug = urlifyToken(item.title); // Convert title to slug
+      map[parentSlug] = [parentSlug]; // Include the parent category itself
 
-    if (item.submenu) {
-      item.submenu.forEach((subItem) => {
-        const childSlug = urlifyToken(subItem.title); // Convert child title to slug
-        map[parentSlug].push(childSlug); // Add child categories to the parent's group
-      });
-    }
-  });
+      if (item.submenu) {
+        item.submenu.forEach((subItem) => {
+          const childSlug = urlifyToken(subItem.title); // Convert child title to slug
+          map[parentSlug].push(childSlug); // Add child categories to the parent's group
+        });
+      }
+    });
 
   return map;
 };
@@ -41,7 +42,9 @@ export const buildCategoryMap = (menu: MenuItem[]) => {
 export const categoryMap = buildCategoryMap(typedMenuData.menu);
 
 export async function getStaticPaths() {
-  const posts: CollectionEntry<'posts'>[] = sortedPosts(await getCollection('posts'));
+  const posts: CollectionEntry<"posts">[] = sortedPosts(
+    await getCollection("posts")
+  );
 
   // Build category map dynamically from menuData
   const categoryMap = buildCategoryMap(typedMenuData.menu);
@@ -67,16 +70,21 @@ export async function getStaticPaths() {
   return Array.from(allCategories).map((cat) => {
     const includedCategories = categoryMap[cat] || [cat]; // Include subcategories if available
     const categoryPosts = posts.filter((post) =>
-      post.data.categories?.map(urlifyToken).some((c) => includedCategories.includes(c))
+      post.data.categories
+        ?.map(urlifyToken)
+        .some((c) => includedCategories.includes(c))
     );
 
     return {
       params: { slug: cat },
       props: {
         posts: categoryPosts,
-        category: typedMenuData.menu.find(
-          (item) => urlifyToken(item.title) === cat || item.submenu?.some((sub) => urlifyToken(sub.title) === cat)
-        )?.title || cat, // Find the category title dynamically
+        category:
+          typedMenuData.menu.find(
+            (item) =>
+              urlifyToken(item.title) === cat ||
+              item.submenu?.some((sub) => urlifyToken(sub.title) === cat)
+          )?.title || cat, // Find the category title dynamically
       },
     };
   });
@@ -85,18 +93,24 @@ export async function getStaticPaths() {
 const description = `Posts from the ‘${category}’ category`;
 const feed = {
   title: `${category} Category`,
-  link: `category/${urlifyToken(category)}/feed.xml`
+  link: `category/${urlifyToken(category)}/feed.xml`,
 };
 ---
 
 <BasePageLayout
   title={`${category} | ${SITE_TITLE}`}
   description={description}
-  classes={['archive']}
+  classes={["archive"]}
   author={SITE_AUTHOR}
   feed={feed}
 >
-  <main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/CollectionPage" itemref="author">
+  <main
+    id="content"
+    itemprop="mainEntity"
+    itemscope
+    itemtype="http://schema.org/CollectionPage"
+    itemref="author"
+  >
     <div class="post-box page-box">
       <header class="post-header">
         <div class="meta">
@@ -104,12 +118,18 @@ const feed = {
         </div>
       </header>
       <div>
-        <div class="entries" itemscope itemtype="http://schema.org/ItemList" itemprop="mainEntity">
-          <meta itemprop="itemListOrder" content="http://schema.org/ItemListOrderDescending">
+        <div
+          class="entries"
+          itemscope
+          itemtype="http://schema.org/ItemList"
+          itemprop="mainEntity"
+        >
+          <meta
+            itemprop="itemListOrder"
+            content="http://schema.org/ItemListOrderDescending"
+          />
           <ul>
-            {posts.map(p =>
-              <ListItem post={p} />
-            )}
+            {posts.map((p) => <ListItem post={p} />)}
           </ul>
         </div>
       </div>
