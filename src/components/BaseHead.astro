@@ -30,7 +30,7 @@ const keywords = (articleKeywords.length > 0 ? articleKeywords : SITE_KEYWORDS)
 {feed && <link rel="alternate" type="application/rss+xml" title={`${SITE_TITLE} » ${feed.title} Feed`} href={new URL(`${feed.link}`, Astro.site)}>}
 <link rel="canonical" href={Astro.url}>
 
-<link rel='dns-prefetch' href="https://piwik.hompus.nl">
+<link rel="preconnect" href="https://piwik.hompus.nl/" crossorigin>
 
 <meta name="geo.country" content="NL">
 <meta name="geo.region" content="NL-GE">
