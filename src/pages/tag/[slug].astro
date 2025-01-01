@@ -31,7 +31,7 @@ export async function getStaticPaths() {
 const description = `Posts tagged ‘${tag}’`;
 const feed = {
   title: `${tag} Tag`,
-  link: `category/${urlifyToken(tag)}/feed.xml`
+  link: `tag/${urlifyToken(tag)}/feed.xml`
 };
 ---
 
