@@ -8,6 +8,69 @@
         "head"
       ],
       "rewrite": "/feed.xml"
+    },
+    {
+      "route": "/category/microsoft-365/dynamics-crm*",
+      "methods": [
+        "get",
+        "head"
+      ],
+      "redirect": "/category/dynamics-365/",
+      "statusCode": 301
+    },
+    {
+      "route": "/category/microsoft-365/sharepoint*",
+      "methods": [
+        "get",
+        "head"
+      ],
+      "redirect": "/category/sharepoint/",
+      "statusCode": 301
+    },
+    {
+      "route": "/category/microsoft-365/project-server*",
+      "methods": [
+        "get",
+        "head"
+      ],
+      "redirect": "/category/project-server/",
+      "statusCode": 301
+    },
+    {
+      "route": "/category/microsoft-365/office*",
+      "methods": [
+        "get",
+        "head"
+      ],
+      "redirect": "/category/office/",
+      "statusCode": 301
+    },
+    {
+      "route": "/category/windows/hyper-v*",
+      "methods": [
+        "get",
+        "head"
+      ],
+      "redirect": "/category/hyper-v/",
+      "statusCode": 301
+    },
+    {
+      "route": "/category/windows/surface*",
+      "methods": [
+        "get",
+        "head"
+      ],
+      "redirect": "/category/surface/",
+      "statusCode": 301
+    },
+    {
+      "route": "/category/windows/windows-phone*",
+      "methods": [
+        "get",
+        "head"
+      ],
+      "redirect": "/category/windows-phone/",
+      "statusCode": 301
     }
   ],
   "mimeTypes": {
