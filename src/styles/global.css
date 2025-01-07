@@ -663,7 +663,6 @@ article > .more-link,
 .entries {
   font-size: var(--font-size-content);
   padding: var(--spacing-medium);
-  margin-bottom: calc(var(--spacing-medium) * -1);
 }
 
 .entries ul {
