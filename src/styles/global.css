@@ -304,11 +304,14 @@ pre.astro-code code {
   font-weight: normal;
 }
 
+#site-footer ul li
+{
+  padding: var(--spacing-ultra-tiny) 0;
+}
+
 #site-footer ul li a {
   font-size: var(--font-size-content);
   color: var(--color-muted);
-  display: inline-block;
-  width: 100%;
 }
 
 #site-footer ul li a:hover {
