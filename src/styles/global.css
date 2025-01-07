@@ -71,6 +71,7 @@ body {
 a {
   color: var(--color-primary);
   text-decoration: none;
+  text-underline-offset: 5%;
 }
 
 a:visited {
@@ -502,6 +503,7 @@ div.tags {
 
 div.tags a {
   color: #595959;
+  text-decoration: underline color-mix(in srgb, currentColor 25%, transparent);
 }
 
 div.tags a:hover {
@@ -643,7 +645,8 @@ div.tags a:hover {
 }
 
 .category a {
-  color: #555;
+  color: #595959;
+  text-decoration: underline color-mix(in srgb, currentColor 25%, transparent);
 }
 
 .category a:hover,
