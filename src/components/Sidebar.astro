@@ -57,17 +57,13 @@ const tags = generateTagCloud();
     <h2>Tags</h2>
     <div>
       {
-        tags.map((tagItem) => (
-          <>
-            <a
-              href={`/tag/${urlifyToken(tagItem.tag)}/`}
-              title={`${tagItem.count} posts tagged with "${tagItem.tag}"`}
-              rel="tag"
-              style={`font-size: ${tagItem.fontSize}pt;`}>
-              {tagItem.tag}
-            </a>
-          </>
-        ))
+        tags.map(tagItem =>
+          <a
+            href={`/tag/${urlifyToken(tagItem.tag)}/`}
+            title={`${tagItem.count} posts tagged with "${tagItem.tag}"`}
+            rel="tag"
+            style={`font-size: ${tagItem.fontSize}pt;`}>{tagItem.tag}</a>
+        )
       }
     </div>
   </aside>
