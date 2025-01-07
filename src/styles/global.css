@@ -259,21 +259,29 @@ pre.astro-code code {
   text-align: right;
 }
 
-#sidebar #sidebar-image {
+#sidebar aside div {
+  padding: var(--spacing-medium);
+}
+
+#sidebar-image {
   background-color: transparent;
 }
 
-#sidebar #sidebar-image a,
-#sidebar #sidebar-image img {
+#sidebar-image a,
+#sidebar-image img {
   display: block;
 }
 
-#sidebar #sidebar-image img {
+#sidebar-image img {
   margin: 0 auto;
 }
 
-#sidebar aside div {
-  padding: var(--spacing-medium);
+#tag-cloud div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-small);
+  justify-content: center;
+  align-items: baseline;
 }
 
 /*---------------------------------------
