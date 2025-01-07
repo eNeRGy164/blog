@@ -307,6 +307,8 @@ pre.astro-code code {
 #site-footer ul li a {
   font-size: var(--font-size-content);
   color: var(--color-muted);
+  display: inline-block;
+  width: 100%;
 }
 
 #site-footer ul li a:hover {
