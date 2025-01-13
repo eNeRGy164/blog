@@ -18,7 +18,7 @@
     "astro-expressive-code": "0.38.3",
     "entities": "6.0.0",
     "remark-gfm": "4.0.0",
-    "typescript": "5.7.2"
+    "typescript": "5.7.3"
   },
   "devDependencies": {
     "@expressive-code/plugin-line-numbers": "0.38.3",
