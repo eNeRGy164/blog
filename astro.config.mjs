@@ -77,4 +77,7 @@ export default defineConfig({
   vite: {
     plugins: [yaml()],
   },
+  build: {
+    concurrency: 2,
+  }
 });
