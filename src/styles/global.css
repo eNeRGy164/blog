@@ -263,7 +263,7 @@ pre.astro-code code {
   padding: var(--spacing-medium);
 }
 
-#sidebar-image {
+aside#sidebar-image {
   background-color: transparent;
 }
 
