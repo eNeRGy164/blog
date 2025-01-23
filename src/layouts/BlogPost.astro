@@ -25,6 +25,7 @@ const currentCategories = data.categories ?? [];
       title={data.title}
       description={pageDescription}
       author={data.author}
+      image={data.image}
       article={{ published: data.date, updated: data.updated ?? data.date, sections: data.categories ?? [], tags: data.tags ?? [] }}
     />
   </head>
