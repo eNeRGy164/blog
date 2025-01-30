@@ -53,10 +53,25 @@ export default defineConfig({
           content: {},
           rel: ["noopener", "noreferrer", "external"],
           target: "_blank",
-          test: (node, _, __) =>
-            node.tagName === "a" &&
-            typeof node.properties.href === "string" &&
-            !node.properties.href.includes("linkedin.com"),
+          test: (node, _, __) => {
+            if (node.tagName !== "a") return false;
+            if (typeof node.properties.href !== "string") return false;
+
+            try {
+              const urlHost = new URL(node.properties.href).hostname;
+
+              // Exclude exactly (www.)linkedin.com
+              if (urlHost === "linkedin.com" || urlHost === "www.linkedin.com") {
+                // Return false -> we do NOT treat it as an external link
+                return false;
+              }
+
+              return true;
+            } catch {
+              // If URL parsing fails, treat it as not external or just fail safely
+              return false;
+            }
+          }
         },
       ],
       [

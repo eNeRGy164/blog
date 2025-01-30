@@ -143,7 +143,7 @@ async function createEmbedBlock(originalUrl, defaultWidth, captionText) {
     return {
       type: 'element',
       tagName: 'figure',
-      properties: { 
+      properties: {
         className: 'wp-shadow',
         itemprop: 'video',
         itemscope: 'itemscope',
@@ -166,14 +166,12 @@ async function createEmbedBlock(originalUrl, defaultWidth, captionText) {
 function isYouTubeVideo(url) {
   try {
     const urlObj = new URL(url);
-    
+
     // Only proceed if the URL is from youtube.com, youtu.be, or youtube-nocookie.com
-    const isYouTubeDomain = urlObj.hostname.includes('youtube.com') || urlObj.hostname.includes('youtu.be') || urlObj.hostname.includes('youtube-nocookie.com');
-    
-    if (!isYouTubeDomain) {
-      return false;  // If it's not a YouTube domain, skip processing
+    if (!isAllowedYouTubeHost(urlObj.hostname)) {
+      return false;  // If it's not an allowed host, skip processing
     }
-    
+
     // Valid video link patterns:
     const videoId = extractYouTubeID(urlObj);
 
@@ -182,6 +180,23 @@ function isYouTubeVideo(url) {
   } catch (e) {
     return false; // Invalid URL, not a YouTube video
   }
+}
+
+/**
+ * Ensures that the given hostname is allowed for YouTube embeds.
+ * @param {string} hostname - The hostname of the URL.
+ * @returns {boolean} - True if the hostname is allowed, false otherwise.
+ */
+function isAllowedYouTubeHost(hostname) {
+  const allowedHosts = new Set([
+    'youtube.com',
+    'www.youtube.com',
+    'youtube-nocookie.com',
+    'www.youtube-nocookie.com',
+    'youtu.be',
+  ]);
+
+  return allowedHosts.has(hostname);
 }
 
 /**
