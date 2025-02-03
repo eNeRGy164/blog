@@ -38,7 +38,7 @@ export default function Abbreviate(options = {}) {
 
       // Loop through each acronym and find occurrences in the text
       Object.keys(acronyms).forEach((abbr) => {
-        const regex = new RegExp(`\\b${abbr}\\b`, 'g');
+        const regex = new RegExp(`\\b${abbr}s?\\b`, 'g');
 
         let match;
         while ((match = regex.exec(textContent)) !== null) {

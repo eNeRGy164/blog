@@ -4,6 +4,7 @@ ACRONYMS:
   API: Application Programming Interface
   ARM: Azure Resource Manager
   ASP: Active Server Pages
+  AST: Abstract Syntax Tree
   CD: Continuous Deployment
   CI: Continuous Integration
   CLI: Command Line Interface
@@ -67,3 +68,4 @@ ACRONYMS:
   WP: WordPress
   WSS: Windows SharePoint Services
   XML: eXtensible Markup Language
+  YAML: YAML Ain't Markup Language
