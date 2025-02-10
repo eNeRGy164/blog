@@ -1,9 +1,10 @@
 ---
 import { urlifyToken, sortedPosts, getTagsWithPosts } from "@/js/util.js";
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
-const unsortedPosts = await getCollection('posts')
-const posts: { data: { permalink: string; title: string } }[] = sortedPosts(unsortedPosts);
+const unsortedPosts = await getCollection("posts");
+const posts: { data: { permalink: string; title: string } }[] =
+  sortedPosts(unsortedPosts);
 
 function generateTagCloud() {
   const tagsMap = getTagsWithPosts(unsortedPosts);
@@ -28,7 +29,10 @@ function generateTagCloud() {
     }
 
     // Linear interpolation to map the count to a font size between 8 and 22
-    return minFontSize + ((count - minCount) / (maxCount - minCount)) * (maxFontSize - minFontSize);
+    return (
+      minFontSize +
+      ((count - minCount) / (maxCount - minCount)) * (maxFontSize - minFontSize)
+    );
   };
 
   // Sort alphabetically after slicing, then return the tag cloud with font sizes
@@ -44,12 +48,26 @@ function generateTagCloud() {
 const tags = generateTagCloud();
 ---
 
-<section itemprop="hasPart" id="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+<section
+  itemprop="hasPart"
+  id="sidebar"
+  itemscope
+  itemtype="http://schema.org/WPSideBar"
+>
   <h1>Other content</h1>
 
   <aside id="sidebar-image">
     <a href="/about/">
-      <img srcset="/michael-hompus-blog-4x.webp 4x, /michael-hompus-blog-2x.webp 2x, /michael-hompus-blog.webp 1x" src="/michael-hompus-blog.png" width="263" height="245" alt="Michaël Hompus" loading="eager" decoding="async" data-image-component="true" />
+      <img
+        srcset="/michael-hompus-blog-4x.webp 4x, /michael-hompus-blog-2x.webp 2x, /michael-hompus-blog.webp 1x"
+        src="/michael-hompus-blog.png"
+        width="263"
+        height="245"
+        alt="Michaël Hompus"
+        loading="eager"
+        decoding="async"
+        data-image-component="true"
+      />
     </a>
   </aside>
 
@@ -57,13 +75,14 @@ const tags = generateTagCloud();
     <h2>Tags</h2>
     <div>
       {
-        tags.map(tagItem =>
+        tags.map((tagItem) => (
           <a
             href={`/tag/${urlifyToken(tagItem.tag)}/`}
             title={`${tagItem.count} posts tagged with "${tagItem.tag}"`}
             rel="tag"
-            style={`font-size: ${tagItem.fontSize}pt;`}>{tagItem.tag}</a>
-        )
+            style={`font-size: ${tagItem.fontSize}pt;`}
+          >{tagItem.tag}</a>
+        ))
       }
     </div>
   </aside>
@@ -74,13 +93,17 @@ const tags = generateTagCloud();
       <nav>
         <ol>
           {
-            posts.slice(0, 5).map((post) => (
-              <li>
-                <a href={post.data.permalink} target="_self">
-                  {post.data.title}
-                </a>
-              </li>
-            ))
+            posts
+              .slice(0, 6)
+              .filter((p) => p.data.permalink !== Astro.url.pathname)
+              .slice(0, 5)
+              .map((post) => (
+                <li>
+                  <a href={post.data.permalink} target="_self">
+                    {post.data.title}
+                  </a>
+                </li>
+              ))
           }
         </ol>
       </nav>
