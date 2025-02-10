@@ -14,6 +14,7 @@ dotnet
 dotnetFlix
 Emgu
 Emili
+Enlighter
 Expiscornovus
 Freato
 Gantt
