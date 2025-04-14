@@ -11,9 +11,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "5.5.2",
+    "astro": "5.6.2",
     "entities": "6.0.0",
-    "typescript": "5.8.2"
+    "typescript": "5.8.3"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.4",
