@@ -9,3 +9,8 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    groups:
+      expressive-code:
+        patterns:
+          - "astro-expressive-code"
+          - "@expressive-code/*"
