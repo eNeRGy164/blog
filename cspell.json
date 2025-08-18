@@ -41,6 +41,7 @@
   ],
   "ignoreWords": [
     "loopback",
-    "technologies"
+    "technologies",
+    "PDF"
   ]
 }
