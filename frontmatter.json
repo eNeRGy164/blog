@@ -1,0 +1,79 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "blog",
+      "path": "[[workspace]]/posts"
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": "'blog'",
+      "filePrefix": null,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "title": "id",
+          "name": "id",
+          "type": "number"
+        },
+        {
+          "title": "title",
+          "name": "title",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "date",
+          "name": "date",
+          "type": "datetime",
+          "isPublishDate": true
+        },
+        {
+          "title": "updated",
+          "name": "updated",
+          "type": "datetime",
+          "isModifiedDate": true
+        },
+        {
+          "title": "author",
+          "name": "author",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "excerpt",
+          "name": "excerpt",
+          "type": "string"
+        },
+        {
+          "title": "permalink",
+          "name": "permalink",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "image",
+          "name": "image",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "title": "categories",
+          "name": "categories",
+          "type": "categories"
+        },
+        {
+          "title": "tags",
+          "name": "tags",
+          "type": "tags"
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,12 @@
 {
     "markdown.extension.toc.orderedList": true,
-    "markdown.extension.toc.levels": "1..2"
+    "markdown.extension.toc.levels": "1..2",
+    "frontMatter.content.pageFolders": [
+        {
+            "title": "posts",
+            "path": "[[workspace]]/posts"
+        }
+    ],
+    "[markdown]": {
+    }
 }
