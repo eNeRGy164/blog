@@ -8,8 +8,13 @@ interface Props {
   post: CollectionEntry<'posts'>;
 }
 
-interface ProcessedPost extends CollectionEntry<'posts'> {
+interface ProcessedPost {
   body: string;
+  title: string;
+  tags: string[];
+  categories: string[];
+  permalink: string;
+  image: string | null;
 }
 interface RelatedPost extends ProcessedPost {
   image: string;
@@ -23,11 +28,11 @@ const posts = await getCollection("posts");
 const processedPosts: ProcessedPost[] = posts.map((post) => (
   {
     title: post.data.title,
-    body: post.rendered?.html,
+    body: post.rendered?.html ?? "",
     tags: post.data.tags,
     categories: post.data.categories,
     permalink: post.data.permalink,
-    image: post.data.image,
+    image: post.data.image ?? null,
   }
 ));
 
