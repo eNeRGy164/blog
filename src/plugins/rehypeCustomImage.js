@@ -32,60 +32,57 @@ export default function CustomImage() {
 
       // Identify the original image and resized version for 630px width
       const original = variants.find((v) => v.label === "original");
-      const resized = variants.find((v) => v.label === "medium_large");
+      const resized = variants.find((v) => v.label === "medium_large-webp");
 
-      // Filter variants for unique widths
-      const uniqueVariants = [];
-      const seenWidths = new Set();
-      for (const variant of variants) {
-        if (variant.width && !seenWidths.has(variant.width)) {
-          uniqueVariants.push(variant);
-          seenWidths.add(variant.width);
-        }
-      }
+      if (!original) return;
 
-      // Consolidate srcset
-      const srcset = uniqueVariants
+      const webpCandidates = variants
+        .filter((variant) => variant.label.includes("webp"))
+        .filter((variant) => variant.width) // ensure width-described candidates
+        .sort((a, b) => a.width - b.width);
+
+      // Build a single WebP srcset (width descriptors) for the <source>
+      const webpSrcset = webpCandidates
         .map((variant) => `${variant.path} ${variant.width}w`)
         .join(", ");
 
       // Default rendering size
       const sizes = "(max-width: 636px) 100vw, 636px";
 
+      // Fallback <img> uses ONLY the original. No srcset/sizes here.
       const imgElement = {
         type: "element",
         tagName: "img",
         properties: {
-          src: resized ? resized.path : original.path,
+          src: original.path,
           alt: node.properties.alt || "",
           loading: "lazy",
           decoding: "async",
           width: resized ? resized.width : original.width,
           height: resized ? resized.height : original.height,
-          srcSet: srcset,
-          sizes: sizes,
           "data-image-component": "true",
         },
       };
 
+      // Single <source type="image/webp"> (no media; browser will pick best width)
+      const pictureChildren = [];
+      if (webpSrcset) {
+        pictureChildren.push({
+          type: "element",
+          tagName: "source",
+          properties: {
+            type: "image/webp",
+            srcset: webpSrcset, // valid HTML attribute name
+            sizes: sizes,
+          },
+        });
+      }
+      pictureChildren.push(imgElement);
+
       const pictureElement = {
         type: "element",
         tagName: "picture",
-        children: [
-          // Add WebP sources if available
-          ...variants
-            .filter((v) => v.label.includes("webp"))
-            .map((v) => ({
-              type: "element",
-              tagName: "source",
-              properties: {
-                srcSet: v.path,
-                type: "image/webp",
-                media: `(max-width: ${v.width}px)`,
-              },
-            })),
-          imgElement,
-        ],
+        children: pictureChildren,
       };
 
       // Wrap in <figure> with hints and classes
