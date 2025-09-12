@@ -135,6 +135,10 @@ pre.astro-code code {
   padding-inline-end: unset !important;
 }
 
+.expressive-code code .gutter .ln {
+  color: #959595;
+}
+
 /*---------------------------------------
   Header
 ---------------------------------------*/
