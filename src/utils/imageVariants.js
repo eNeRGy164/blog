@@ -95,13 +95,6 @@ export async function generateImageVariants(dirPath) {
         const resizedName = `${baseName}-${resizedWidth}x${resizedHeight}${ext}`;
         const resizedPath = relativePath(resizedName);
 
-        variants.push({
-          label: size.label,
-          path: resizedPath,
-          width: resizedWidth,
-          height: resizedHeight,
-        });
-
         // Check for WebP equivalent
         const webpPath = resizedPath.replace(ext, ".webp");
 
