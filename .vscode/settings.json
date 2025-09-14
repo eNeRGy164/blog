@@ -1,4 +1,11 @@
 {
     "markdown.extension.toc.orderedList": true,
-    "markdown.extension.toc.levels": "1..2"
+    "markdown.extension.toc.levels": "1..2",
+    "demoTime.defaultFileType": "yaml",
+    "demoTime.showClock": false,
+    "demoTime.insertTypingMode": "hacker-typer",
+    "demoTime.highlightBackground": "var(--vscode-editor-background)",
+    "demoTime.highlightBlur": 1,
+    "demoTime.api.enabled": false,
+    "demoTime.highlightZoomEnabled": 0
 }

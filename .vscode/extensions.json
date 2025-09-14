@@ -1,9 +1,10 @@
 {
-    "recommendations": [
-        "esbenp.prettier-vscode",
-        "astro-build.astro-vscode",
-        "streetsidesoftware.code-spell-checker",
-        "editorconfig.editorconfig",
-        "yzhang.markdown-all-in-one"
-    ]
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "astro-build.astro-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "editorconfig.editorconfig",
+    "yzhang.markdown-all-in-one",
+    "eliostruyf.vscode-demo-time"
+  ]
 }
