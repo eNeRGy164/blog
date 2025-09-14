@@ -1,0 +1,46 @@
+title: Package configuration
+description: ''
+version: 2
+demos:
+  - id: demo-mfjt7yp1-mu9s
+    title: Open package.json
+    steps:
+      - action: open
+        path: package.json
+      - action: positionCursor
+        position: start
+        highlightWholeLine: true
+        path: package.json
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjt8hhi-y3yl
+    title: Show astro native plugins
+    steps:
+      - action: highlight
+        path: package.json
+        position: '20:21'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjtlyvk-cd7n
+    title: Show additional plugins
+    steps:
+      - action: highlight
+        path: package.json
+        position: '29:31'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjtmrjt-b2kk
+    title: Done
+    steps:
+      - action: unselect
+        path: package.json
+        position: '29:31'
+        highlightWholeLine: true
+    icons:
+      start: stop
+      end: ''

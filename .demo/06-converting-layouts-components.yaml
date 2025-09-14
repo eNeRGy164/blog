@@ -1,0 +1,73 @@
+title: Converting layouts (components)
+description: ''
+version: 2
+demos:
+  - id: demo-mfjslffz-v67t
+    title: Open component
+    steps:
+      - action: open
+        path: src/components/PostFooter.astro
+      - action: positionCursor
+        position: start
+        highlightWholeLine: true
+        path: src/components/PostFooter.astro
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjsx5an-qz2p
+    title: Sort categories
+    steps:
+      - action: highlight
+        position: '7'
+        highlightWholeLine: true
+        path: src/components/PostFooter.astro
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjsy680-p7i3
+    title: Render categories
+    steps:
+      - action: highlight
+        position: '18:23'
+        highlightWholeLine: true
+        path: src/components/PostFooter.astro
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjsyryh-hhez
+    title: Get last updated date
+    steps:
+      - action: highlight
+        position: '9:10'
+        highlightWholeLine: true
+        path: src/components/PostFooter.astro
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjszetd-jcsn
+    title: Render last updated date
+    steps:
+      - action: highlight
+        position: '28'
+        highlightWholeLine: true
+        path: src/components/PostFooter.astro
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjt2ezi-y2tc
+    title: Done
+    steps:
+      - action: unselect
+        position: '28'
+        highlightWholeLine: true
+        path: src/components/PostFooter.astro
+    icons:
+      start: stop
+      end: ''
+  - id: demo-mfjt2w52-69mo
+    title: Back to PowerPoint
+    steps:
+      - action: openPowerPoint
+    icons:
+      start: arrow-left
+      end: ''

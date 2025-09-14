@@ -1,0 +1,61 @@
+title: GitHubActions
+description: ''
+version: 2
+demos:
+  - id: demo-mfi52973-yrg2
+    title: GitHub Actions Build & Deploy Job
+    steps:
+      - action: open
+        path: .github/workflows/azure-static-web-apps-ashy-ocean-0ac866803.yml
+      - action: positionCursor
+        path: .github/workflows/azure-static-web-apps-ashy-ocean-0ac866803.yml
+        position: '1'
+        highlightWholeLine: true
+      - action: positionCursor
+        path: .github/workflows/azure-static-web-apps-ashy-ocean-0ac866803.yml
+        position: '2'
+        highlightWholeLine: true
+      - action: highlight
+        path: .github/workflows/azure-static-web-apps-ashy-ocean-0ac866803.yml
+        position: '12:13'
+        highlightWholeLine: true
+      - action: highlight
+        path: .github/workflows/azure-static-web-apps-ashy-ocean-0ac866803.yml
+        position: '25:37'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfi5g4qx-6hsq
+    title: GitHub Actions Build & Deploy Step
+    steps:
+      - action: highlight
+        path: .github/workflows/azure-static-web-apps-ashy-ocean-0ac866803.yml
+        position: '25:37'
+        highlightWholeLine: true
+        zoom: 0
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfi5j32e-jnde
+    title: GitHub Actions Close Job
+    steps:
+      - action: highlight
+        path: .github/workflows/azure-static-web-apps-ashy-ocean-0ac866803.yml
+        position: '39'
+        highlightWholeLine: true
+        zoom: 0
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfi5lcdk-4rx4
+    title: GitHub Actions Close Step
+    steps:
+      - action: highlight
+        path: .github/workflows/azure-static-web-apps-ashy-ocean-0ac866803.yml
+        position: '47:54'
+        highlightWholeLine: true
+        zoom: 0
+    icons:
+      start: arrow-circle-right
+      end: ''

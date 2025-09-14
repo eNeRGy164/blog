@@ -1,0 +1,58 @@
+title: Converting layouts (layouts)
+description: ''
+version: 2
+demos:
+  - id: demo-mfjrkvqt-cy83
+    title: Open layout
+    steps:
+      - action: open
+        path: src/layouts/BasePageLayout.astro
+      - action: positionCursor
+        path: src/layouts/BasePageLayout.astro
+        highlightWholeLine: true
+        position: start
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjs77ws-9dvq
+    title: Import components
+    steps:
+      - action: highlight
+        path: src/layouts/BasePageLayout.astro
+        highlightWholeLine: true
+        position: '2:5'
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjs8rzp-h95r
+    title: Export interface
+    steps:
+      - action: highlight
+        path: src/layouts/BasePageLayout.astro
+        highlightWholeLine: true
+        position: '7:9'
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjseq72-ivfi
+    title: Layout
+    steps:
+      - action: highlight
+        path: src/layouts/BasePageLayout.astro
+        highlightWholeLine: true
+        position: '12:35'
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjsf3r3-rssv
+    title: Done
+    steps:
+      - action: unselect
+    icons:
+      start: stop
+      end: ''
+  - id: demo-mfjsfgtb-u1u9
+    title: Next demo
+    steps:
+      - action: runDemoById
+        id: demo-mfjslffz-v67t

@@ -1,0 +1,82 @@
+title: Astro configuration
+description: ''
+version: 2
+demos:
+  - id: demo-mfjtnwgb-4bli
+    title: Open astro.config.mjs
+    steps:
+      - action: open
+        path: astro.config.mjs
+      - action: positionCursor
+        position: start
+        highlightWholeLine: true
+        path: astro.config.mjs
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjtxbyw-cx9g
+    title: Configuration
+    steps:
+      - action: highlight
+        path: astro.config.mjs
+        position: '23:24'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjtxwf4-qitf
+    title: Integrations
+    steps:
+      - action: highlight
+        path: astro.config.mjs
+        position: '25:44'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjtymxd-41me
+    title: Markdown configuration
+    steps:
+      - action: highlight
+        path: astro.config.mjs
+        position: '46:91'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfju14no-xf1k
+    title: Load VSCode JSON
+    steps:
+      - action: highlight
+        path: astro.config.mjs
+        position: '17:21'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfju279a-1pyc
+    title: Open vscode-theme.jsonc
+    steps:
+      - action: unselect
+      - action: open
+        path: src/config/vscode-theme.jsonc
+      - action: positionCursor
+        position: start
+        highlightWholeLine: true
+        path: src/config/vscode-theme.jsonc
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfju3y5l-tsa6
+    title: Demonstrate Expressive Code
+    steps:
+      - action: openWebsite
+        url: https://blog.hompus.nl/2007/09/04/textbox-process-accounts-with-access-to-the-ssp-doesnt-exist/
+        openInVSCode: true
+  - id: demo-mfjt2w52-69ms
+    title: Back to PowerPoint
+    steps:
+      - action: openPowerPoint
+    icons:
+      start: arrow-left
+      end: ''

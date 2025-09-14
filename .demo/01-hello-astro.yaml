@@ -1,0 +1,28 @@
+title: Hello Astro
+description: ''
+version: 2
+demos:
+  - id: demo-mfi68p0w-gsqx
+    title: Hello Astro
+    steps:
+      - action: executeVSCodeCommand
+        command: workbench.action.closeSidebar
+      - action: openTerminal
+        terminalId: hello-astro
+      - action: executeVSCodeCommand
+        command: workbench.action.terminal.moveToEditor
+      - action: executeTerminalCommand
+        insertTypingMode: instant
+        terminalId: hello-astro
+        autoExecute: false
+        command: npm create astro@latest -- --template basics --install --fancy --no-git
+    icons:
+      start: rocket
+      end: ''
+  - id: demo-mfi6tw7a-jg5g
+    title: Show index.astro
+    steps:
+      - action: executeVSCodeCommand
+        command: workbench.explorer.fileView.focus
+      - action: open
+        path: azure-fest/src/pages/index.astro

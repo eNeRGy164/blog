@@ -1,0 +1,119 @@
+title: Related posts
+description: ''
+version: 2
+demos:
+  - id: demo-mfjnu2g6-21pc
+    title: Open RelatedPosts.astro
+    steps:
+      - action: open
+        path: src/components/RelatedPosts.astro
+      - action: positionCursor
+        path: src/components/RelatedPosts.astro
+        position: '1'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjo3rok-3wkx
+    title: Imports
+    steps:
+      - action: highlight
+        path: src/components/RelatedPosts.astro
+        position: '2:5'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjo4k18-vhm8
+    title: Get Posts
+    steps:
+      - action: highlight
+        path: src/components/RelatedPosts.astro
+        position: '26'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjon2xy-3mzg
+    title: Prepare Fuse,js data
+    steps:
+      - action: highlight
+        path: src/components/RelatedPosts.astro
+        position: '28:37'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjou34v-wsxt
+    title: Create Fuse.js
+    steps:
+      - action: highlight
+        path: src/components/RelatedPosts.astro
+        position: '39:46'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjp744h-sf27
+    title: Get Fuse.js output
+    steps:
+      - action: highlight
+        path: src/components/RelatedPosts.astro
+        position: '53:57'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjo6dzb-oq0e
+    title: Rendering
+    steps:
+      - action: positionCursor
+        path: src/components/RelatedPosts.astro
+        position: '71'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjo7kgh-oynq
+    title: Recent Post "widget"
+    steps:
+      - action: highlight
+        path: src/components/RelatedPosts.astro
+        position: '72:98'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjpufhd-x502
+    title: Recent Post "widget" list item
+    steps:
+      - action: highlight
+        path: src/components/RelatedPosts.astro
+        position: '77:95'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjodd81-3exr
+    title: Done
+    steps:
+      - action: unselect
+    icons:
+      start: stop
+      end: ''
+  - id: demo-mfjp9s85-jquu
+    title: Demonstrate related files
+    steps:
+      - action: openWebsite
+        url: https://blog.hompus.nl/2007/08/31/an-addition-to-the-project-server-2007-sdk/#related-posts
+        openInVSCode: true
+    icons:
+      start: globe
+      end: ''
+  - id: demo-mfjpiyxt-3loc
+    title: Back to PowerPoint
+    steps:
+      - action: openPowerPoint
+    icons:
+      start: arrow-left
+      end: ''

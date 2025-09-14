@@ -1,0 +1,85 @@
+title: Converting layouts (pages)
+description: ''
+version: 2
+demos:
+  - id: demo-mfjqxf51-px4p
+    title: Open page
+    steps:
+      - action: open
+        path: src/pages/index.astro
+      - action: positionCursor
+        path: src/pages/index.astro
+        position: start
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjr38y6-l8ob
+    title: Import layout
+    steps:
+      - action: highlight
+        path: src/pages/index.astro
+        position: '2'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjr3yl2-b4g1
+    title: Import components
+    steps:
+      - action: highlight
+        path: src/pages/index.astro
+        position: '3:4'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjr5dlc-gi4k
+    title: Using layout
+    steps:
+      - action: highlight
+        path: src/pages/index.astro
+        position: '12:41'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjr6mxu-ec2k
+    title: Listing posts
+    steps:
+      - action: highlight
+        path: src/pages/index.astro
+        position: '28:37'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjr7bob-iwd9
+    title: Using component
+    steps:
+      - action: highlight
+        path: src/pages/index.astro
+        position: '31:36'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjr7v43-6lvd
+    title: 'Using another component '
+    steps:
+      - action: highlight
+        path: src/pages/index.astro
+        position: '40'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjr8das-nm01
+    title: Done
+    steps:
+      - action: unselect
+  - id: demo-mfjr8zn1-0z83
+    title: Next demo
+    steps:
+      - action: runDemoById
+        id: demo-mfjrkvqt-cy83

@@ -1,0 +1,62 @@
+title: Migrating markdown
+description: ''
+version: 2
+demos:
+  - id: demo-mfjq9wp9-k6xt
+    title: Open a post
+    steps:
+      - action: open
+        path: posts/2007/2007-08-31-an-addition-to-the-project-server-2007-sdk.md
+      - action: positionCursor
+        path: posts/2007/2007-08-31-an-addition-to-the-project-server-2007-sdk.md
+        position: '1'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjqb63b-jjzh
+    title: Frontmatter
+    steps:
+      - action: highlight
+        path: posts/2007/2007-08-31-an-addition-to-the-project-server-2007-sdk.md
+        position: '1:20'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjqdq4a-7fva
+    title: Markdown
+    steps:
+      - action: highlight
+        path: posts/2007/2007-08-31-an-addition-to-the-project-server-2007-sdk.md
+        position: '22:47'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjqg0km-n1jb
+    title: Done
+    steps:
+      - action: unselect
+        path: posts/2007/2007-08-31-an-addition-to-the-project-server-2007-sdk.md
+        position: '22:47'
+        highlightWholeLine: true
+    icons:
+      start: stop
+      end: ''
+  - id: demo-mfjqn5cf-h3rz
+    title: Demonstrate post
+    steps:
+      - action: openWebsite
+        url: https://blog.hompus.nl/2007/08/31/an-addition-to-the-project-server-2007-sdk/
+        openInVSCode: true
+    icons:
+      start: globe
+      end: ''
+  - id: demo-mfjqrlol-h0id
+    title: Back to PowerPoint
+    steps:
+      - action: openPowerPoint
+    icons:
+      start: arrow-left
+      end: ''

@@ -1,0 +1,77 @@
+title: Recent posts
+description: ''
+version: 2
+demos:
+  - id: demo-mfjnu2g6-21pb
+    title: Open Sidebar.astro
+    steps:
+      - action: open
+        path: src/components/Sidebar.astro
+      - action: positionCursor
+        path: src/components/Sidebar.astro
+        position: '1'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjo3rok-3wkz
+    title: Imports
+    steps:
+      - action: highlight
+        path: src/components/Sidebar.astro
+        position: '2:3'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjo4k18-vhm9
+    title: Get Posts
+    steps:
+      - action: highlight
+        path: src/components/Sidebar.astro
+        position: '6:7'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjo6dzb-oq0h
+    title: Rendering
+    steps:
+      - action: positionCursor
+        path: src/components/Sidebar.astro
+        position: '51'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjo7kgh-oynu
+    title: Recent Post "widget"
+    steps:
+      - action: highlight
+        path: src/components/Sidebar.astro
+        position: '91:112'
+        highlightWholeLine: true
+    icons:
+      start: arrow-circle-right
+      end: ''
+  - id: demo-mfjodd81-3ext
+    title: Done
+    steps:
+      - action: unselect
+    icons:
+      start: stop
+      end: ''
+  - id: demo-mfjp9s85-jquv
+    title: Demonstrate related files
+    steps:
+      - action: openWebsite
+        url: https://blog.hompus.nl/2007/08/31/an-addition-to-the-project-server-2007-sdk/#recent-posts
+        openInVSCode: true
+    icons:
+      start: globe
+      end: ''
+  - id: demo-mfjpiyxt-3lod
+    title: Next demo
+    steps:
+      - action: runDemoById
+        id: demo-mfjnu2g6-21pc

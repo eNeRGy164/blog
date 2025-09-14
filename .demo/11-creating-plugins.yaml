@@ -1,0 +1,41 @@
+title: Creating plugins
+description: ''
+version: 2
+demos:
+  - id: demo-mfjua6w9-1u5n
+    title: Open custom plugin
+    steps:
+      - action: open
+        path: src/plugins/rehypeAddMvpContributorId.js
+      - action: positionCursor
+        path: src/plugins/rehypeAddMvpContributorId.js
+        position: start
+        highlightWholeLine: true
+  - id: demo-mfjuc2l0-aiqr
+    title: Show configuration
+    steps:
+      - action: highlight
+        path: src/plugins/rehypeAddMvpContributorId.js
+        position: '53:76'
+        highlightWholeLine: true
+  - id: demo-mfjud6rp-ebc3
+    title: Show plugin implementation
+    steps:
+      - action: highlight
+        path: src/plugins/rehypeAddMvpContributorId.js
+        position: '83:106'
+        highlightWholeLine: true
+  - id: demo-mfjuep93-m041
+    title: Done
+    steps:
+      - action: unselect
+    icons:
+      start: stop
+      end: ''
+  - id: demo-mfjuey13-dabm
+    title: Back to PowerPoint
+    steps:
+      - action: openPowerPoint
+    icons:
+      start: arrow-left
+      end: ''
