@@ -1,8 +1,11 @@
 ---
 import { urlifyToken, getTagsWithPosts } from "@/js/util.js";
-import { getCollection } from "astro:content";
 
-const unsortedPosts = await getCollection("posts");
+interface Props {
+  unsortedPosts: any[];
+}
+
+const { unsortedPosts } = Astro.props;
 
 function generateTagCloud() {
   const tagsMap = getTagsWithPosts(unsortedPosts);
@@ -11,6 +14,11 @@ function generateTagCloud() {
   const tagArray = Array.from(tagsMap.entries())
     .sort(([, postsA], [, postsB]) => postsB.length - postsA.length)
     .slice(0, 50);
+
+  // Guard against empty tags
+  if (tagArray.length === 0) {
+    return [];
+  }
 
   // Find min and max tag counts
   const counts = tagArray.map(([, tagPosts]) => tagPosts.length);

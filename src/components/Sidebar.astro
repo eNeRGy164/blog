@@ -1,7 +1,12 @@
 ---
+import { sortedPosts } from "@/js/util.js";
+import { getCollection } from "astro:content";
 import SidebarImage from "@/components/SidebarImage.astro";
 import TagCloud from "@/components/TagCloud.astro";
 import RecentPosts from "@/components/RecentPosts.astro";
+
+const unsortedPosts = await getCollection("posts");
+const posts = sortedPosts(unsortedPosts);
 ---
 
 <section
@@ -14,7 +19,7 @@ import RecentPosts from "@/components/RecentPosts.astro";
 
   <SidebarImage />
 
-  <TagCloud />
+  <TagCloud unsortedPosts={unsortedPosts} />
 
-  <RecentPosts />
+  <RecentPosts posts={posts} />
 </section>
