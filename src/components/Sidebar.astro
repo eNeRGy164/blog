@@ -1,51 +1,7 @@
 ---
-import { urlifyToken, sortedPosts, getTagsWithPosts } from "@/js/util.js";
-import { getCollection } from "astro:content";
-
-const unsortedPosts = await getCollection("posts");
-const posts: { data: { permalink: string; title: string } }[] =
-  sortedPosts(unsortedPosts);
-
-function generateTagCloud() {
-  const tagsMap = getTagsWithPosts(unsortedPosts);
-
-  // Convert tagsMap to an array of [tag, tagPosts] pairs and sort by usage (most to least)
-  const tagArray = Array.from(tagsMap.entries())
-    .sort(([, postsA], [, postsB]) => postsB.length - postsA.length)
-    .slice(0, 50);
-
-  // Find min and max tag counts
-  const counts = tagArray.map(([, tagPosts]) => tagPosts.length);
-  const minCount = Math.min(...counts);
-  const maxCount = Math.max(...counts);
-
-  // Function to calculate font size between 8 and 22
-  const calculateFontSize = (count: number) => {
-    const minFontSize = 8;
-    const maxFontSize = 22;
-
-    if (maxCount === minCount) {
-      return minFontSize; // If all tags have the same count, use the smallest font size
-    }
-
-    // Linear interpolation to map the count to a font size between 8 and 22
-    return (
-      minFontSize +
-      ((count - minCount) / (maxCount - minCount)) * (maxFontSize - minFontSize)
-    );
-  };
-
-  // Sort alphabetically after slicing, then return the tag cloud with font sizes
-  return tagArray
-    .sort(([tagA], [tagB]) => tagA.localeCompare(tagB)) // Sort alphabetically
-    .map(([tag, tagPosts]) => ({
-      tag,
-      count: tagPosts.length,
-      fontSize: calculateFontSize(tagPosts.length), // Calculate font size based on count
-    }));
-}
-
-const tags = generateTagCloud();
+import SidebarImage from "@/components/SidebarImage.astro";
+import TagCloud from "@/components/TagCloud.astro";
+import RecentPosts from "@/components/RecentPosts.astro";
 ---
 
 <section
@@ -56,58 +12,9 @@ const tags = generateTagCloud();
 >
   <h1>Other content</h1>
 
-  <aside id="sidebar-image">
-    <a href="/about/">
-      <img
-        srcset="/michael-hompus-blog-4x.webp 4x, /michael-hompus-blog-2x.webp 2x, /michael-hompus-blog.webp 1x"
-        src="/michael-hompus-blog.png"
-        width="263"
-        height="245"
-        alt="Michaël Hompus"
-        fetchpriority="high"
-        loading="eager"
-        decoding="async"
-        data-image-component="true"
-      />
-    </a>
-  </aside>
+  <SidebarImage />
 
-  <aside id="tag-cloud">
-    <h2>Tags</h2>
-    <div>
-      {
-        tags.map((tagItem) => (
-          <a
-            href={`/tag/${urlifyToken(tagItem.tag)}/`}
-            title={`${tagItem.count} posts tagged with "${tagItem.tag}"`}
-            rel="tag"
-            style={`font-size: ${tagItem.fontSize}pt;`}
-          >{tagItem.tag}</a>
-        ))
-      }
-    </div>
-  </aside>
+  <TagCloud />
 
-  <aside id="recent-posts">
-    <h2>Recent Posts</h2>
-    <div>
-      <nav>
-        <ol>
-          {
-            posts
-              .slice(0, 6)
-              .filter((p) => p.data.permalink !== Astro.url.pathname)
-              .slice(0, 5)
-              .map((post) => (
-                <li>
-                  <a href={post.data.permalink} target="_self">
-                    {post.data.title}
-                  </a>
-                </li>
-              ))
-          }
-        </ol>
-      </nav>
-    </div>
-  </aside>
+  <RecentPosts />
 </section>
