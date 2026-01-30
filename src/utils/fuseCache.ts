@@ -3,6 +3,11 @@ import Fuse from "fuse.js";
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
 import { join } from "path";
 
+/**
+ * Processed post data structure used for Fuse.js search.
+ * Includes the HTML body content for full-text search to find
+ * related posts based on content similarity, not just metadata.
+ */
 export interface ProcessedPost {
   body: string;
   title: string;
@@ -20,7 +25,23 @@ const INDEX_CACHE_FILE = join(CACHE_DIR, "fuse-index.json");
 
 interface CachedData {
   posts: ProcessedPost[];
-  index: any;
+  index: Fuse.FuseIndex<ProcessedPost>;
+}
+
+/**
+ * Validate that cached posts have the expected structure
+ */
+function isValidProcessedPost(post: any): post is ProcessedPost {
+  return (
+    typeof post === 'object' &&
+    post !== null &&
+    typeof post.title === 'string' &&
+    typeof post.body === 'string' &&
+    Array.isArray(post.tags) &&
+    Array.isArray(post.categories) &&
+    typeof post.permalink === 'string' &&
+    (post.image === null || typeof post.image === 'string')
+  );
 }
 
 /**
@@ -34,6 +55,12 @@ function loadCache(): CachedData | null {
       
       const posts = JSON.parse(postsContent);
       const serializedIndex = JSON.parse(indexContent);
+      
+      // Validate cached data structure
+      if (!Array.isArray(posts) || !posts.every(isValidProcessedPost)) {
+        console.warn("[Fuse] Cache validation failed - invalid post structure");
+        return null;
+      }
       
       return {
         posts,
@@ -49,7 +76,7 @@ function loadCache(): CachedData | null {
 /**
  * Save Fuse index and posts to disk cache
  */
-function saveCache(posts: ProcessedPost[], index: any): void {
+function saveCache(posts: ProcessedPost[], index: Fuse.FuseIndex<ProcessedPost>): void {
   try {
     if (!existsSync(CACHE_DIR)) {
       mkdirSync(CACHE_DIR, { recursive: true });
