@@ -1,10 +1,9 @@
 ---
-import { sortedPosts } from "@/js/util.js";
-import { getCollection } from "astro:content";
+interface Props {
+  posts: { data: { permalink: string; title: string } }[];
+}
 
-const unsortedPosts = await getCollection("posts");
-const posts: { data: { permalink: string; title: string } }[] =
-  sortedPosts(unsortedPosts);
+const { posts } = Astro.props;
 ---
 
 <aside id="recent-posts">
@@ -14,7 +13,6 @@ const posts: { data: { permalink: string; title: string } }[] =
       <ol>
         {
           posts
-            .slice(0, 6)
             .filter((p) => p.data.permalink !== Astro.url.pathname)
             .slice(0, 5)
             .map((post) => (
