@@ -15,68 +15,94 @@ export interface ProcessedPost {
 let fuseInstance: Fuse<ProcessedPost> | null = null;
 
 const CACHE_DIR = join(process.cwd(), ".cache", "fuse-search-index");
-const CACHE_FILE = join(CACHE_DIR, "processed-posts.json");
+const POSTS_CACHE_FILE = join(CACHE_DIR, "processed-posts.json");
+const INDEX_CACHE_FILE = join(CACHE_DIR, "fuse-index.json");
+
+const fuseOptions = {
+  keys: ["tags", "categories", "title", "body"],
+  includeScore: false,
+  threshold: 0.55,
+  ignoreLocation: true,
+  findAllMatches: true,
+  minMatchCharLength: 2,
+};
+
+interface CachedData {
+  posts: ProcessedPost[];
+  index: any;
+}
 
 /**
- * Load cached processed posts from disk if available
+ * Load cached Fuse index and posts from disk if available
  */
-function loadCachedPosts(): ProcessedPost[] | null {
+function loadCache(): CachedData | null {
   try {
-    if (existsSync(CACHE_FILE)) {
-      const content = readFileSync(CACHE_FILE, "utf-8");
-      return JSON.parse(content);
+    if (existsSync(POSTS_CACHE_FILE) && existsSync(INDEX_CACHE_FILE)) {
+      const postsContent = readFileSync(POSTS_CACHE_FILE, "utf-8");
+      const indexContent = readFileSync(INDEX_CACHE_FILE, "utf-8");
+      
+      const posts = JSON.parse(postsContent);
+      const serializedIndex = JSON.parse(indexContent);
+      
+      return {
+        posts,
+        index: serializedIndex,
+      };
     }
   } catch (error) {
-    console.warn("Failed to load cached posts:", error);
+    console.warn("[Fuse] Failed to load cache:", error);
   }
   return null;
 }
 
 /**
- * Save processed posts to disk cache
+ * Save Fuse index and posts to disk cache
  */
-function saveCachedPosts(posts: ProcessedPost[]): void {
+function saveCache(posts: ProcessedPost[], index: any): void {
   try {
     if (!existsSync(CACHE_DIR)) {
       mkdirSync(CACHE_DIR, { recursive: true });
     }
-    writeFileSync(CACHE_FILE, JSON.stringify(posts), "utf-8");
+    
+    writeFileSync(POSTS_CACHE_FILE, JSON.stringify(posts), "utf-8");
+    writeFileSync(INDEX_CACHE_FILE, JSON.stringify(index), "utf-8");
+    
+    console.log(`[Fuse] Cached ${posts.length} posts and search index to disk`);
   } catch (error) {
-    console.warn("Failed to save cached posts:", error);
+    console.warn("[Fuse] Failed to save cache:", error);
   }
 }
 
 /**
  * Gets a cached Fuse instance for searching posts.
- * During build time, this ensures we only create one Fuse instance
- * per worker thread that's shared across all pages, rather than
- * creating a new instance for each blog post page.
- *
- * The processed posts (including rendered HTML) are cached to disk
- * in .cache/fuse-search-index/processed-posts.json to avoid
- * re-rendering markdown multiple times within a single build.
- *
- * Cache lifecycle:
- * - Cleaned automatically before each build starts (see scripts/clean-cache.js)
- * - Generated on first access by each worker thread
- * - Reused by subsequent pages within the same worker
- * - May have race conditions if multiple workers write simultaneously,
- *   but this is acceptable as they write identical data
- *
+ * 
+ * Uses Fuse.js indexing API for optimal performance:
+ * - First worker: Generates index using Fuse.createIndex() and caches it
+ * - Subsequent workers: Loads pre-built index using Fuse.parseIndex()
+ * - This avoids re-indexing on every worker thread within the same build
+ * 
+ * Cache persists across builds for even faster subsequent builds.
+ * 
  * Note: Astro's build process uses multiple worker threads (configured via
- * build.concurrency), so each thread will have its own in-memory Fuse instance,
- * but they share the same disk cache within a build.
+ * build.concurrency). Each thread has its own in-memory Fuse instance,
+ * but they all benefit from the shared disk cache of the index.
  */
 export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
   if (fuseInstance === null) {
-    let processedPosts = loadCachedPosts();
-
-    if (processedPosts === null) {
-      // Cache miss - need to render all posts
+    const cachedData = loadCache();
+    
+    if (cachedData !== null) {
+      // Cache hit - use pre-built index (fast!)
+      console.log(`[Fuse] Loaded ${cachedData.posts.length} posts and pre-built index from cache`);
+      
+      const parsedIndex = Fuse.parseIndex(cachedData.index);
+      fuseInstance = new Fuse(cachedData.posts, fuseOptions, parsedIndex);
+    } else {
+      // Cache miss - need to render all posts and build index
       console.log("[Fuse] Generating search index from posts...");
       const posts = await getCollection("posts");
 
-      processedPosts = posts.map((post) => ({
+      const processedPosts: ProcessedPost[] = posts.map((post) => ({
         title: post.data.title,
         body: post.rendered?.html ?? "",
         tags: post.data.tags,
@@ -85,25 +111,17 @@ export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
         image: post.data.image ?? null,
       }));
 
-      // Save to cache for use by other worker threads in this build
-      saveCachedPosts(processedPosts);
-      console.log(
-        `[Fuse] Cached ${processedPosts.length} processed posts to disk`,
-      );
-    } else {
-      console.log(
-        `[Fuse] Loaded ${processedPosts.length} processed posts from cache`,
-      );
+      // Create Fuse instance and generate the index
+      fuseInstance = new Fuse(processedPosts, fuseOptions);
+      
+      // Extract the index for caching
+      const fuseIndex = fuseInstance.getIndex();
+      
+      // Save both posts and index to cache for other workers and future builds
+      saveCache(processedPosts, fuseIndex.toJSON());
+      
+      console.log(`[Fuse] Generated and cached index for ${processedPosts.length} posts`);
     }
-
-    fuseInstance = new Fuse(processedPosts, {
-      keys: ["tags", "categories", "title", "body"],
-      includeScore: false,
-      threshold: 0.55,
-      ignoreLocation: true,
-      findAllMatches: true,
-      minMatchCharLength: 2,
-    });
   }
 
   return fuseInstance;

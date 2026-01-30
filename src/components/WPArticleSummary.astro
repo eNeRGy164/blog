@@ -4,7 +4,6 @@ import { urlifyToken } from "@/js/util";
 import moment from "moment";
 import path from "path";
 import { getImageMetadata } from "@/utils/imageCache";
-import { getRenderedHTML, setRenderedHTML } from "@/utils/renderedCache";
 
 const {
   page,
@@ -13,16 +12,7 @@ const {
   inList = false,
 } = Astro.props;
 const { title, author, date, permalink, excerpt, tags, image } = page.data;
-
-// Try to get cached rendered HTML first
-let content = getRenderedHTML(page);
-if (content === null) {
-  // Cache miss - render the markdown (expensive operation)
-  content = page.rendered.html;
-  // Store in cache for next time
-  setRenderedHTML(page, content);
-}
-
+const content = page.rendered.html;
 const hasMoreTag = content.includes("<!--more-->");
 const showPreview = articlePreview && hasMoreTag;
 
