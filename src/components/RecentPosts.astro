@@ -13,6 +13,7 @@ const { posts } = Astro.props;
       <ol>
         {
           posts
+            .slice(0, 6)
             .filter((p) => p.data.permalink !== Astro.url.pathname)
             .slice(0, 5)
             .map((post) => (
