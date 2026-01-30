@@ -16,8 +16,11 @@ let fuseInstance: Fuse<ProcessedPost> | null = null;
 /**
  * Gets a cached Fuse instance for searching posts.
  * During build time, this ensures we only create one Fuse instance
- * that's shared across all pages, rather than creating a new instance
- * for each blog post page.
+ * per worker thread that's shared across all pages, rather than
+ * creating a new instance for each blog post page.
+ * 
+ * Note: Astro's build process uses multiple worker threads (configured via
+ * build.concurrency), so each thread will have its own cached instance.
  */
 export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
   if (fuseInstance === null) {
