@@ -13,7 +13,6 @@ import rehypeCustomImage from "./src/plugins/rehypeCustomImage.js";
 import { rehypeGithubAlerts } from "rehype-github-alerts";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import sitemap from "@astrojs/sitemap";
-import perfProfilingIntegration from "./src/integrations/perfProfilingIntegration.js";
 
 const jsoncString = readFileSync(
   new URL(`./src/config/vscode-theme.jsonc`, import.meta.url),
@@ -24,7 +23,6 @@ const vscodeTheme = ExpressiveCodeTheme.fromJSONString(jsoncString);
 export default defineConfig({
   site: "https://blog.hompus.nl",
   integrations: [
-    perfProfilingIntegration(),
     sitemap(),
     expressiveCode({
       plugins: [pluginLineNumbers()],

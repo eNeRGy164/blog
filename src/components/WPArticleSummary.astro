@@ -4,10 +4,6 @@ import { urlifyToken } from "@/js/util";
 import moment from "moment";
 import path from "path";
 import { getImageMetadata } from "@/utils/imageCache";
-import { startTiming, endTiming } from "@/utils/perfProfile";
-
-const componentStart = performance.now();
-startTiming(`WPArticleSummary:${Astro.props.page.data.permalink}`);
 
 const {
   page,
@@ -17,10 +13,7 @@ const {
 } = Astro.props;
 const { title, author, date, permalink, excerpt, tags, image } = page.data;
 
-// Time the markdown rendering
-startTiming(`render-html:${permalink}`);
 const content = page.rendered.html;
-endTiming(`render-html:${permalink}`, { postTitle: title });
 
 const hasMoreTag = content.includes("<!--more-->");
 const showPreview = articlePreview && hasMoreTag;
@@ -36,7 +29,6 @@ const imagesDir = path.join(process.cwd(), "wp-content", "uploads");
 let thumbnail = null;
 
 if (image != undefined) {
-  startTiming(`image-metadata:${permalink}`);
   const filePath = path.join(
     imagesDir,
     image.replace("/wp-content/uploads/", ""),
@@ -48,13 +40,7 @@ if (image != undefined) {
     width: metadata.width.toString(),
     height: metadata.height.toString(),
   };
-  endTiming(`image-metadata:${permalink}`);
 }
-
-endTiming(`WPArticleSummary:${permalink}`, { 
-  postTitle: title,
-  totalTime: performance.now() - componentStart 
-});
 ---
 
 <div class="post-box">

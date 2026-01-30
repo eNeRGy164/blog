@@ -2,7 +2,6 @@ import { getCollection } from "astro:content";
 import Fuse from "fuse.js";
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
 import { join } from "path";
-import { startTiming, endTiming } from "./perfProfile";
 
 export interface ProcessedPost {
   // body field removed - no longer needed for search
@@ -40,7 +39,6 @@ interface CachedData {
  * Load cached Fuse index and posts from disk if available
  */
 function loadCache(): CachedData | null {
-  startTiming("fuse-loadCache");
   try {
     if (existsSync(POSTS_CACHE_FILE) && existsSync(INDEX_CACHE_FILE)) {
       const postsContent = readFileSync(POSTS_CACHE_FILE, "utf-8");
@@ -49,7 +47,6 @@ function loadCache(): CachedData | null {
       const posts = JSON.parse(postsContent);
       const serializedIndex = JSON.parse(indexContent);
       
-      endTiming("fuse-loadCache", { postsCount: posts.length });
       return {
         posts,
         index: serializedIndex,
@@ -57,9 +54,7 @@ function loadCache(): CachedData | null {
     }
   } catch (error) {
     console.warn("[Fuse] Failed to load cache:", error);
-    endTiming("fuse-loadCache");
   }
-  endTiming("fuse-loadCache");
   return null;
 }
 
@@ -67,7 +62,6 @@ function loadCache(): CachedData | null {
  * Save Fuse index and posts to disk cache
  */
 function saveCache(posts: ProcessedPost[], index: any): void {
-  startTiming("fuse-saveCache");
   try {
     if (!existsSync(CACHE_DIR)) {
       mkdirSync(CACHE_DIR, { recursive: true });
@@ -77,10 +71,8 @@ function saveCache(posts: ProcessedPost[], index: any): void {
     writeFileSync(INDEX_CACHE_FILE, JSON.stringify(index), "utf-8");
     
     console.log(`[Fuse] Cached ${posts.length} posts and search index to disk`);
-    endTiming("fuse-saveCache", { postsCount: posts.length });
   } catch (error) {
     console.warn("[Fuse] Failed to save cache:", error);
-    endTiming("fuse-saveCache");
   }
 }
 
@@ -100,29 +92,20 @@ function saveCache(posts: ProcessedPost[], index: any): void {
  */
 export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
   if (fuseInstance === null) {
-    startTiming("fuse-getInstance");
     const cachedData = loadCache();
     
     if (cachedData !== null) {
       // Cache hit - use pre-built index (fast!)
-      startTiming("fuse-parseIndex");
       console.log(`[Fuse] Loaded ${cachedData.posts.length} posts and pre-built index from cache`);
       
       const parsedIndex = Fuse.parseIndex(cachedData.index);
-      endTiming("fuse-parseIndex");
-      
-      startTiming("fuse-createInstance-cached");
       fuseInstance = new Fuse(cachedData.posts, fuseOptions, parsedIndex);
-      endTiming("fuse-createInstance-cached");
     } else {
       // Cache miss - need to render all posts and build index
       console.log("[Fuse] Generating search index from posts...");
       
-      startTiming("fuse-getCollection");
       const posts = await getCollection("posts");
-      endTiming("fuse-getCollection", { postsCount: posts.length });
 
-      startTiming("fuse-processAllPosts");
       const processedPosts: ProcessedPost[] = posts.map((post) => ({
         title: post.data.title,
         // body field removed - no longer searching through full HTML content
@@ -131,24 +114,18 @@ export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
         permalink: post.data.permalink,
         image: post.data.image ?? null,
       }));
-      endTiming("fuse-processAllPosts", { postsCount: processedPosts.length });
 
       // Create Fuse instance and generate the index
-      startTiming("fuse-createInstance-new");
       fuseInstance = new Fuse(processedPosts, fuseOptions);
-      endTiming("fuse-createInstance-new");
       
       // Extract the index for caching
-      startTiming("fuse-getIndex");
       const fuseIndex = fuseInstance.getIndex();
-      endTiming("fuse-getIndex");
       
       // Save both posts and index to cache for other workers and future builds
       saveCache(processedPosts, fuseIndex.toJSON());
       
       console.log(`[Fuse] Generated and cached index for ${processedPosts.length} posts`);
     }
-    endTiming("fuse-getInstance");
   }
 
   return fuseInstance;
