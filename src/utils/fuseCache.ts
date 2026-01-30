@@ -1,8 +1,7 @@
 import { getCollection } from "astro:content";
 import Fuse from "fuse.js";
-import type { CollectionEntry } from "astro:content";
 
-interface ProcessedPost {
+export interface ProcessedPost {
   body: string;
   title: string;
   tags: string[];
