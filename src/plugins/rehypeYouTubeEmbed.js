@@ -32,7 +32,7 @@ export default function YouTubeEmbed({ defaultWidth = 636 } = {}) {
                   parent.children = embedNode.children;
                 } else {
                   // Otherwise, replace just the <a> with <figure>
-                  parent.children[index] = figureElement;
+                  parent.children[index] = embedNode;
                 }
               }
             })
@@ -91,6 +91,11 @@ async function createEmbedBlock(originalUrl, defaultWidth, captionText) {
       height = parseInt(urlObj.searchParams.get('height'), 10);
     }
 
+    // Build the src URL with query parameters only if there are any
+    const srcUrl = embedQueryParams.toString()
+      ? `${embedUrl}?${embedQueryParams.toString()}`
+      : embedUrl;
+
     // Generate the block structure for the YouTube embed
     const figureChildren = [
         {
@@ -102,8 +107,8 @@ async function createEmbedBlock(originalUrl, defaultWidth, captionText) {
             allowfullscreen: '',
             height: height,
             loading: 'lazy',
-            referrerpolicy: 'no-referrer',
-            src: `${embedUrl}?${embedQueryParams.toString()}`, // Retain allowed parameters like list
+            referrerpolicy: 'strict-origin-when-cross-origin',
+            src: srcUrl,
             title: data.title,
             width: width,
             itemprop: 'url',
@@ -206,6 +211,7 @@ function isAllowedYouTubeHost(hostname) {
  */
 function extractYouTubeID(urlObj) {
   // Match standard YouTube video URLs and embed URLs (including nocookie)
+  // This will match: youtube.com/watch?v=ID, youtube.com/embed/ID, youtu.be/ID, youtube-nocookie.com/embed/ID, youtube.com/v/ID
   const regex = /(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/|youtube-nocookie\.com\/embed\/)([a-zA-Z0-9_-]{11})/;
   const matches = urlObj.href.match(regex);
 
