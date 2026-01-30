@@ -6,6 +6,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
 import { join } from "path";
 import sharp from "sharp";
+import { startTiming, endTiming } from "./perfProfile";
 
 interface ImageMetadata {
   width: number;
@@ -75,7 +76,9 @@ export async function getImageMetadata(
   }
 
   // Cache miss - process with Sharp
+  startTiming("sharp-process");
   const metadata = await sharp(filePath).metadata();
+  endTiming("sharp-process", { filePath });
 
   const result: ImageMetadata = {
     width: metadata.width ?? 0,

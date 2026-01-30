@@ -1,5 +1,6 @@
 ---
 import { getFuseInstance, type ProcessedPost } from "@/utils/fuseCache";
+import { startTiming, endTiming } from "@/utils/perfProfile";
 
 import type { CollectionEntry } from 'astro:content';
 
@@ -14,11 +15,16 @@ interface RelatedPost extends ProcessedPost {
 const { post } = Astro.props;
 const { data } = post;
 
+startTiming(`RelatedPosts:${data.permalink}`);
+
+startTiming(`fuse-getInstance:${data.permalink}`);
 const fuse = await getFuseInstance();
+endTiming(`fuse-getInstance:${data.permalink}`);
 
 let results: RelatedPost[] | null = null;
 
 if (data.tags != null && data.categories != null) {
+  startTiming(`fuse-search:${data.permalink}`);
   const searchValue = `${data.tags.join(" ")} ${data.categories.join(" ")}`;
 
   results = fuse
@@ -26,6 +32,7 @@ if (data.tags != null && data.categories != null) {
     .filter((result) => result.item.permalink !== data.permalink)
     .slice(0, 3)
     .map((result) => ProcessThumbnail(result.item));
+  endTiming(`fuse-search:${data.permalink}`, { resultsCount: results.length });
 }
 
 function ProcessThumbnail(post: ProcessedPost): RelatedPost {
@@ -37,6 +44,8 @@ function ProcessThumbnail(post: ProcessedPost): RelatedPost {
       : "/default-thumbnail-185x185.webp",
   };
 }
+
+endTiming(`RelatedPosts:${data.permalink}`);
 ---
 
 {
