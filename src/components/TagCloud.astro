@@ -1,8 +1,9 @@
 ---
 import { urlifyToken, getTagsWithPosts } from "@/js/util.js";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  unsortedPosts: any[];
+  unsortedPosts: CollectionEntry<"posts">[];
 }
 
 const { unsortedPosts } = Astro.props;
