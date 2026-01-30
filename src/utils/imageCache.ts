@@ -3,13 +3,14 @@
  * Persists across builds to speed up page generation.
  */
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
+import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from "fs";
 import { join } from "path";
 import sharp from "sharp";
 
 interface ImageMetadata {
   width: number;
   height: number;
+  mtime: number;  // File modification time for cache invalidation
 }
 
 interface ImageCache {
@@ -29,7 +30,8 @@ function isValidImageMetadata(metadata: unknown): metadata is ImageMetadata {
     typeof metadata === 'object' &&
     metadata !== null &&
     typeof (metadata as any).width === 'number' &&
-    typeof (metadata as any).height === 'number'
+    typeof (metadata as any).height === 'number' &&
+    typeof (metadata as any).mtime === 'number'
   );
 }
 
@@ -72,50 +74,78 @@ function loadCache(): ImageCache {
 }
 
 /**
- * Save image metadata cache to disk
+ * Save image metadata cache to disk using atomic writes.
+ * Uses a temporary file to prevent corruption from concurrent writes.
  */
 function saveCache(cache: ImageCache): void {
   try {
     if (!existsSync(CACHE_DIR)) {
       mkdirSync(CACHE_DIR, { recursive: true });
     }
-    writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2), "utf-8");
+    
+    // Write to temporary file first (atomic operation)
+    const tempFile = CACHE_FILE + ".tmp";
+    writeFileSync(tempFile, JSON.stringify(cache, null, 2), "utf-8");
+    
+    // Atomic rename (prevents partial reads during concurrent writes)
+    const fs = require("fs");
+    fs.renameSync(tempFile, CACHE_FILE);
   } catch (error) {
     console.warn("[Image Cache] Failed to save cache:", error);
   }
 }
 
 /**
- * Get image metadata with caching.
- * Reads from cache if available, otherwise processes with Sharp.
+ * Get image metadata with caching and automatic invalidation.
+ * Reads from cache if available and file hasn't changed, otherwise processes with Sharp.
+ * Cache is invalidated when file modification time changes.
  */
 export async function getImageMetadata(
   filePath: string,
-): Promise<ImageMetadata> {
+): Promise<Omit<ImageMetadata, 'mtime'>> {
   const cache = loadCache();
-
-  // Check cache first
-  if (cache[filePath]) {
-    return cache[filePath];
+  
+  // Get current file modification time for cache invalidation
+  let currentMtime: number;
+  try {
+    const stats = statSync(filePath);
+    currentMtime = stats.mtimeMs;
+  } catch (error) {
+    console.error(`[Image Cache] Failed to stat file ${filePath}:`, error);
+    return { width: 0, height: 0 };
   }
 
-  // Cache miss - process with Sharp
+  // Check cache and validate it's not stale
+  if (cache[filePath] && cache[filePath].mtime === currentMtime) {
+    // Cache hit with valid timestamp
+    return {
+      width: cache[filePath].width,
+      height: cache[filePath].height,
+    };
+  }
+
+  // Cache miss or stale - process with Sharp
   try {
     const metadata = await sharp(filePath).metadata();
 
     const result: ImageMetadata = {
       width: metadata.width ?? 0,
       height: metadata.height ?? 0,
+      mtime: currentMtime,
     };
 
     // Update cache
     cache[filePath] = result;
     memoryCache = cache;
 
-    // Save to disk (async, don't wait)
+    // Save to disk using atomic writes
+    // Note: Race condition is acceptable - multiple workers may write similar data
     saveCache(cache);
 
-    return result;
+    return {
+      width: result.width,
+      height: result.height,
+    };
   } catch (error) {
     console.error(`[Image Cache] Failed to process image ${filePath}:`, error);
     // Return default dimensions on error
