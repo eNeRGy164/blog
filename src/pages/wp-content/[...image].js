@@ -4,6 +4,12 @@ import sharp from "sharp";
 import { getCache } from "../../utils/imageVariants";
 
 const imageCache = new Map();
+const CACHE_DIR = path.join(process.cwd(), ".cache", "images");
+
+// Ensure cache directory exists
+if (!fs.existsSync(CACHE_DIR)) {
+  fs.mkdirSync(CACHE_DIR, { recursive: true });
+}
 
 /**
  * Generate static paths from the image cache.
@@ -31,6 +37,7 @@ export async function getStaticPaths() {
 export async function GET({ params }) {
   const imagePath = params.image;
 
+  // Check in-memory cache first
   if (imageCache.has(imagePath)) {
     const cached = imageCache.get(imagePath);
 
@@ -38,6 +45,29 @@ export async function GET({ params }) {
       status: 200,
       headers: { "Content-Type": cached.contentType },
     });
+  }
+
+  // Check disk cache
+  const cacheKey = imagePath.replace(/[^a-zA-Z0-9]/g, "_");
+  const cacheFilePath = path.join(CACHE_DIR, cacheKey);
+  const cacheMetaPath = cacheFilePath + ".meta.json";
+
+  if (fs.existsSync(cacheFilePath) && fs.existsSync(cacheMetaPath)) {
+    try {
+      const buffer = fs.readFileSync(cacheFilePath);
+      const meta = JSON.parse(fs.readFileSync(cacheMetaPath, "utf8"));
+      
+      // Cache in memory for faster subsequent access
+      imageCache.set(imagePath, { buffer, contentType: meta.contentType });
+      
+      return new Response(buffer, {
+        status: 200,
+        headers: { "Content-Type": meta.contentType },
+      });
+    } catch (err) {
+      // If cache read fails, continue to process the image
+      console.warn(`Failed to read cache for ${imagePath}:`, err);
+    }
   }
 
   const wpContentOrgBase = path.join(process.cwd(), "wp-content");
@@ -56,8 +86,16 @@ export async function GET({ params }) {
 
   const { buffer, contentType } = await processImage(sourceFilePath, requestedWidth, requestedHeight, isWebPRequest);
 
-  // Cache the processed image
+  // Cache the processed image in memory
   imageCache.set(imagePath, { buffer, contentType });
+
+  // Cache the processed image on disk
+  try {
+    fs.writeFileSync(cacheFilePath, buffer);
+    fs.writeFileSync(cacheMetaPath, JSON.stringify({ contentType }));
+  } catch (err) {
+    console.warn(`Failed to write cache for ${imagePath}:`, err);
+  }
 
   // Serve the processed image
   return new Response(buffer, {
