@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "npm run clean:cache && astro build",
+    "clean:cache": "rm -rf .cache/fuse-search-index",
     "preview": "astro preview",
     "astro": "astro"
   },
