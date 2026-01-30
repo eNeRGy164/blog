@@ -32,7 +32,7 @@ function getCacheKey(imagePath) {
 async function getSourceFileHash(filePath) {
   try {
     const content = await fsp.readFile(filePath);
-    return crypto.createHash("md5").update(content).digest("hex");
+    return crypto.createHash("sha256").update(content).digest("hex");
   } catch (err) {
     console.warn(`Failed to hash source file ${filePath}:`, err);
     return null;
@@ -40,10 +40,11 @@ async function getSourceFileHash(filePath) {
 }
 
 /**
- * Generate cache metadata key that includes processing parameters
+ * Generate cache metadata including source hash and processing parameters
  */
-function getCacheMetadata(sourceHash, width, height, isWebP) {
+function getCacheMetadata(contentType, sourceHash, width, height, isWebP) {
   return {
+    contentType,
     sourceHash,
     width: width || null,
     height: height || null,
@@ -131,7 +132,12 @@ export async function GET({ params }) {
         fsp.readFile(cacheMetaPath, "utf8"),
       ]);
       
-      const meta = JSON.parse(metaContent);
+      let meta;
+      try {
+        meta = JSON.parse(metaContent);
+      } catch (parseErr) {
+        throw new Error(`Failed to parse cache metadata JSON: ${parseErr.message}`);
+      }
       
       // Validate content type to prevent serving corrupted cache
       if (!VALID_CONTENT_TYPES.has(meta.contentType)) {
@@ -140,9 +146,13 @@ export async function GET({ params }) {
       
       // Validate source hash and processing parameters
       // Cache is invalid if source changed or processing parameters changed
+      // Normalize null/undefined for consistent comparison
+      const normalizedRequestWidth = requestedWidth || null;
+      const normalizedRequestHeight = requestedHeight || null;
+      
       if (meta.sourceHash === sourceHash &&
-          meta.width === requestedWidth &&
-          meta.height === requestedHeight &&
+          meta.width === normalizedRequestWidth &&
+          meta.height === normalizedRequestHeight &&
           meta.isWebP === isWebPRequest) {
         
         // Cache is valid, use it
@@ -169,13 +179,7 @@ export async function GET({ params }) {
   imageCache.set(imagePath, { buffer, contentType });
 
   // Cache the processed image on disk with metadata (async, don't await to avoid blocking response)
-  const cacheMetadata = {
-    contentType,
-    sourceHash,
-    width: requestedWidth,
-    height: requestedHeight,
-    isWebP: isWebPRequest,
-  };
+  const cacheMetadata = getCacheMetadata(contentType, sourceHash, requestedWidth, requestedHeight, isWebPRequest);
   
   Promise.all([
     fsp.writeFile(cacheFilePath, buffer),
