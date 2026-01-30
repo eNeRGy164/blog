@@ -1,7 +1,7 @@
 import { getCollection } from "astro:content";
-import Fuse from "fuse.js";
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
+import { readFileSync, writeFileSync, existsSync, mkdirSync, renameSync } from "fs";
 import { join } from "path";
+import Fuse from "fuse.js";
 
 /**
  * Processed post data structure used for Fuse.js search.
@@ -127,12 +127,19 @@ function saveCache(posts: ProcessedPost[], index: Fuse.FuseIndex<ProcessedPost>)
     writeFileSync(tempIndexFile, JSON.stringify(index), "utf-8");
     
     // Atomic rename (prevents partial reads during concurrent writes)
-    const fs = require("fs");
-    fs.renameSync(tempPostsFile, POSTS_CACHE_FILE);
-    fs.renameSync(tempIndexFile, INDEX_CACHE_FILE);
+    // If this fails due to concurrent writes, it's acceptable - another worker succeeded
+    renameSync(tempPostsFile, POSTS_CACHE_FILE);
+    renameSync(tempIndexFile, INDEX_CACHE_FILE);
     
     console.log(`[Fuse] Cached ${posts.length} posts and search index to disk`);
   } catch (error) {
+    // Cleanup temp files on failure
+    try {
+      const tempPostsFile = POSTS_CACHE_FILE + ".tmp";
+      const tempIndexFile = INDEX_CACHE_FILE + ".tmp";
+      if (existsSync(tempPostsFile)) writeFileSync(tempPostsFile, "", "utf-8");
+      if (existsSync(tempIndexFile)) writeFileSync(tempIndexFile, "", "utf-8");
+    } catch {}
     console.warn("[Fuse] Failed to save cache:", error);
   }
 }
@@ -154,43 +161,47 @@ function saveCache(posts: ProcessedPost[], index: Fuse.FuseIndex<ProcessedPost>)
  */
 export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
   if (fuseInstance === null) {
-    // Get current post count for cache invalidation
-    const posts = await getCollection("posts");
-    const currentPostCount = posts.length;
-    
-    const cachedData = loadCache(currentPostCount);
+    const cachedData = loadCache(0);  // Pass 0 initially, will validate below
     
     if (cachedData !== null) {
-      // Cache hit - use pre-built index (fast!)
-      console.log(`[Fuse] Loaded ${cachedData.posts.length} posts and pre-built index from cache`);
-      
-      const parsedIndex = Fuse.parseIndex(cachedData.index);
-      fuseInstance = new Fuse(cachedData.posts, FUSE_OPTIONS, parsedIndex);
-    } else {
-      // Cache miss - need to process posts and build index
-      console.log("[Fuse] Generating search index from posts...");
-
-      const processedPosts: ProcessedPost[] = posts.map((post) => ({
-        title: post.data.title,
-        body: post.body ?? "",  // Use markdown instead of HTML for better search performance
-        tags: post.data.tags,
-        categories: post.data.categories,
-        permalink: post.data.permalink,
-        image: post.data.image ?? null,
-      }));
-
-      // Create Fuse instance and generate the index
-      fuseInstance = new Fuse(processedPosts, FUSE_OPTIONS);
-      
-      // Extract the index for caching
-      const fuseIndex = fuseInstance.getIndex();
-      
-      // Save both posts and index to cache for other workers and future builds
-      // Note: Race condition is acceptable - multiple workers may write identical data
-      saveCache(processedPosts, fuseIndex.toJSON());
-      
-      console.log(`[Fuse] Generated and cached index for ${processedPosts.length} posts`);
+      // Cache hit - but verify post count is still correct
+      const posts = await getCollection("posts");
+      if (posts.length === cachedData.postCount) {
+        // Cache is valid - use pre-built index (fast!)
+        console.log(`[Fuse] Loaded ${cachedData.posts.length} posts and pre-built index from cache`);
+        
+        const parsedIndex = Fuse.parseIndex(cachedData.index);
+        fuseInstance = new Fuse(cachedData.posts, FUSE_OPTIONS, parsedIndex);
+        return fuseInstance;
+      } else {
+        console.log(`[Fuse] Cache invalidated - post count changed (${cachedData.postCount} → ${posts.length})`);
+      }
     }
+    
+    // Cache miss or invalidated - need to process posts and build index
+    console.log("[Fuse] Generating search index from posts...");
+    const posts = await getCollection("posts");
+
+    const processedPosts: ProcessedPost[] = posts.map((post) => ({
+      title: post.data.title,
+      body: post.body ?? "",  // Use markdown instead of HTML for better search performance
+      tags: post.data.tags,
+      categories: post.data.categories,
+      permalink: post.data.permalink,
+      image: post.data.image ?? null,
+    }));
+
+    // Create Fuse instance and generate the index
+    fuseInstance = new Fuse(processedPosts, FUSE_OPTIONS);
+    
+    // Extract the index for caching
+    const fuseIndex = fuseInstance.getIndex();
+    
+    // Save both posts and index to cache for other workers and future builds
+    // If multiple workers try to save concurrently, that's acceptable
+    saveCache(processedPosts, fuseIndex.toJSON());
+    
+    console.log(`[Fuse] Generated and cached index for ${processedPosts.length} posts`);
   }
 
   return fuseInstance;

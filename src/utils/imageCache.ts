@@ -3,7 +3,7 @@
  * Persists across builds to speed up page generation.
  */
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from "fs";
+import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync, renameSync } from "fs";
 import { join } from "path";
 import sharp from "sharp";
 
@@ -88,9 +88,14 @@ function saveCache(cache: ImageCache): void {
     writeFileSync(tempFile, JSON.stringify(cache, null, 2), "utf-8");
     
     // Atomic rename (prevents partial reads during concurrent writes)
-    const fs = require("fs");
-    fs.renameSync(tempFile, CACHE_FILE);
+    // If this fails due to concurrent writes, it's acceptable - another worker succeeded
+    renameSync(tempFile, CACHE_FILE);
   } catch (error) {
+    // Cleanup temp file on failure
+    try {
+      const tempFile = CACHE_FILE + ".tmp";
+      if (existsSync(tempFile)) writeFileSync(tempFile, "", "utf-8");
+    } catch {}
     console.warn("[Image Cache] Failed to save cache:", error);
   }
 }
@@ -139,7 +144,7 @@ export async function getImageMetadata(
     memoryCache = cache;
 
     // Save to disk using atomic writes
-    // Note: Race condition is acceptable - multiple workers may write similar data
+    // If multiple workers try to save concurrently, that's acceptable
     saveCache(cache);
 
     return {
