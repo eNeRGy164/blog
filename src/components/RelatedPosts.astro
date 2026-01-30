@@ -1,6 +1,5 @@
 ---
-import { getCollection } from "astro:content";
-import Fuse from "fuse.js";
+import { getFuseInstance } from "@/utils/fuseCache";
 
 import type { CollectionEntry } from 'astro:content';
 
@@ -23,27 +22,7 @@ interface RelatedPost extends ProcessedPost {
 const { post } = Astro.props;
 const { data } = post;
 
-const posts = await getCollection("posts");
-
-const processedPosts: ProcessedPost[] = posts.map((post) => (
-  {
-    title: post.data.title,
-    body: post.rendered?.html ?? "",
-    tags: post.data.tags,
-    categories: post.data.categories,
-    permalink: post.data.permalink,
-    image: post.data.image ?? null,
-  }
-));
-
-const fuse = new Fuse(processedPosts, {
-  keys: ["tags", "categories", "title", "body"],
-  includeScore: false,
-  threshold: 0.55,
-  ignoreLocation: true,
-  findAllMatches: true,
-  minMatchCharLength: 2,
-});
+const fuse = await getFuseInstance();
 
 let results: RelatedPost[] | null = null;
 
