@@ -1,14 +1,54 @@
 import fs from "fs";
+import fsp from "fs/promises";
 import path from "path";
+import crypto from "crypto";
 import sharp from "sharp";
 import { getCache } from "../../utils/imageVariants";
 
 const imageCache = new Map();
 const CACHE_DIR = path.join(process.cwd(), ".cache", "images");
+const VALID_CONTENT_TYPES = new Set([
+  "image/webp",
+  "image/png",
+  "image/jpeg",
+  "image/gif",
+]);
 
 // Ensure cache directory exists
 if (!fs.existsSync(CACHE_DIR)) {
   fs.mkdirSync(CACHE_DIR, { recursive: true });
+}
+
+/**
+ * Generate a safe, unique cache key from an image path using MD5 hash
+ */
+function getCacheKey(imagePath) {
+  return crypto.createHash("md5").update(imagePath).digest("hex");
+}
+
+/**
+ * Calculate hash of a source file to detect changes
+ */
+async function getSourceFileHash(filePath) {
+  try {
+    const content = await fsp.readFile(filePath);
+    return crypto.createHash("md5").update(content).digest("hex");
+  } catch (err) {
+    console.warn(`Failed to hash source file ${filePath}:`, err);
+    return null;
+  }
+}
+
+/**
+ * Generate cache metadata key that includes processing parameters
+ */
+function getCacheMetadata(sourceHash, width, height, isWebP) {
+  return {
+    sourceHash,
+    width: width || null,
+    height: height || null,
+    isWebP,
+  };
 }
 
 /**
@@ -47,29 +87,6 @@ export async function GET({ params }) {
     });
   }
 
-  // Check disk cache
-  const cacheKey = imagePath.replace(/[^a-zA-Z0-9]/g, "_");
-  const cacheFilePath = path.join(CACHE_DIR, cacheKey);
-  const cacheMetaPath = cacheFilePath + ".meta.json";
-
-  if (fs.existsSync(cacheFilePath) && fs.existsSync(cacheMetaPath)) {
-    try {
-      const buffer = fs.readFileSync(cacheFilePath);
-      const meta = JSON.parse(fs.readFileSync(cacheMetaPath, "utf8"));
-      
-      // Cache in memory for faster subsequent access
-      imageCache.set(imagePath, { buffer, contentType: meta.contentType });
-      
-      return new Response(buffer, {
-        status: 200,
-        headers: { "Content-Type": meta.contentType },
-      });
-    } catch (err) {
-      // If cache read fails, continue to process the image
-      console.warn(`Failed to read cache for ${imagePath}:`, err);
-    }
-  }
-
   const wpContentOrgBase = path.join(process.cwd(), "wp-content");
   const requestedFilePath = path.join(wpContentOrgBase, imagePath);
 
@@ -84,18 +101,88 @@ export async function GET({ params }) {
     return new Response("Image not found", { status: 404 });
   }
 
+  // Calculate hash of source file to detect changes
+  const sourceHash = await getSourceFileHash(sourceFilePath);
+  
+  if (!sourceHash) {
+    // If we can't hash the source, process without caching
+    const { buffer, contentType } = await processImage(sourceFilePath, requestedWidth, requestedHeight, isWebPRequest);
+    return new Response(buffer, {
+      status: 200,
+      headers: { "Content-Type": contentType },
+    });
+  }
+
+  // Check disk cache with source hash validation
+  const cacheKey = getCacheKey(imagePath);
+  const cacheFilePath = path.join(CACHE_DIR, cacheKey);
+  const cacheMetaPath = cacheFilePath + ".meta.json";
+
+  try {
+    // Use async file operations to avoid blocking
+    const [cacheExists, metaExists] = await Promise.all([
+      fsp.access(cacheFilePath).then(() => true).catch(() => false),
+      fsp.access(cacheMetaPath).then(() => true).catch(() => false),
+    ]);
+
+    if (cacheExists && metaExists) {
+      const [buffer, metaContent] = await Promise.all([
+        fsp.readFile(cacheFilePath),
+        fsp.readFile(cacheMetaPath, "utf8"),
+      ]);
+      
+      const meta = JSON.parse(metaContent);
+      
+      // Validate content type to prevent serving corrupted cache
+      if (!VALID_CONTENT_TYPES.has(meta.contentType)) {
+        throw new Error(`Invalid content type in cache: ${meta.contentType}`);
+      }
+      
+      // Validate source hash and processing parameters
+      // Cache is invalid if source changed or processing parameters changed
+      if (meta.sourceHash === sourceHash &&
+          meta.width === requestedWidth &&
+          meta.height === requestedHeight &&
+          meta.isWebP === isWebPRequest) {
+        
+        // Cache is valid, use it
+        imageCache.set(imagePath, { buffer, contentType: meta.contentType });
+        
+        return new Response(buffer, {
+          status: 200,
+          headers: { "Content-Type": meta.contentType },
+        });
+      } else {
+        // Cache is stale, will regenerate below
+        console.log(`Cache invalidated for ${imagePath}: source or parameters changed`);
+      }
+    }
+  } catch (err) {
+    // If cache read fails, continue to process the image
+    console.warn(`Failed to read cache for ${imagePath}:`, err);
+  }
+
+  // Process the image (cache miss or invalid)
   const { buffer, contentType } = await processImage(sourceFilePath, requestedWidth, requestedHeight, isWebPRequest);
 
   // Cache the processed image in memory
   imageCache.set(imagePath, { buffer, contentType });
 
-  // Cache the processed image on disk
-  try {
-    fs.writeFileSync(cacheFilePath, buffer);
-    fs.writeFileSync(cacheMetaPath, JSON.stringify({ contentType }));
-  } catch (err) {
+  // Cache the processed image on disk with metadata (async, don't await to avoid blocking response)
+  const cacheMetadata = {
+    contentType,
+    sourceHash,
+    width: requestedWidth,
+    height: requestedHeight,
+    isWebP: isWebPRequest,
+  };
+  
+  Promise.all([
+    fsp.writeFile(cacheFilePath, buffer),
+    fsp.writeFile(cacheMetaPath, JSON.stringify(cacheMetadata)),
+  ]).catch(err => {
     console.warn(`Failed to write cache for ${imagePath}:`, err);
-  }
+  });
 
   // Serve the processed image
   return new Response(buffer, {
