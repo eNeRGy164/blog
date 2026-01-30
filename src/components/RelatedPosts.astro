@@ -1,5 +1,5 @@
 ---
-import { getFuseInstance } from "@/utils/fuseCache";
+import { getFuseInstance, type ProcessedPost } from "@/utils/fuseCache";
 
 import type { CollectionEntry } from 'astro:content';
 
@@ -7,14 +7,6 @@ interface Props {
   post: CollectionEntry<'posts'>;
 }
 
-interface ProcessedPost {
-  body: string;
-  title: string;
-  tags: string[];
-  categories: string[];
-  permalink: string;
-  image: string | null;
-}
 interface RelatedPost extends ProcessedPost {
   image: string;
 }
