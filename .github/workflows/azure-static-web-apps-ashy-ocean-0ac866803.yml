@@ -14,7 +14,7 @@ jobs:
     # This job implements a multi-layer caching strategy to optimize build performance:
     # 1. npm dependencies are cached via setup-node action
     # 2. Astro's internal build cache (.astro/) is cached to speed up incremental builds
-    # 3. Processed images (dist/wp-content/) are cached to avoid regenerating the same images
+    # 3. Processed images (.cache/images/) are cached to avoid regenerating the same images
     #    - Source images: 199 files in wp-content/uploads/
     #    - Processed variants: ~867 files (multiple sizes + WebP versions)
     #    - Cache is invalidated only when source images change
