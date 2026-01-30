@@ -24,12 +24,12 @@ let memoryCache: ImageCache | null = null;
 /**
  * Validate that cached metadata has the expected structure
  */
-function isValidImageMetadata(metadata: any): metadata is ImageMetadata {
+function isValidImageMetadata(metadata: unknown): metadata is ImageMetadata {
   return (
     typeof metadata === 'object' &&
     metadata !== null &&
-    typeof metadata.width === 'number' &&
-    typeof metadata.height === 'number'
+    typeof (metadata as any).width === 'number' &&
+    typeof (metadata as any).height === 'number'
   );
 }
 

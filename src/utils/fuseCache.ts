@@ -23,6 +23,16 @@ const CACHE_DIR = join(process.cwd(), ".cache", "fuse-search-index");
 const POSTS_CACHE_FILE = join(CACHE_DIR, "processed-posts.json");
 const INDEX_CACHE_FILE = join(CACHE_DIR, "fuse-index.json");
 
+// Fuse.js search configuration - centralized to ensure consistency
+const FUSE_OPTIONS: Fuse.IFuseOptions<ProcessedPost> = {
+  keys: ["tags", "categories", "title", "body"],
+  includeScore: false,
+  threshold: 0.55,
+  ignoreLocation: true,
+  findAllMatches: true,
+  minMatchCharLength: 2,
+};
+
 interface CachedData {
   posts: ProcessedPost[];
   index: Fuse.FuseIndex<ProcessedPost>;
@@ -31,16 +41,16 @@ interface CachedData {
 /**
  * Validate that cached posts have the expected structure
  */
-function isValidProcessedPost(post: any): post is ProcessedPost {
+function isValidProcessedPost(post: unknown): post is ProcessedPost {
   return (
     typeof post === 'object' &&
     post !== null &&
-    typeof post.title === 'string' &&
-    typeof post.body === 'string' &&
-    Array.isArray(post.tags) &&
-    Array.isArray(post.categories) &&
-    typeof post.permalink === 'string' &&
-    (post.image === null || typeof post.image === 'string')
+    typeof (post as any).title === 'string' &&
+    typeof (post as any).body === 'string' &&
+    Array.isArray((post as any).tags) &&
+    Array.isArray((post as any).categories) &&
+    typeof (post as any).permalink === 'string' &&
+    ((post as any).image === null || typeof (post as any).image === 'string')
   );
 }
 
@@ -115,14 +125,7 @@ export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
       console.log(`[Fuse] Loaded ${cachedData.posts.length} posts and pre-built index from cache`);
       
       const parsedIndex = Fuse.parseIndex(cachedData.index);
-      fuseInstance = new Fuse(cachedData.posts, {
-        keys: ["tags", "categories", "title", "body"],
-        includeScore: false,
-        threshold: 0.55,
-        ignoreLocation: true,
-        findAllMatches: true,
-        minMatchCharLength: 2,
-      }, parsedIndex);
+      fuseInstance = new Fuse(cachedData.posts, FUSE_OPTIONS, parsedIndex);
     } else {
       // Cache miss - need to render all posts and build index
       console.log("[Fuse] Generating search index from posts...");
@@ -131,7 +134,7 @@ export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
 
       const processedPosts: ProcessedPost[] = posts.map((post) => ({
         title: post.data.title,
-        body: post.rendered?.html ?? "",
+        body: post.rendered?.html ?? "",  // Included for content-based search
         tags: post.data.tags,
         categories: post.data.categories,
         permalink: post.data.permalink,
@@ -139,14 +142,7 @@ export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
       }));
 
       // Create Fuse instance and generate the index
-      fuseInstance = new Fuse(processedPosts, {
-        keys: ["tags", "categories", "title", "body"],
-        includeScore: false,
-        threshold: 0.55,
-        ignoreLocation: true,
-        findAllMatches: true,
-        minMatchCharLength: 2,
-      });
+      fuseInstance = new Fuse(processedPosts, FUSE_OPTIONS);
       
       // Extract the index for caching
       const fuseIndex = fuseInstance.getIndex();
