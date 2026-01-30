@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
 import { join } from "path";
 
 export interface ProcessedPost {
-  // body field removed - no longer needed for search
+  body: string;
   title: string;
   tags: string[];
   categories: string[];
@@ -17,18 +17,6 @@ let fuseInstance: Fuse<ProcessedPost> | null = null;
 const CACHE_DIR = join(process.cwd(), ".cache", "fuse-search-index");
 const POSTS_CACHE_FILE = join(CACHE_DIR, "processed-posts.json");
 const INDEX_CACHE_FILE = join(CACHE_DIR, "fuse-index.json");
-
-// Optimized configuration: removed "body" field for 80% performance improvement
-// Testing showed that using NO WEIGHTS and threshold 0.55 achieves 100% exact match
-// with the original body-based search results while maintaining speed improvements
-const fuseOptions = {
-  keys: ["tags", "categories", "title"],  // No weights - simple equality works best
-  includeScore: false,
-  threshold: 0.55,  // Same as original - provides 100% match rate without body field
-  ignoreLocation: true,
-  findAllMatches: true,
-  minMatchCharLength: 2,
-};
 
 interface CachedData {
   posts: ProcessedPost[];
@@ -84,11 +72,12 @@ function saveCache(posts: ProcessedPost[], index: any): void {
  * - Subsequent workers: Loads pre-built index using Fuse.parseIndex()
  * - This avoids re-indexing on every worker thread within the same build
  * 
- * Cache persists across builds for even faster subsequent builds.
+ * The processed posts (including rendered HTML body) and Fuse index are
+ * cached to disk to avoid re-rendering markdown on every build.
  * 
  * Note: Astro's build process uses multiple worker threads (configured via
  * build.concurrency). Each thread has its own in-memory Fuse instance,
- * but they all benefit from the shared disk cache of the index.
+ * but they all benefit from the shared disk cache.
  */
 export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
   if (fuseInstance === null) {
@@ -99,7 +88,14 @@ export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
       console.log(`[Fuse] Loaded ${cachedData.posts.length} posts and pre-built index from cache`);
       
       const parsedIndex = Fuse.parseIndex(cachedData.index);
-      fuseInstance = new Fuse(cachedData.posts, fuseOptions, parsedIndex);
+      fuseInstance = new Fuse(cachedData.posts, {
+        keys: ["tags", "categories", "title", "body"],
+        includeScore: false,
+        threshold: 0.55,
+        ignoreLocation: true,
+        findAllMatches: true,
+        minMatchCharLength: 2,
+      }, parsedIndex);
     } else {
       // Cache miss - need to render all posts and build index
       console.log("[Fuse] Generating search index from posts...");
@@ -108,7 +104,7 @@ export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
 
       const processedPosts: ProcessedPost[] = posts.map((post) => ({
         title: post.data.title,
-        // body field removed - no longer searching through full HTML content
+        body: post.rendered?.html ?? "",
         tags: post.data.tags,
         categories: post.data.categories,
         permalink: post.data.permalink,
@@ -116,7 +112,14 @@ export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
       }));
 
       // Create Fuse instance and generate the index
-      fuseInstance = new Fuse(processedPosts, fuseOptions);
+      fuseInstance = new Fuse(processedPosts, {
+        keys: ["tags", "categories", "title", "body"],
+        includeScore: false,
+        threshold: 0.55,
+        ignoreLocation: true,
+        findAllMatches: true,
+        minMatchCharLength: 2,
+      });
       
       // Extract the index for caching
       const fuseIndex = fuseInstance.getIndex();
