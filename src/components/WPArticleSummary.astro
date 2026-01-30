@@ -3,7 +3,7 @@ import PostFooter from "@/components/PostFooter.astro";
 import { urlifyToken } from "@/js/util";
 import moment from "moment";
 import path from "path";
-import sharp from "sharp";
+import { getImageMetadata } from "@/utils/imageCache";
 
 const {
   page,
@@ -31,12 +31,12 @@ if (image != undefined) {
     imagesDir,
     image.replace("/wp-content/uploads/", ""),
   );
-  const metadata = await sharp(filePath).metadata();
+  const metadata = await getImageMetadata(filePath);
 
   thumbnail = {
     url: image,
-    width: metadata.width?.toString(),
-    height: metadata.height?.toString(),
+    width: metadata.width.toString(),
+    height: metadata.height.toString(),
   };
 }
 ---
