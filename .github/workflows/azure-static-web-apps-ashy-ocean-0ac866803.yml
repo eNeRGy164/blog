@@ -11,6 +11,13 @@ on:
 
 jobs:
   build_and_deploy_job:
+    # This job implements a multi-layer caching strategy to optimize build performance:
+    # 1. npm dependencies are cached via setup-node action
+    # 2. Astro's internal build cache (.astro/) is cached to speed up incremental builds
+    # 3. Processed images (dist/wp-content/) are cached to avoid regenerating the same images
+    #    - Source images: 199 files in wp-content/uploads/
+    #    - Processed variants: ~867 files (multiple sizes + WebP versions)
+    #    - Cache is invalidated only when source images change
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
@@ -43,11 +50,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-astro-
       
-      # Cache processed images to avoid regenerating them on every build
+      # Cache Sharp-processed images to avoid regenerating them on every build
       - name: Cache processed images
         uses: actions/cache@v3
         with:
-          path: dist/wp-content
+          path: .cache/images
           key: ${{ runner.os }}-images-${{ hashFiles('wp-content/uploads/**') }}
           restore-keys: |
             ${{ runner.os }}-images-
