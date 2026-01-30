@@ -134,7 +134,7 @@ export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
 
       const processedPosts: ProcessedPost[] = posts.map((post) => ({
         title: post.data.title,
-        body: post.rendered?.html ?? "",  // Included for content-based search
+        body: post.body ?? "",  // Use markdown instead of HTML for better search performance
         tags: post.data.tags,
         categories: post.data.categories,
         permalink: post.data.permalink,
