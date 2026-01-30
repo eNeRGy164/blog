@@ -55,10 +55,17 @@ function saveCachedPosts(posts: ProcessedPost[]): void {
  * The processed posts (including rendered HTML) are cached to disk
  * in .cache/fuse-search-index/processed-posts.json to avoid
  * re-rendering markdown multiple times within a single build.
- * This cache is automatically cleaned before each build starts.
+ * 
+ * Cache lifecycle:
+ * - Cleaned automatically before each build starts (see scripts/clean-cache.js)
+ * - Generated on first access by each worker thread
+ * - Reused by subsequent pages within the same worker
+ * - May have race conditions if multiple workers write simultaneously,
+ *   but this is acceptable as they write identical data
  * 
  * Note: Astro's build process uses multiple worker threads (configured via
- * build.concurrency), so each thread will have its own cached instance.
+ * build.concurrency), so each thread will have its own in-memory Fuse instance,
+ * but they share the same disk cache within a build.
  */
 export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
   if (fuseInstance === null) {
@@ -78,7 +85,7 @@ export async function getFuseInstance(): Promise<Fuse<ProcessedPost>> {
         image: post.data.image ?? null,
       }));
 
-      // Save to cache for next build
+      // Save to cache for use by other worker threads in this build
       saveCachedPosts(processedPosts);
       console.log(`[Fuse] Cached ${processedPosts.length} processed posts to disk`);
     } else {
