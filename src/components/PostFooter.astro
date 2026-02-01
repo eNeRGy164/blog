@@ -66,13 +66,24 @@ const lastUpdatedMoment = moment(lastUpdated);
   .post-navigation {
     margin-top: 1.5rem;
     padding-top: 1rem;
+    margin-left: calc(-1 * var(--spacing-medium));
+    margin-right: calc(-1 * var(--spacing-medium));
+    padding-left: var(--spacing-medium);
+    padding-right: var(--spacing-medium);
     border-top: 1px solid #e0e0e0;
   }
 
   .nav-links {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .nav-previous,
+  .nav-next {
+    flex: 0 1 auto;
+    max-width: 48%;
   }
 
   .nav-previous {
