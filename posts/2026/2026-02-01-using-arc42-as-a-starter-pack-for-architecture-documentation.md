@@ -1,4 +1,4 @@
-﻿---
+---
 id: 2125
 title: "The Art of Simple Software Architecture Documentation (with arc42) - a practical series"
 date: 2026-02-01T21:50:00+01:00
@@ -115,7 +115,9 @@ These chapters set the direction and boundaries.
 ### How is it built and how does it work
 
 These chapters describe the actual solution.
+
 <!-- markdownlint-disable MD029 -->
+
 4. **Solution strategy**
 5. **Building block view**
 6. **Runtime view**
