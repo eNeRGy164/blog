@@ -5,6 +5,7 @@ import Footer from "@/components/Footer.astro";
 import Sidebar from "@/components/Sidebar.astro";
 import WPArticleSummary from "@/components/WPArticleSummary.astro";
 import RelatedPosts from "@/components/RelatedPosts.astro";
+import PostNavigation from "@/components/PostNavigation.astro";
 import { getCollection } from 'astro:content';
 import { getPreviousAndNextPosts } from '@/js/util.js';
 
@@ -53,6 +54,7 @@ const { previous, next } = getPreviousAndNextPosts(post, allPosts);
         itemid={data.permalink}>
         <WPArticleSummary page={post} />
       </main>
+      <PostNavigation previous={previous} next={next} />
       <RelatedPosts {post} />
       <Sidebar />
       <Footer />
