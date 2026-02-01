@@ -15,9 +15,9 @@ tags:
   - Project Server 2007
   - PWA
   - SDK
+series: Project Server 2007 SDK additions
 
 # cSpell:ignore WADMIN_PROTECT_ACTUALS
-series: Project Server 2007 SDK additions
 ---
 
 Currently I am working on a project which uses Microsoft Project Server 2007.

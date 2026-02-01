@@ -14,9 +14,9 @@ categories:
 tags:
   - Project Server 2007
   - SDK
+series: Project Server 2007 SDK additions
 
 # cSpell:ignore WPRD_UID
-series: Project Server 2007 SDK additions
 ---
 
 I was browsing through the Project Server 2007 [`TimePeriodDataSet.TimePeriodsRow` members][TIME_PERIOD_ROW_MEMBERS]
