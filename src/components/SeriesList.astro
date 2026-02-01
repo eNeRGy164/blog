@@ -10,9 +10,9 @@ interface Props {
 const { currentPost, allPosts } = Astro.props;
 const series = currentPost.data.series;
 
-// Filter posts with the same series and sort by date
+// Filter posts with the same series and sort by date (oldest first)
 const seriesPosts = series
-  ? sortedPosts(allPosts.filter((post) => post.data.series === series))
+  ? sortedPosts(allPosts.filter((post) => post.data.series === series)).reverse()
   : [];
 ---
 
