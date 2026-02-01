@@ -21,12 +21,12 @@ const seriesPosts = series
     <aside id="series-posts">
       <h2>Posts in this series</h2>
       <div>
-        <nav>
+        <nav aria-label="Series">
           <ol>
             {seriesPosts.map((post) => (
               <li>
                 {post.data.permalink === currentPost.data.permalink ? (
-                  post.data.title
+                  <span aria-current="page">{post.data.title}</span>
                 ) : (
                   <a href={post.data.permalink} target="_self">
                     {post.data.title}

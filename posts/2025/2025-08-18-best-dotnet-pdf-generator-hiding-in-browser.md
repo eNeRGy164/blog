@@ -166,13 +166,11 @@ The complete example project is available on [GitHub](https://github.com/eNeRGy1
 
   ```css
   @font-face {
-    font-family: "Open Sans";
-    src: url("/fonts/OpenSans.woff") format("woff");
+    font-family: 'Open Sans';
+    src: url('/fonts/OpenSans.woff') format('woff');
   }
 
-  body {
-    font-family: "Open Sans", sans-serif;
-  }
+  body { font-family: 'Open Sans', sans-serif; }
   ```
 
 Playwright may not be the first tool you think of for PDF generation,
