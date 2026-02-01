@@ -40,8 +40,11 @@ export function getPreviousAndNextPosts(currentPost, allPosts) {
     (p) => p.data.permalink === currentPost.data.permalink,
   );
 
+  // sortedPosts returns posts in descending order (newest first)
+  // previous = chronologically earlier = higher index (older)
+  // next = chronologically later = lower index (newer)
   return {
-    previous: currentIndex > 0 ? posts[currentIndex - 1] : null,
-    next: currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null,
+    previous: currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null,
+    next: currentIndex > 0 ? posts[currentIndex - 1] : null,
   };
 }

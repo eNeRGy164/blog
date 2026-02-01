@@ -7,10 +7,6 @@ interface Props {
 }
 
 const { previous, next } = Astro.props;
-
-if (!previous && !next) {
-  return null;
-}
 ---
 
 {(previous || next) && (
