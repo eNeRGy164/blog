@@ -1,7 +1,9 @@
 MD013:
-  line_length: -1
+  enabled: false
 MD024:
   siblings_only: true
+MD029:
+  style: ordered
 MD033:
   allowed_elements:
     - time
@@ -10,3 +12,4 @@ MD033:
     - samp
     - sup
     - small
+    - q
