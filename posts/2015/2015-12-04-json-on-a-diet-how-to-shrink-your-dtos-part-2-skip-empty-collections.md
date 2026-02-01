@@ -20,6 +20,7 @@ tags:
   - JSON.NET
   - Mobile App Service
   - Web API
+series: JSON on a diet
 ---
 
 This is the second part in a series of posts about reducing the amount of data transferred between ASP.NET Web API or Azure Mobile App Service and the (mobile) client.

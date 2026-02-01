@@ -22,6 +22,7 @@ tags:
   - Office 365
   - Preview
   - Search
+series: Bing for business
 ---
 
 At the Ignite conference keynote

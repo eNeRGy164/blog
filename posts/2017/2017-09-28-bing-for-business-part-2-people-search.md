@@ -20,6 +20,7 @@ tags:
   - Office 365
   - Preview
   - Search
+series: Bing for business
 ---
 
 This will be my second post about

@@ -26,7 +26,7 @@ const seriesPosts = series
             {seriesPosts.map((post) => (
               <li>
                 {post.data.permalink === currentPost.data.permalink ? (
-                  <strong>{post.data.title}</strong>
+                  post.data.title
                 ) : (
                   <a href={post.data.permalink} target="_self">
                     {post.data.title}

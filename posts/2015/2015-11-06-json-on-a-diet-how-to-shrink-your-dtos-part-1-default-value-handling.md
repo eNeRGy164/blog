@@ -25,6 +25,7 @@ tags:
   - JSON.NET
   - Mobile App Service
   - Web API
+series: JSON on a diet
 ---
 
 These days [JSON](https://en.wikipedia.org/wiki/JSON) is used a lot.
