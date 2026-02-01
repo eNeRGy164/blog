@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { sortedPosts } from "@/js/util.js";
+
+interface Props {
+  currentPost: CollectionEntry<"posts">;
+  allPosts: CollectionEntry<"posts">[];
+}
+
+const { currentPost, allPosts } = Astro.props;
+const series = currentPost.data.series;
+
+// Filter posts with the same series and sort by date
+const seriesPosts = series
+  ? sortedPosts(allPosts.filter((post) => post.data.series === series))
+  : [];
+---
+
+{
+  seriesPosts.length > 1 && (
+    <aside id="series-posts">
+      <h2>Posts in this series</h2>
+      <div>
+        <nav>
+          <ol>
+            {seriesPosts.map((post) => (
+              <li>
+                {post.data.permalink === currentPost.data.permalink ? (
+                  <strong>{post.data.title}</strong>
+                ) : (
+                  <a href={post.data.permalink} target="_self">
+                    {post.data.title}
+                  </a>
+                )}
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </div>
+    </aside>
+  )
+}
