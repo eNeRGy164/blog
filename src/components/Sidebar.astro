@@ -4,6 +4,14 @@ import { getCollection } from "astro:content";
 import SidebarImage from "@/components/SidebarImage.astro";
 import TagCloud from "@/components/TagCloud.astro";
 import RecentPosts from "@/components/RecentPosts.astro";
+import SeriesList from "@/components/SeriesList.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  currentPost?: CollectionEntry<"posts">;
+}
+
+const { currentPost } = Astro.props;
 
 const unsortedPosts = await getCollection("posts");
 const posts = sortedPosts(unsortedPosts);
@@ -18,6 +26,10 @@ const posts = sortedPosts(unsortedPosts);
   <h1>Other content</h1>
 
   <SidebarImage />
+
+  {currentPost && currentPost.data.series && (
+    <SeriesList currentPost={currentPost} allPosts={unsortedPosts} />
+  )}
 
   <TagCloud unsortedPosts={unsortedPosts} />
 

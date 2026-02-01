@@ -16,6 +16,7 @@ tags:
   - Astro
   - Migration
   - Static Sites
+series: WordPress to Astro Migration
 ---
 
 After 15 years of blogging with WordPress, I decided to take the plunge and migrate my blog to Astro.
@@ -56,8 +57,8 @@ wget -m -k -p -E https://blog.hompus.nl -D static.hompus.nl,blog.hompus.nl -H
 ```
 
 > [!NOTE]
-> `wget` is a tool to download website content. 
-> In this command, the `-m` flag enables mirroring, 
+> `wget` is a tool to download website content.
+> In this command, the `-m` flag enables mirroring,
 > `-k` converts links for local viewing,
 > `-p` downloads necessary files,
 > `-E` ensures proper file extensions,

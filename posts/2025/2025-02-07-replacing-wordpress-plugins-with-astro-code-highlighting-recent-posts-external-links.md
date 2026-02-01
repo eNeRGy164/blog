@@ -7,7 +7,7 @@ author: Michaël Hompus
 excerpt: >
   As I continue migrating from WordPress to Astro,
   I am rebuilding key plugin features without third-party dependencies.
-  
+
   In this post, I will show how I replaced syntax highlighting,
   recent post widgets, and external link management using Astro’s flexible ecosystem.
 permalink: /2025/02/10/replacing-wordpress-plugins-with-astro-code-highlighting-recent-posts-external-links/
@@ -23,6 +23,7 @@ tags:
   - Syntax Highlighting
   - Recent Posts
   - External Links
+series: WordPress to Astro Migration
 ---
 
 This post is a continuation of my migration journey from WordPress to Astro.
@@ -192,9 +193,9 @@ export default defineConfig({
         {
           content: {},
           rel: ["noopener", "noreferrer", "external"],
-          target: "_blank"
-        }
-      ]
+          target: "_blank",
+        },
+      ],
     ],
   },
 });
@@ -227,7 +228,6 @@ View the full code on GitHub: [astro.config.mjs][ASTRO_CONFIG_MJS] and [global.c
 This was the next set of 3 plugins I replaced with Astro functionality.
 
 In the next post, I will cover more plugins, including paging, related posts, and more.
-
 
 [ASTRO_CONFIG_MJS]: https://github.com/eNeRGy164/blog/blob/2a7cbe01749ec81311a214da25e52daabf0cc613/astro.config.mjs
 [EXPRESSIVE_CODE]: https://expressive-code.com/

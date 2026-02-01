@@ -14,6 +14,7 @@ categories:
 tags:
   - Project Server 2007
   - SDK
+series: Project Server 2007 SDK additions
 
 # cSpell:ignore WPRD_UID
 ---

@@ -22,6 +22,7 @@ tags:
   - Meta
   - Tag
   - Cloud
+series: WordPress to Astro Migration
 ---
 
 This post is a continuation of my migration journey from WordPress to Astro.
@@ -57,7 +58,7 @@ The first time an abbreviation is encountered on a page, the plugin will also wr
 A special case is when an acronym is used in a `<code>` or `<pre>` block. In this case, the plugin will not wrap the acronym with an `<abbr>` tag.
 
 ```ts title="src/plugins/rehypeAbbreviate.js" showlinenumbers startlinenumber="23"
-if (current.tagName === 'code' || current.tagName === 'pre') {
+if (current.tagName === "code" || current.tagName === "pre") {
   return; // Skip this node
 }
 ```
@@ -87,7 +88,11 @@ export default defineConfig({
     rehypePlugins: [
       [
         rehypeAbbreviate,
-        { acronyms: yamlParser.parse(readFileSync("./src/config/acronyms.yaml", "utf8")).ACRONYMS}
+        {
+          acronyms: yamlParser.parse(
+            readFileSync("./src/config/acronyms.yaml", "utf8"),
+          ).ACRONYMS,
+        },
       ],
     ],
   },
@@ -123,10 +128,10 @@ Sections and tags can even occur multiple times, so I use the Array [`map` funct
   <meta property="article:published_time" content={article.published} />
   <meta property="article:modified_time" content={article.modified} />
 )}
-{article && article.sections && article.sections.map((section) => 
+{article && article.sections && article.sections.map((section) =>
   <meta property="article:section" content={section}>
 )}
-{article && article.tags && article.tags.map((tag) => 
+{article && article.tags && article.tags.map((tag) =>
   <meta property="article:tag" content={tag}>
 )}
 ```
@@ -144,57 +149,57 @@ created a function that:
 
 1. Gets a map of tags and their posts.
 
-    ```js title="src/js/util.js" showlinenumbers startlinenumber="19"
-    export function getTagsWithPosts(paths) {
-      const posts = sortedPosts(paths);
-      const tagsMap = new Map();
+   ```js title="src/js/util.js" showlinenumbers startlinenumber="19"
+   export function getTagsWithPosts(paths) {
+     const posts = sortedPosts(paths);
+     const tagsMap = new Map();
 
-      posts.forEach(post => {
-        post.data.tags?.forEach(tag => {
-          if (!tagsMap.has(tag)) {
-            tagsMap.set(tag, []);
-          }
-          tagsMap.get(tag).push(post);
-        });
-      });
+     posts.forEach((post) => {
+       post.data.tags?.forEach((tag) => {
+         if (!tagsMap.has(tag)) {
+           tagsMap.set(tag, []);
+         }
+         tagsMap.get(tag).push(post);
+       });
+     });
 
-      return tagsMap;
-    }
-    ```
+     return tagsMap;
+   }
+   ```
 
 2. Sorts the tags by post count.
 3. Get the top 50 tags.
 4. Sort the tags alphabetically.
 5. Calculate the weight of each tag based on the post count. Using `8pt` as the smallest font size and `22pt` as the largest font size.
 
-    ```ts title="src/components/Sidebar.astro" showlinenumbers startlinenumber="35"
-    return tagArray
-      .sort(([tagA], [tagB]) => tagA.localeCompare(tagB))
-      .map(([tag, tagPosts]) => ({
-        tag,
-        count: tagPosts.length,
-        fontSize: calculateFontSize(tagPosts.length),
-      }));
-    ```
+   ```ts title="src/components/Sidebar.astro" showlinenumbers startlinenumber="35"
+   return tagArray
+     .sort(([tagA], [tagB]) => tagA.localeCompare(tagB))
+     .map(([tag, tagPosts]) => ({
+       tag,
+       count: tagPosts.length,
+       fontSize: calculateFontSize(tagPosts.length),
+     }));
+   ```
 
 6. Render the tags in the sidebar.
 
-    ```astro title="src/components/Sidebar.astro" showlinenumbers startlinenumber="56"
-    <aside id="tag-cloud">
-      <h2>Tags</h2>
-      <div>
-        {
-          tags.map(tagItem =>
-            <a
-              href={`/tag/${urlifyToken(tagItem.tag)}/`}
-              title={`${tagItem.count} posts tagged with "${tagItem.tag}"`}
-              rel="tag"
-              style={`font-size: ${tagItem.fontSize}pt;`}>{tagItem.tag}</a>
-          )
-        }
-      </div>
-    </aside>
-    ```
+   ```astro title="src/components/Sidebar.astro" showlinenumbers startlinenumber="56"
+   <aside id="tag-cloud">
+     <h2>Tags</h2>
+     <div>
+       {
+         tags.map(tagItem =>
+           <a
+             href={`/tag/${urlifyToken(tagItem.tag)}/`}
+             title={`${tagItem.count} posts tagged with "${tagItem.tag}"`}
+             rel="tag"
+             style={`font-size: ${tagItem.fontSize}pt;`}>{tagItem.tag}</a>
+         )
+       }
+     </div>
+   </aside>
+   ```
 
 The full code can be found on GitHub: [Sidebar.astro][SIDEBAR_ASTRO] and [util.js][UTIL_JS].
 

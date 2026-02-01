@@ -1,6 +1,6 @@
 ---
 id: 2120
-title: "Why I Switched from WordPress to Astro: Faster, Cheaper, and Greener" 
+title: "Why I Switched from WordPress to Astro: Faster, Cheaper, and Greener"
 date: 2025-01-20T22:31:00+01:00
 updated: 2025-01-20T22:31:00+01:00
 author: Michaël Hompus
@@ -19,6 +19,7 @@ tags:
   - Astro
   - Sustainability
   - Costs
+series: WordPress to Astro Migration
 ---
 
 For years, WordPress was my go-to platform for blogging,
