@@ -2,7 +2,17 @@
 import { urlifyToken } from "@/js/util.js";
 import moment from "moment";
 
-const { categories, date, updated } = Astro.props;
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  categories: string[];
+  date: Date;
+  updated?: Date;
+  previousPost?: CollectionEntry<'posts'> | null;
+  nextPost?: CollectionEntry<'posts'> | null;
+}
+
+const { categories, date, updated, previousPost, nextPost } = Astro.props;
 
 const sortedCategories = Array.from(new Set(categories as string[])).sort((a, b) => a.localeCompare(b));
 
@@ -28,4 +38,69 @@ const lastUpdatedMoment = moment(lastUpdated);
       Last update: <time datetime={lastUpdated} itemprop="dateModified">{lastUpdatedMoment.format("MMM D YYYY HH:mm")}</time>
     </div>
   </div>
+  {(previousPost || nextPost) && (
+    <nav class="post-navigation" aria-label="Post navigation">
+      <div class="nav-links">
+        {previousPost && (
+          <div class="nav-previous">
+            <a href={previousPost.data.permalink} rel="prev">
+              <span aria-hidden="true">← </span>
+              <span class="nav-title">{previousPost.data.title}</span>
+            </a>
+          </div>
+        )}
+        {nextPost && (
+          <div class="nav-next">
+            <a href={nextPost.data.permalink} rel="next">
+              <span class="nav-title">{nextPost.data.title}</span>
+              <span aria-hidden="true"> →</span>
+            </a>
+          </div>
+        )}
+      </div>
+    </nav>
+  )}
 </footer>
+
+<style>
+  .post-navigation {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-previous,
+  .nav-next {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .nav-previous {
+    text-align: left;
+  }
+
+  .nav-next {
+    text-align: right;
+  }
+
+  .nav-links a {
+    color: #0066cc;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+
+  .nav-title {
+    font-weight: 500;
+  }
+</style>

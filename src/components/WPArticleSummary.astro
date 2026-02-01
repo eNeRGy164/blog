@@ -5,11 +5,24 @@ import moment from "moment";
 import path from "path";
 import { getImageMetadata } from "@/utils/imageCache";
 
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  page: CollectionEntry<'posts'>;
+  articlePreview?: boolean;
+  showTags?: boolean;
+  inList?: boolean;
+  previousPost?: CollectionEntry<'posts'> | null;
+  nextPost?: CollectionEntry<'posts'> | null;
+}
+
 const {
   page,
   articlePreview = false,
   showTags = true,
   inList = false,
+  previousPost,
+  nextPost,
 } = Astro.props;
 const { title, author, date, permalink, excerpt, tags, image } = page.data;
 
@@ -130,6 +143,6 @@ if (image != undefined) {
         </div>
       )
     }
-    <PostFooter {...page.data} />
+    <PostFooter {...page.data} previousPost={previousPost} nextPost={nextPost} />
   </article>
 </div>
