@@ -2,10 +2,21 @@
 import { SITE_TITLE, SITE_KEYWORDS } from '@/config';
 import '../styles/global.css';
 
-export interface Article { published: Date; updated: Date; sections: string[]; tags: string[]; }
-export interface Props { title: string; description: string; image?: string; author: string; article?: Article; feed?: { title: string; link: string; }; }
+import type { CollectionEntry } from 'astro:content';
 
-const { title, description, image, author, article, feed } = Astro.props;
+export interface Article { published: Date; updated: Date; sections: string[]; tags: string[]; }
+export interface Props { 
+  title: string; 
+  description: string; 
+  image?: string; 
+  author: string; 
+  article?: Article; 
+  feed?: { title: string; link: string; };
+  previousPost?: CollectionEntry<'posts'> | null;
+  nextPost?: CollectionEntry<'posts'> | null;
+}
+
+const { title, description, image, author, article, feed, previousPost, nextPost } = Astro.props;
 
 const articleKeywords = article
   ? [...(article.tags || []), ...(article.sections || [])]
@@ -29,6 +40,8 @@ const keywords = (articleKeywords.length > 0 ? articleKeywords : SITE_KEYWORDS)
 <link rel="alternate" type="application/rss+xml" title={`${SITE_TITLE} » Feed`} href={new URL("feed.xml", Astro.site)}>
 {feed && <link rel="alternate" type="application/rss+xml" title={`${SITE_TITLE} » ${feed.title} Feed`} href={new URL(`${feed.link}`, Astro.site)}>}
 <link rel="canonical" href={Astro.url}>
+{previousPost && <link rel="prev" href={new URL(previousPost.data.permalink, Astro.site)}>}
+{nextPost && <link rel="next" href={new URL(nextPost.data.permalink, Astro.site)}>}
 
 <link rel="preconnect" href="https://piwik.hompus.nl/" crossorigin>
 

@@ -2,7 +2,17 @@
 import { urlifyToken } from "@/js/util.js";
 import moment from "moment";
 
-const { categories, date, updated } = Astro.props;
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  categories: string[];
+  date: Date;
+  updated?: Date;
+  previousPost?: CollectionEntry<'posts'> | null;
+  nextPost?: CollectionEntry<'posts'> | null;
+}
+
+const { categories, date, updated, previousPost, nextPost } = Astro.props;
 
 const sortedCategories = Array.from(new Set(categories as string[])).sort((a, b) => a.localeCompare(b));
 
@@ -29,3 +39,65 @@ const lastUpdatedMoment = moment(lastUpdated);
     </div>
   </div>
 </footer>
+{(previousPost || nextPost) && (
+  <nav class="post-navigation" aria-label="Post navigation">
+    <div class="nav-links">
+      {previousPost && (
+        <div class="nav-previous">
+          <a href={previousPost.data.permalink} rel="prev">
+            <span aria-hidden="true">🠈 </span>
+            <span class="nav-title">{previousPost.data.title}</span>
+          </a>
+        </div>
+      )}
+      {nextPost && (
+        <div class="nav-next">
+          <a href={nextPost.data.permalink} rel="next">
+            <span class="nav-title">{nextPost.data.title}</span>
+            <span aria-hidden="true"> 🠊</span>
+          </a>
+        </div>
+      )}
+    </div>
+  </nav>
+)}
+
+<style>
+  .post-navigation {
+    padding: var(--spacing-medium);
+    border-top: var(--spacing-medium) solid var(--color-bg);
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-previous,
+  .nav-next {
+    width: 100%;
+  }
+
+  .nav-previous {
+    text-align: left;
+  }
+
+  .nav-next {
+    text-align: right;
+  }
+
+  .nav-links a {
+    color: #0066cc;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+
+  .nav-title {
+    font-weight: 500;
+  }
+</style>
