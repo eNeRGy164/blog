@@ -1,7 +1,8 @@
 ---
 id: 2125
 title: "The Art of Simple Software Architecture Documentation (with arc42) - a practical series"
-date: 2026-02-01T21:50:00+01:00
+date: 2026-02-01T21:50:00+02:00
+updated: 2026-02-02T22:30:00+02:00
 author: Michaël Hompus
 excerpt: >
   After my "The Art of Simple Software Architecture Documentation" talk,
@@ -164,7 +165,7 @@ If you only write 3 things, write these first:
 
 ### If you only write 3 things, write these
 
-1. **Chapter 1: Introduction and goals**  
+11. **Chapter 1: [Introduction and goals](/2026/02/02/arc42-chapter-1-introduction-and-goals/)**  
    If you do not know the goals and stakeholders, you cannot make good design trade-offs.
 
 2. **Chapter 2: Architecture constraints**  
@@ -187,7 +188,7 @@ This hub will be updated as posts go live:
 
 **Why & where:**
 
-- ⏳ 1. Introduction and goals
+- ✅ 1. [Introduction and goals](/2026/02/02/arc42-chapter-1-introduction-and-goals/)
 - ⏳ 2. Architecture constraints
 - ⏳ 3. Context and scope
 
