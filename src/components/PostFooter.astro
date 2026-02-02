@@ -38,29 +38,29 @@ const lastUpdatedMoment = moment(lastUpdated);
       Last update: <time datetime={lastUpdated} itemprop="dateModified">{lastUpdatedMoment.format("MMM D YYYY HH:mm")}</time>
     </div>
   </div>
-  {(previousPost || nextPost) && (
-    <nav class="post-navigation" aria-label="Post navigation">
-      <div class="nav-links">
-        {previousPost && (
-          <div class="nav-previous">
-            <a href={previousPost.data.permalink} rel="prev">
-              <span aria-hidden="true">← </span>
-              <span class="nav-title">{previousPost.data.title}</span>
-            </a>
-          </div>
-        )}
-        {nextPost && (
-          <div class="nav-next">
-            <a href={nextPost.data.permalink} rel="next">
-              <span class="nav-title">{nextPost.data.title}</span>
-              <span aria-hidden="true"> →</span>
-            </a>
-          </div>
-        )}
-      </div>
-    </nav>
-  )}
 </footer>
+{(previousPost || nextPost) && (
+  <nav class="post-navigation" aria-label="Post navigation">
+    <div class="nav-links">
+      {previousPost && (
+        <div class="nav-previous">
+          <a href={previousPost.data.permalink} rel="prev">
+            <span aria-hidden="true">← </span>
+            <span class="nav-title">{previousPost.data.title}</span>
+          </a>
+        </div>
+      )}
+      {nextPost && (
+        <div class="nav-next">
+          <a href={nextPost.data.permalink} rel="next">
+            <span class="nav-title">{nextPost.data.title}</span>
+            <span aria-hidden="true"> →</span>
+          </a>
+        </div>
+      )}
+    </div>
+  </nav>
+)}
 
 <style>
   .post-navigation {
