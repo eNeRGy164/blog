@@ -185,10 +185,16 @@ pre.astro-code code {
   margin-bottom: var(--spacing-medium);
 }
 
+menu#nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--spacing-small);
+}
+
 #nav a {
   color: var(--color-muted);
   text-decoration: none;
-  margin: 0 25px 0 0;
 }
 
 #nav a:hover {
@@ -208,6 +214,7 @@ pre.astro-code code {
   display: inline-block;
   line-height: 40px;
   position: relative;
+  white-space: nowrap;
 }
 
 #nav li li {
