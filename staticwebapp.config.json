@@ -2,7 +2,15 @@
   "trailingSlash": "auto",
   "routes": [
     {
-      "route": "/feed*",
+      "route": "/feed",
+      "methods": [
+        "get",
+        "head"
+      ],
+      "rewrite": "/feed.xml"
+    },
+    {
+      "route": "/feed/",
       "methods": [
         "get",
         "head"
