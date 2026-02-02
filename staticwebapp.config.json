@@ -2,20 +2,13 @@
   "trailingSlash": "auto",
   "routes": [
     {
-      "route": "/feed",
+      "route": "/feed*",
       "methods": [
         "get",
         "head"
       ],
-      "rewrite": "/feed.xml"
-    },
-    {
-      "route": "/feed/",
-      "methods": [
-        "get",
-        "head"
-      ],
-      "rewrite": "/feed.xml"
+      "redirect": "/feed.xml",
+      "statusCode": 301
     },
     {
       "route": "/category/microsoft-365/dynamics-crm*",
