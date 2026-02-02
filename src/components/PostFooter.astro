@@ -45,7 +45,7 @@ const lastUpdatedMoment = moment(lastUpdated);
       {previousPost && (
         <div class="nav-previous">
           <a href={previousPost.data.permalink} rel="prev">
-            <span aria-hidden="true">← </span>
+            <span aria-hidden="true">🠈 </span>
             <span class="nav-title">{previousPost.data.title}</span>
           </a>
         </div>
@@ -54,7 +54,7 @@ const lastUpdatedMoment = moment(lastUpdated);
         <div class="nav-next">
           <a href={nextPost.data.permalink} rel="next">
             <span class="nav-title">{nextPost.data.title}</span>
-            <span aria-hidden="true"> →</span>
+            <span aria-hidden="true"> 🠊</span>
           </a>
         </div>
       )}
@@ -70,15 +70,13 @@ const lastUpdatedMoment = moment(lastUpdated);
 
   .nav-links {
     display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .nav-previous,
   .nav-next {
-    flex: 0 1 auto;
-    max-width: 48%;
+    width: 100%;
   }
 
   .nav-previous {
