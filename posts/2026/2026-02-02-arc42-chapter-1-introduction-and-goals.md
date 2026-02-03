@@ -2,6 +2,7 @@
 id: 2126
 title: "arc42 chapter 1: Introduction and goals"
 date: 2026-02-02T22:30:00+02:00
+updated: 2026-02-03T22:00:00+02:00
 author: Michaël Hompus
 excerpt: >
   Chapter 1 sets the direction for the entire architecture document.
@@ -73,7 +74,7 @@ That is enough to align a team and reduce surprises.
 
 Use this as a starting point and keep it small.
 
-```md title="introduction-and-goals.md"
+```md title="01-introduction-and-goals.md"
 ## 1. Introduction and goals
 
 <1–3 short paragraphs: what are we building, why now, what pain does it solve?>
@@ -112,7 +113,7 @@ It is intentionally simple, so the documentation stays shareable.
 
 This is what chapter 1 looks like when filled in.
 
-> ### Problem and goal (short)
+> ## 1. Introduction and goals
 >
 > Garages struggle to keep planning and workshop execution in sync.
 > Most garages use a planning tool for appointments and a separate admin/workshop system for execution.
@@ -121,7 +122,7 @@ This is what chapter 1 looks like when filled in.
 > Pitstop solves this by providing a single operational source of truth for work orders and status,
 > and synchronizing planning and workshop execution.
 >
-> ### Requirements overview (short)
+> ### 1.1 Requirements overview
 >
 > - Import appointments from one or more planning services.
 > - Convert appointments into work orders (jobs/tasks, estimates, required skills, bay assignment).
@@ -135,7 +136,7 @@ This is what chapter 1 looks like when filled in.
 > - Pitstop is not inventory management.
 > - Pitstop is not billing/accounting.
 >
-> ### Quality goals (top 3)
+> ### 1.2 Quality goals
 >
 > | Priority | Quality       | Scenario (short)                              | Acceptance criteria (example)                                                            |
 > | -------: | :------------ | :-------------------------------------------- | :--------------------------------------------------------------------------------------- |
@@ -143,7 +144,7 @@ This is what chapter 1 looks like when filled in.
 > |        2 | Resilience    | Workshop continues during flaky internet      | Degraded mode works; updates sync when online                                            |
 > |        3 | Modifiability | Add a new planning integration                | New integration in <= 2 days for a typical planning REST API without changing core logic |
 >
-> ### Stakeholders (excerpt)
+> ### 1.3 Stakeholders
 >
 > | Stakeholder                  | Expectations                                                 |
 > | :--------------------------- | :----------------------------------------------------------- |
