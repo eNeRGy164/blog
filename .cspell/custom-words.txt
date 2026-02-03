@@ -39,8 +39,10 @@ mbox
 MCSA
 MCSD
 mdir
+Michaël
 Mirabito
 Nahi
+negotiables
 Netron
 nginx
 NTLM
