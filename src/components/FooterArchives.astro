@@ -7,13 +7,11 @@ interface Props {
 const { postsByYearMonth } = Astro.props;
 ---
 
-<div>
-	<nav>
-		<h2>Archives</h2>
-		<ul>
-			{Object.entries(postsByYearMonth).map(([key, value]) =>
-				<li><a rel="nofollow" href={`/${key}/`}>{value}</a></li>
-			)}
-		</ul>
-	</nav>
-</div>
+<nav>
+	<h2>Archives</h2>
+	<ul>
+		{Object.entries(postsByYearMonth).map(([key, value]) =>
+			<li><a rel="nofollow" href={`/${key}/`}>{value}</a></li>
+		)}
+	</ul>
+</nav>

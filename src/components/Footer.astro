@@ -38,10 +38,18 @@ const limitedPostsByYearMonth = Object.fromEntries(Object.entries(postsByYearMon
 ---
 
 <footer id="site-footer">
-	<FooterLinks />
-	<FooterCategories categories={categories} />
-	<FooterPages />
-	<FooterArchives postsByYearMonth={limitedPostsByYearMonth} />
+	<div>
+		<FooterLinks />
+	</div>
+	<div>
+		<FooterCategories categories={categories} />
+	</div>
+	<div>
+		<FooterPages />
+	</div>
+	<div>
+		<FooterArchives postsByYearMonth={limitedPostsByYearMonth} />
+	</div>
 </footer>
 
 <FooterCopyright />
