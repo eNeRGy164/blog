@@ -12,7 +12,7 @@ const { categories } = Astro.props;
 	<nav>
 		<h2>Categories</h2>
 		<ul>
-		{categories?.map((category: String, idx: Number) =>
+		{categories?.map((category: string) =>
 			<li><a href={`/category/${urlifyToken(category)}/`} rel="nofollow category">{category}</a></li>
 		)}
 		</ul>
