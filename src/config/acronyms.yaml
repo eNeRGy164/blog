@@ -17,6 +17,7 @@ ACRONYMS:
   DNS: Domain Name System
   DTO: Data Transfer Object
   Dapr: Distributed Application Runtime
+  ETA: Estimated Time of Arrival
   GAC: Global Assembly Cache
   HD: High-definition
   HTML: HyperText Markup Language
@@ -43,15 +44,20 @@ ACRONYMS:
   POCO: Plain Old CLR Object
   PSI: Project Server Interface
   Perl: Practical Extraction and Reporting Language
+  RBAC: Role-Based Access Control
   REST: Representational State Transfer
   RGB: Red, Green, and Blue
   SDK: Software Development Kit
+  SFTP: Secure File Transfer Protocol
   SLA: Service Level Agreement
+  SLO: Service Level Objective
+  SMS: Short Message Service
   SMSS: SQL Server Management Studio
   SMTP: Simple Mail Transfer Protocol
   SP1: Service Pack 1
   SP2: Service Pack 2
   SQL: Structured Query Language
+  SSO: Single Sign-On
   SSP: Shared Service Provider
   STSADM: SharePoint Team Services Administration
   TCP: Transmission Control Protocol

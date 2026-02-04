@@ -2,7 +2,7 @@
 id: 2125
 title: "The Art of Simple Software Architecture Documentation (with arc42) - a practical series"
 date: 2026-02-01T21:50:00+02:00
-updated: 2026-02-03T22:00:00+02:00
+updated: 2026-02-04T20:00:00+02:00
 author: Michaël Hompus
 excerpt: >
   After my "The Art of Simple Software Architecture Documentation" talk,
@@ -171,7 +171,7 @@ If you only write 3 things, write these first:
 2. **Chapter 2: [Architecture constraints](/2026/02/03/arc42-chapter-2-architecture-constraints/)**  
    Hidden constraints are the source of late-stage surprise and pain, but can also help narrow down options early.
 
-3. **Chapter 3: Context and scope**  
+3. **Chapter 3: [Context and scope](/2026/02/04/arc42-chapter-3-context-and-scope/)**  
    If the boundaries are unclear, integrations and expectations will break first.
 
 Once those are clear, you can add:
@@ -190,7 +190,7 @@ This hub will be updated as posts go live:
 
 - ✅ 1. [Introduction and goals](/2026/02/02/arc42-chapter-1-introduction-and-goals/)
 - ✅ 2. [Architecture constraints](/2026/02/03/arc42-chapter-2-architecture-constraints/)
-- ⏳ 3. Context and scope
+- ✅ 3. [Context and scope](/2026/02/04/arc42-chapter-3-context-and-scope/)
 
 **How is it built & how does it work:**
 
