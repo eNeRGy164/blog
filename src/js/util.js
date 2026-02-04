@@ -59,7 +59,7 @@ export function getSeriesWithOldestPosts(paths) {
       if (!seriesMap.has(series)) {
         seriesMap.set(series, post);
       } else {
-        // Keep the oldest post (higher date value in sorted order means older)
+        // Keep the oldest post (lower date value means older)
         const existing = seriesMap.get(series);
         if (
           new Date(post.data.date).valueOf() <
