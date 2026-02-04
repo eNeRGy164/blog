@@ -171,11 +171,16 @@ When creating or editing blog posts, **always** refer to `WRITING_GUIDE.md` for:
 
 **Frontmatter template:**
 
+- `id` is a unique integer for the post, at least 1 higher than the last post.
+- `updated` is optional; include only when changed after publish.
+- `series` is optional; include only when the post is part of a series.
+
 ```yaml
 ---
 id: <number>
 title: <Title>
 date: <ISO datetime with offset>
+updated: <ISO datetime with offset>
 author: Michaël Hompus
 excerpt: >
   <2–6 lines summary>
@@ -185,6 +190,7 @@ categories:
   - <Category>
 tags:
   - <Tag>
+series: <Series Name>
 ---
 ```
 
