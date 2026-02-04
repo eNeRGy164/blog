@@ -8,13 +8,11 @@ interface Props {
 const { categories } = Astro.props;
 ---
 
-<div>
-	<nav>
-		<h2>Categories</h2>
-		<ul>
-		{categories?.map((category: string) =>
-			<li><a href={`/category/${urlifyToken(category)}/`} rel="nofollow category">{category}</a></li>
-		)}
-		</ul>
-	</nav>
-</div>
+<nav>
+	<h2>Categories</h2>
+	<ul>
+	{categories?.map((category: string) =>
+		<li><a href={`/category/${urlifyToken(category)}/`} rel="nofollow category">{category}</a></li>
+	)}
+	</ul>
+</nav>
