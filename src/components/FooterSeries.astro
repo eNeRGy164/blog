@@ -1,0 +1,17 @@
+---
+// Series navigation section for the footer
+interface Props {
+  seriesWithPosts: Array<[string, any]>;
+}
+
+const { seriesWithPosts } = Astro.props;
+---
+
+<nav>
+	<h2>Series</h2>
+	<ul>
+		{seriesWithPosts.map(([seriesName, oldestPost]) =>
+			<li><a rel="nofollow" href={oldestPost.data.permalink}>{seriesName}</a></li>
+		)}
+	</ul>
+</nav>
