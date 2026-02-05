@@ -17,7 +17,17 @@
   --color-text: #111;
   --color-text-light: #eee;
   --color-muted: #a4a4a4;
+  --color-text-subtle: #595959;
+  --color-text-faint: #888;
   --color-highlight: #f3f3f3;
+  --color-surface: #fff;
+  --color-surface-muted: #eaeaea;
+  --color-surface-subtle: #f6f6f6;
+  --color-surface-hover: #f8f8f7;
+  --color-border: #ccc;
+  --color-border-light: #dedede;
+  --color-border-dark: #666;
+  --color-link-cta: #0066cc;
 
   --spacing-ultra-tiny: 0.125rem;
   --spacing-tiny: 0.25rem;
@@ -218,8 +228,9 @@ menu#nav {
 }
 
 #nav li li {
+  display: block;
   width: 170px;
-  background-color: #eaeaea;
+  background-color: var(--color-surface-muted);
 }
 
 #nav li li a {
@@ -228,8 +239,8 @@ menu#nav {
 }
 
 #nav li li:hover,
-#nav li ul li:hover a {
-  background-color: #f6f6f6;
+#nav li li:hover > a {
+  background-color: var(--color-surface-subtle);
 }
 
 #nav li:hover li a,
@@ -239,7 +250,7 @@ menu#nav {
 
 #nav li:hover ul,
 #nav li li:hover ul {
-  left: auto;
+  left: calc(var(--spacing-small) * -1);
 }
 
 #nav li.current a {
@@ -261,7 +272,7 @@ menu#nav {
 }
 
 #sidebar aside {
-  background-color: #fff;
+  background-color: var(--color-surface);
 }
 
 #sidebar aside h2 {
@@ -367,7 +378,7 @@ blockquote {
   padding: var(--spacing-small) var(--spacing-medium);
   margin-bottom: var(--spacing-small);
   border-left: 0.25rem solid var(--color-bg-dark);
-  background-color: #eaeaea;
+  background-color: var(--color-surface-muted);
   border-radius: 0 0.25rem 0.25rem 0;
 }
 
@@ -397,16 +408,9 @@ samp {
 pre {
   font-family: var(--font-monospace);
   margin: 1em 0;
-  padding: 1em;
+  padding: 1em 10px;
   background-color: var(--color-highlight);
   overflow: auto;
-}
-
-pre {
-  margin: 1em 0;
-  padding: 1em 10px;
-  overflow: auto;
-  background-color: #f3f3f3;
   color: #000;
 }
 
@@ -447,7 +451,7 @@ div.expressive-code {
   Posts
 ---------------------------------------*/
 .post-box {
-  background-color: #fff;
+  background-color: var(--color-surface);
 }
 
 .post-box + .post-box {
@@ -533,7 +537,7 @@ div.tags {
 }
 
 div.tags a {
-  color: #595959;
+  color: var(--color-text-subtle);
   text-decoration: underline color-mix(in srgb, currentColor 25%, transparent);
 }
 
@@ -614,7 +618,7 @@ div.tags a:hover {
 
 /* Tables */
 .entry table {
-  box-shadow: 3px 3px 3px #ccc;
+  box-shadow: 3px 3px 3px var(--color-border);
   border-radius: 0.25rem;
   border-spacing: 0;
   margin-bottom: 1em;
@@ -650,12 +654,12 @@ div.tags a:hover {
 }
 
 .entry td {
-  border-bottom: solid 1px #ccc;
-  border-right: solid 1px #ccc;
+  border-bottom: solid 1px var(--color-border);
+  border-right: solid 1px var(--color-border);
 }
 
 .entry td:first-child {
-  border-left: solid 1px #ccc;
+  border-left: solid 1px var(--color-border);
 }
 
 /*---------------------------------------
@@ -670,13 +674,13 @@ div.tags a:hover {
 
 .category {
   padding: var(--spacing-tiny);
-  color: #595959;
+  color: var(--color-text-subtle);
   font-size: 1.2em;
   border-top: 4px double #e8e8e8;
 }
 
 .category a {
-  color: #595959;
+  color: var(--color-text-subtle);
   text-decoration: underline color-mix(in srgb, currentColor 25%, transparent);
 }
 
@@ -716,7 +720,7 @@ article > .more-link,
 }
 
 .nav-links a {
-  color: #0066cc;
+  color: var(--color-link-cta);
   text-decoration: none;
   display: inline-block;
 }
@@ -738,11 +742,11 @@ article > .more-link,
 }
 
 .entries ul {
-  border-bottom: 1px solid #dedede;
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 .entries ul li {
-  border-top: 1px solid #dedede;
+  border-top: 1px solid var(--color-border-light);
   padding: 0 var(--spacing-small);
 }
 
@@ -754,19 +758,13 @@ article > .more-link,
 }
 
 .entries ul li a:hover {
-  background-color: #f8f8f7;
+  background-color: var(--color-surface-hover);
   text-decoration: none;
 }
 
 .entries .archdate,
 .entries a:hover .archdate {
-  color: #888;
-}
-
-/*Copyright
----------------------------------------*/
-#copyright small {
-  font-size: 9pt;
+  color: var(--color-text-faint);
 }
 
 #related-posts {
@@ -775,7 +773,7 @@ article > .more-link,
 }
 
 #related-posts aside {
-  background-color: #fff;
+  background-color: var(--color-surface);
 }
 
 #related-posts h2 {
@@ -850,7 +848,7 @@ article > .more-link,
 
 #wp-pagenavi li a:hover,
 #wp-pagenavi li.current {
-  background-color: #666;
+  background-color: var(--color-border-dark);
 }
 
 #recent-posts ol {
@@ -1056,7 +1054,7 @@ figure.wp-shadow iframe,
 figure.wp-shadow img,
 img.wp-shadow {
   border: solid 1px #eee;
-  box-shadow: 3px 3px 3px #ccc;
+  box-shadow: 3px 3px 3px var(--color-border);
   box-sizing: content-box;
 }
 
