@@ -1,8 +1,8 @@
 ---
 id: 2125
 title: "The Art of Simple Software Architecture Documentation (with arc42) - a practical series"
-date: 2026-02-01T21:50:00+02:00
-updated: 2026-02-04T20:00:00+02:00
+date: 2026-02-01T21:50:00+01:00
+updated: 2026-02-04T20:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   After my "The Art of Simple Software Architecture Documentation" talk,

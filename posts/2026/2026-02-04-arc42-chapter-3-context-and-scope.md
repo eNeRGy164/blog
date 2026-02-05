@@ -1,7 +1,7 @@
 ---
 id: 2128
 title: "arc42 chapter 3: Context and scope"
-date: 2026-02-04T20:00:00+02:00
+date: 2026-02-04T20:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 3 draws the boundary of your system.
