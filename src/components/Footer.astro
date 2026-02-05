@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import FooterLinks from '@/components/FooterLinks.astro';
 import FooterCategories from '@/components/FooterCategories.astro';
 import FooterPages from '@/components/FooterPages.astro';
+import FooterSeries from '@/components/FooterSeries.astro';
 import FooterArchives from '@/components/FooterArchives.astro';
 import FooterCopyright from '@/components/FooterCopyright.astro';
 
@@ -46,6 +47,7 @@ const limitedPostsByYearMonth = Object.fromEntries(Object.entries(postsByYearMon
 	</div>
 	<div>
 		<FooterPages />
+		<FooterSeries posts={posts} />
 	</div>
 	<div>
 		<FooterArchives postsByYearMonth={limitedPostsByYearMonth} />

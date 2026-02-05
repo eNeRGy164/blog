@@ -5,3 +5,4 @@
 - Run `npx prettier --write <files>` to format touched Markdown.
 - Blog writing style guide lives in `WRITING_GUIDE.md`. Use it when drafting new posts.
 - Build warning: missing image cache entries for `/wp-content/uploads/2010/03|04/*.png` are safe to ignore.
+- All styles should be in `/src/styles/global.css` for client-side caching, not in component `<style>` blocks.
