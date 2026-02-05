@@ -332,6 +332,10 @@ aside#sidebar-image {
   color: var(--color-text-light);
 }
 
+#site-footer nav + nav {
+  margin-top: var(--spacing-large);
+}
+
 #copyright {
   grid-area: copyright;
   line-height: 1.5;
