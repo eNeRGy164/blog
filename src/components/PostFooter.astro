@@ -35,7 +35,7 @@ const lastUpdatedMoment = moment(lastUpdated);
       )
     }
     <div>
-      Last update: <time datetime={lastUpdated} itemprop="dateModified">{lastUpdatedMoment.format("MMM D YYYY HH:mm")}</time>
+      Last update: <time datetime={lastUpdatedMoment.toISOString()} itemprop="dateModified">{lastUpdatedMoment.format("MMM D YYYY HH:mm")}</time>
     </div>
   </div>
 </footer>
