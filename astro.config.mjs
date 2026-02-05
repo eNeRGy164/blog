@@ -47,6 +47,7 @@ export default defineConfig({
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeGithubAlerts,
+      rehypeCustomImage,
       [
         rehypeExternalLinks,
         {
@@ -56,6 +57,12 @@ export default defineConfig({
           test: (node, _, __) => {
             if (node.tagName !== "a") return false;
             if (typeof node.properties.href !== "string") return false;
+
+            // Exclude links that wrap images/pictures (handled by rehypeCustomImage)
+            const hasImageChild = node.children?.some(
+              (child) => child.tagName === "img" || child.tagName === "picture"
+            );
+            if (hasImageChild) return false;
 
             try {
               const urlHost = new URL(node.properties.href).hostname;
@@ -85,7 +92,6 @@ export default defineConfig({
       [rehypeAddMvpContributorId, { contributorId: "AZ-MVP-5004268" }],
       rehypeYouTubeEmbed,
       rehypeAccessibleEmojis,
-      rehypeCustomImage,
     ],
     syntaxHighlight: false,
   },

@@ -5,7 +5,88 @@ import { getCache } from "../utils/imageVariants";
 let imageCache = {};
 
 /**
+ * Finds an <img> element within a node.
+ * Returns { img, isWrappedInLink, linkElement } or null if no processable image found.
+ */
+function findImageInNode(node) {
+  // Case 1: Direct <img> element
+  if (node.tagName === "img") {
+    return { img: node, isWrappedInLink: false, linkElement: null };
+  }
+
+  // Case 2: <a> containing only an <img> (linked image from markdown: [![alt](img)](url))
+  if (
+    node.tagName === "a" &&
+    node.children?.length === 1 &&
+    node.children[0].tagName === "img"
+  ) {
+    return {
+      img: node.children[0],
+      isWrappedInLink: true,
+      linkElement: node,
+    };
+  }
+
+  return null;
+}
+
+/**
+ * Builds the responsive picture element with WebP sources.
+ */
+function buildPictureElement(imgNode, original, resized, variants) {
+  const webpCandidates = variants
+    .filter((variant) => variant.label.includes("webp"))
+    .filter((variant) => variant.width)
+    .sort((a, b) => a.width - b.width);
+
+  const webpSrcset = webpCandidates
+    .map((variant) => `${variant.path} ${variant.width}w`)
+    .join(", ");
+
+  const sizes = "(max-width: 636px) 100vw, 636px";
+
+  const imgElement = {
+    type: "element",
+    tagName: "img",
+    properties: {
+      src: original.path,
+      alt: imgNode.properties.alt || "",
+      loading: "lazy",
+      decoding: "async",
+      width: resized ? resized.width : original.width,
+      height: resized ? resized.height : original.height,
+      "data-image-component": "true",
+    },
+  };
+
+  const pictureChildren = [];
+  if (webpSrcset) {
+    pictureChildren.push({
+      type: "element",
+      tagName: "source",
+      properties: {
+        type: "image/webp",
+        srcset: webpSrcset,
+        sizes: sizes,
+      },
+    });
+  }
+  pictureChildren.push(imgElement);
+
+  return {
+    type: "element",
+    tagName: "picture",
+    children: pictureChildren,
+  };
+}
+
+/**
  * Rehype plugin to enhance images in Markdown with responsive handling.
+ *
+ * Behavior:
+ * - Standalone images: wrapped in <figure>, with <a> to full-size if resized
+ * - Images already in a link ([![alt](img)](url)): wrapped in <figure>,
+ *   but the original link is preserved (no link to full-size)
  */
 export default function CustomImage() {
   return async (tree) => {
@@ -15,13 +96,17 @@ export default function CustomImage() {
     }
 
     visit(tree, "element", (node, index, parent) => {
-      // Process only <img> elements
-      if (node.tagName !== "img") return;
+      // Only process <p> elements that contain a single image or linked image
+      if (node.tagName !== "p" || node.children?.length !== 1) return;
 
-      const src = node.properties.src;
-      if (!src || !src.startsWith("/wp-content/uploads/")) return; // Only process local images
+      const result = findImageInNode(node.children[0]);
+      if (!result) return;
 
-      // Find the corresponding image variants in the cache
+      const { img, isWrappedInLink, linkElement } = result;
+      const src = img.properties.src;
+
+      if (!src || !src.startsWith("/wp-content/uploads/")) return;
+
       const imageName = path.basename(src);
       const variants = imageCache[imageName];
 
@@ -30,62 +115,14 @@ export default function CustomImage() {
         return;
       }
 
-      // Identify the original image and resized version for 630px width
       const original = variants.find((v) => v.label === "original");
       const resized = variants.find((v) => v.label === "medium_large-webp");
 
       if (!original) return;
 
-      const webpCandidates = variants
-        .filter((variant) => variant.label.includes("webp"))
-        .filter((variant) => variant.width) // ensure width-described candidates
-        .sort((a, b) => a.width - b.width);
+      const pictureElement = buildPictureElement(img, original, resized, variants);
 
-      // Build a single WebP srcset (width descriptors) for the <source>
-      const webpSrcset = webpCandidates
-        .map((variant) => `${variant.path} ${variant.width}w`)
-        .join(", ");
-
-      // Default rendering size
-      const sizes = "(max-width: 636px) 100vw, 636px";
-
-      // Fallback <img> uses ONLY the original. No srcset/sizes here.
-      const imgElement = {
-        type: "element",
-        tagName: "img",
-        properties: {
-          src: original.path,
-          alt: node.properties.alt || "",
-          loading: "lazy",
-          decoding: "async",
-          width: resized ? resized.width : original.width,
-          height: resized ? resized.height : original.height,
-          "data-image-component": "true",
-        },
-      };
-
-      // Single <source type="image/webp"> (no media; browser will pick best width)
-      const pictureChildren = [];
-      if (webpSrcset) {
-        pictureChildren.push({
-          type: "element",
-          tagName: "source",
-          properties: {
-            type: "image/webp",
-            srcset: webpSrcset, // valid HTML attribute name
-            sizes: sizes,
-          },
-        });
-      }
-      pictureChildren.push(imgElement);
-
-      const pictureElement = {
-        type: "element",
-        tagName: "picture",
-        children: pictureChildren,
-      };
-
-      // Wrap in <figure> with hints and classes
+      // Build the figure element
       const figureElement = {
         type: "element",
         tagName: "figure",
@@ -95,9 +132,18 @@ export default function CustomImage() {
         children: [],
       };
 
-      // Add <a> wrapping if resized
-      if (resized) {
-        const linkElement = {
+      if (isWrappedInLink) {
+        // Preserve the original link: wrap <picture> inside the existing <a>
+        const preservedLink = {
+          type: "element",
+          tagName: "a",
+          properties: { ...linkElement.properties },
+          children: [pictureElement],
+        };
+        figureElement.children.push(preservedLink);
+      } else if (resized) {
+        // Standalone image that is resized: add link to full-size
+        const linkToFullSize = {
           type: "element",
           tagName: "a",
           properties: {
@@ -106,29 +152,25 @@ export default function CustomImage() {
           },
           children: [pictureElement],
         };
-        figureElement.children.push(linkElement);
+        figureElement.children.push(linkToFullSize);
       } else {
+        // Standalone image, not resized: no link wrapper
         figureElement.children.push(pictureElement);
       }
 
-      // Add figcaption if title exists
-      if (node.properties.title) {
+      // Add figcaption if title exists on the original img
+      if (img.properties.title) {
         figureElement.children.push({
           type: "element",
           tagName: "figcaption",
-          children: [{ type: "text", value: node.properties.title }],
+          children: [{ type: "text", value: img.properties.title }],
         });
       }
 
-      // If the parent is a <p> containing only this <img>, replace the <p>
-      if (parent.tagName === "p" && parent.children.length === 1) {
-        parent.tagName = "figure";
-        parent.properties = figureElement.properties;
-        parent.children = figureElement.children;
-      } else {
-        // Otherwise, replace just the <img> with <figure>
-        parent.children[index] = figureElement;
-      }
+      // Replace the <p> with <figure>
+      node.tagName = "figure";
+      node.properties = figureElement.properties;
+      node.children = figureElement.children;
     });
   };
 }
