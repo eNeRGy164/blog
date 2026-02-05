@@ -1,8 +1,8 @@
 ---
 id: 2126
 title: "arc42 chapter 1: Introduction and goals"
-date: 2026-02-02T22:30:00+02:00
-updated: 2026-02-03T22:00:00+02:00
+date: 2026-02-02T22:30:00+01:00
+updated: 2026-02-03T22:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 1 sets the direction for the entire architecture document.
