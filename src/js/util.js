@@ -48,32 +48,3 @@ export function getPreviousAndNextPosts(currentPost, allPosts) {
     next: currentIndex > 0 ? posts[currentIndex - 1] : null,
   };
 }
-
-export function getSeriesWithOldestPosts(paths) {
-  const posts = sortedPosts(paths);
-  const seriesMap = new Map();
-
-  posts.forEach((post) => {
-    const series = post.data.series;
-    if (series) {
-      if (!seriesMap.has(series)) {
-        seriesMap.set(series, post);
-      } else {
-        // Keep the oldest post (lower date value means older)
-        const existing = seriesMap.get(series);
-        if (
-          new Date(post.data.date).valueOf() <
-          new Date(existing.data.date).valueOf()
-        ) {
-          seriesMap.set(series, post);
-        }
-      }
-    }
-  });
-
-  // Sort series by the date of their oldest post (oldest series first)
-  return Array.from(seriesMap.entries()).sort(
-    (a, b) =>
-      new Date(a[1].data.date).valueOf() - new Date(b[1].data.date).valueOf(),
-  );
-}

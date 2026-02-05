@@ -1,10 +1,39 @@
 ---
 // Series navigation section for the footer
+import type { CollectionEntry } from "astro:content";
+
 interface Props {
-  seriesWithPosts: Array<[string, any]>;
+  posts: CollectionEntry<"posts">[];
 }
 
-const { seriesWithPosts } = Astro.props;
+const { posts } = Astro.props;
+
+// Extract series with their oldest posts
+const seriesMap = new Map();
+
+posts.forEach((post) => {
+  const series = post.data.series;
+  if (series) {
+    if (!seriesMap.has(series)) {
+      seriesMap.set(series, post);
+    } else {
+      // Keep the oldest post (lower date value means older)
+      const existing = seriesMap.get(series);
+      if (
+        new Date(post.data.date).valueOf() <
+        new Date(existing.data.date).valueOf()
+      ) {
+        seriesMap.set(series, post);
+      }
+    }
+  }
+});
+
+// Sort series by the date of their oldest post (oldest series first)
+const seriesWithPosts = Array.from(seriesMap.entries()).sort(
+  (a, b) =>
+    new Date(a[1].data.date).valueOf() - new Date(b[1].data.date).valueOf(),
+);
 ---
 
 <nav>

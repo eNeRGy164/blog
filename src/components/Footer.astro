@@ -1,5 +1,5 @@
 ---
-import { sortedPosts, getSeriesWithOldestPosts } from '@/js/util.js'
+import { sortedPosts } from '@/js/util.js'
 import { getCollection } from 'astro:content';
 import FooterLinks from '@/components/FooterLinks.astro';
 import FooterCategories from '@/components/FooterCategories.astro';
@@ -36,8 +36,6 @@ const postsByYearMonth = posts.reduce((acc: { [x: string]: string; }, post: { da
 }, {});
 
 const limitedPostsByYearMonth = Object.fromEntries(Object.entries(postsByYearMonth).slice(0, 16));
-
-const seriesWithPosts = getSeriesWithOldestPosts(posts);
 ---
 
 <footer id="site-footer">
@@ -49,9 +47,7 @@ const seriesWithPosts = getSeriesWithOldestPosts(posts);
 	</div>
 	<div>
 		<FooterPages />
-	</div>
-	<div>
-		<FooterSeries seriesWithPosts={seriesWithPosts} />
+		<FooterSeries posts={posts} />
 	</div>
 	<div>
 		<FooterArchives postsByYearMonth={limitedPostsByYearMonth} />
