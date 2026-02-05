@@ -580,6 +580,11 @@ div.tags a:hover {
   font-style: italic;
 }
 
+.entry img {
+  max-width: 100%;
+  height: auto;
+}
+
 .entry p {
   margin: 0 0 1em 0;
 }
