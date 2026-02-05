@@ -9,33 +9,6 @@ import FooterArchives from '@/components/FooterArchives.astro';
 import FooterCopyright from '@/components/FooterCopyright.astro';
 
 const posts = sortedPosts(await getCollection('posts'));
-
-let categories = posts
-  .flatMap((p: { data: { categories: any; }; }) => p.data.categories)
-  .filter((p: string) => p != null)
-  .map((p: string) => p === 'csharp' ? 'C#' : p);
-
-categories = Array.from(new Set<string>(categories))
-  .sort((a, b) => a.localeCompare(b));
-
-const monthNames = Array.from({ length: 12 }, (_, i) =>
-  new Date(0, i).toLocaleString('en-US', { month: 'long' })
-);
-
-const postsByYearMonth = posts.reduce((acc: { [x: string]: string; }, post: { data: { date: string | number | Date; }; }) => {
-  const date = new Date(post.data.date);
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const key = `${year}/${month.toString().padStart(2, '0')}`;
-
-  if (!acc[key]) {
-	acc[key] = `${monthNames[date.getMonth()]} ${year}`;
-  }
-
-  return acc;
-}, {});
-
-const limitedPostsByYearMonth = Object.fromEntries(Object.entries(postsByYearMonth).slice(0, 16));
 ---
 
 <footer id="site-footer">
@@ -43,14 +16,14 @@ const limitedPostsByYearMonth = Object.fromEntries(Object.entries(postsByYearMon
 		<FooterLinks />
 	</div>
 	<div>
-		<FooterCategories categories={categories} />
+		<FooterCategories posts={posts} />
 	</div>
 	<div>
 		<FooterPages />
 		<FooterSeries posts={posts} />
 	</div>
 	<div>
-		<FooterArchives postsByYearMonth={limitedPostsByYearMonth} />
+		<FooterArchives posts={posts} />
 	</div>
 </footer>
 

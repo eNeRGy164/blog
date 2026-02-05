@@ -1,11 +1,20 @@
 ---
 import { urlifyToken } from '@/js/util.js'
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  categories: string[];
+  posts: CollectionEntry<"posts">[];
 }
 
-const { categories } = Astro.props;
+const { posts } = Astro.props;
+
+let categories = posts
+  .flatMap((post) => post.data.categories)
+  .filter((category): category is string => category != null)
+  .map((category) => category === 'csharp' ? 'C#' : category);
+
+categories = Array.from(new Set<string>(categories))
+  .sort((a, b) => a.localeCompare(b));
 ---
 
 <nav>

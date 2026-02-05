@@ -1,16 +1,37 @@
 ---
 // Archives navigation section for the footer
+import type { CollectionEntry } from "astro:content";
+
 interface Props {
-  postsByYearMonth: Record<string, string>;
+  posts: CollectionEntry<"posts">[];
 }
 
-const { postsByYearMonth } = Astro.props;
+const { posts } = Astro.props;
+
+const monthNames = Array.from({ length: 12 }, (_, i) =>
+  new Date(0, i).toLocaleString('en-US', { month: 'long' })
+);
+
+const postsByYearMonth = posts.reduce((acc: Record<string, string>, post) => {
+  const date = new Date(post.data.date);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const key = `${year}/${month.toString().padStart(2, '0')}`;
+
+  if (!acc[key]) {
+    acc[key] = `${monthNames[date.getMonth()]} ${year}`;
+  }
+
+  return acc;
+}, {});
+
+const limitedPostsByYearMonth = Object.fromEntries(Object.entries(postsByYearMonth).slice(0, 16));
 ---
 
 <nav>
 	<h2>Archives</h2>
 	<ul>
-		{Object.entries(postsByYearMonth).map(([key, value]) =>
+		{Object.entries(limitedPostsByYearMonth).map(([key, value]) =>
 			<li><a rel="nofollow" href={`/${key}/`}>{value}</a></li>
 		)}
 	</ul>
