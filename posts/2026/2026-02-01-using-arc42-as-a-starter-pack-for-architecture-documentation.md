@@ -165,7 +165,7 @@ If you only write 3 things, write these first:
 
 ### If you only write 3 things, write these
 
-11. **Chapter 1: [Introduction and goals](/2026/02/02/arc42-chapter-1-introduction-and-goals/)**  
+1. **Chapter 1: [Introduction and goals](/2026/02/02/arc42-chapter-1-introduction-and-goals/)**  
    If you do not know the goals and stakeholders, you cannot make good design trade-offs.
 
 2. **Chapter 2: [Architecture constraints](/2026/02/03/arc42-chapter-2-architecture-constraints/)**  
