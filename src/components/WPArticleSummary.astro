@@ -82,7 +82,7 @@ if (image != undefined) {
     }
     <header class="post-header">
       <div class="meta">
-        <time class="published" datetime={date} itemprop="datePublished"
+        <time class="published" datetime={publishedDate.toISOString()} itemprop="datePublished"
           >{publishedDate.format("MMM D")}
           {
             publishedDate.year() < moment().year() &&

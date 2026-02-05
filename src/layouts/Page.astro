@@ -44,7 +44,7 @@ const Content = await Astro.props.compiledContent();
             <link itemprop="mainEntityOfPage" href={permalink} />
             <header class="post-header">
               <div class="meta">
-                <time class="published" datetime={date} itemprop="datePublished"
+                <time class="published" datetime={publishedDate.toISOString()} itemprop="datePublished"
                   >{publishedDate.format("MMM D")}
                   {
                     publishedDate.year() < moment().year() &&
