@@ -194,7 +194,7 @@ This hub will be updated as posts go live:
 
 **How is it built & how does it work:**
 
-- ⏳ 4. Solution strategy
+- ✅ 4. [Solution strategy](/2026/02/09/arc42-chapter-4-solution-strategy/)
 - ⏳ 5. Building block view
 - ⏳ 6. Runtime view
 
