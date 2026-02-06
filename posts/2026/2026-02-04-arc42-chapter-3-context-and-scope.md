@@ -308,7 +308,7 @@ Most problems show up at the boundary first, so investing in this chapter pays o
 This concludes the "Why and where" group of arc42 chapters.
 Next, we move on to the "How is it built and how does it work" group.
 
-Next up: arc42 chapter 4, "Solution strategy", where we describe the approach and major decisions that guide the design.
+Next up: [arc42 chapter 4, "Solution strategy"](/2026/02/09/arc42-chapter-4-solution-strategy/), where we describe the approach and major decisions that guide the design.
 
 [PITSTOP_ARC42]: https://gist.github.com/eNeRGy164/90f63e78d3e528f7b8490538a6781b5f
 [ARC42]: https://arc42.org/
