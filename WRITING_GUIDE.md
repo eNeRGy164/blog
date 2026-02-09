@@ -20,7 +20,11 @@
 - Prefer short paragraphs (1–3 sentences) and a steady, step-by-step flow.
 - Avoid contractions when clarity matters (`do not`, `cannot`, `it is`).
 - Use occasional questions to frame the problem (“How do I know?”, “But what if…?”).
-- Close with a practical next step, a link, or a short “I might come back to this” note.
+- Close with a practical next step, a link, or a short "I might come back to this" note.
+- Use `<q>...</q>` for short quoted phrases and dialogue (e.g., `<q>this was never negotiable</q>`), not for titles or long quotations.
+- For technical tutorials, include context before diving into steps (the "why" before the "how").
+- Reference your own previous articles when building on earlier work (e.g., "In my previous article...").
+- When explaining code, describe what it does before showing the implementation.
 
 ## Structure
 
@@ -29,22 +33,58 @@
 - Place banners, event promos, and big CTAs after `<!--more-->` unless the post is primarily an announcement.
 - Sections: use `##` headings (and occasional `###`).
 - Lists: numbered steps for procedures; bullets for lists and summaries.
+- Images: include descriptive alt text and titles for accessibility; use screenshot annotations when helpful.
+- Videos: embed YouTube videos using the full URL format: `<https://www.youtube.com/embed/{id}?list={listId}>`.
 
 ## Formatting
 
 - Short paragraphs.
 - Backtick identifiers, classes, paths, and config keys.
 - Prefer tables for enumerations and constant lists.
-- Code fences with language tags; add titles when it helps.
-- Use callouts like `> [!NOTE]` for caveats or security guidance.
+- Code fences with language tags; add titles when it helps (e.g., ` ```md title="04-solution-strategy.md" `).
+- Add `showlinenumbers` and `startlinenumber="<number>"` to code blocks when showing specific line ranges from real files.
+- Use callouts like `> [!NOTE]` for caveats or security guidance, `> [!TIP]` for practical advice.
+- Checkboxes for actionable checklists: `🔲` for unchecked items.
+- Use `<kbd>...</kbd>` for keyboard shortcuts and UI navigation (e.g., `<kbd>Font</kbd> > <kbd>Subscript</kbd>`).
+- Add `<small>...</small>` for inline clarifications like measurement units or readability notes (e.g., `<small>(0.475kg CO₂/kWh is an average for The Netherlands)</small>`).
+- Use italic text with underscores for emphasis on specific words (e.g., `_running_`, `_local_`).
 
 ## Links and wrap-up
 
 - Prefer reference-style links at the end for docs/GitHub; inline links are fine for quick mentions.
+- For series posts, link back to earlier chapters and forward to the next one.
 - End with one of:
   - a short conclusion plus a next step
   - a link to source code
   - a pointer to the next post in the series
+
+## Series posts
+
+When writing a series of related posts, maintain consistency:
+
+- Use the `series: <Series Name>` field in frontmatter for all posts in the series.
+- Cross-link between posts: reference earlier chapters when building on concepts, preview next chapters in the wrap-up.
+- Use reference-style links for recurring references (e.g., `[ARC42]`, `[CH1]`, `[CH2]` at the end).
+- Consider a consistent structure across posts if it helps readers navigate (e.g., "What belongs", "Minimum viable", "Example", "Common mistakes", "Checklist").
+- If providing templates or skeleton code, use titled code blocks for clarity.
+
+## Post types
+
+The blog contains several types of posts beyond standard tutorials:
+
+- **Technical tutorials**: Step-by-step guides with code examples, explanations, and practical outcomes.
+- **Speaking/conference posts**: Recaps of presentations, conferences, or meetups; include embedded videos when available.
+- **Quick tips**: Short, focused posts on a single technique or trick (e.g., PowerPoint tips, small code snippets).
+- **Migration/case studies**: Multi-part stories about technology changes with lessons learned.
+- **Year-in-review**: Reflective posts summarizing speaking engagements, projects, or achievements.
+
+For speaking posts:
+
+- List conferences/events chronologically.
+- Include context about co-speakers and meetups.
+- Embed presentation videos when available.
+- Link to speaker profiles using reference-style links.
+- Close with a forward-looking note about upcoming events.
 
 ## Categories hierarchy and guidance
 
