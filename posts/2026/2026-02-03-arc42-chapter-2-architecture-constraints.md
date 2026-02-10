@@ -2,6 +2,7 @@
 id: 2127
 title: "arc42 chapter 2: Architecture constraints"
 date: 2026-02-03T20:00:00+01:00
+updated: 2026-02-10T20:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 2 lists the non-negotiables that shape your design space.
@@ -35,7 +36,7 @@ Constraints also have a positive side: there are thousands of ways to build the 
 A short list of non-negotiables helps you narrow down options early, before you invest in the wrong direction.
 
 I have seen teams pick a public cloud technology because it fit the solution, while the product had to run air-gapped on-premises.
-Or because it was "hot" (call it: *conference-driven design*), while operations would only support a single platform.
+Or because it was "hot" (call it: _conference-driven design_), while operations would only support a single platform.
 Money got wasted before someone finally said: <q>this was never negotiable</q>.
 
 <!--more-->
@@ -56,7 +57,7 @@ What belongs here:
 
 What does not belong here:
 
-- Architecture choices you still get to make (save those for chapter 4 and chapter 9).
+- Architecture choices you still get to make (save those for chapter [4][CH4] and chapter 9).
 - Personal preferences (<q>I like microservices</q>, <q>we always use Kafka</q>).
 - Detailed design, diagrams, protocols, or deployment layouts.
 
@@ -158,7 +159,7 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
 3. **Mixing constraints and decisions**  
    <q>We will use PostgreSQL</q> is usually a decision.  
    <q>We must use the company-managed PostgreSQL platform</q> is a constraint.  
-   If it is not truly non-negotiable, move it to chapter 4 or chapter 9.
+   If it is not truly non-negotiable, move it to chapter [4][CH4] or chapter 9.
 
 4. **No impact column**  
    A constraint without impact does not help the team.
@@ -183,7 +184,7 @@ Sometimes you run an experiment to learn, or you need an exception for a specifi
 🔲 Chapter 2 contains the real non-negotiables, not preferences.  
 🔲 Each constraint has a clear impact on design and delivery.  
 🔲 Each constraint has a source (owner, standard, policy, or link).  
-🔲 The list is short enough to scan, but complete enough to prevent surprises.  
+🔲 The list is short enough to scan, but complete enough to prevent surprises.
 
 ## Next improvements backlog
 
@@ -198,7 +199,9 @@ Sometimes you run an experiment to learn, or you need an exception for a specifi
 Chapter 2 is where you protect your future self.
 Constraints narrow the solution space, so later decisions become faster and more consistent.
 
-Next up: arc42 chapter 3, "Context and scope", where we draw the boundary and make integrations and expectations explicit.
+Next up: [arc42 chapter 3, "Context and scope"][CH3], where we draw the boundary and make integrations and expectations explicit.
 
 [PITSTOP_ARC42]: https://gist.github.com/eNeRGy164/90f63e78d3e528f7b8490538a6781b5f
 [ARC42]: https://arc42.org/
+[CH3]: /2026/02/04/arc42-chapter-3-context-and-scope/
+[CH4]: /2026/02/09/arc42-chapter-4-solution-strategy/

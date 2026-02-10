@@ -2,6 +2,7 @@
 id: 2129
 title: "arc42 chapter 4: Solution strategy"
 date: 2026-02-09T19:00:00+01:00
+updated: 2026-02-10T20:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 4 opens the "How is it built and how does it work" group.
@@ -72,7 +73,7 @@ What does not belong here:
 
 > [!NOTE]  
 > Strategy is not the same as "technology list".  
-> A good strategy explains *why* a direction makes sense and *what it implies*.
+> A good strategy explains _why_ a direction makes sense and _what it implies_.
 
 ### This chapter often starts almost empty
 
@@ -99,9 +100,9 @@ A good "minimum viable" strategy statement usually contains:
 - **Rationale** (one or two short lines: why this direction)
 - **Consequence / impact** (one short line: what this enables or constrains)
 - **Traceability** to one or more inputs:
-  - driver(s) from [chapter 1][CH1]
-  - constraint(s) from [chapter 2][CH2]
-  - context/partner boundary from [chapter 3][CH3]
+  - driver(s) from chapter [1][CH1]
+  - constraint(s) from chapter [2][CH2]
+  - context/partner boundary from chapter [3][CH3]
 
 You do not need to hit an exact number of lines, you can combine them in a readable way.
 The key is that the rationale and impact are clear and concise,
@@ -158,21 +159,17 @@ This is what chapter 4 looks like when filled in.
 > - **Modular monolith backend (initially)**  
 >   Keep deployment simple and change-friendly while the domain stabilizes.
 >   Modules are strict (no "grab-bag services") and communicate via explicit interfaces.
->
 > - **Adapter-based integrations (Planning, Notifications, Parts status)**  
 >   Each external system sits behind a port/adapter boundary to protect domain logic
 >   and keep new integrations fast.
 >   Traces to: Modifiability goal (≤ 2 days), Planning integration constraint.
->
 > - **Near real-time updates via push**  
 >   Workshop and admin need shared truth quickly (≤ 2 seconds).
 >   Use WebSocket/SSE where possible; fall back to efficient polling.
 >   Traces to: Consistency goal, near real-time constraint.
->
 > - **Degraded-mode workshop operation**  
 >   Workshop UI supports local queueing and later sync when connectivity returns.
 >   Traces to: Resilience goal, degraded-mode constraint.
->
 > - **Audit-first changes for work order state**  
 >   Every status change and important edits record who/when/why (immutable history),
 >   enabling dispute resolution and throughput analysis.
@@ -181,7 +178,6 @@ This is what chapter 4 looks like when filled in.
 >
 > - **Question:** WebSocket vs SSE as the default push channel?  
 >   Affects real-time UX and infra constraints. Validate with UI needs + ops constraints.
->
 > - **Question:** What conflict resolution approach do we use after offline edits?  
 >   Affects user trust and operational continuity. Define business rules with workshop stakeholders.
 
@@ -238,10 +234,12 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
 Chapter 4 is where the design starts to take shape.
 It should be short, directional, and connected to the drivers you already captured in the first 3 chapters.
 
-Next up: arc42 chapter 5, "Building block view", where we describe the solution structure without diving into runtime sequencing yet.
+Next up: [arc42 chapter 5, "Building block view"][CH5],
+where we describe the solution structure without diving into runtime sequencing yet.
 
 [PITSTOP_ARC42]: https://gist.github.com/eNeRGy164/90f63e78d3e528f7b8490538a6781b5f
 [ARC42]: https://arc42.org/
 [CH1]: /2026/02/02/arc42-chapter-1-introduction-and-goals/
 [CH2]: /2026/02/03/arc42-chapter-2-architecture-constraints/
 [CH3]: /2026/02/04/arc42-chapter-3-context-and-scope/
+[CH5]: /2026/02/10/arc42-chapter-5-building-block-view/

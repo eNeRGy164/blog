@@ -604,6 +604,10 @@ div.tags a:hover {
   padding-left: var(--spacing-medium);
 }
 
+.entry ul ul {
+  margin-bottom: 0;
+}
+
 .entry ul {
   list-style: disc;
 }
