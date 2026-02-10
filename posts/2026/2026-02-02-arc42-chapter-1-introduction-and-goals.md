@@ -2,7 +2,7 @@
 id: 2126
 title: "arc42 chapter 1: Introduction and goals"
 date: 2026-02-02T22:30:00+01:00
-updated: 2026-02-03T22:00:00+01:00
+updated: 2026-02-10T20:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 1 sets the direction for the entire architecture document.
@@ -174,7 +174,6 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
    The hard part is that stakeholders often do not have a list.
 
    A practical approach that works well:
-
    - Ask <q>what would make this a success</q> and <q>what would make people complain</q>.
    - Turn the answers into 3–5 short scenarios with one measurable criterion each.
    - Start with rough numbers. You can refine them later once you have usage data.
@@ -185,7 +184,6 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
    If you require something from them, or they expect a service from your system, include them.
 
    A good way to expand the list:
-
    - End users (different roles, not one bucket)
    - Neighboring systems and their owners
    - Operations and support
@@ -212,8 +210,8 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
 Chapter 1 is the compass. 🧭  
 It does not describe the architecture, it explains what the architecture must achieve.
 
-Next up: chapter 2, "Architecture constraints", where we write down the rules that limit our freedom,
-before they surprise us later.
+Next up: [chapter 2, "Architecture constraints"](/2026/02/03/arc42-chapter-2-architecture-constraints/),
+where we write down the rules that limit our freedom, before they surprise us later.
 
 [PITSTOP_ARC42]: https://gist.github.com/eNeRGy164/90f63e78d3e528f7b8490538a6781b5f
 [ARC42]: https://arc42.org/
