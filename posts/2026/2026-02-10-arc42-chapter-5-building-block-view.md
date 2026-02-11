@@ -2,6 +2,7 @@
 id: 2130
 title: "arc42 chapter 5: Building block view"
 date: 2026-02-10T20:00:00+01:00
+updated: 2026-02-11T23:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 5 turns strategy into structure using white-box decomposition.
@@ -123,7 +124,7 @@ That creates a nice "thread" through the document:
 
 - chapter [3][CH3]: _who we interact with_
 - chapter 5: _how we are structured to deal with that_
-- chapter 6: _how the collaboration plays out at runtime_ (spoiler alert! 🫣)
+- chapter [6][CH6]: _how the collaboration plays out at runtime_ (spoiler alert! 🫣)
 
 ### Do not repeat interface details on every level
 
@@ -354,7 +355,7 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
 Chapter 5 is the map. 🗺️  
 It helps people find responsibilities, boundaries, and where to implement changes.
 
-Next up: arc42 chapter 6, the runtime view, where we put this structure in motion and describe the most important end-to-end flows.
+Next up: [arc42 chapter 6, "Runtime view"][CH6], where we put this structure in motion and describe the most important end-to-end flows.
 
 [PITSTOP_ARC42]: https://gist.github.com/eNeRGy164/90f63e78d3e528f7b8490538a6781b5f
 [ARC42]: https://arc42.org/
@@ -362,3 +363,4 @@ Next up: arc42 chapter 6, the runtime view, where we put this structure in motio
 [DOXYGEN]: https://www.doxygen.nl/
 [CH3]: /2026/02/04/arc42-chapter-3-context-and-scope/
 [CH4]: /2026/02/09/arc42-chapter-4-solution-strategy/
+[CH6]: /2026/02/11/arc42-chapter-6-runtime-view/

@@ -2,7 +2,7 @@
 id: 2125
 title: "The Art of Simple Software Architecture Documentation (with arc42) - a practical series"
 date: 2026-02-01T21:50:00+01:00
-updated: 2026-02-10T20:00:00+01:00
+updated: 2026-02-11T23:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   After my "The Art of Simple Software Architecture Documentation" talk,
@@ -196,7 +196,7 @@ This hub will be updated as posts go live:
 
 - ✅ 4. [Solution strategy][CH4]
 - ✅ 5. [Building block view][CH5]
-- ⏳ 6. Runtime view
+- ✅ 6. [Runtime view][CH6]
 
 **Rules, decisions, & qualities:**
 
@@ -237,3 +237,4 @@ where we turn vague intentions into a small set of concrete quality goals.
 [CH3]: /2026/02/04/arc42-chapter-3-context-and-scope/
 [CH4]: /2026/02/09/arc42-chapter-4-solution-strategy/
 [CH5]: /2026/02/10/arc42-chapter-5-building-block-view/
+[CH6]: /2026/02/11/arc42-chapter-6-runtime-view/

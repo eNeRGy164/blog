@@ -2,7 +2,7 @@
 id: 2129
 title: "arc42 chapter 4: Solution strategy"
 date: 2026-02-09T19:00:00+01:00
-updated: 2026-02-10T20:00:00+01:00
+updated: 2026-02-11T23:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 4 opens the "How is it built and how does it work" group.
