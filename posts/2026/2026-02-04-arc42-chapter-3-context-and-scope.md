@@ -2,7 +2,7 @@
 id: 2128
 title: "arc42 chapter 3: Context and scope"
 date: 2026-02-04T20:00:00+01:00
-updated: 2026-02-10T20:00:00+01:00
+updated: 2026-02-11T23:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 3 draws the boundary of your system.
@@ -56,7 +56,7 @@ What belongs here:
 What does not belong here:
 
 - Internal building blocks and components (chapter [5][CH5]).
-- Runtime scenarios and sequencing (chapter 6).
+- Runtime scenarios and sequencing (chapter [6][CH6]).
 - Deployment layouts (chapter 7).
 - Technical design details that do not cross the boundary.
 
@@ -315,3 +315,4 @@ Next up: [arc42 chapter 4, "Solution strategy"](/2026/02/09/arc42-chapter-4-solu
 [ARC42]: https://arc42.org/
 [PLANTUML_COMPONENT_DIAGRAMS]: https://plantuml.com/component-diagram
 [CH5]: /2026/02/10/arc42-chapter-5-building-block-view/
+[CH6]: /2026/02/11/arc42-chapter-6-runtime-view/

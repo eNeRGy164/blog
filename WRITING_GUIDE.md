@@ -16,7 +16,8 @@
 
 ## Language patterns
 
-- Use “In this article I will show…” or “In this article I show…” to set expectations.
+- Use a short opener in the excerpt or intro to set expectations (e.g., "In this article I show…", "Learn what belongs…").
+  Vary the phrasing naturally; avoid copy/pasting the same formula across posts.
 - Prefer short paragraphs (1–3 sentences) and a steady, step-by-step flow.
 - Avoid contractions when clarity matters (`do not`, `cannot`, `it is`).
 - Use occasional questions to frame the problem (“How do I know?”, “But what if…?”).
@@ -43,11 +44,12 @@
 - Prefer tables for enumerations and constant lists.
 - Code fences with language tags; add titles when it helps (e.g., ` ```md title="04-solution-strategy.md" `).
 - Add `showlinenumbers` and `startlinenumber="<number>"` to code blocks when showing specific line ranges from real files.
-- Use callouts like `> [!NOTE]` for caveats or security guidance, `> [!TIP]` for practical advice.
+- Use callouts like `> [!NOTE]` for caveats or additional context, `> [!TIP]` for practical advice, and `> [!WARNING]` for common pitfalls or easy-to-miss gotchas.
 - Checkboxes for actionable checklists: `🔲` for unchecked items.
 - Use `<kbd>...</kbd>` for keyboard shortcuts and UI navigation (e.g., `<kbd>Font</kbd> > <kbd>Subscript</kbd>`).
 - Add `<small>...</small>` for inline clarifications like measurement units or readability notes (e.g., `<small>(0.475kg CO₂/kWh is an average for The Netherlands)</small>`).
 - Use italic text with underscores for emphasis on specific words (e.g., `_running_`, `_local_`).
+- Use blockquotes (`>`) to present filled-in examples (e.g., a completed template), so they are visually distinct from the surrounding guidance.
 
 ## Links and wrap-up
 
@@ -64,7 +66,9 @@ When writing a series of related posts, maintain consistency:
 
 - Use the `series: <Series Name>` field in frontmatter for all posts in the series.
 - Cross-link between posts: reference earlier chapters when building on concepts, preview next chapters in the wrap-up.
+- Use the pattern `Next up: [chapter title](link), where we…` to close series posts and lead readers forward.
 - Use reference-style links for recurring references (e.g., `[ARC42]`, `[CH1]`, `[CH2]` at the end).
+- When a new post adds cross-links to earlier posts, bump the `updated` field of all affected posts to the new post's `date`.
 - Consider a consistent structure across posts if it helps readers navigate (e.g., "What belongs", "Minimum viable", "Example", "Common mistakes", "Checklist").
 - If providing templates or skeleton code, use titled code blocks for clarity.
 
