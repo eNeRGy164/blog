@@ -8,7 +8,7 @@ excerpt: >
   While working on a project with some existing code I noticed the developer did write large portions of code to get from an URL to a SPList.
   He probably didn’t know some of the hidden gems in SharePoint.
 permalink: /2009/03/09/working-with-urls-in-sharepoint/
-image: /wp-content/uploads/2009/03/post-16-thumnail-1.png
+image: /wp-content/uploads/2009/03/post-2009-03-09-thumbnail.png
 categories:
   - C#
   - SharePoint

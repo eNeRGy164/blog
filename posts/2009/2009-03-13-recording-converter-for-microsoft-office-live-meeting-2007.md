@@ -11,7 +11,7 @@ excerpt: >
   Watching the separate streams isn't really an option because there is no audio included in the video streams.
   But I got lucky as it seems Microsoft has released a new tool called “Recording Converter for Microsoft Office Live Meeting 2007” only last month.
 permalink: /2009/03/13/recording-converter-for-microsoft-office-live-meeting-2007/
-image: /wp-content/uploads/2009/03/post-18-thumnail-1.png
+image: /wp-content/uploads/2009/03/post-2009-03-13-thumbnail.png
 categories:
   - Office
 tags:

@@ -8,7 +8,7 @@ excerpt: >
   It is a sad and known fact that having lots of ACLs in your SharePoint database has a negative effect on the performance of your site.
   What I did not know yet was that changes to the ACL will impact you incremental crawls.
 permalink: /2009/03/23/sharepoint-incremental-crawl-takes-much-longer-after-adding-or-removing-a-user/
-image: /wp-content/uploads/2009/03/post-19-thumnail-1.png
+image: /wp-content/uploads/2009/03/post-2009-03-23-thumbnail.png
 categories:
   - SharePoint
 tags:

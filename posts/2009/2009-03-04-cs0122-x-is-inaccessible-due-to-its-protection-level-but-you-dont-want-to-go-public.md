@@ -12,7 +12,7 @@ excerpt: >
 
   Now you have only one choice: make x public. Or maybe not?
 permalink: /2009/03/04/cs0122-x-is-inaccessible-due-to-its-protection-level-but-you-dont-want-to-go-public/
-image: /wp-content/uploads/2009/03/post-15-thumnail-1.png
+image: /wp-content/uploads/2009/03/post-2009-03-04-thumbnail.png
 categories:
   - C#
   - SharePoint
