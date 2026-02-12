@@ -14,6 +14,20 @@ const VALID_CONTENT_TYPES = new Set([
   "image/gif",
 ]);
 
+function getContentType(filePath) {
+  const ext = path.extname(filePath).toLowerCase();
+  if (ext === ".webp") return "image/webp";
+  if (ext === ".png") return "image/png";
+  if (ext === ".gif") return "image/gif";
+  return "image/jpeg";
+}
+
+function findCompanionSourceForWebpRequest(requestedFilePath) {
+  return [".png", ".jpg", ".jpeg", ".gif"]
+    .map((ext) => requestedFilePath.replace(/\.webp$/i, ext))
+    .find(fs.existsSync);
+}
+
 // Ensure cache directory exists
 if (!fs.existsSync(CACHE_DIR)) {
   fs.mkdirSync(CACHE_DIR, { recursive: true });
@@ -95,8 +109,30 @@ export async function GET({ params }) {
   const resizeMatch = imagePath.match(/-(\d+)x(\d+)(\.webp|\.png|\.jpg|\.jpeg|\.gif)$/i);
   const requestedWidth = resizeMatch ? parseInt(resizeMatch[1], 10) : null;
   const requestedHeight = resizeMatch ? parseInt(resizeMatch[2], 10) : null;
+  const companionSourceForWebp = isWebPRequest
+    ? findCompanionSourceForWebpRequest(requestedFilePath)
+    : null;
 
-  const sourceFilePath = findSourceFile(requestedFilePath, resizeMatch, isWebPRequest);
+  // Allow dedicated pre-generated variants (for example *-185x185.webp) to bypass auto-cropping.
+  if (resizeMatch && fs.existsSync(requestedFilePath) && !companionSourceForWebp) {
+    try {
+      const buffer = await fsp.readFile(requestedFilePath);
+      const contentType = getContentType(requestedFilePath);
+
+      imageCache.set(imagePath, { buffer, contentType });
+
+      return new Response(buffer, {
+        status: 200,
+        headers: { "Content-Type": contentType },
+      });
+    } catch (err) {
+      console.warn(`Failed to read pre-generated variant ${requestedFilePath}:`, err);
+    }
+  }
+
+  const sourceFilePath =
+    companionSourceForWebp ??
+    findSourceFile(requestedFilePath, resizeMatch, isWebPRequest);
 
   if (!sourceFilePath) {
     return new Response("Image not found", { status: 404 });
@@ -199,8 +235,22 @@ export async function GET({ params }) {
  * Finds the source file for resizing or optimization.
  */
 function findSourceFile(requestedFilePath, resizeMatch, isWebPRequest) {
-  const possibleExtensions = [".png", ".jpg", ".jpeg", ".gif"];
+  const possibleExtensions = [".png", ".jpg", ".jpeg", ".gif", ".webp"];
   const baseFilePath = requestedFilePath.replace(/-\d+x\d+(\.\w+)?$/, "");
+
+  if (fs.existsSync(requestedFilePath)) {
+    return requestedFilePath;
+  }
+
+  // For a .webp request, prefer a same-name source file with another extension.
+  // This keeps dedicated variants (for example *-185x185.png) as the conversion source.
+  if (isWebPRequest) {
+    const companionSource = findCompanionSourceForWebpRequest(requestedFilePath);
+
+    if (companionSource) {
+      return companionSource;
+    }
+  }
 
   if (resizeMatch) {
     return possibleExtensions.map((ext) => `${baseFilePath}${ext}`).find(fs.existsSync);
