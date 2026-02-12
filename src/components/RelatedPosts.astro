@@ -4,6 +4,8 @@
  * Related post suggestions based on tags and categories.
  */
 import { getFuseInstance, type ProcessedPost } from "@/utils/fuseCache";
+import fs from "fs";
+import path from "path";
 
 import type { CollectionEntry } from 'astro:content';
 
@@ -34,10 +36,25 @@ if (data.tags != null && data.categories != null) {
 
 function ProcessThumbnail(post: ProcessedPost): RelatedPost {
   const { image, ...rest } = post;
+
+  const pngVariant = image
+    ? image.replace(/(\.jpg|\.jpeg|\.png)$/i, "-185x185.png")
+    : null;
+
+  if (pngVariant) {
+    const localVariantPath = path.join(process.cwd(), pngVariant.slice(1).replace(/\//g, path.sep));
+    if (fs.existsSync(localVariantPath)) {
+      return {
+        ...rest,
+        image: pngVariant.replace(/\.png$/i, ".webp"),
+      };
+    }
+  }
+
   return {
     ...rest,
     image: image
-      ? image.replace(/(\.jpg|\.png)/, "-185x185.webp")
+      ? image.replace(/(\.jpg|\.jpeg|\.png)$/i, "-185x185.webp")
       : "/default-thumbnail-185x185.webp",
   };
 }

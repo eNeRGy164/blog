@@ -243,6 +243,10 @@ Guidance:
 - `id` is a unique integer for the post, at least 1 higher than the last post.
 - `updated` is optional; include only when changed after publish.
 - `series` is optional; include only when the post is part of a series.
+- Image filename pattern is `post-YYYY-MM-DD-thumbnail.(png|jpg)`.
+- If multiple posts share the same date, use numeric suffixes in publish order:
+  oldest keeps no suffix, next uses `-2`, then `-3`, and so on.
+  Example: `post-2007-09-07-thumbnail.png`, `post-2007-09-07-2-thumbnail.png`, `post-2007-09-07-3-thumbnail.png`.
 
 ```yaml
 ---
@@ -263,3 +267,36 @@ tags:
 series: <Series Name>
 ---
 ```
+
+## Social thumbnail consistency
+
+Use this style for archive refreshes so old and new years stay visually consistent.
+
+- Primary social image format: `1200x630` PNG.
+- File naming: `post-YYYY-MM-DD-thumbnail.png`.
+- If multiple posts are on the same day, use publish-time order:
+  oldest has no suffix, then `-2`, `-3`, and so on.
+- Keep all text inside a safe content area on the left side
+  (roughly left 70% of the image), because list previews often crop.
+- Include these elements in order:
+  `From the YYYY archive` label, short title, short subtitle, 2-3 topic chips.
+- Do not include footer branding text on the image.
+- Keep the visual system consistent:
+  gradient background, subtle grid, rounded glass-like content card, year watermark.
+- Apply one gradient per post and keep that same gradient for all variants of that post.
+- Color choice strategy by post type:
+  blue/teal for SDK, config, and tutorial posts;
+  purple/magenta for troubleshooting posts;
+  amber/brown for pitfall/warning posts;
+  blue for conference or event recaps.
+
+For related posts and square cards:
+
+- Create dedicated square source files with a predictable variant name:
+  `post-YYYY-MM-DD[-N]-thumbnail-185x185.png`.
+- Create square cards from scratch in the same style/colors as the social card, title-only due to size.
+- Keep a small archive label and year watermark, but no subtitle/chips in square format.
+- Never overwrite an existing dedicated `-185x185.png` file; create only when missing.
+- Delivery path should still use optimized WebP:
+  request `-185x185.webp`, and let the image handler convert from the same-name PNG source.
+- Keep frontmatter unchanged; only set `image` to the primary social image.
