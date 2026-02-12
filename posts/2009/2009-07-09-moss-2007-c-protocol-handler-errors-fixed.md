@@ -9,7 +9,7 @@ excerpt: >
   When working with the code I discovered 2 issues which I both fixed.
   Both solutions are summarized here.
 permalink: /2009/07/09/moss-2007-c-protocol-handler-errors-fixed/
-image: /wp-content/uploads/2009/07/post-22-thumnail-1.png
+image: /wp-content/uploads/2009/07/post-2009-07-09-thumbnail.png
 categories:
   - C#
   - SharePoint

@@ -9,7 +9,7 @@ excerpt: >
   Everything works fine, except the search crawl gave Access Denied errors on http://mysite and sps3://mysite.
   This post explains how I fixed the problem.
 permalink: /2009/03/12/access-denied-when-crawling-mysite-people-on-localhost-with-a-different-hostname/
-image: /wp-content/uploads/2009/03/post-17-thumnail-1.png
+image: /wp-content/uploads/2009/03/post-2009-03-12-thumbnail.png
 categories:
   - SharePoint
   - Windows
@@ -30,8 +30,8 @@ I have a clean install on the latest and greatest: Windows Server 2008, SQL Serv
 This is the layout of my farm:
 
 ```plain
-http://<server>:80   - Portal  
-http://<server>:8000 - Central Admin  
+http://<server>:80   - Portal
+http://<server>:8000 - Central Admin
 http://<server>:8001 - SSP
 http://mysite        - MySites
 ```
@@ -53,7 +53,7 @@ content.   (0x80041205)
 
 Also the Security event log says:
 
-```plain  frame="shell" title="Security Event Log"
+```plain frame="shell" title="Security Event Log"
 An account failed to log on.
 Subject:
 Security ID:              NULL SID

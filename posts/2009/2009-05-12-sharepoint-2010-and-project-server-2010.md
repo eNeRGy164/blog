@@ -9,7 +9,7 @@ excerpt: >
   Well no surprise there, we already knew that. But they went even further:
   Windows Server 2008 and SQL Server on 64bit is a must for ensuring the best performance possible.
 permalink: /2009/05/12/sharepoint-2010-and-project-server-2010/
-image: /wp-content/uploads/2009/05/post-21-thumnail-1.png
+image: /wp-content/uploads/2009/05/post-2009-05-12-thumbnail.png
 categories:
   - Project Server
   - SharePoint
