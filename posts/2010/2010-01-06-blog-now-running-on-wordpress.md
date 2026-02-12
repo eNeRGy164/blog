@@ -8,7 +8,7 @@ excerpt: >
   After having major, and unsolvable, problems with MovableType (MovableType was causing segfaults in Perl)
   for over half a year I finally switched to WordPress for hosting my blog.
 permalink: /2010/01/06/blog-now-running-on-wordpress/
-image: /wp-content/uploads/2010/01/post-61-thumnail-1.png
+image: /wp-content/uploads/2010/01/post-2010-01-06-thumbnail.png
 categories: []
 tags:
   - Blog
@@ -44,7 +44,7 @@ This is completed with the following plugins:
 - **WP Super Cache**  
    Very fast caching plugin for WordPress.
 
-If somebody has comments or suggestions, please let me now.
+If somebody has comments or suggestions, please let me know.
 
 [MOVABLETYPE]: https://movabletype.org/
 [WORDPRESS]: https://wordpress.org/

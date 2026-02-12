@@ -12,7 +12,7 @@ excerpt: >
 
   Now I like to share this script with you.
 permalink: /2017/02/11/powershell-script-convertfrom-sitemap/
-image: /wp-content/uploads/2017/02/post-1128-thumbnail.png
+image: /wp-content/uploads/2017/02/post-2017-02-11-thumbnail.png
 categories:
   - PowerShell
 tags:

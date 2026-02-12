@@ -13,7 +13,7 @@ excerpt: >
 
   There are however some places this is not the case.
 permalink: /2011/02/23/translating-urls-using-the-alternate-access-mappings/
-image: /wp-content/uploads/2011/02/post-218-thumnail-1.png
+image: /wp-content/uploads/2011/02/post-2011-02-23-thumbnail.png
 categories:
   - SharePoint
 tags:

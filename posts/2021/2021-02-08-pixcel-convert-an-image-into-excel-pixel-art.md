@@ -11,7 +11,7 @@ excerpt: >
 
   Well, it is about 25 lines of C# 9.0 hard! 😁
 permalink: /2021/02/08/pixcel-convert-an-image-into-excel-pixel-art/
-image: /wp-content/uploads/2021/02/post-1940-thumbnail.png
+image: /wp-content/uploads/2021/02/post-2021-02-08-thumbnail.png
 categories:
   - C#
   - Office

@@ -9,7 +9,7 @@ excerpt: >
   Although everything seemed to work as expected it was discovered images were requested by the browser on every page refresh instead of caching the browser them locally.
   Together with my colleague Bert-Jan I investigated and solved the problem which will be explained in this post.
 permalink: /2011/03/11/make-your-browser-cache-the-output-of-an-httphandler/
-image: /wp-content/uploads/2011/03/post-230-thumnail-1.png
+image: /wp-content/uploads/2011/03/post-2011-03-11-thumbnail.png
 categories:
   - C#
 tags:
@@ -131,7 +131,7 @@ As it turned out you need to handle the `If-Modified-Since` yourself.
 We added the following code to handle this.
 
 ```csharp
-string rawIfModifiedSince 
+string rawIfModifiedSince
     = context.Request.Headers.Get("If-Modified-Since");
 
 if (string.IsNullOrEmpty(rawIfModifiedSince))
@@ -189,7 +189,7 @@ public class ResourceHandler : IHttpHandler
       return;
     }
 
-    string rawIfModifiedSince = 
+    string rawIfModifiedSince =
         context.Request.Headers.Get("If-Modified-Since");
     if (string.IsNullOrEmpty(rawIfModifiedSince))
     {

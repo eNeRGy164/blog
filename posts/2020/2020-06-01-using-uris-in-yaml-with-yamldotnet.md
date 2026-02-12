@@ -14,7 +14,7 @@ excerpt: >
 
   In this short article, I will explain how I did fix this.
 permalink: /2020/06/01/using-uris-in-yaml-with-yamldotnet/
-image: /wp-content/uploads/2020/05/post-1432-thumbnail.png
+image: /wp-content/uploads/2020/05/post-2020-06-01-thumbnail.png
 categories:
   - C#
 tags:

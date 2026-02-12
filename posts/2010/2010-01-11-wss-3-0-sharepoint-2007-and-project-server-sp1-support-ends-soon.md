@@ -8,7 +8,7 @@ excerpt: >
   Stefan Goßner reminds us of the fact that support for WSS 3.0 SP1,
   SharePoint 2007 SP1 and Project Server SP1 will soon end.
 permalink: /2010/01/11/wss-3-0-sharepoint-2007-and-project-server-sp1-support-ends-soon/
-image: /wp-content/uploads/2010/01/post-81-thumnail-1.png
+image: /wp-content/uploads/2010/01/post-2010-01-11-thumbnail.png
 categories:
   - Project Server
   - SharePoint

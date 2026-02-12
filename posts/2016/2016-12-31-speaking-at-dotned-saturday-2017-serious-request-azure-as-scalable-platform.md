@@ -12,7 +12,7 @@ excerpt: >
   This platform is used during “3FM Serious Request”,
   the annual charity event organized by the Dutch radio station 3FM for the Dutch Red Cross.
 permalink: /2016/12/31/speaking-at-dotned-saturday-2017-serious-request-azure-as-scalable-platform/
-image: /wp-content/uploads/2016/12/post-1027-thumbnail.png
+image: /wp-content/uploads/2016/12/post-2016-12-31-thumbnail.png
 categories:
   - Azure
 tags:

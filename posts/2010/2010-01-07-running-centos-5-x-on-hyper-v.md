@@ -10,7 +10,7 @@ excerpt: >
   Recently with the launch of Windows Server 2008 R2 there are also new Linux Integration Components which also work for 2008 RTM.
   Here is the list of steps to install CentOS with these components.
 permalink: /2010/01/07/running-centos-5-x-on-hyper-v/
-image: /wp-content/uploads/2010/01/post-71-thumnail-1.png
+image: /wp-content/uploads/2010/01/post-2010-01-07-thumbnail.png
 categories:
   - Hyper-V
 tags:
@@ -37,10 +37,9 @@ So, here is the list of steps to install CentOS with the integration components.
 1. Download the latest CentOS distribution from <https://vault.centos.org/5.0/isos/>
    (I use the x86_64 version).
 2. Create a VM, I suggest:
-
-   * >400MB memory
-   * Add a Legacy Network Adapter (connect to network)
-   * Add a Network Adapter (connect to network)
+   - > 400MB memory
+   - Add a Legacy Network Adapter (connect to network)
+   - Add a Network Adapter (connect to network)
 
 3. Mount the CD-ROM and install CentOS (I use the minimal setup)
 4. After the installation is done make certain you are up to date
@@ -57,7 +56,7 @@ So, here is the list of steps to install CentOS with the integration components.
 
 6. Reboot into the latest kernel
 7. Download the [Linux Integration Components][LIC_DOWNLOAD]
-8. Mount the CD-ROM and copy the contents  
+8. Mount the CD-ROM and copy the contents
 
    ```shell
    mkdir -p /mnt/cdrom

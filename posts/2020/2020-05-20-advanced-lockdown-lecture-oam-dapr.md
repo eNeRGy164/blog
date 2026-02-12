@@ -12,7 +12,7 @@ excerpt: >
 
   Here I share with you the recording and slides.
 permalink: /2020/05/20/advanced-lockdown-lecture-oam-dapr/
-image: /wp-content/uploads/2020/05/post-1391-thumbnail.png
+image: /wp-content/uploads/2020/05/post-2020-05-20-thumbnail.png
 categories:
   - Architecture
   - Azure

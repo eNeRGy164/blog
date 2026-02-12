@@ -11,7 +11,7 @@ excerpt: >
 
   In this post I’ll cover these differences and how I prepared for the exams so it’ll be easier for you to get certified.
 permalink: /2016/02/11/my-road-to-mcsd-universal-windows-platform/
-image: /wp-content/uploads/2016/02/post-863-thumbnail.png
+image: /wp-content/uploads/2016/02/post-2016-02-11-thumbnail.png
 categories:
   - C#
   - Windows

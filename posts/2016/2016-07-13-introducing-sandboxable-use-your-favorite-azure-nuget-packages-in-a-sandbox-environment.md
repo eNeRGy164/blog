@@ -11,7 +11,7 @@ excerpt: >
 
   The project offers modified NuGet packages that will run with Partial Trust.
 permalink: /2016/07/13/introducing-sandboxable-use-your-favorite-azure-nuget-packages-in-a-sandbox-environment/
-image: /wp-content/uploads/2016/07/post-895-thumbnail.png
+image: /wp-content/uploads/2016/07/post-2016-07-13-thumbnail.png
 categories:
   - Azure
   - C#
@@ -42,7 +42,7 @@ You can read more on this in the article [How to: Run Partially Trusted Code in 
 If you encounter a .NET sandbox today chances are it's running with [Security-Transparent Code, Level 2](https://learn.microsoft.com/previous-versions/dotnet/framework/code-access-security/security-transparent-code-level-2)
 
 A big example of software running in a sandbox are the Microsoft Dynamics CRM (Online) Plug-ins and custom workflow activities.
-([Plug-in Trusts](https://learn.microsoft.com/previous-versions/dynamicscrm-2016/developers-guide/gg334752(v=crm.8)))
+([Plug-in Trusts](<https://learn.microsoft.com/previous-versions/dynamicscrm-2016/developers-guide/gg334752(v=crm.8)>))
 
 ## The problem
 

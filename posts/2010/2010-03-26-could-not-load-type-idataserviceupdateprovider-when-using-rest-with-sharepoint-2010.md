@@ -9,7 +9,7 @@ excerpt: >
 
   But when I navigated to the ListData.svc service. I got the following error: “Could not load type 'System.Data.Services.Providers.IDataServiceUpdateProvider' from assembly 'System.Data.Services, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.”
 permalink: /2010/03/26/could-not-load-type-idataserviceupdateprovider-when-using-rest-with-sharepoint-2010/
-image: /wp-content/uploads/2010/03/post-140-thumnail-1.png
+image: /wp-content/uploads/2010/03/post-2010-03-26-thumbnail.png
 categories:
   - SharePoint
 tags:

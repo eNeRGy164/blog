@@ -5,20 +5,20 @@ date: 2010-08-26T17:33:55+02:00
 updated: 2021-07-16T23:03:08+02:00
 author: Michaël Hompus
 excerpt: >
-    With the introduction of LINQ the difference between writing code for accessing a lists of objects in memory and accessing a list of data in an external data source like SQL is vanishing.
-    Combining a in memory with a external list in a single query was not yet possible.
-    With the introduction of .NET Framework 4.0 this has changed.
+  With the introduction of LINQ the difference between writing code for accessing a lists of objects in memory and accessing a list of data in an external data source like SQL is vanishing.
+  Combining a in memory with a external list in a single query was not yet possible.
+  With the introduction of .NET Framework 4.0 this has changed.
 permalink: /2010/08/26/joining-an-iqueryable-with-an-ienumerable/
-image: /wp-content/uploads/2010/08/post-194-thumnail-1.png
+image: /wp-content/uploads/2010/08/post-2010-08-26-thumbnail.png
 categories:
-    - C#
-    - SQL
+  - C#
+  - SQL
 tags:
-    - Contains
-    - IEnumerable
-    - IQueryable
-    - Join
-    - LINQ
+  - Contains
+  - IEnumerable
+  - IQueryable
+  - Join
+  - LINQ
 ---
 
 With the introduction of LINQ, the difference between writing code for accessing a list of objects in memory and accessing a list of data in an external data source like SQL Server is vanishing.

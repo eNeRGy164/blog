@@ -14,7 +14,7 @@ excerpt: >
   Microsoft has posted an overview of the STSADM to Windows PowerShell mapping.
   However the commands for configuring the people picker are not available.
 permalink: /2011/01/17/configure-people-picker-over-a-one-way-trust-using-powershell/
-image: /wp-content/uploads/2011/01/post-201-thumnail-1.png
+image: /wp-content/uploads/2011/01/post-2011-01-17-thumbnail.png
 categories:
   - PowerShell
   - SharePoint

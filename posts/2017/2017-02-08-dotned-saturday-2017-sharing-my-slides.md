@@ -11,7 +11,7 @@ excerpt: >
   I’m sharing my slides so you can start building awesome, secure,
   scalable, performing and monitorable web platforms using Azure.
 permalink: /2017/02/08/dotned-saturday-2017-sharing-my-slides/
-image: /wp-content/uploads/2017/02/post-1090-thumbnail.png
+image: /wp-content/uploads/2017/02/post-2017-02-08-thumbnail.png
 categories:
   - Azure
 tags:

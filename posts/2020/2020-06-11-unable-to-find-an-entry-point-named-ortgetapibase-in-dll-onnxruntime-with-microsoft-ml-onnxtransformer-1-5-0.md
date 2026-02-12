@@ -13,7 +13,7 @@ excerpt: >
   Searching for the error online did not yield any solutions.
   After solving the problem, I wanted to share the solution for anyone else running into the same exception.
 permalink: /2020/06/11/unable-to-find-an-entry-point-named-ortgetapibase-in-dll-onnxruntime-with-microsoft-ml-onnxtransformer-1-5-0/
-image: /wp-content/uploads/2020/06/post-1451-thumbnail.png
+image: /wp-content/uploads/2020/06/post-2020-06-11-thumbnail.png
 categories:
   - C#
   - Machine Learning

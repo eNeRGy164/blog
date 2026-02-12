@@ -11,7 +11,7 @@ excerpt: >
 
   It will return the correct data yes, but at what performance cost?
 permalink: /2013/01/21/filtering-on-a-tinyint-with-entity-framework/
-image: /wp-content/uploads/2013/01/post-257-thumbnail.png
+image: /wp-content/uploads/2013/01/post-2013-01-21-thumbnail.png
 categories:
   - C#
   - SQL

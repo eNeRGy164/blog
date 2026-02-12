@@ -13,7 +13,7 @@ excerpt: >
 
   It has been documented by others before, but as I ran into this recently I'll give my summary how I fixed this.
 permalink: /2010/06/01/using-the-people-picker-over-a-one-way-trust/
-image: /wp-content/uploads/2010/06/post-181-thumnail-1.png
+image: /wp-content/uploads/2010/06/post-2010-06-01-thumbnail.png
 categories:
   - SharePoint
 tags:
@@ -52,7 +52,7 @@ As the application pool account is based in the development domain it doesn’t 
 
 ## The solution
 
-Using [STSADM](https://learn.microsoft.com/previous-versions/office/sharepoint-2007-products-and-technologies/cc261956(v=office.12))
+Using [STSADM](<https://learn.microsoft.com/previous-versions/office/sharepoint-2007-products-and-technologies/cc261956(v=office.12)>)
 we can configure which forests and domains are searched for accounts by setting the `peoplepicker-searchadforests` property.
 The best part is that we can supply a username and password for a trusted domain.
 

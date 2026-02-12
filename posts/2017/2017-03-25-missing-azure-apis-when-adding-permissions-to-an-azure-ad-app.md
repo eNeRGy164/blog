@@ -11,7 +11,7 @@ excerpt: >
 
   In this post, I’ll explain how you can find all APIs available for your application.
 permalink: /2017/03/25/missing-azure-apis-when-adding-permissions-to-an-azure-ad-app/
-image: /wp-content/uploads/2017/03/post-1177-thumbnail.png
+image: /wp-content/uploads/2017/03/post-2017-03-25-thumbnail.png
 categories:
   - Azure
 tags:

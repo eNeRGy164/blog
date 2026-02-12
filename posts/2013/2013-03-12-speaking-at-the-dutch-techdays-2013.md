@@ -8,7 +8,7 @@ excerpt: >
   I am invited to speak at the Techdays 2013 in the Netherlands.
   The event is held on the 7th & 8th of March at the World Forum in Den Haag.
 permalink: /2013/03/12/speaking-at-the-dutch-techdays-2013/
-image: /wp-content/uploads/2013/03/post-275-thumbnail.png
+image: /wp-content/uploads/2013/03/post-2013-03-12-thumbnail.png
 categories:
   - Azure
 tags:

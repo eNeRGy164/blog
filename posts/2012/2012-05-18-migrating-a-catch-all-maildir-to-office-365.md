@@ -15,7 +15,7 @@ excerpt: >
 
   So I made my own scripts to add all email addresses I used in the past as an alias on my mailbox.
 permalink: /2012/05/18/migrating-a-catch-all-maildir-to-office-365/
-image: /wp-content/uploads/2012/05/post-246-thumnail-1.png
+image: /wp-content/uploads/2012/05/post-2012-05-18-thumbnail.png
 categories:
   - Office
   - PowerShell
@@ -42,7 +42,7 @@ Just before I wanted to change the MX record to point to Office 365, I double ch
 > Catch-all Mailbox
 >
 > A catch-all mailbox receives messages sent to email addresses in a domain that do not exist.
-> Exchange Online anti-spam filters use recipient filtering to reject messages sent to mailboxes that don’t exist, 
+> Exchange Online anti-spam filters use recipient filtering to reject messages sent to mailboxes that don’t exist,
 > so catch-all mailboxes are not supported.
 
 That left me 2 options:
