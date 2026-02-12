@@ -9,7 +9,7 @@ excerpt: >
   Inside a Project Server Event this will be provided so you don’t need to worry about it’s contents.
   But outside the Event you will need to create one from scratch.
 permalink: /2007/09/07/pitfall-using-the-sitedata-ws-to-get-the-siteguid/
-image: /wp-content/uploads/2007/09/post-10-thumnail-1.png
+image: /wp-content/uploads/2007/09/post-2007-09-07-3-thumbnail.png
 categories:
   - Project Server
 tags:

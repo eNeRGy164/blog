@@ -9,7 +9,7 @@ excerpt: >
   Using app.config and the ConfigurationManagement class will not work.
   Well actually, it’s possible!
 permalink: /2007/09/04/using-appconfig-with-project-server-events/
-image: /wp-content/uploads/2007/09/post-9-thumnail-1.png
+image: /wp-content/uploads/2007/09/post-2007-09-04-2-thumbnail.png
 categories:
   - C#
   - Project Server
