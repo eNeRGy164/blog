@@ -8,7 +8,7 @@ excerpt: >
   I was browsing through the Project Server 2007 TimePeriodDataSet.TimePeriodsRow members
   and found the following empty entries I could fill.
 permalink: /2007/09/07/an-addition-to-the-project-server-2007-sdk-part-2/
-image: /wp-content/uploads/2007/09/post-12-thumnail-1.png
+image: /wp-content/uploads/2007/09/post-2007-09-07-2-thumbnail.png
 categories:
   - Project Server
 tags:

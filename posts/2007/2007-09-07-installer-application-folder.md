@@ -9,7 +9,7 @@ excerpt: >
   One problem I encountered is that there is no property available in code to know where the user has chosen to install the application.
 guid: http://hompus.wordpress.com/2007/09/07/installer_application_folder/
 permalink: /2007/09/07/installer-application-folder/
-image: /wp-content/uploads/2007/09/post-11-thumnail-1.png
+image: /wp-content/uploads/2007/09/post-2007-09-07-thumbnail.png
 categories:
   - C#
   - Visual Studio

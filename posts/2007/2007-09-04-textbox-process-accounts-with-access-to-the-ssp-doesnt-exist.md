@@ -10,7 +10,7 @@ excerpt: >
   “Process Accounts with Access to the SSP” textbox, but guess what?
   That box was nowhere to find!
 permalink: /2007/09/04/textbox-process-accounts-with-access-to-the-ssp-doesnt-exist/
-image: /wp-content/uploads/2007/09/post-8-thumnail-1.png
+image: /wp-content/uploads/2007/09/post-2007-09-04-thumbnail.png
 categories:
   - Project Server
 tags:

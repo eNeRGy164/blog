@@ -8,7 +8,7 @@ excerpt: >
   I am currently at the Project Conference 2007 in Seattle and by visiting the sessions and talking to the people
   at Microsoft developing the solution I got a lot of answers for things I could not find on the web or in the SDK.
 permalink: /2007/10/31/project-conference-2007/
-image: /wp-content/uploads/2007/10/post-13-thumbnail.png
+image: /wp-content/uploads/2007/10/post-2007-10-31-thumbnail.png
 categories:
   - Project Server
 tags:
