@@ -26,10 +26,10 @@ and found there were some empty entries in the SDK.
 
 The following empty entries I could fill:
 
-| Name                  | Description                                                                                             | Enumeration                                                                          |
-| --------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| RES_TIMESHEET_MGR_UID | Specifies the resource unique identifier of the (next)<br>enterprise resource reviewing on this timesheet. |                                                                                      |
-| TS_WEEK_STARTS_ON     | Specifies the first day of the week for this timesheet.                                                 | 0 = Sunday<br>1 = Monday<br>2 = Tuesday<br>3 = Wednesday<br>4 = Thursday<br>5 = Friday<br>6 = Saturday |
-| WPRD_UID              | Specifies the period unique identifier of the time period.                                              |                                                                                      |
+| Name                  | Description                                                                                                | Enumeration                                                                                            |
+| --------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| RES_TIMESHEET_MGR_UID | Specifies the resource unique identifier of the (next)<br>enterprise resource reviewing on this timesheet. |                                                                                                        |
+| TS_WEEK_STARTS_ON     | Specifies the first day of the week for this timesheet.                                                    | 0 = Sunday<br>1 = Monday<br>2 = Tuesday<br>3 = Wednesday<br>4 = Thursday<br>5 = Friday<br>6 = Saturday |
+| WPRD_UID              | Specifies the period unique identifier of the time period.                                                 |                                                                                                        |
 
 [TIME_PERIOD_ROW_MEMBERS]: https://learn.microsoft.com/previous-versions/office/developer/office-2007/ms479524(v=office.12)
