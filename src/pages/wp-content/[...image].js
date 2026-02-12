@@ -28,6 +28,27 @@ function findCompanionSourceForWebpRequest(requestedFilePath) {
     .find(fs.existsSync);
 }
 
+function findDedicatedSquareSourceForSmallSquare(requestedFilePath, requestedWidth, requestedHeight) {
+  if (requestedWidth !== 150 || requestedHeight !== 150) {
+    return null;
+  }
+
+  const possibleExtensions = [".png", ".jpg", ".jpeg", ".gif", ".webp"];
+  const baseFilePath = requestedFilePath.replace(/-150x150(\.\w+)?$/i, "");
+  const candidateSizes = ["185x185"];
+
+  for (const size of candidateSizes) {
+    for (const ext of possibleExtensions) {
+      const candidate = `${baseFilePath}-${size}${ext}`;
+      if (fs.existsSync(candidate)) {
+        return candidate;
+      }
+    }
+  }
+
+  return null;
+}
+
 // Ensure cache directory exists
 if (!fs.existsSync(CACHE_DIR)) {
   fs.mkdirSync(CACHE_DIR, { recursive: true });
@@ -112,6 +133,11 @@ export async function GET({ params }) {
   const companionSourceForWebp = isWebPRequest
     ? findCompanionSourceForWebpRequest(requestedFilePath)
     : null;
+  const dedicatedSquareSourceForSmallSquare = findDedicatedSquareSourceForSmallSquare(
+    requestedFilePath,
+    requestedWidth,
+    requestedHeight,
+  );
 
   // Allow dedicated pre-generated variants (for example *-185x185.webp) to bypass auto-cropping.
   if (resizeMatch && fs.existsSync(requestedFilePath) && !companionSourceForWebp) {
@@ -132,6 +158,7 @@ export async function GET({ params }) {
 
   const sourceFilePath =
     companionSourceForWebp ??
+    dedicatedSquareSourceForSmallSquare ??
     findSourceFile(requestedFilePath, resizeMatch, isWebPRequest);
 
   if (!sourceFilePath) {
@@ -140,7 +167,7 @@ export async function GET({ params }) {
 
   // Calculate hash of source file to detect changes
   const sourceHash = await getSourceFileHash(sourceFilePath);
-  
+
   if (!sourceHash) {
     // If we can't hash the source, process without caching
     const { buffer, contentType } = await processImage(sourceFilePath, requestedWidth, requestedHeight, isWebPRequest);
@@ -167,33 +194,33 @@ export async function GET({ params }) {
         fsp.readFile(cacheFilePath),
         fsp.readFile(cacheMetaPath, "utf8"),
       ]);
-      
+
       let meta;
       try {
         meta = JSON.parse(metaContent);
       } catch (parseErr) {
         throw new Error(`Failed to parse cache metadata JSON: ${parseErr.message}`);
       }
-      
+
       // Validate content type to prevent serving corrupted cache
       if (!VALID_CONTENT_TYPES.has(meta.contentType)) {
         throw new Error(`Invalid content type in cache: ${meta.contentType}`);
       }
-      
+
       // Validate source hash and processing parameters
       // Cache is invalid if source changed or processing parameters changed
       // Normalize null/undefined for consistent comparison
       const normalizedRequestWidth = requestedWidth || null;
       const normalizedRequestHeight = requestedHeight || null;
-      
+
       if (meta.sourceHash === sourceHash &&
           meta.width === normalizedRequestWidth &&
           meta.height === normalizedRequestHeight &&
           meta.isWebP === isWebPRequest) {
-        
+
         // Cache is valid, use it
         imageCache.set(imagePath, { buffer, contentType: meta.contentType });
-        
+
         return new Response(buffer, {
           status: 200,
           headers: { "Content-Type": meta.contentType },
@@ -216,7 +243,7 @@ export async function GET({ params }) {
 
   // Cache the processed image on disk with metadata (async, don't await to avoid blocking response)
   const cacheMetadata = getCacheMetadata(contentType, sourceHash, requestedWidth, requestedHeight, isWebPRequest);
-  
+
   Promise.all([
     fsp.writeFile(cacheFilePath, buffer),
     fsp.writeFile(cacheMetaPath, JSON.stringify(cacheMetadata)),
