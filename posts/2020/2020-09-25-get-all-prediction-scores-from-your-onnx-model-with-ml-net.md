@@ -14,7 +14,7 @@ excerpt: >
 
   In this article I will show how we can get the labels and scores from an ONNX model prediction in C#.
 permalink: /2020/09/25/get-all-prediction-scores-from-your-onnx-model-with-ml-net/
-image: /wp-content/uploads/2020/09/post-1640-thumbnail.png
+image: /wp-content/uploads/2020/09/post-2020-09-25-thumbnail.png
 categories:
   - C#
   - Machine Learning

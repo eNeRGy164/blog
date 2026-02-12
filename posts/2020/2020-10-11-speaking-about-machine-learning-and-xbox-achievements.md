@@ -9,7 +9,7 @@ excerpt: >
   These posts were the results of a pet project on which I was working.
   I will be speaking about this project at a couple of events in the coming weeks.
 permalink: /2020/10/11/speaking-about-machine-learning-and-xbox-achievements/
-image: /wp-content/uploads/2020/10/post-1660-thumbnail.png
+image: /wp-content/uploads/2020/10/post-2020-10-11-thumbnail.png
 categories:
   - C#
   - Machine Learning

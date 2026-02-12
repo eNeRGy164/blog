@@ -10,7 +10,7 @@ excerpt: >
   but there is no configuration screen to set the desired localization.
   This post will summarize the different steps to localize the Surface shell.
 permalink: /2010/03/22/localizing-the-microsoft-surface-shell/
-image: /wp-content/uploads/2010/03/post-123-thumnail-1.png
+image: /wp-content/uploads/2010/03/post-2010-03-22-thumbnail.png
 categories:
   - Surface
 tags:

@@ -13,7 +13,7 @@ excerpt: >
 
   In the coming days I will be posting about several parts of Bing for business, starting with “branding”.
 permalink: /2017/09/25/bing-for-business-part-1-branding/
-image: /wp-content/uploads/2017/09/post-1224-thumbnail.png
+image: /wp-content/uploads/2017/09/post-2017-09-25-thumbnail.png
 categories:
   - Office
 tags:

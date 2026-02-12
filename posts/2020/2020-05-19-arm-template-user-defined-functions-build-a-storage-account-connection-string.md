@@ -13,7 +13,7 @@ excerpt: >
 
   In this article I will show that adding a User-Defined Function to our template can improve on this.
 permalink: /2020/05/19/arm-template-user-defined-functions-build-a-storage-account-connection-string/
-image: /wp-content/uploads/2020/05/post-1373-thumbnail.png
+image: /wp-content/uploads/2020/05/post-2020-05-19-thumbnail.png
 categories:
   - Azure
 tags:

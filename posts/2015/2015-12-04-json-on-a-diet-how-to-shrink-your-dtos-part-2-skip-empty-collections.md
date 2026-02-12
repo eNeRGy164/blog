@@ -9,7 +9,7 @@ excerpt: >
 
   In this post we will squeeze a little bit more from our DTOs (Data Transfer Objects).
 permalink: /2015/12/04/json-on-a-diet-how-to-shrink-your-dtos-part-2-skip-empty-collections/
-image: /wp-content/uploads/2015/12/post-672-thumbnail.png
+image: /wp-content/uploads/2015/12/post-2015-12-04-thumbnail.png
 categories:
   - C#
 tags:

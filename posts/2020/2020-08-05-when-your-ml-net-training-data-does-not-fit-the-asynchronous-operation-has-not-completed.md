@@ -13,7 +13,7 @@ excerpt: >
 
   The application did work for weeks, so what has changed? And more importantly, how to fix this situation?
 permalink: /2020/08/05/when-your-ml-net-training-data-does-not-fit-the-asynchronous-operation-has-not-completed/
-image: /wp-content/uploads/2020/08/post-1565-thumbnail.png
+image: /wp-content/uploads/2020/08/post-2020-08-05-thumbnail.png
 categories:
   - C#
   - Machine Learning

@@ -10,7 +10,7 @@ excerpt: >
 
   In this post I‘ll explain how you can extend Azure Web Apps with Virtual Applications and Virtual Directories using ARM templates.
 permalink: /2017/03/13/create-virtual-applications-and-directories-in-your-azure-web-app-using-arm-templates/
-image: /wp-content/uploads/2017/03/post-1148-thumbnail.png
+image: /wp-content/uploads/2017/03/post-2017-03-13-thumbnail.png
 categories:
   - Azure
 tags:

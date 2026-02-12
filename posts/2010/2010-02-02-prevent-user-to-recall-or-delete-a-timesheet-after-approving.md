@@ -8,7 +8,7 @@ excerpt: >
   Working on a Project Server project we discovered it's quite easy to get issues with data integrity when users start retracting and deleting timesheets.
   After discussing the issue with Microsoft they gave us a workaround which solves our problem.
 permalink: /2010/02/02/prevent-user-to-recall-or-delete-a-timesheet-after-approving/
-image: /wp-content/uploads/2010/02/post-99-thumnail-1.png
+image: /wp-content/uploads/2010/02/post-2010-02-02-thumbnail.png
 categories:
   - Project Server
 tags:
@@ -39,7 +39,7 @@ After discussing the issue with Microsoft, we got this response:
 
 > Period close is designed to block new entries, not changes which include deletions.
 
-So, this is pretty much "*by design*".
+So, this is pretty much "_by design_".
 
 ## The solution
 

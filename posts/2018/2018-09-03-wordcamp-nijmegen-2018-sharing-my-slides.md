@@ -8,7 +8,7 @@ excerpt: >
   This weekend I was speaking at WordCamp Nijmegen about the possibilities of hosting a WordPress site using Microsoft Azure.
   I’m sharing my Dutch slides here, and soon I hope to add the recording for WordPress TV in this post as well.
 permalink: /2018/09/03/wordcamp-nijmegen-2018-sharing-my-slides/
-image: /wp-content/uploads/2018/09/post-1323-thumbnail.png
+image: /wp-content/uploads/2018/09/post-2018-09-03-thumbnail.png
 categories:
   - Azure
 tags:

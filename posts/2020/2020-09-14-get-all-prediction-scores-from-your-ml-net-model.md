@@ -11,7 +11,7 @@ excerpt: >
 
   In this article I will show how to you can get these values.
 permalink: /2020/09/14/get-all-prediction-scores-from-your-ml-net-model/
-image: /wp-content/uploads/2020/09/post-1626-thumbnail.png
+image: /wp-content/uploads/2020/09/post-2020-09-14-thumbnail.png
 categories:
   - C#
   - Machine Learning

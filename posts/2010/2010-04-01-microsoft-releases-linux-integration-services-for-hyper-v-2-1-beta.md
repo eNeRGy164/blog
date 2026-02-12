@@ -9,7 +9,7 @@ excerpt: >
 
   In this post I will try the new features.
 permalink: /2010/04/01/microsoft-releases-linux-integration-services-for-hyper-v-2-1-beta/
-image: /wp-content/uploads/2010/04/post-154-thumnail-1.png
+image: /wp-content/uploads/2010/04/post-2010-04-01-thumbnail.png
 categories:
   - Hyper-V
 tags:

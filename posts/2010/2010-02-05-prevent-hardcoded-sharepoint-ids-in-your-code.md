@@ -9,7 +9,7 @@ excerpt: >
   SharePoint provides some classes containing the out of the box IDs, you only have to know they exist.
   I made an overview so nobody has to hardcode those pesky GUIDs, ContentTypeId's or property names.
 permalink: /2010/02/05/prevent-hardcoded-sharepoint-ids-in-your-code/
-image: /wp-content/uploads/2010/02/post-100-thumnail-1.png
+image: /wp-content/uploads/2010/02/post-2010-02-05-thumbnail.png
 categories:
   - SharePoint
 tags:
@@ -36,24 +36,24 @@ I made an overview so nobody has to hardcode those pesky GUIDs, ContentTypeIds o
 The [`SPBuiltInFieldId` class][SP_BUILT_IN_FIELD_ID_CLASS] contains 314 GUIDs for the default SharePoint fields.
 You can find them all on the [`SPBuiltInFieldId` fields][SP_BUILT_IN_FIELD_ID_FIELDS] page, but I name some of the more common ones:
 
-* `Created`
-* `Created_x0020_By`
-* `ID`
-* `Modified`
-* `Modified_x0020_By`
-* `Title`
-* `UniqueId`
+- `Created`
+- `Created_x0020_By`
+- `ID`
+- `Modified`
+- `Modified_x0020_By`
+- `Title`
+- `UniqueId`
 
 ## WSS/Core - Microsoft.SharePoint.SPBuiltInContentTypeId
 
 The [`SPBuiltInContentTypeId` class][SP_BUILT_IN_CONTENT_TYPE_ID_CLASS] contains 34 content type IDs for the default SharePoint content types.
 You can find them all on the [`SPBuiltInContentTypeId` fields][SP_BUILT_IN_CONTENT_TYPE_ID_FIELDS] page, but I name some of the more common ones:
 
-* `Announcement`
-* `Document`
-* `Folder`
-* `Item`
-* `Task`
+- `Announcement`
+- `Document`
+- `Folder`
+- `Item`
+- `Task`
 
 ## WSS/Core - Microsoft.SharePoint.SPListTemplateType
 
@@ -65,7 +65,7 @@ With this method you can easily retrieve the `MasterPageCatalog` for the current
 
 ```csharp
 var site = SPContext.Current.Site;
-var masterPageGallery = 
+var masterPageGallery =
     site.GetCatalog(SPListTemplateType.MasterPageCatalog) as SPDocumentLibrary;
 
 if (masterPageGallery != null)
@@ -76,10 +76,10 @@ if (masterPageGallery != null)
 
 The enumerations contain four list template IDs for the default SharePoint catalogs.
 
-* `ListTemplateCatalog`
-* `MasterPageCatalog`
-* `WebPartCatalog`
-* `WebTemplateCatalog`
+- `ListTemplateCatalog`
+- `MasterPageCatalog`
+- `WebPartCatalog`
+- `WebTemplateCatalog`
 
 ## MOSS - Microsoft.SharePoint.Publishing.FeatureIds
 
@@ -87,8 +87,8 @@ The [`FeatureIds` class][FEATURE_IDS_CLASS] contains 16 GUIDs for the MOSS publi
 You can find them all on the [`FeatureIds` fields][FEATURE_IDS_FIELDS] page,
 but I name the most common ones:
 
-* `Navigation`
-* `Publishing`
+- `Navigation`
+- `Publishing`
 
 ## Server - Microsoft.SharePoint.Publishing.Internal.WssFeatureIds
 
@@ -97,30 +97,30 @@ The `WssFeatureIds` class however is public and the only place the 24 WSS featur
 
 Because this class is not documented I list all fields:
 
-* `AnnouncementsList`
-* `BasicWebParts`
-* `ContactsList`
-* `CustomList`
-* `DataConnectionLibrary`
-* `DataSourceLibrary`
-* `DiscussionsList`
-* `DocumentLibrary`
-* `EventsList`
-* `GanttTasksList`
-* `GlobalContentTypes`
-* `GlobalFields`
-* `GlobalMobilityRedirect`
-* `GridList`
-* `IssuesList`
-* `LinksList`
-* `NoCodeWorkflowLibrary`
-* `PictureLibrary`
-* `SurveysList`
-* `TasksList`
-* `TeamCollaboration`
-* `WebPageLibrary`
-* `WorkflowHistoryList`
-* `XmlFormLibrary`
+- `AnnouncementsList`
+- `BasicWebParts`
+- `ContactsList`
+- `CustomList`
+- `DataConnectionLibrary`
+- `DataSourceLibrary`
+- `DiscussionsList`
+- `DocumentLibrary`
+- `EventsList`
+- `GanttTasksList`
+- `GlobalContentTypes`
+- `GlobalFields`
+- `GlobalMobilityRedirect`
+- `GridList`
+- `IssuesList`
+- `LinksList`
+- `NoCodeWorkflowLibrary`
+- `PictureLibrary`
+- `SurveysList`
+- `TasksList`
+- `TeamCollaboration`
+- `WebPageLibrary`
+- `WorkflowHistoryList`
+- `XmlFormLibrary`
 
 ## Server - Microsoft.SharePoint.Publishing.FieldId
 
@@ -128,12 +128,12 @@ The [`FieldId` class][FIELD_ID_CLASS] contains 61 GUIDs for the publishing field
 You can find them all on the [`FieldId` properties][FIELD_ID_PROPERTIES] page,
 but I name some of the more common ones:
 
-* `Contact`
-* `PageLayout`
-* `PreviewImage`
-* `PublishingPageContent`
-* `PublishingPageImage`
-* `RollupImage`
+- `Contact`
+- `PageLayout`
+- `PreviewImage`
+- `PublishingPageContent`
+- `PublishingPageImage`
+- `RollupImage`
 
 ## Server - Microsoft.SharePoint.Publishing.ContentTypeId
 
@@ -141,10 +141,10 @@ The [`ContentTypeId` class][CONTENT_TYPE_ID_CLASS] contains 10 content type IDs 
 You can find them all on the [`ContentTypeId` properties][CONTENT_TYPE_ID_PROPERTIES] page,
 but I name some of the more common ones:
 
-* `ArticlePage`
-* `MasterPage`
-* `PageLayout`
-* `WelcomePage`
+- `ArticlePage`
+- `MasterPage`
+- `PageLayout`
+- `WelcomePage`
 
 ## MOSS - Microsoft.Office.Server.UserProfiles.PropertyConstants
 
@@ -152,17 +152,17 @@ The [`PropertyConstants` class][PROPERTY_CONSTANTS_CLASS] contains 42 names of t
 You can find them all on the [`PropertyConstants` fields][PROPERTY_CONSTANTS_FIELDS] page,
 but I name some of the more common ones:
 
-* `BirthDay`
-* `CellPhone`
-* `Department`
-* `FirstName`
-* `LastName`
-* `Manager`
-* `PictureUrl`
-* `PreferredName`
-* `Title`
-* `WorkEmail`
-* `WorkPhone`
+- `BirthDay`
+- `CellPhone`
+- `Department`
+- `FirstName`
+- `LastName`
+- `Manager`
+- `PictureUrl`
+- `PreferredName`
+- `Title`
+- `WorkEmail`
+- `WorkPhone`
 
 [SP_BUILT_IN_FIELD_ID_CLASS]: https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms435407(v=office.15)
 [SP_BUILT_IN_FIELD_ID_FIELDS]: https://learn.microsoft.com/previous-versions/office/sharepoint-server/ms439470(v=office.15)

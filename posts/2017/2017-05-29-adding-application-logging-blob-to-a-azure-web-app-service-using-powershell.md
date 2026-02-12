@@ -10,7 +10,7 @@ excerpt: >
 
   In this post, I will walk you through the necessary PowerShell code to run.
 permalink: /2017/05/29/adding-application-logging-blob-to-a-azure-web-app-service-using-powershell/
-image: /wp-content/uploads/2017/05/post-1205-thumbnail.png
+image: /wp-content/uploads/2017/05/post-2017-05-29-thumbnail.png
 categories:
   - Azure
   - PowerShell
@@ -126,7 +126,7 @@ For this solution, we use PowerShell. This makes it easy for running this code i
 But it can be used in any way you want to configure your environments.
 
 > [!NOTE]
-> Depending on how you run this script you might need to login first using `Login-AzureRmAccount` 
+> Depending on how you run this script you might need to login first using `Login-AzureRmAccount`
 > and select the Azure Subscription you want to use using `Select-AzureRmSubscription`.
 
 The configuration is done in 6 steps.

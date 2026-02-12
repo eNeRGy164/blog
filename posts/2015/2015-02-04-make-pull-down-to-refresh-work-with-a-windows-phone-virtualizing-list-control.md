@@ -18,7 +18,7 @@ excerpt: >
 
   In this blog post I will describe my contributions to fix these 2 issues and I will supply the source code for you to use.
 permalink: /2015/02/04/make-pull-down-to-refresh-work-with-a-windows-phone-virtualizing-list-control/
-image: /wp-content/uploads/2015/02/post-2015-02-04-thumnail-1.png
+image: /wp-content/uploads/2015/02/post-2015-02-04-thumbnail.png
 categories:
   - C#
   - Windows Phone

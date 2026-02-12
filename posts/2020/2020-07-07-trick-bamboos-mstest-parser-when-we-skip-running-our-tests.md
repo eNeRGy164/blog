@@ -1,6 +1,6 @@
 ---
 id: 1495
-title: 'Trick Bamboo’s MSTest parser when we skip running our tests'
+title: "Trick Bamboo’s MSTest parser when we skip running our tests"
 date: 2020-07-07T13:57:40+02:00
 updated: 2020-12-07T17:56:14+01:00
 author: Michaël Hompus
@@ -13,7 +13,7 @@ excerpt: >
 
   So, I found it was time to create a quick work around.
 permalink: /2020/07/07/trick-bamboos-mstest-parser-when-we-skip-running-our-tests/
-image: /wp-content/uploads/2020/07/post-1495-thumbnail.png
+image: /wp-content/uploads/2020/07/post-2020-07-07-thumbnail.png
 categories:
   - PowerShell
 tags:

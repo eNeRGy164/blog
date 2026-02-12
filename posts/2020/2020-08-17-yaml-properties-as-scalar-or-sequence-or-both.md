@@ -15,7 +15,7 @@ excerpt: >
 
   How can this work with C#, a strongly typed language?
 permalink: /2020/08/17/yaml-properties-as-scalar-or-sequence-or-both/
-image: /wp-content/uploads/2020/08/post-1580-thumbnail.png
+image: /wp-content/uploads/2020/08/post-2020-08-17-thumbnail.png
 categories:
   - C#
 tags:

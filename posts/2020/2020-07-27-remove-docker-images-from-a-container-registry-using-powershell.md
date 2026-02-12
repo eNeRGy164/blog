@@ -17,7 +17,7 @@ excerpt: >
   In this article, I will show how the delete images by tag,
   using PowerShell and the Docker Registry HTTP API V2.
 permalink: /2020/07/27/remove-docker-images-from-a-container-registry-using-powershell/
-image: /wp-content/uploads/2020/07/post-1508-thumbnail.png
+image: /wp-content/uploads/2020/07/post-2020-07-27-thumbnail.png
 categories:
   - Azure
   - PowerShell

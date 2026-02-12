@@ -11,7 +11,7 @@ excerpt: >
   I’m sharing my slides and code, so you can start improving the security of your solutions and deployments using Azure Key Vault,
   the Azure Key Vault Configuration Provider and Azure Key Vault Storage Account Keys.
 permalink: /2017/10/12/techdays-2017-sharing-my-slides/
-image: /wp-content/uploads/2017/10/post-1265-thumbnail.png
+image: /wp-content/uploads/2017/10/post-2017-10-12-thumbnail.png
 categories:
   - Azure
 tags:

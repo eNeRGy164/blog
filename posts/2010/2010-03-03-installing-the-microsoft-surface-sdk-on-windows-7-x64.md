@@ -11,7 +11,7 @@ excerpt: >
   The solution for this is to install the Surface SDK on you local development machine.
   This post will address some limitations you have to work around.
 permalink: /2010/03/03/installing-the-microsoft-surface-sdk-on-windows-7-x64/
-image: /wp-content/uploads/2010/03/post-122-thumnail-1.png
+image: /wp-content/uploads/2010/03/post-2010-03-03-thumbnail.png
 categories:
   - Surface
 tags:

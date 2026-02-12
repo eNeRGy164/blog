@@ -11,7 +11,7 @@ excerpt: >
 
   In this post, we will be focusing on “People Search”.
 permalink: /2017/09/28/bing-for-business-part-2-people-search/
-image: /wp-content/uploads/2017/09/post-1245-thumbnail.png
+image: /wp-content/uploads/2017/09/post-2017-09-28-thumbnail.png
 categories:
   - Office
 tags:

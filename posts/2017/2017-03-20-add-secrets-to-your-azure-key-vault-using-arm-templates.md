@@ -8,10 +8,10 @@ excerpt: >
   Azure Key Vault is a great resource to store your secrets like passwords,
   connection strings, certificates, etc. and access them programmatically.
   A great feature is to add or update your secrets during deployment so you do not have to manage your secrets manually.
-  
+
   In this article, I will explain how you can add secrets to an Azure Key Vault using ARM templates.
 permalink: /2017/03/20/add-secrets-to-your-azure-key-vault-using-arm-templates/
-image: /wp-content/uploads/2017/03/post-1163-thumbnail.png
+image: /wp-content/uploads/2017/03/post-2017-03-20-thumbnail.png
 categories:
   - Azure
 tags:

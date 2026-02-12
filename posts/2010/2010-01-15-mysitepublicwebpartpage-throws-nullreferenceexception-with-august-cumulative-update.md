@@ -9,7 +9,7 @@ excerpt: >
   “System.NullReferenceException: Object reference not set to an instance of an object.”
   on all pages inheriting from MySitePublicWebPartPage.
 permalink: /2010/01/15/mysitepublicwebpartpage-throws-nullreferenceexception-with-august-cumulative-update/
-image: /wp-content/uploads/2010/01/post-84-thumnail-1.png
+image: /wp-content/uploads/2010/01/post-2010-01-15-thumbnail.png
 categories:
   - SharePoint
 tags:
