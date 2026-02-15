@@ -19,6 +19,10 @@ tags:
   - IQueryable
   - Join
   - LINQ
+thumbnail:
+  title: "Joining IQueryable with IEnumerable"
+  subtitle: >
+    Combining in-memory collections with SQL queries using LINQ Contains in .NET Framework 4.0.
 ---
 
 With the introduction of LINQ, the difference between writing code for accessing a list of objects in memory and accessing a list of data in an external data source like SQL Server is vanishing.

@@ -21,6 +21,10 @@ tags:
   - Model
   - Prediction
   - Scores
+thumbnail:
+  title: "Get All Prediction Scores from ML.NET"
+  subtitle: >
+    Retrieve all labels and their confidence scores, not just the top prediction.
 ---
 
 When predicting with an [ML.NET](https://dotnet.microsoft.com/apps/ai/ml-dotnet) model you trained yourself,

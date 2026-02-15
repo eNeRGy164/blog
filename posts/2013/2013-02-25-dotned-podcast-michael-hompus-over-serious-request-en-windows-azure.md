@@ -16,6 +16,10 @@ tags:
   - podcast
   - Serious Request
   - Speaking
+thumbnail:
+  title: "DotNed Podcast: Azure and Serious Request"
+  subtitle: >
+    Podcast interview about building a scalable Azure platform for the 3FM Serious Request charity event.
 ---
 
 [DotNed](https://www.dotned.nl/) is the Dutch .NET user group and organizes several meetings each year for the .NET community.

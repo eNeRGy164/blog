@@ -19,6 +19,10 @@ tags:
   - cmdlet
   - PowerShell
   - sitemap
+thumbnail:
+  title: "PowerShell: ConvertFrom-SiteMap"
+  subtitle: >
+    A PowerShell cmdlet that parses XML sitemaps and extracts page URLs for scripting.
 ---
 
 The other day I needed to get the URLs for all pages in my blog for some PowerShell scripting I wanted to do

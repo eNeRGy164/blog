@@ -21,6 +21,10 @@ tags:
   - SAS
   - Template
   - Web App Service
+thumbnail:
+  title: "Azure Web App Logging to Blob via PowerShell"
+  subtitle: >
+    Configuring blob-based application logging for Azure Web Apps with PowerShell and SAS URLs.
 ---
 
 These days it's normal to deploy and configure all aspects of your Azure Resources using the Azure Resource Manager and the accompanying ARM Templates.

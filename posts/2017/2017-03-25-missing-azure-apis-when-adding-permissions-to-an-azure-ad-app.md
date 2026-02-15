@@ -20,6 +20,10 @@ tags:
   - Azure
   - Portal
   - UI
+thumbnail:
+  title: "Missing Azure APIs in Azure AD App Permissions"
+  subtitle: >
+    The Azure Portal hides available APIs when configuring AD app permissions due to a UI quirk.
 ---
 
 When I recently was configuring an Azure AD application,

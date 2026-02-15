@@ -20,6 +20,10 @@ tags:
   - Key Vault
   - secrets
   - templates
+thumbnail:
+  title: "Azure Key Vault Secrets via ARM Templates"
+  subtitle: >
+    Automating secret management in Azure Key Vault by adding secrets through ARM template deployments.
 ---
 
 Azure Key Vault is a great resource to store your secrets like passwords,

@@ -18,6 +18,10 @@ tags:
   - Performance
   - Search
   - SharePoint 2007
+thumbnail:
+  title: "Slow Incremental Crawl After User Changes"
+  subtitle: >
+    ACL modifications in SharePoint cause incremental crawls to take significantly longer than expected.
 ---
 
 It is a sad and known fact that having lots of ACLs in your SharePoint database has a negative effect on the performance of your site.

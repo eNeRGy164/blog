@@ -23,6 +23,10 @@ tags:
   - x64
 
 # cSpell:ignore SurfaceSDKWE
+thumbnail:
+  title: "Surface SDK on Windows 7 x64"
+  subtitle: >
+    Working around installer limitations to get the Microsoft Surface SDK running on 64-bit Windows 7.
 ---
 
 If you want to develop for the **Microsoft Surface** (the table, not the tablet) you need a Surface device.

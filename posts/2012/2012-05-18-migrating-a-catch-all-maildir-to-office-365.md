@@ -17,12 +17,16 @@ excerpt: >
 permalink: /2012/05/18/migrating-a-catch-all-maildir-to-office-365/
 image: /wp-content/uploads/2012/05/post-2012-05-18-thumbnail.png
 categories:
-  - Office
+  - Microsoft 365
   - PowerShell
 tags:
   - Catch-All
   - Maildir
   - Office 365
+thumbnail:
+  title: "Migrating a Catch-All Maildir to Office 365"
+  subtitle: >
+    Scripts to migrate catch-all maildir email aliases to Office 365, which doesn't support catch-all natively.
 ---
 
 I have been running my own mail server at home for years using [Postfix](https://www.postfix.org/), [dovecot](https://www.dovecot.org/), [amavisd-new](https://amavis.org/), [ClamAV](https://www.clamav.net/) and [SpamAssassin](https://spamassassin.apache.org/).

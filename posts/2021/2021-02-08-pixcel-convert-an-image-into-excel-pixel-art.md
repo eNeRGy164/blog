@@ -23,6 +23,10 @@ tags:
   - OpenCV
   - Pixel Art
   - Pixels
+thumbnail:
+  title: "Pixcel: Image to Excel Pixel Art"
+  subtitle: >
+    Converting images into Excel pixel art in about 25 lines of C# 9.0.
 ---
 
 Last week I received an invitation for a social work meeting about "Pixel art in spreadsheets".

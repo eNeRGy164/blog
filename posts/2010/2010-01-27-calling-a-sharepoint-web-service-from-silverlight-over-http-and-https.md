@@ -23,6 +23,10 @@ tags:
   - Silverlight
   - WCF
   - Web Service
+thumbnail:
+  title: "SharePoint Web Services from Silverlight"
+  subtitle: >
+    Calling the Search Query Web Service from Silverlight over both HTTP and HTTPS using dynamic bindings.
 ---
 
 The past couple of weeks I am working with Silverlight controls embedded in SharePoint 2007.  

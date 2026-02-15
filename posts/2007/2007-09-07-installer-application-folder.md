@@ -16,6 +16,10 @@ categories:
 tags:
   - Installer
   - MSI
+thumbnail:
+  title: "MSI Installer Application Folder from Code"
+  subtitle: >
+    Retrieving the user-chosen installation path at runtime from a Visual Studio MSI installer.
 ---
 
 To deploy our code, we create MSI installers using [Visual Studio](https://visualstudio.microsoft.com/).

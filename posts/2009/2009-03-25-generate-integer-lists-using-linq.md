@@ -15,6 +15,10 @@ tags:
   - IEnumerable
   - LINQ
   - Range
+thumbnail:
+  title: "Generate Integer Lists Using LINQ"
+  subtitle: >
+    Replacing manual for-loops with Enumerable.Range to populate dropdown controls elegantly.
 ---
 
 I was working on some old code which created three DropDown controls with _hours_, _minutes_, and _seconds_.

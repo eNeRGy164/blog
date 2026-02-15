@@ -23,6 +23,10 @@ tags:
   - Queue
   - Sandbox
   - SDK
+thumbnail:
+  title: "Azure Queue Messages from Sandboxed CRM"
+  subtitle: >
+    Step-by-step guide to sending Azure Queue messages from a Dynamics CRM sandboxed plug-in using Sandboxable.
 ---
 
 A while back I have "[introduced Sandboxable](/2016/07/13/introducing-sandboxable-use-your-favorite-azure-nuget-packages-in-a-sandbox-environment)".

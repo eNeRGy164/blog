@@ -26,6 +26,10 @@ tags:
   - ONNX
 
 # cSpell:ignore MKLML
+thumbnail:
+  title: "Fixing OrtGetApiBase Error in ML.NET ONNX"
+  subtitle: >
+    Solving the EntryPointNotFoundException when using Custom Vision ONNX models with ML.NET.
 ---
 
 When trying to have an application work with an ONNX model I downloaded from the Microsoft [Custom Vision](https://www.customvision.ai/) portal,

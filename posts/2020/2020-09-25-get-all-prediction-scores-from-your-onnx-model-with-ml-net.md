@@ -25,6 +25,10 @@ tags:
   - ML.NET
   - ONNX
   - Prediction
+thumbnail:
+  title: "Get All ONNX Prediction Scores in ML.NET"
+  subtitle: >
+    Extracting labels and scores from an Azure Custom Vision ONNX model in C#.
 ---
 
 Recently I wrote [an article about getting all prediction scores from your ML.NET model](/2020/09/14/get-all-prediction-scores-from-your-ml-net-model).

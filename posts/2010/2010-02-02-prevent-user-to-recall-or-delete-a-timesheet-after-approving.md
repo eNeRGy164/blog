@@ -16,6 +16,10 @@ tags:
   - Project Server 2007
   - PSI
   - Timesheet
+thumbnail:
+  title: "Lock Timesheets After Approval"
+  subtitle: >
+    Preventing Project Server users from retracting or deleting approved timesheets to protect data integrity.
 ---
 
 Working on a Project Server project we discovered it is quite easy to get issues with data integrity when users start retracting and deleting timesheets.

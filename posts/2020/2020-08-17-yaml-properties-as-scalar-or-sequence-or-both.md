@@ -22,6 +22,10 @@ tags:
   - CSharp
   - YAML
   - YamlDotNet
+thumbnail:
+  title: "YAML: Scalar or Sequence? Or Both?!"
+  subtitle: >
+    Handling YAML properties that accept both single values and lists in C#.
 ---
 
 [YAML](https://yaml.org/) is a data serialization standard that is intended to be human friendly.

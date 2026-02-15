@@ -26,6 +26,10 @@ tags:
   - Mobile App Service
   - Web API
 series: JSON on a diet
+thumbnail:
+  title: "JSON on a Diet, Part 1: Default Values"
+  subtitle: >
+    Reducing JSON payload size by skipping default values in Web API responses with JSON.NET.
 ---
 
 These days [JSON](https://en.wikipedia.org/wiki/JSON) is used a lot.

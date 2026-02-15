@@ -21,6 +21,10 @@ tags:
   - Virtual Application
   - Virtual Directory
   - VSTS
+thumbnail:
+  title: "Azure Web App Virtual Directories via ARM"
+  subtitle: >
+    Configuring virtual applications and directories in Azure Web Apps through ARM templates.
 ---
 
 When I start on a project that uses Azure resources, one of the first things I do is build the infrastructure and automate the deployment using VSTS or TFS. The definition of the infrastructure is defined using ARM templates.  

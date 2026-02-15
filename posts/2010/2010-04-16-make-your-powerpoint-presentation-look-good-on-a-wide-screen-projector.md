@@ -24,6 +24,10 @@ tags:
   - PowerPoint
   - Presenting
   - Slide
+thumbnail:
+  title: "Widescreen PowerPoint Presentations"
+  subtitle: >
+    Setting up PowerPoint slides for 16:9 or 16:10 projectors to avoid black bars and clipping.
 ---
 
 The other day I attended a meeting where the presenter switched from a PowerPoint slide to demonstrate an application.

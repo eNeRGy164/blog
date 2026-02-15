@@ -21,6 +21,10 @@ tags:
   - Entity Type Code
   - Entity Type Name
   - JavaScript
+thumbnail:
+  title: "Entity Type Code via JavaScript in Dynamics CRM"
+  subtitle: >
+    A client-side approach to retrieve custom entity type codes in Dynamics CRM without remote service calls.
 ---
 
 Every Microsoft Dynamics CRM developer has faced this problem:

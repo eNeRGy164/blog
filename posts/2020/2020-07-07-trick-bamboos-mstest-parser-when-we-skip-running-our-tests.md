@@ -23,6 +23,10 @@ tags:
   - PowerShell
   - Task
   - Work around
+thumbnail:
+  title: "Trick Bamboo's MSTest Parser on Skipped Tests"
+  subtitle: >
+    A workaround when skipping tests causes the MSTest parser task to fail.
 ---
 
 I use the [MSTest Parser task](https://confluence.atlassian.com/bamboo/mstest-parser-289277057.html) in a [Bamboo](https://www.atlassian.com/software/bamboo) build plan to add a report of tests that were executed and their outcome.

@@ -23,6 +23,10 @@ tags:
   - SharePoint 2010
   - Trust
   - WSS 3.0
+thumbnail:
+  title: "People Picker Over a One-Way Trust"
+  subtitle: >
+    Configuring SharePoint People Picker to resolve accounts from a trusted domain over a one-way trust.
 ---
 
 When you have a SharePoint farm and you want to use accounts from another domain you need a partial (one-way) or a full (two-way) trust between those domains.

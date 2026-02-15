@@ -20,6 +20,10 @@ tags:
   - Exam
   - MCSD
   - UWP
+thumbnail:
+  title: "My Road to MCSD: Universal Windows Platform"
+  subtitle: >
+    Tips and preparation advice for the Microsoft MCSD UWP certification beta exams.
 ---
 
 ![MCSD Universal Windows Platform](/wp-content/uploads/2016/02/MCSD-UniversalWindowsPlatform-smaller-logo.png)

@@ -18,6 +18,10 @@ tags:
   - Hyper-V
   - Integration Components
   - Linux
+thumbnail:
+  title: "Linux Integration Services 2.1 Beta"
+  subtitle: >
+    Testing the new Hyper-V features: 4 vCPUs, time sync and graceful shutdown for Linux VMs.
 ---
 
 Today the Microsoft Virtualization Team [announced the availability of the new beta version of the Linux Integration Services for Hyper-V](https://techcommunity.microsoft.com/blog/virtualization/announcing-the-availability-of-the-beta-version-of-linux-integration-services-fo/381715). There are three big changes in this version:

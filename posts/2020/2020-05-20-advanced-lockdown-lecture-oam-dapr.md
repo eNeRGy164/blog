@@ -23,6 +23,10 @@ tags:
   - OAM
   - Presenting
   - Slides
+thumbnail:
+  title: "Lockdown Lecture: OAM & Dapr"
+  subtitle: >
+    Recording and slides on Open Application Model and Distributed Application Runtime.
 ---
 
 These times should not prevent us from sharing knowledge and keep learning about great innovative technologies.

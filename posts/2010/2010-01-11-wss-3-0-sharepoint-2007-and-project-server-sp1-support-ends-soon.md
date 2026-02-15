@@ -19,6 +19,10 @@ tags:
   - SP2
   - Support
   - WSS 3.0
+thumbnail:
+  title: "SharePoint 2007 & Project Server SP1 Support Ending"
+  subtitle: >
+    A reminder that SP1 support for WSS 3.0, SharePoint 2007 and Project Server 2007 is nearing its end.
 ---
 
 > [!NOTE]

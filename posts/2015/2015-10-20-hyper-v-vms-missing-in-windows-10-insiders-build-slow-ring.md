@@ -16,6 +16,10 @@ categories:
   - PowerShell
 tags:
   - Registry
+thumbnail:
+  title: "Hyper-V VMs Missing After Windows 10 Update"
+  subtitle: >
+    Recovering missing virtual machines from Hyper-V Manager after a Windows 10 Insider build upgrade.
 ---
 
 My PC just got upgraded to the latest Windows 10 Insiders build (slow ring, build 10565) and suddenly a couple of VMs were missing from the Hyper-V Manager.

@@ -20,6 +20,10 @@ tags:
   - Presenting
   - Speaking
   - TechDays
+thumbnail:
+  title: "TechDays 2017: Sharing My Slides"
+  subtitle: >
+    Slides and code from a TechDays 2017 session on securing solutions with Azure Key Vault.
 ---
 
 Today I presented a session, in Dutch, titled

@@ -23,6 +23,10 @@ tags:
   - SharePoint 2010
   - URI
   - WSS 3.0
+thumbnail:
+  title: "URL Translation with Alternate Access Mappings"
+  subtitle: >
+    Programmatically translating SharePoint URLs between zones using the Alternate Access Mapping API.
 ---
 
 With SharePoint it is easy to configure multiple zones for your SharePoint Web Application.

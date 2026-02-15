@@ -17,6 +17,10 @@ tags:
   - SPUrlUtility
   - SPUtility
   - URI
+thumbnail:
+  title: "Working with URLs in SharePoint"
+  subtitle: >
+    Using hidden SharePoint utility classes like SPUtility and SPUrlUtility to simplify URL handling in code.
 ---
 
 While working on a project with some existing code I noticed the developer did write large portions of code to get from an URL to a [SPList][SP_LIST].

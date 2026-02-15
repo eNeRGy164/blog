@@ -15,6 +15,10 @@ tags:
   - Certification
   - Conference
   - Project Server 2007
+thumbnail:
+  title: "Project Conference 2007"
+  subtitle: >
+    Attending the Project Conference in Seattle, gaining insider knowledge and passing the MCTS certification exam.
 ---
 
 It has been a while having time and content to post on this blog but I am back again. 🙂

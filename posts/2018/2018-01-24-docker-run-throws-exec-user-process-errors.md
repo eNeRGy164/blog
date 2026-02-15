@@ -23,6 +23,10 @@ tags:
   - Linefeed
   - Unicode
   - Windows
+thumbnail:
+  title: "Fixing Docker exec user process Errors"
+  subtitle: >
+    Solving charset and linefeed issues when building Linux Docker images on Windows.
 ---
 
 When recently creating a Linux [Docker](https://www.docker.com/) image using

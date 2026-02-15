@@ -21,6 +21,10 @@ tags:
   - Windows Server 2008
   - Windows Server 2008R2
   - x64
+thumbnail:
+  title: "SharePoint 2010 & Project Server 2010 Requirements"
+  subtitle: >
+    Office 2010 server products go 64-bit only, requiring Windows Server 2008 and 64-bit SQL Server.
 ---
 
 As announced yesterday by Microsoft, the Office 2010 products will be 64bit only in the future.
