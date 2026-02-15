@@ -25,23 +25,17 @@
   gradient background, subtle grid, rounded glass-like card, soft circles, year watermark.
 - Typography must match the archive style and use explicit sans-serif stack on all SVG text:
   `"Segoe UI", "Segoe UI Variable", "DejaVu Sans", Arial, sans-serif`.
-- Use category-based colors (gradient start -> end):
-  - Architecture: `amber` (`#5a4300` -> `#b7860b`)
-  - Azure: `azure` (`#0b3d91` -> `#0078d4`)
-  - C#: `csharp` (`#3d2a6e` -> `#7c4dff`)
-  - Docker: `docker` (`#0f3042` -> `#2496ed`)
-  - Dynamics CRM: `dynamics` (`#4b2b6b` -> `#8e44ad`)
-  - Hyper-V: `hyperv` (`#10345a` -> `#2f74c0`)
-  - Machine Learning: `machinelearning` (`#1f4a32` -> `#5faa4a`)
-  - Office: `office` (`#6b2b00` -> `#d24726`)
-  - PowerShell: `powershell` (`#012456` -> `#5391fe`)
-  - Project Server: `projectserver` (`#1d3f4d` -> `#3f93a9`)
-  - SQL: `sql` (`#1f4f3b` -> `#2f9d72`)
-  - SharePoint: `sharepoint` (`#004b50` -> `#00a4aa`)
-  - Surface: `surface` (`#3a3a3a` -> `#7b8794`)
-  - Visual Studio: `visualstudio` (`#3b1f66` -> `#68217a`)
-  - Windows: `windows` (`#0e4a7b` -> `#168dd9`)
-  - Windows Phone: `windowsphone` (`#7a1f57` -> `#c03f8f`)
+- Category colors are defined in `src/config/category-colors.ts` (single source of truth).
+  The thumbnail generator mirrors the same derivation logic locally.
+- Derivation rules (gradient start → end):
+  - Main color per top-level category (7 categories):
+    Architecture `#9E9D24`, Azure `#0078D4`, C# `#9B4DCA`,
+    Machine Learning `#2E7D32`, Microsoft 365 `#D32F2F`,
+    PowerShell `#283593`, Windows `#0097A7`.
+  - Gradient start = darken(main, 45%), gradient end = main color.
+  - Sub-category colors = lighten(parent, n×6%) + desaturate(parent, n×8%)
+    where n = child index (1-based).
+  - Fallback palettes = hueRotate(`#607D8B`, [0°, 60°, 120°, 240°]).
   - Unknown categories: deterministic hash-based palette fallback.
 - Social (`1200x630`) includes:
   `From the YYYY archive`, title, subtitle, and 2-3 chips.
@@ -60,6 +54,15 @@
 - The image handler resolves that request to same-name PNG and serves optimized WebP.
 - The `150x150` variant also prefers a dedicated square source (`-185x185` or `-182x185`) when present.
 - If no dedicated square PNG exists, fallback remains the auto-generated `-185x185.webp`.
+
+### Thumbnail text source
+
+- Title and subtitle rendered on generated thumbnails come from the optional
+  `thumbnail` frontmatter block in each post (`thumbnail.title`, `thumbnail.subtitle`).
+- Only posts with generated thumbnails (`post-YYYY-MM-DD-thumbnail.png`) should
+  have this block. Posts with custom-designed images omit it.
+- When no `thumbnail` block is present, the generator falls back to
+  a mechanical extraction from the post title and excerpt.
 
 ### Workflow
 
