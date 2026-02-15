@@ -3,7 +3,7 @@
  * PostFooter
  * Post metadata (categories, last update) and prev/next navigation.
  */
-import { urlifyToken } from "@/js/util.js";
+import { urlifyToken, getCategoryDisplayName } from "@/js/util.js";
 import moment from "moment";
 
 import type { CollectionEntry } from 'astro:content';
@@ -32,7 +32,7 @@ const lastUpdatedMoment = moment(lastUpdated);
           Filed under
           {sortedCategories.map((category, idx) => (
             <>
-              <a href={`/category/${urlifyToken(category)}/`} rel="category">{category.replace('csharp', 'C#')}</a>{idx < categories.length - 1 ? ", " : null}
+              <a href={`/category/${urlifyToken(category)}/`} rel="category">{getCategoryDisplayName(category)}</a>{idx < categories.length - 1 ? ", " : null}
             </>
           ))}
         </>

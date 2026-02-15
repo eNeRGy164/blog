@@ -1,7 +1,7 @@
 ---
 import BasePageLayout from "@/layouts/BasePageLayout.astro";
 import ListItem from "@/components/ListItem.astro";
-import { urlifyToken, sortedPosts } from "@/js/util.js";
+import { urlifyToken, sortedPosts, getCategoryDisplayName } from "@/js/util.js";
 import { SITE_AUTHOR, SITE_TITLE } from "@/config.ts";
 import menuData from "@/config/main-menu.yaml";
 import { getCollection } from "astro:content";
@@ -15,7 +15,7 @@ interface MenuData { menu: MenuItem[]; }
 export const typedMenuData: MenuData = menuData;
 
 const { posts } = Astro.props;
-const category = Astro.props.category.replace("csharp", "C#");
+const category = getCategoryDisplayName(Astro.props.category);
 
 // Helper to create a dynamic category map from menuData
 export const buildCategoryMap = (menu: MenuItem[]) => {
