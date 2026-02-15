@@ -29,6 +29,15 @@
   --color-border-dark: #666;
   --color-link-cta: #0066cc;
 
+  --color-cat-architecture: #9E9D24;
+  --color-cat-azure: #0078D4;
+  --color-cat-csharp: #9B4DCA;
+  --color-cat-machine-learning: #2E7D32;
+  --color-cat-microsoft-365: #D32F2F;
+  --color-cat-powershell: #283593;
+  --color-cat-windows: #0097A7;
+  --color-fallback-base: #607D8B;
+
   --spacing-ultra-tiny: 0.125rem;
   --spacing-tiny: 0.25rem;
   --spacing-small: 0.5rem;

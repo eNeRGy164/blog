@@ -142,7 +142,16 @@ Microsoft 365 enterprise services and productivity platform. Covers:
 
 - Platform-wide patterns and governance
 - Cross-service scenarios and integration points
+- Cloud-based productivity services (Bing for business, Office 365 migrations)
 - New posts: M365 announcements, best practices, multi-service guidance
+
+#### Office
+
+Microsoft Office applications (Word, Excel, PowerPoint, Live Meeting, etc.).
+
+- Add-ins, document automation, formatting
+- Tips, tricks, and lesser-known features
+- New posts: Office hacks, add-in development, productivity tips
 
 #### CRM
 
@@ -167,14 +176,6 @@ Project Server and project management within M365.
 - Project data, timesheets, resource management
 - Portfolio management, custom fields
 - New posts: Project Server setup, PSI usage, data queries
-
-### Office
-
-Microsoft Office applications (Word, Excel, PowerPoint, etc.).
-
-- Add-ins, document automation, formatting
-- Tips, tricks, and lesser-known features
-- New posts: Office hacks, add-in development, productivity tips
 
 ### PowerShell
 
@@ -243,6 +244,8 @@ Guidance:
 - `id` is a unique integer for the post, at least 1 higher than the last post.
 - `updated` is optional; include only when changed after publish.
 - `series` is optional; include only when the post is part of a series.
+- `thumbnail` is optional; include only for posts with generated thumbnails.
+  Omit for posts with custom-designed images.
 - Image filename pattern is `post-YYYY-MM-DD-thumbnail.(png|jpg)`.
 - If multiple posts share the same date, use numeric suffixes in publish order:
   oldest keeps no suffix, next uses `-2`, then `-3`, and so on.
@@ -265,6 +268,10 @@ tags:
   - <Tag>
   - <Tag>
 series: <Series Name>
+thumbnail:
+  title: <Short punchy title for social image>
+  subtitle: >
+    <1–2 sentence description for social image>
 ---
 ```
 
@@ -274,4 +281,8 @@ series: <Series Name>
   `post-YYYY-MM-DD[-N]-thumbnail.(png|jpg)`.
 - If multiple posts are on the same day, suffix in publish order:
   oldest has no suffix, then `-2`, `-3`, etc.
+- For posts with generated thumbnails (`.png` with date pattern), add the optional
+  `thumbnail` frontmatter block with a short `title` (max ~60 chars) and a
+  descriptive `subtitle` (max ~120 chars) for the social image text.
+  Omit `thumbnail` for posts with custom-designed images.
 - Thumbnail generation, layout, color mapping, and script commands are maintained in `AGENTS.md`.

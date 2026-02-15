@@ -4,186 +4,167 @@ import sharp from "sharp";
 
 const FONT_STACK = `"Segoe UI", "Segoe UI Variable", "DejaVu Sans", Arial, sans-serif`;
 
-const palettes = {
-  azure: {
-    start: "#0b3d91",
-    end: "#0078d4",
-    card: "rgba(11, 48, 113, 0.70)",
-    chip: "rgba(119, 170, 223, 0.42)",
-    watermark: "rgba(122, 176, 230, 0.20)",
-    bubble: "rgba(214, 230, 246, 0.32)",
-  },
-  csharp: {
-    start: "#3d2a6e",
-    end: "#7c4dff",
-    card: "rgba(49, 34, 88, 0.70)",
-    chip: "rgba(160, 138, 216, 0.42)",
-    watermark: "rgba(176, 154, 228, 0.20)",
-    bubble: "rgba(229, 222, 245, 0.30)",
-  },
-  docker: {
-    start: "#0f3042",
-    end: "#2496ed",
-    card: "rgba(12, 41, 57, 0.70)",
-    chip: "rgba(123, 182, 222, 0.42)",
-    watermark: "rgba(132, 190, 228, 0.20)",
-    bubble: "rgba(216, 235, 246, 0.31)",
-  },
-  dynamics: {
-    start: "#4b2b6b",
-    end: "#8e44ad",
-    card: "rgba(60, 34, 85, 0.70)",
-    chip: "rgba(166, 132, 190, 0.42)",
-    watermark: "rgba(178, 146, 202, 0.20)",
-    bubble: "rgba(233, 220, 242, 0.30)",
-  },
-  hyperv: {
-    start: "#10345a",
-    end: "#2f74c0",
-    card: "rgba(15, 48, 83, 0.70)",
-    chip: "rgba(121, 162, 205, 0.42)",
-    watermark: "rgba(132, 172, 212, 0.20)",
-    bubble: "rgba(216, 231, 245, 0.31)",
-  },
-  machinelearning: {
-    start: "#1f4a32",
-    end: "#5faa4a",
-    card: "rgba(24, 59, 40, 0.70)",
-    chip: "rgba(138, 188, 129, 0.42)",
-    watermark: "rgba(151, 199, 142, 0.20)",
-    bubble: "rgba(224, 238, 219, 0.30)",
-  },
-  office: {
-    start: "#6b2b00",
-    end: "#d24726",
-    card: "rgba(85, 35, 0, 0.70)",
-    chip: "rgba(205, 142, 122, 0.42)",
-    watermark: "rgba(216, 153, 132, 0.20)",
-    bubble: "rgba(245, 227, 220, 0.30)",
-  },
-  powershell: {
-    start: "#012456",
-    end: "#5391fe",
-    card: "rgba(1, 32, 77, 0.70)",
-    chip: "rgba(122, 163, 222, 0.42)",
-    watermark: "rgba(134, 175, 231, 0.20)",
-    bubble: "rgba(217, 232, 246, 0.31)",
-  },
-  projectserver: {
-    start: "#1d3f4d",
-    end: "#3f93a9",
-    card: "rgba(24, 52, 64, 0.70)",
-    chip: "rgba(126, 175, 189, 0.42)",
-    watermark: "rgba(138, 186, 199, 0.20)",
-    bubble: "rgba(218, 235, 239, 0.31)",
-  },
-  sql: {
-    start: "#1f4f3b",
-    end: "#2f9d72",
-    card: "rgba(25, 63, 47, 0.70)",
-    chip: "rgba(126, 186, 158, 0.42)",
-    watermark: "rgba(140, 198, 170, 0.20)",
-    bubble: "rgba(219, 238, 229, 0.31)",
-  },
-  sharepoint: {
-    start: "#004b50",
-    end: "#00a4aa",
-    card: "rgba(0, 60, 64, 0.70)",
-    chip: "rgba(108, 182, 186, 0.42)",
-    watermark: "rgba(121, 194, 198, 0.20)",
-    bubble: "rgba(206, 234, 235, 0.31)",
-  },
-  surface: {
-    start: "#3a3a3a",
-    end: "#7b8794",
-    card: "rgba(44, 44, 44, 0.70)",
-    chip: "rgba(149, 161, 173, 0.42)",
-    watermark: "rgba(160, 171, 181, 0.20)",
-    bubble: "rgba(229, 233, 238, 0.29)",
-  },
-  visualstudio: {
-    start: "#3b1f66",
-    end: "#68217a",
-    card: "rgba(47, 24, 82, 0.70)",
-    chip: "rgba(155, 126, 180, 0.42)",
-    watermark: "rgba(168, 138, 193, 0.20)",
-    bubble: "rgba(230, 220, 238, 0.30)",
-  },
-  windows: {
-    start: "#0e4a7b",
-    end: "#168dd9",
-    card: "rgba(13, 59, 98, 0.70)",
-    chip: "rgba(118, 175, 220, 0.42)",
-    watermark: "rgba(130, 187, 230, 0.20)",
-    bubble: "rgba(214, 233, 246, 0.31)",
-  },
-  windowsphone: {
-    start: "#7a1f57",
-    end: "#c03f8f",
-    card: "rgba(96, 24, 68, 0.70)",
-    chip: "rgba(190, 130, 167, 0.42)",
-    watermark: "rgba(202, 142, 179, 0.20)",
-    bubble: "rgba(240, 223, 233, 0.30)",
-  },
-  architecture: {
-    start: "#5a4300",
-    end: "#b7860b",
-    card: "rgba(72, 54, 0, 0.70)",
-    chip: "rgba(186, 163, 103, 0.42)",
-    watermark: "rgba(198, 174, 114, 0.20)",
-    bubble: "rgba(237, 228, 201, 0.30)",
-  },
-  blue: {
-    start: "#133a5b",
-    end: "#327eb7",
-    card: "rgba(19, 53, 82, 0.70)",
-    chip: "rgba(121, 165, 195, 0.42)",
-    watermark: "rgba(124, 170, 202, 0.20)",
-    bubble: "rgba(217, 232, 245, 0.32)",
-  },
-  teal: {
-    start: "#0e4b5a",
-    end: "#2a9d8f",
-    card: "rgba(12, 64, 74, 0.70)",
-    chip: "rgba(109, 180, 169, 0.42)",
-    watermark: "rgba(116, 191, 180, 0.20)",
-    bubble: "rgba(204, 233, 228, 0.32)",
-  },
-  purple: {
-    start: "#4b235e",
-    end: "#8a4fa6",
-    card: "rgba(58, 27, 74, 0.70)",
-    chip: "rgba(168, 132, 186, 0.42)",
-    watermark: "rgba(184, 148, 204, 0.20)",
-    bubble: "rgba(233, 220, 241, 0.30)",
-  },
-  amber: {
-    start: "#5b3c11",
-    end: "#a97822",
-    card: "rgba(73, 49, 15, 0.70)",
-    chip: "rgba(181, 150, 98, 0.42)",
-    watermark: "rgba(193, 162, 106, 0.20)",
-    bubble: "rgba(236, 222, 196, 0.30)",
-  },
+/* -----------------------------------------------------------------------
+   Color derivation helpers (HSL-based)
+   Mirrors the logic in src/config/category-colors.ts for the Node script.
+   ----------------------------------------------------------------------- */
+
+function hexToRgb(hex) {
+  const h = hex.replace("#", "");
+  return [
+    parseInt(h.slice(0, 2), 16),
+    parseInt(h.slice(2, 4), 16),
+    parseInt(h.slice(4, 6), 16),
+  ];
+}
+
+function rgbToHex(r, g, b) {
+  const clamp = (v) => Math.max(0, Math.min(255, Math.round(v)));
+  return (
+    "#" +
+    [clamp(r), clamp(g), clamp(b)]
+      .map((v) => v.toString(16).padStart(2, "0"))
+      .join("")
+  );
+}
+
+function rgbToHsl(r, g, b) {
+  const rn = r / 255;
+  const gn = g / 255;
+  const bn = b / 255;
+  const max = Math.max(rn, gn, bn);
+  const min = Math.min(rn, gn, bn);
+  const l = (max + min) / 2;
+  if (max === min) return [0, 0, l * 100];
+  const d = max - min;
+  const s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+  let h = 0;
+  if (max === rn) h = ((gn - bn) / d + (gn < bn ? 6 : 0)) / 6;
+  else if (max === gn) h = ((bn - rn) / d + 2) / 6;
+  else h = ((rn - gn) / d + 4) / 6;
+  return [h * 360, s * 100, l * 100];
+}
+
+function hslToRgb(h, s, l) {
+  const sn = s / 100;
+  const ln = l / 100;
+  if (sn === 0) {
+    const v = Math.round(ln * 255);
+    return [v, v, v];
+  }
+  const hue2rgb = (p, q, t) => {
+    let tn = t;
+    if (tn < 0) tn += 1;
+    if (tn > 1) tn -= 1;
+    if (tn < 1 / 6) return p + (q - p) * 6 * tn;
+    if (tn < 1 / 2) return q;
+    if (tn < 2 / 3) return p + (q - p) * (2 / 3 - tn) * 6;
+    return p;
+  };
+  const q = ln < 0.5 ? ln * (1 + sn) : ln + sn - ln * sn;
+  const p = 2 * ln - q;
+  const hn = h / 360;
+  return [
+    Math.round(hue2rgb(p, q, hn + 1 / 3) * 255),
+    Math.round(hue2rgb(p, q, hn) * 255),
+    Math.round(hue2rgb(p, q, hn - 1 / 3) * 255),
+  ];
+}
+
+function darken(hex, amount) {
+  const [r, g, b] = hexToRgb(hex);
+  const factor = 1 - amount;
+  return rgbToHex(r * factor, g * factor, b * factor);
+}
+
+function deriveChildColor(parentHex, childIndex) {
+  const [r, g, b] = hexToRgb(parentHex);
+  const [h, s, l] = rgbToHsl(r, g, b);
+  const newS = Math.max(0, s - 8 * childIndex);
+  const newL = Math.min(100, l + 6 * childIndex);
+  const [nr, ng, nb] = hslToRgb(h, newS, newL);
+  return rgbToHex(nr, ng, nb);
+}
+
+function hueRotate(hex, degrees) {
+  const [r, g, b] = hexToRgb(hex);
+  const [h, s, l] = rgbToHsl(r, g, b);
+  const newH = (((h + degrees) % 360) + 360) % 360;
+  const [nr, ng, nb] = hslToRgb(newH, s, l);
+  return rgbToHex(nr, ng, nb);
+}
+
+function makePalette(mainColor) {
+  return { start: darken(mainColor, 0.45), end: mainColor };
+}
+
+/* -----------------------------------------------------------------------
+   Category colors — single source of truth
+   ----------------------------------------------------------------------- */
+
+const MAIN_COLORS = {
+  architecture: "#9E9D24",
+  azure: "#0078D4",
+  csharp: "#9B4DCA",
+  "machine-learning": "#2E7D32",
+  "microsoft-365": "#D32F2F",
+  powershell: "#283593",
+  windows: "#0097A7",
 };
 
+// Sub-categories: [parent slug, child index (1-based)]
+const SUB_CATEGORIES = {
+  "visual-studio": ["csharp", 1],
+  sql: ["csharp", 2],
+  office: ["microsoft-365", 1],
+  "dynamics-crm": ["microsoft-365", 2],
+  sharepoint: ["microsoft-365", 3],
+  "project-server": ["microsoft-365", 4],
+  "hyper-v": ["windows", 1],
+  surface: ["windows", 2],
+  "windows-phone": ["windows", 3],
+};
+
+// Build all palettes from main colors + derivation
+const palettes = {};
+for (const [slug, color] of Object.entries(MAIN_COLORS)) {
+  palettes[slug] = makePalette(color);
+}
+for (const [slug, [parentSlug, childIndex]] of Object.entries(SUB_CATEGORIES)) {
+  const parentColor = MAIN_COLORS[parentSlug];
+  const childColor = deriveChildColor(parentColor, childIndex);
+  palettes[slug] = makePalette(childColor);
+}
+
+// Fallback palettes derived from neutral base via hue rotation
+const FALLBACK_BASE = "#607D8B";
+const FALLBACK_ROTATIONS = [0, 60, 120, 240];
+const fallbackKeys = ["neutral", "warm", "purple", "sage"];
+for (let i = 0; i < FALLBACK_ROTATIONS.length; i++) {
+  palettes[fallbackKeys[i]] = makePalette(
+    hueRotate(FALLBACK_BASE, FALLBACK_ROTATIONS[i]),
+  );
+}
+
+// Map category names (as they appear in post frontmatter) to palette keys
 const CATEGORY_PALETTE = new Map([
   ["architecture", "architecture"],
   ["azure", "azure"],
   ["c#", "csharp"],
-  ["docker", "docker"],
-  ["dynamics crm", "dynamics"],
-  ["hyper-v", "hyperv"],
-  ["machine learning", "machinelearning"],
+  ["docker", "azure"], // Docker has no dedicated color; closest match is azure
+  ["dynamics crm", "dynamics-crm"],
+  ["hyper-v", "hyper-v"],
+  ["machine learning", "machine-learning"],
+  ["microsoft 365", "microsoft-365"],
   ["office", "office"],
   ["powershell", "powershell"],
-  ["project server", "projectserver"],
+  ["project server", "project-server"],
   ["sql", "sql"],
   ["sharepoint", "sharepoint"],
   ["surface", "surface"],
-  ["visual studio", "visualstudio"],
+  ["visual studio", "visual-studio"],
   ["windows", "windows"],
-  ["windows phone", "windowsphone"],
+  ["windows phone", "windows-phone"],
 ]);
 
 function parseArgs(argv) {
@@ -472,6 +453,36 @@ function readFrontmatterField(frontmatter, key) {
   return inlineMatch ? unquoteYamlValue(inlineMatch[1]) : "";
 }
 
+function readThumbnailMeta(frontmatter) {
+  const block = frontmatter.match(
+    /^thumbnail:\s*\r?\n((?:[ \t]+.*(?:\r?\n|$))*)/m,
+  );
+  if (!block) return {};
+  const text = block[1];
+  const titleMatch = text.match(/^\s+title:\s*(.+)$/m);
+
+  // Subtitle can be inline or a YAML block scalar (> or |)
+  let subtitle;
+  const subtitleBlockMatch = text.match(
+    /^\s+subtitle:\s*[>|]-?\s*\r?\n((?:\s{4,}.*(?:\r?\n|$))*)/m,
+  );
+  if (subtitleBlockMatch && subtitleBlockMatch[1].trim()) {
+    subtitle = subtitleBlockMatch[1]
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter(Boolean)
+      .join(" ");
+  } else {
+    const subtitleInline = text.match(/^\s+subtitle:\s*(.+)$/m);
+    if (subtitleInline) subtitle = unquoteYamlValue(subtitleInline[1]);
+  }
+
+  return {
+    title: titleMatch ? unquoteYamlValue(titleMatch[1]) : undefined,
+    subtitle,
+  };
+}
+
 function buildSubtitle(frontmatter, body) {
   const excerpt = readFrontmatterField(frontmatter, "excerpt");
   const plainBody = markdownToPlain(body);
@@ -534,7 +545,7 @@ function pickPalette(title, categories) {
   }
   if (categories.length) {
     const paletteKeys = Object.keys(palettes).filter(
-      (key) => key !== "amber" && key !== "purple",
+      (key) => key !== "warm" && key !== "purple",
     );
     const hashed = hashString(
       categories.map((item) => normalizeCategory(item)).join("|"),
@@ -547,7 +558,7 @@ function pickPalette(title, categories) {
   if (
     /(pitfall|warning|support ends|ends soon|access denied|prevent)/.test(value)
   )
-    return palettes.amber;
+    return palettes.warm;
   if (
     /(could not|throws|nullreference|error|inaccessible|doesn.?t|fixed)/.test(
       value,
@@ -555,14 +566,14 @@ function pickPalette(title, categories) {
   )
     return palettes.purple;
   if (/(conference|releases|extends support|release|event)/.test(value))
-    return palettes.blue;
+    return palettes.neutral;
   if (
     /(sdk|config|install|using|tutorial|running|joining|linq|surface)/.test(
       value,
     )
   )
-    return palettes.teal;
-  return palettes.blue;
+    return palettes.sage;
+  return palettes.neutral;
 }
 
 function deriveChips(title, categories) {
@@ -856,11 +867,14 @@ async function main() {
     }
 
     const categories = parseCategories(frontmatter);
+    const thumbMeta = readThumbnailMeta(frontmatter);
     const baseData = {
-      title,
-      subtitle: buildSubtitle(frontmatter, body),
-      chips: deriveChips(title, categories),
-      palette: pickPalette(title, categories),
+      title: thumbMeta.title || title,
+      subtitle: thumbMeta.subtitle
+        ? { text: thumbMeta.subtitle, shortened: false }
+        : buildSubtitle(frontmatter, body),
+      chips: deriveChips(thumbMeta.title || title, categories),
+      palette: pickPalette(thumbMeta.title || title, categories),
     };
     const resolvedData = baseData;
     const subtitle = formatSubtitleForDisplay(resolvedData.subtitle);
