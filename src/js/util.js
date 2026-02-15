@@ -1,5 +1,28 @@
 "use strict";
 
+const displayNames = {
+  csharp: "C#",
+  "machine-learning": "Machine Learning",
+  "microsoft-365": "Microsoft 365",
+  "dynamics-crm": "Dynamics CRM",
+  "project-server": "Project Server",
+  "visual-studio": "Visual Studio",
+  "windows-phone": "Windows Phone",
+  "hyper-v": "Hyper-V",
+};
+
+/**
+ * Returns a human-readable display name for a category slug.
+ * If no custom mapping exists, returns the original value with
+ * hyphens replaced by spaces and title-cased.
+ */
+export function getCategoryDisplayName(slug) {
+  if (displayNames[slug]) return displayNames[slug];
+  return slug
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
 export function urlifyToken(s) {
   return s
     .toLowerCase()

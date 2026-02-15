@@ -3,7 +3,7 @@
  * FooterCategories
  * Footer category list derived from the posts collection.
  */
-import { urlifyToken } from '@/js/util.js'
+import { urlifyToken, getCategoryDisplayName } from "@/js/util.js";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -15,7 +15,7 @@ const { posts } = Astro.props;
 let categories = posts
   .flatMap((post) => post.data.categories)
   .filter((category): category is string => category != null)
-  .map((category) => category === 'csharp' ? 'C#' : category);
+  .map((category) => getCategoryDisplayName(category));
 
 categories = Array.from(new Set<string>(categories))
   .sort((a, b) => a.localeCompare(b));
