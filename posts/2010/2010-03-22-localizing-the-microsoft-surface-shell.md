@@ -23,6 +23,10 @@ tags:
   - Time
   - x64
   - x86
+thumbnail:
+  title: "Localizing the Microsoft Surface Shell"
+  subtitle: >
+    Changing the default US English locale of the Microsoft Surface Shell to support other languages and formats.
 ---
 
 The **Microsoft Surface** (the table, not the tablet) is a Windows Vista computer running the Microsoft Surface Shell.

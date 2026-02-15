@@ -13,7 +13,7 @@ excerpt: >
 permalink: /2017/09/28/bing-for-business-part-2-people-search/
 image: /wp-content/uploads/2017/09/post-2017-09-28-thumbnail.png
 categories:
-  - Office
+  - Microsoft 365
 tags:
   - Bing
   - Bing for business
@@ -21,6 +21,10 @@ tags:
   - Preview
   - Search
 series: Bing for business
+thumbnail:
+  title: "Bing for Business, Part 2: People Search"
+  subtitle: >
+    Exploring people search capabilities in Bing for business powered by Microsoft Graph and AI.
 ---
 
 This will be my second post about

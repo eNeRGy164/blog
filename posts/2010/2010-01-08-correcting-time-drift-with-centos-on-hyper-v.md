@@ -18,6 +18,10 @@ tags:
   - Linux
   - NTP
   - VM
+thumbnail:
+  title: "Fixing Time Drift: CentOS on Hyper-V"
+  subtitle: >
+    Solving persistent clock drift in Linux Hyper-V VMs using kernel boot parameters.
 ---
 
 I was having trouble with the clock in my Linux Hyper-V VMs.

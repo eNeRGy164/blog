@@ -23,6 +23,10 @@ tags:
   - Function
   - Storage Account
   - Template
+thumbnail:
+  title: "ARM Template Functions for Connection Strings"
+  subtitle: >
+    Using user-defined functions to build Storage Account connection strings in ARM templates.
 ---
 
 When working with ARM Templates, chances are you have set a value that was a storage account connection string.

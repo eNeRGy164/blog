@@ -21,6 +21,10 @@ tags:
   - Pivot
   - UWP
   - Xaml
+thumbnail:
+  title: "Highlight Selected Pivot Header in UWP"
+  subtitle: >
+    Styling the selected pivot header with a custom background in UWP XAML apps.
 ---
 
 Not long ago I wrote a blog post about [Responsive Pivot Headers in Universal Windows Platform apps](/2015/09/04/responsive-pivot-headers-in-universal-windows-platform-apps).

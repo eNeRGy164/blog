@@ -22,6 +22,10 @@ tags:
   - Serious Request
   - Slides
   - Speaking
+thumbnail:
+  title: "dotNed Saturday 2017: Sharing My Slides"
+  subtitle: >
+    Slides from a Dutch session on building secure, scalable Azure web platforms for Serious Request.
 ---
 
 Last month I gave my session, in Dutch,

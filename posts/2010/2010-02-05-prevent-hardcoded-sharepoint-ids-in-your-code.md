@@ -22,6 +22,10 @@ tags:
   - SharePoint 2013
   - User Profile
   - WSS 3.0
+thumbnail:
+  title: "Stop Hardcoding SharePoint IDs"
+  subtitle: >
+    An overview of built-in SharePoint classes that provide out-of-the-box GUIDs, ContentTypeIds and field names.
 ---
 
 Now and again I come across code with hardcoded SharePoint IDs in it.

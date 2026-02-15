@@ -29,6 +29,10 @@ tags:
   - Machine Learning
   - ML.NET
   - ONNX
+thumbnail:
+  title: "Classify Bitmaps with Custom Vision ONNX"
+  subtitle: >
+    Using ML.NET to classify images with a downloaded Azure Custom Vision ONNX model.
 ---
 
 The Custom Vision service is one of the [Azure AI Services](https://azure.microsoft.com/products/ai-services/) that is provided by Microsoft.

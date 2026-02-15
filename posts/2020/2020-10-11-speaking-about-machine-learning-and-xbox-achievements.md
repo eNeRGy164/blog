@@ -22,6 +22,10 @@ tags:
   - Presenting
   - Speaking
   - Xbox
+thumbnail:
+  title: "Machine Learning Meets Xbox Achievements"
+  subtitle: >
+    Presenting a pet project combining ML image classification with Xbox achievements.
 ---
 
 A couple of my recent articles were about machine learning and image classification in C#.

@@ -22,6 +22,10 @@ tags:
   - Windows 7
   - WMV
   - x64
+thumbnail:
+  title: "Live Meeting 2007 Recording Converter"
+  subtitle: >
+    Converting Live Meeting recordings to WMV format for playback on x64 systems and Windows 7.
 ---
 
 This week I gave a presentation at Winvision and recorded it in Microsoft Office Live Meeting 2007.

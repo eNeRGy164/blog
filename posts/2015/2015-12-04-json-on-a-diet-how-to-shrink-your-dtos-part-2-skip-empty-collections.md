@@ -21,6 +21,10 @@ tags:
   - Mobile App Service
   - Web API
 series: JSON on a diet
+thumbnail:
+  title: "JSON on a Diet, Part 2: Empty Collections"
+  subtitle: >
+    Further reducing JSON payload size by omitting empty collections from serialized DTOs.
 ---
 
 This is the second part in a series of posts about reducing the amount of data transferred between ASP.NET Web API or Azure Mobile App Service and the (mobile) client.

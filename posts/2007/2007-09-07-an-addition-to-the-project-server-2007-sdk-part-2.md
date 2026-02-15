@@ -17,6 +17,10 @@ tags:
 series: Project Server 2007 SDK additions
 
 # cSpell:ignore WPRD_UID
+thumbnail:
+  title: "Project Server 2007 SDK Additions (Part 2)"
+  subtitle: >
+    Filling in undocumented TimePeriodDataSet member descriptions missing from the official SDK.
 ---
 
 I was browsing through the Project Server 2007 [`TimePeriodDataSet.TimePeriodsRow` members][TIME_PERIOD_ROW_MEMBERS]

@@ -17,6 +17,10 @@ tags:
   - BUILD
   - Conference
   - Microsoft
+thumbnail:
+  title: "Attending Microsoft Build 2016"
+  subtitle: >
+    Highlights and key announcements from the Microsoft Build 2016 developer conference in San Francisco.
 ---
 
 This week I will be attending the Microsoft Build 2016 conference in San Francisco.

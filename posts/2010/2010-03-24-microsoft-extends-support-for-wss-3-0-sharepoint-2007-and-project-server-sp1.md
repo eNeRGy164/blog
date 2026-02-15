@@ -18,6 +18,10 @@ tags:
   - SP1
   - Support
   - WSS 3.0
+thumbnail:
+  title: "Microsoft Extends SP1 Support"
+  subtitle: >
+    Microsoft reverses course and extends support for WSS 3.0 SP1, SharePoint 2007 SP1 and Project Server SP1.
 ---
 
 As I wrote in <time datetime="2010-01-11">January</time>

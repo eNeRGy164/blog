@@ -24,6 +24,10 @@ tags:
   - Windows 7
   - Windows Server 2008
   - Windows Server 2008R2
+thumbnail:
+  title: "IDataServiceUpdateProvider Error in SP2010"
+  subtitle: >
+    Fixing a type loading error when accessing SharePoint 2010 REST services via ListData.svc.
 ---
 
 I wanted to use the new REST services in SharePoint 2010. But when I navigated to the `ListData.svc` service.

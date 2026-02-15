@@ -20,6 +20,10 @@ tags:
   - WSS 3.0
 
 # cSpell:ignore editssp, sspname, enumssp
+thumbnail:
+  title: "Missing SSP Process Accounts Textbox"
+  subtitle: >
+    Finding the hidden SSP configuration needed for PSI web service impersonation in Project Server 2007.
 ---
 
 I had a lot of trouble using impersonation with the PSI web services in Project Server 2007.

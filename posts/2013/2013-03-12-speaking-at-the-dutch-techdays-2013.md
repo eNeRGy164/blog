@@ -17,6 +17,10 @@ tags:
   - Slides
   - Speaking
   - TechDays
+thumbnail:
+  title: "Speaking at the Dutch TechDays 2013"
+  subtitle: >
+    Presenting on using Windows Azure for the 3FM Serious Request charity event at TechDays Netherlands.
 ---
 
 ![Techdays 2013 Netherlands](/wp-content/uploads/2013/02/techdays-2013-logo.jpg)

@@ -18,6 +18,10 @@ tags:
 series: Project Server 2007 SDK additions
 
 # cSpell:ignore WADMIN_PROTECT_ACTUALS
+thumbnail:
+  title: "Project Server 2007 SDK Additions"
+  subtitle: >
+    Documenting undiscovered Admin web service properties missing from the official SDK.
 ---
 
 Currently I am working on a project which uses Microsoft Project Server 2007.

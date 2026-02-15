@@ -20,6 +20,10 @@ tags:
   - SQL
   - Transaction Log
   - TSQL
+thumbnail:
+  title: "Shrink SharePoint 2010 Dev Databases"
+  subtitle: >
+    Reducing disk usage by changing the recovery model and shrinking transaction logs on development servers.
 ---
 
 With SharePoint 2010 the number of databases on your SQL Server has grown quite a bit.

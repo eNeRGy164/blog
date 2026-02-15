@@ -23,6 +23,10 @@ tags:
   - InternalsVisibleTo
   - public key
   - sn
+thumbnail:
+  title: "CS0122: Inaccessible Without Going Public"
+  subtitle: >
+    Using InternalsVisibleTo to share internal members across assemblies without making them public.
 ---
 
 Sometimes you have to split your code into different assemblies.

@@ -14,6 +14,10 @@ tags:
   - Blog
   - Plugin
   - WordPress
+thumbnail:
+  title: "Blog Now Running on WordPress"
+  subtitle: >
+    Migrating from MovableType to WordPress after persistent Perl segfault issues.
 ---
 
 After having major, and unsolvable, problems with [MovableType][MOVABLETYPE] (MovableType was causing segfaults in Perl)

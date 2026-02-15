@@ -23,6 +23,10 @@ tags:
   - Open Source
   - Plugin
   - SDK
+thumbnail:
+  title: "Introducing Sandboxable for Azure NuGet"
+  subtitle: >
+    Open-source project enabling Azure NuGet packages to run in Dynamics CRM partial trust sandboxes.
 ---
 
 I would like to introduce to you Winvision's first open-source project: [Sandboxable](https://github.com/Winvision/Sandboxable).

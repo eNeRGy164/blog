@@ -23,6 +23,10 @@ tags:
   - Exception
   - Machine Learning
   - ML.NET
+thumbnail:
+  title: "When ML.NET Training Data Does Not Fit"
+  subtitle: >
+    Fixing InvalidOperationException when adding images causes an async operation error.
 ---
 
 When you have created a machine learning model, you will retrain that model when new data is available.

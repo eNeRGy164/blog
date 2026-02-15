@@ -17,6 +17,10 @@ tags:
   - PSI
   - PWA
   - WSS 3.0
+thumbnail:
+  title: "Pitfall: SiteData WS and the Site GUID"
+  subtitle: >
+    A subtle gotcha when building a PSContextInfo and retrieving the Site GUID outside a Project Server Event.
 ---
 
 When you want to use the PSI interface you need to have a [`PSContextInfo` class][PS_CONTEXT_INFO_CLASS].

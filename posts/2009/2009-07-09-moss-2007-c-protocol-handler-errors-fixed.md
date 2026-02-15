@@ -21,6 +21,10 @@ tags:
   - SharePoint 2007
   - x64
   - x86
+thumbnail:
+  title: "MOSS 2007 C# Protocol Handler Fixes"
+  subtitle: >
+    Fixing two bugs in the CodePlex C# Protocol Handler for indexing custom content sources in SharePoint.
 ---
 
 On CodePlex you can find the [MOSS 2007 - C# Protocol Handler project][PROTOCOL_HANDLER_PROJECT].

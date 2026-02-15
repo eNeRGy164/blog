@@ -16,6 +16,10 @@ tags:
   - SharePoint 2010
   - SharePoint Foundation
   - Wiki
+thumbnail:
+  title: "Default Layout and Content for Wiki Pages"
+  subtitle: >
+    Auto-setting the layout and content of new SharePoint wiki pages using event receivers.
 ---
 
 Recently I was challenged with the task to set the layout and content of a wiki page when a new page is added to a team site.

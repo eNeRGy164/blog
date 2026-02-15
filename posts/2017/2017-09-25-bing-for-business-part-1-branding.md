@@ -15,7 +15,7 @@ excerpt: >
 permalink: /2017/09/25/bing-for-business-part-1-branding/
 image: /wp-content/uploads/2017/09/post-2017-09-25-thumbnail.png
 categories:
-  - Office
+  - Microsoft 365
 tags:
   - Bing
   - Bing for business
@@ -23,6 +23,10 @@ tags:
   - Preview
   - Search
 series: Bing for business
+thumbnail:
+  title: "Bing for Business, Part 1: Branding"
+  subtitle: >
+    First look at Bing for business branding features for Office 365 organizations.
 ---
 
 At the Ignite conference keynote

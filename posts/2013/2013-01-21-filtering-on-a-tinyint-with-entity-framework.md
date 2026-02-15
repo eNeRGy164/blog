@@ -20,6 +20,10 @@ tags:
   - Contains
   - LINQ
   - tinyint
+thumbnail:
+  title: "Filtering on a Tinyint with Entity Framework"
+  subtitle: >
+    Entity Framework generates inefficient queries when filtering on tinyint columns, hurting performance.
 ---
 
 When writing .NET code to access a SQL database we often rely on the Entity Framework (EF).

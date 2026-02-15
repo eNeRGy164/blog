@@ -25,6 +25,10 @@ tags:
   - Azure
   - Container Registry
   - PowerShell
+thumbnail:
+  title: "Remove Docker Images from a Registry via PowerShell"
+  subtitle: >
+    Clean up unused Docker image tags using PowerShell and the Docker Registry HTTP API V2.
 ---
 
 When using a Docker Registry, like [hub.docker.com](https://hub.docker.com/),

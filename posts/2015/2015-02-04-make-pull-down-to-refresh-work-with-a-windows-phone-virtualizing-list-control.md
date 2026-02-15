@@ -29,6 +29,10 @@ tags:
   - WP8
   - WP8.1
   - Xaml
+thumbnail:
+  title: "Pull-Down-to-Refresh with Virtualizing Lists"
+  subtitle: >
+    Fixing pull-down-to-refresh issues when using VirtualizingStackPanel in Windows Phone apps.
 ---
 
 The other day I was working on a Windows Phone app.

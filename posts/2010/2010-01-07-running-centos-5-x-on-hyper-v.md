@@ -22,6 +22,10 @@ tags:
   - Windows Server 2008R2
 
 # cSpell:ignore kernel-xen-devel, seth0
+thumbnail:
+  title: "Running CentOS 5.x on Hyper-V"
+  subtitle: >
+    Step-by-step guide to installing CentOS with the new Linux Integration Components on Hyper-V.
 ---
 
 I am running Linux in Hyper-V VMs since the launch of the Windows Server 2008 RTM.

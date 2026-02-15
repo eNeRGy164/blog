@@ -23,6 +23,10 @@ tags:
   - URI
   - YAML
   - YamlDotNet
+thumbnail:
+  title: "Using URIs in YAML with YamlDotNet"
+  subtitle: >
+    Fixing URI serialization issues in YamlDotNet for .NET applications.
 ---
 
 Recently, I was using a [YAML](https://yaml.org/) file for storing some data for a pet project.

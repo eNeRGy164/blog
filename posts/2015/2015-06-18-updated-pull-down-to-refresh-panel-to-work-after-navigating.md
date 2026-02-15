@@ -21,6 +21,10 @@ tags:
   - WP8
   - WP8.1
   - Xaml
+thumbnail:
+  title: "Pull-Down-to-Refresh Fix After Navigation"
+  subtitle: >
+    Fix for pull-down-to-refresh functionality breaking after page navigation in Windows Phone apps.
 ---
 
 I received a couple of comments on my article about

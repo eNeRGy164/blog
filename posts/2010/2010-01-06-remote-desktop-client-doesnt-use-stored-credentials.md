@@ -17,6 +17,10 @@ tags:
   - RDP
   - Remote Desktop
   - Windows
+thumbnail:
+  title: "RDP Client Ignores Stored Credentials"
+  subtitle: >
+    Fixing a local policy setting that prevents Remote Desktop from using saved NTLM credentials.
 ---
 
 When I frequently connect to the same development machine using Remote Desktop Protocol (RDP),

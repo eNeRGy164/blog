@@ -18,6 +18,10 @@ tags:
   - MySite
   - ProfilePropertyImage
   - SharePoint 2007
+thumbnail:
+  title: "MySite NullReferenceException After CU"
+  subtitle: >
+    The August 2009 Cumulative Update for SharePoint 2007 breaks pages inheriting from MySitePublicWebPartPage.
 ---
 
 ## The problem

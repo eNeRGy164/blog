@@ -17,6 +17,10 @@ tags:
   - Slides
   - Speaking
   - WordPress
+thumbnail:
+  title: "WordCamp Nijmegen 2018: My Slides"
+  subtitle: >
+    Slides from presenting about hosting WordPress on Microsoft Azure at WordCamp.
 ---
 
 This weekend I was speaking at [WordCamp Nijmegen](https://2018.nijmegen.wordcamp.org/)

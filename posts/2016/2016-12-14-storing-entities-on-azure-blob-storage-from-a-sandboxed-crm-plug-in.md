@@ -23,6 +23,10 @@ tags:
   - Plugin
   - Sandbox
   - SDK
+thumbnail:
+  title: "Azure Blob Storage from Sandboxed CRM"
+  subtitle: >
+    Storing deleted CRM record data as files on Azure Blob Storage using a sandboxed plug-in.
 ---
 
 This post will be about a new sample of using "[Sandboxable](/2016/07/13/introducing-sandboxable-use-your-favorite-azure-nuget-packages-in-a-sandbox-environment)".

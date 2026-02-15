@@ -24,6 +24,10 @@ tags:
   - SharePoint 2010
   - stsadm
   - Trust
+thumbnail:
+  title: "People Picker Trust Config via PowerShell"
+  subtitle: >
+    Replacing stsadm with PowerShell cmdlets to securely configure People Picker over a one-way trust.
 ---
 
 In a previous article, I have written about

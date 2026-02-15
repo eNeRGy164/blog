@@ -20,6 +20,10 @@ tags:
   - HttpHandler
   - If-Modified-Since
   - Last-Modified
+thumbnail:
+  title: "Browser Caching for HttpHandler Output"
+  subtitle: >
+    Implementing Last-Modified and If-Modified-Since headers to enable proper 304 caching in a custom HttpHandler.
 ---
 
 Recently I worked on an [`HttpHandler` implementation](https://learn.microsoft.com/dotnet/api/system.web.ihttphandler?view=netframework-4.0) that is serving images from a backend system.

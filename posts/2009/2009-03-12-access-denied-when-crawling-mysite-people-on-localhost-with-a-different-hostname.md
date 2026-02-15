@@ -24,6 +24,10 @@ tags:
   - Windows Server 2008
 
 # Spell:ignore mysite
+thumbnail:
+  title: "Access Denied Crawling MySite on Localhost"
+  subtitle: >
+    Fixing search crawl errors caused by the Windows loopback check when using non-default hostnames locally.
 ---
 
 I have a clean install on the latest and greatest: Windows Server 2008, SQL Server 2008 and MOSS 2007 SP1 with all updates.

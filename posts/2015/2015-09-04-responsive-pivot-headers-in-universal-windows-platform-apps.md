@@ -21,6 +21,10 @@ tags:
   - Responsive
   - UWP
   - Xaml
+thumbnail:
+  title: "Responsive Pivot Headers in UWP Apps"
+  subtitle: >
+    Building adaptive pivot headers with RelativePanel and AdaptiveTrigger in UWP XAML.
 ---
 
 For a Universal Windows App I wanted to implement a Pivot.

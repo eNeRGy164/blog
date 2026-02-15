@@ -17,6 +17,10 @@ tags:
   - Configuration
   - Events
   - Project Server 2007
+thumbnail:
+  title: "App.config with Project Server Events"
+  subtitle: >
+    How to use configuration files with Project Server Event Receiver DLLs that don't support app.config directly.
 ---
 
 When building custom Project Server Event Receivers, the result is a DLL file.

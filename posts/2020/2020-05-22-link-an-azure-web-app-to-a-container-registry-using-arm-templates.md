@@ -22,6 +22,10 @@ tags:
   - Linux
   - Template
   - Web App
+thumbnail:
+  title: "Link Azure Web App to Container Registry via ARM"
+  subtitle: >
+    Deploy container-based web apps using ARM templates with Azure Container Registry.
 ---
 
 Using Docker images for your Azure web app is not brand-new functionality.

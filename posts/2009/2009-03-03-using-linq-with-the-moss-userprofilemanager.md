@@ -18,6 +18,10 @@ tags:
   - ProfileManager
   - SharePoint 2007
   - User Profile
+thumbnail:
+  title: "LINQ with the MOSS UserProfileManager"
+  subtitle: >
+    Splitting SharePoint users into groups based on User Profile properties using LINQ queries.
 ---
 
 Lately I am working a lot with LINQ and all flavors like LINQ to XML, LINQ to XSD, LINQ to objects, etc.  

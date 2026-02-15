@@ -23,6 +23,10 @@ tags:
   - x86
 
 # Spell:ignore VS2008SPLEVEL, VS2008CSPROJSUPPORT,VCSEXP2008SPLEVEL, DEXPLORE, VCSHARP90EXPRESS, VS90DEVENV
+thumbnail:
+  title: "Surface SDK with Visual Studio 2010"
+  subtitle: >
+    Restoring missing Surface project templates after upgrading from Visual Studio 2008 to 2010.
 ---
 
 With the launch of Visual Studio 2010 this week a lot of people will start upgrading to the new version.

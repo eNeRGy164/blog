@@ -21,6 +21,10 @@ tags:
   - Presenting
   - Serious Request
   - Speaking
+thumbnail:
+  title: "Speaking at dotNed Saturday 2017"
+  subtitle: >
+    Presenting on building a secure, scalable Azure platform for 3FM Serious Request at dotNed Saturday.
 ---
 
 ![dotNed Saturday logo](/wp-content/uploads/2016/12/dotned-saturday.png)
