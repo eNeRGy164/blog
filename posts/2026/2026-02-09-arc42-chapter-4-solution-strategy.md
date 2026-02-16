@@ -2,10 +2,10 @@
 id: 2129
 title: "arc42 chapter 4: Solution strategy"
 date: 2026-02-09T19:00:00+01:00
-updated: 2026-02-11T23:00:00+01:00
+updated: 2026-02-16T22:00:00+01:00
 author: Michaël Hompus
 excerpt: >
-  Chapter 4 opens the "How is it built and how does it work" group.
+  Chapter 4 opens the "How is it built and how does it run" group.
   It is where goals, constraints, and context from the first three chapters
   start to shape the design through a small set of guiding decisions.
 
@@ -25,7 +25,7 @@ tags:
 series: Arc42 Practical Series
 ---
 
-This post opens the "How is it built and how does it work" group.
+This post opens the "How is it built and how does it run" group.
 
 The first three chapters can feel like silos: each one introduces its own set of information.
 Here, those inputs start to shape the design. This is where you set direction for the solution.

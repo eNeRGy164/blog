@@ -2,7 +2,7 @@
 id: 2128
 title: "arc42 chapter 3: Context and scope"
 date: 2026-02-04T20:00:00+01:00
-updated: 2026-02-11T23:00:00+01:00
+updated: 2026-02-16T22:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 3 draws the boundary of your system.
@@ -307,7 +307,7 @@ Chapter 3 is where you make expectations explicit.
 Most problems show up at the boundary first, so investing in this chapter pays off quickly.
 
 This concludes the "Why and where" group of arc42 chapters.
-Next, we move on to the "How is it built and how does it work" group.
+Next, we move on to the "How is it built and how does it run" group.
 
 Next up: [arc42 chapter 4, "Solution strategy"](/2026/02/09/arc42-chapter-4-solution-strategy/), where we describe the approach and major decisions that guide the design.
 

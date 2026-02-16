@@ -2,11 +2,12 @@
 id: 2131
 title: "arc42 chapter 6: Runtime view"
 date: 2026-02-11T23:00:00+01:00
+updated: 2026-02-16T22:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 6 describes runtime behavior: how building blocks collaborate in the scenarios that matter,
   including alternatives, exceptions, and the bits that tend to hurt in production.
-  It is also the last chapter in the "How is it built and how does it work" group.
+  It is also the third chapter in the "How is it built and how does it run" group.
 
   In this article I show what belongs in chapter 6, what to keep out,
   a flexible structure you can copy, plus a small example from Pitstop.
@@ -26,7 +27,7 @@ series: Arc42 Practical Series
 ---
 
 This post is about **chapter 6: Runtime view**,
-the last chapter in the "How is it built and how does it work" group.
+the third chapter in the "How is it built and how does it run" group.
 
 Chapter [5][CH5] gave us the map (building blocks and responsibilities).
 Chapter 6 shows how that map is used in real life: **who talks to whom, in what order, and why**.
@@ -212,7 +213,7 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
 1. **Only documenting the happy path**  
    Architecture shows up in failure handling, retries, timeouts, and recovery.
 
-2. **Diagrams that don’t match your building blocks**  
+2. **Diagrams that do not match your building blocks**  
    If names and boundaries differ from chapter [5][CH5], readers lose their mental model.
 
 3. **Diagram noise instead of insight**  
@@ -251,9 +252,8 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
 ## Wrap-up
 
 Chapter 6 is where your architecture becomes visible in motion.
-With chapters [4][CH4], [5][CH5], and 6, the full **"How is it built and how does it work"** group is complete.
 
-Next up is the **"Rules, decisions, and qualities"** group starting with arc42 chapter 7 "Deployment view",
+Next up: [arc42 chapter 7 "Deployment view"][CH7],
 where we map building blocks onto infrastructure and environments.
 
 [PITSTOP_ARC42]: https://gist.github.com/eNeRGy164/90f63e78d3e528f7b8490538a6781b5f
@@ -261,5 +261,5 @@ where we map building blocks onto infrastructure and environments.
 [BPMN]: https://www.bpmn.org/
 [CAMUNDA_MODELER]: https://camunda.com/download/modeler/
 [CH3]: /2026/02/04/arc42-chapter-3-context-and-scope/
-[CH4]: /2026/02/09/arc42-chapter-4-solution-strategy/
 [CH5]: /2026/02/10/arc42-chapter-5-building-block-view/
+[CH7]: /2026/02/16/arc42-chapter-7-deployment-view/

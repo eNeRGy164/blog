@@ -2,7 +2,7 @@
 id: 2125
 title: "The Art of Simple Software Architecture Documentation (with arc42) - a practical series"
 date: 2026-02-01T21:50:00+01:00
-updated: 2026-02-11T23:00:00+01:00
+updated: 2026-02-16T22:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   After my "The Art of Simple Software Architecture Documentation" talk,
@@ -113,7 +113,7 @@ These chapters set the direction and boundaries.
 2. **Architecture constraints**
 3. **Context and scope**
 
-### How is it built and how does it work
+### How is it built and how does it run
 
 These chapters describe the actual solution.
 
@@ -122,12 +122,12 @@ These chapters describe the actual solution.
 4. **Solution strategy**
 5. **Building block view**
 6. **Runtime view**
+7. **Deployment view**
 
-### Rules, decisions, and qualities
+### Reusables, decisions, and qualities
 
 These chapters keep the system consistent and explain trade-offs.
 
-7. **Deployment view**
 8. **Cross-cutting concepts**
 9. **Architecture decisions**
 10. **Quality**
@@ -192,15 +192,15 @@ This hub will be updated as posts go live:
 - ✅ 2. [Architecture constraints][CH2]
 - ✅ 3. [Context and scope][CH3]
 
-**How is it built & how does it work:**
+**How is it built & how does it run:**
 
 - ✅ 4. [Solution strategy][CH4]
 - ✅ 5. [Building block view][CH5]
 - ✅ 6. [Runtime view][CH6]
+- ✅ 7. [Deployment view][CH7]
 
-**Rules, decisions, & qualities:**
+**Reusables, decisions, & qualities:**
 
-- ⏳ 7. Deployment view
 - ⏳ 8. Cross-cutting concepts
 - ⏳ 9. Architecture decisions
 - ⏳ 10. Quality
@@ -238,3 +238,4 @@ where we turn vague intentions into a small set of concrete quality goals.
 [CH4]: /2026/02/09/arc42-chapter-4-solution-strategy/
 [CH5]: /2026/02/10/arc42-chapter-5-building-block-view/
 [CH6]: /2026/02/11/arc42-chapter-6-runtime-view/
+[CH7]: /2026/02/16/arc42-chapter-7-deployment-view/

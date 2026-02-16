@@ -2,7 +2,7 @@
 id: 2126
 title: "arc42 chapter 1: Introduction and goals"
 date: 2026-02-02T22:30:00+01:00
-updated: 2026-02-10T20:00:00+01:00
+updated: 2026-02-16T22:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 1 sets the direction for the entire architecture document.
@@ -126,7 +126,7 @@ This is what chapter 1 looks like when filled in.
 >
 > - Import appointments from one or more planning services.
 > - Convert appointments into work orders (jobs/tasks, estimates, required skills, bay assignment).
-> - Provide an admin overview (today’s workload, lateness, bay utilization, priorities).
+> - Provide an admin overview (today's workload, lateness, bay utilization, priorities).
 > - Provide a workshop view (per bay/technician task list with fast status updates and notes).
 > - Push status changes back to planning (delays, ready-for-pickup, reschedule proposals).
 >
@@ -174,6 +174,7 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
    The hard part is that stakeholders often do not have a list.
 
    A practical approach that works well:
+
    - Ask <q>what would make this a success</q> and <q>what would make people complain</q>.
    - Turn the answers into 3–5 short scenarios with one measurable criterion each.
    - Start with rough numbers. You can refine them later once you have usage data.
@@ -184,6 +185,7 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
    If you require something from them, or they expect a service from your system, include them.
 
    A good way to expand the list:
+
    - End users (different roles, not one bucket)
    - Neighboring systems and their owners
    - Operations and support

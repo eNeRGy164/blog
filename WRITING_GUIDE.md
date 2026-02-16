@@ -9,7 +9,8 @@
 
 ## Quotes and punctuation
 
-- The renderer converts "quotes" to smartquotes, so in the markdown we can use simple quotes like `'` and `"`.
+- The renderer converts "quotes" to smartquotes, so in the markdown always use simple quotes (`'` and `"`).
+- Never use smart quotes/curly quotes in the markdown source.
 - Use plain double quotes for simple quoting.
 - Use <q>...</q> only for short quoted phrases, not for titles or headings.
 - Avoid em dashes. Use commas or separate sentences instead.
@@ -19,8 +20,8 @@
 - Use a short opener in the excerpt or intro to set expectations (e.g., "In this article I show…", "Learn what belongs…").
   Vary the phrasing naturally; avoid copy/pasting the same formula across posts.
 - Prefer short paragraphs (1–3 sentences) and a steady, step-by-step flow.
-- Avoid contractions when clarity matters (`do not`, `cannot`, `it is`).
-- Use occasional questions to frame the problem (“How do I know?”, “But what if…?”).
+- Avoid contractions entirely (`do not`, `cannot`, `it is`, `we are`). This makes text clearer for non-native readers.
+- Use occasional questions to frame the problem ("How do I know?", "But what if...?").
 - Close with a practical next step, a link, or a short "I might come back to this" note.
 - Use `<q>...</q>` for short quoted phrases and dialogue (e.g., `<q>this was never negotiable</q>`), not for titles or long quotations.
 - For technical tutorials, include context before diving into steps (the "why" before the "how").
