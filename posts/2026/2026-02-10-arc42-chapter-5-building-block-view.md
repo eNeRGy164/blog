@@ -2,7 +2,7 @@
 id: 2130
 title: "arc42 chapter 5: Building block view"
 date: 2026-02-10T20:00:00+01:00
-updated: 2026-02-11T23:00:00+01:00
+updated: 2026-02-16T22:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 5 turns strategy into structure using white-box decomposition.
@@ -27,14 +27,14 @@ series: Arc42 Practical Series
 ---
 
 This post is about **chapter 5: Building block view**,
-the second chapter in the "How is it built and how does it work" group.
+the second chapter in the "How is it built and how does it run" group.
 
 Chapter [4][CH4] set direction; chapter 5 makes it tangible.
 Here you describe the **static structure** of the system: the building blocks, what each one is responsible for,
 and which dependencies matter.
 
 The goal is not to document everything.
-The goal is to give readers a mental map of the solution, so changes and discussions stop happening "in someone’s head".
+The goal is to give readers a mental map of the solution, so changes and discussions stop happening "in someone's head".
 
 <!--more-->
 

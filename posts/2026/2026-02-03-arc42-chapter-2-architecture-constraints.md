@@ -2,7 +2,7 @@
 id: 2127
 title: "arc42 chapter 2: Architecture constraints"
 date: 2026-02-03T20:00:00+01:00
-updated: 2026-02-10T20:00:00+01:00
+updated: 2026-02-16T22:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 2 lists the non-negotiables that shape your design space.
