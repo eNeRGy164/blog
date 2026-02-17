@@ -276,7 +276,7 @@ This is what chapter 5 looks like when filled in.
 > | Audit/Event Log    | Immutable history for accountability + analytics | Append/read APIs                             |
 > | DB                 | Operational persistence                          | SQL (implementation-specific)                |
 >
-> ### 5.2 Level 2 — Pitstop Backend
+> ### 5.2 Level 2 - Pitstop Backend
 >
 > ![Level 2 - Pitstop Backend](/wp-content/uploads/2026/02/pitstop-building-block-level2.png)
 >

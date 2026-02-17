@@ -49,7 +49,9 @@
 - Checkboxes for actionable checklists: `🔲` for unchecked items.
 - Use `<kbd>...</kbd>` for keyboard shortcuts and UI navigation (e.g., `<kbd>Font</kbd> > <kbd>Subscript</kbd>`).
 - Add `<small>...</small>` for inline clarifications like measurement units or readability notes (e.g., `<small>(0.475kg CO₂/kWh is an average for The Netherlands)</small>`).
-- Use italic text with underscores for emphasis on specific words (e.g., `_running_`, `_local_`).
+- Use italic text with underscores for emphasis on specific words (e.g., `_running_`, `_local_`). Never use asterisks (`*`) for italic.
+- Use bold text with double asterisks (e.g., `**important**`). Never use underscores (`__`) for bold.
+- Use dashes (`-`) for unordered list items. Never use asterisks (`*`) or plus signs (`+`).
 - Use blockquotes (`>`) to present filled-in examples (e.g., a completed template), so they are visually distinct from the surrounding guidance.
 
 ## Links and wrap-up
