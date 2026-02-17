@@ -4,12 +4,11 @@ title: "arc42 chapter 7: Deployment view"
 date: 2026-02-16T22:00:00+01:00
 author: Michaël Hompus
 excerpt: >
-  Chapter 7 is where you describe how your system is deployed: nodes, environments, connections,
-  and runtime configuration. This is where "it works on my machine" goes to die (in a good way),
-  because you make infrastructure, settings, and operational expectations explicit.
-
-  In this article I show what belongs in chapter 7, what to keep out,
-  a minimal structure you can copy, plus a small example from Pitstop.
+  This post is about chapter 7: Deployment view,
+  the last chapter in the "How is it built and how does it run" group.
+  Chapter 7 answers: where do your building blocks run, in which environments, and with which settings?
+  This chapter turns "it works on my machine" from tribal knowledge into shared documentation.
+  No more guessing which settings matter or where things actually run.
 permalink: /2026/02/16/arc42-chapter-7-deployment-view/
 image: /wp-content/uploads/2026/02/post-2026-02-16-thumbnail.jpg
 categories:
