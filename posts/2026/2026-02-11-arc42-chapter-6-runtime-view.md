@@ -2,7 +2,7 @@
 id: 2131
 title: "arc42 chapter 6: Runtime view"
 date: 2026-02-11T23:00:00+01:00
-updated: 2026-02-16T22:00:00+01:00
+updated: 2026-02-17T20:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 6 describes runtime behavior: how building blocks collaborate in the scenarios that matter,
@@ -77,7 +77,7 @@ What does not belong here:
   repeating "return payload" on every arrow when nothing is transformed,
   or expanding every internal hop when it adds no architectural insight.
 - **Cross-cutting flows that are the same everywhere**, such as the OAuth/OIDC login flow.
-  That belongs in chapter 8 as a reusable concept (unless you are literally building an auth service 😅).
+  That belongs in chapter [8][CH8] as a reusable concept (unless you are literally building an auth service 😅).
 
 > [!NOTE]
 > Runtime view is where architecture stops being a set of boxes
@@ -263,3 +263,4 @@ where we map building blocks onto infrastructure and environments.
 [CH3]: /2026/02/04/arc42-chapter-3-context-and-scope/
 [CH5]: /2026/02/10/arc42-chapter-5-building-block-view/
 [CH7]: /2026/02/16/arc42-chapter-7-deployment-view/
+[CH8]: /2026/02/17/arc42-chapter-8-cross-cutting-concepts/

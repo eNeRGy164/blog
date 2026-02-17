@@ -2,6 +2,7 @@
 id: 2132
 title: "arc42 chapter 7: Deployment view"
 date: 2026-02-16T22:00:00+01:00
+updated: 2026-02-17T20:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   This post is about chapter 7: Deployment view,
@@ -88,7 +89,7 @@ What does not belong here:
 > [!NOTE]
 > Strictly speaking, arc42 does not prescribe a configuration section in chapter 7.
 > The template typically places the _what_ of a setting (meaning, default, contract) in chapter 5 (building block interfaces)
-> and the _how_ (override strategy, config patterns) in chapter 8 (crosscutting concepts).
+> and the _how_ (override strategy, config patterns) in chapter [8][CH8] (crosscutting concepts).
 > Chapter 7 itself only covers the _where_: which node, which manifest, which secret store.
 
 I prefer to consolidate configuration in chapter 7.
@@ -321,7 +322,7 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
 2. **Mixing behavior and placement**
    Chapter 7 is where things run and how they connect.
    Behavior generally belongs in runtime scenarios (chapter [6][CH6]).
-   Deployment-driven behavior (failover, DR, scaling) should be documented either here (when it depends on topology/environment) or in chapter 8 (when it is a reusable concept/pattern).
+   Deployment-driven behavior (failover, DR, scaling) should be documented either here (when it depends on topology/environment) or in chapter [8][CH8] (when it is a reusable concept/pattern).
 
 3. **Configuration without structure**
    A thousand keys in a wall of text is not documentation, it is punishment.
@@ -357,10 +358,11 @@ It is where "works in my head" becomes "works in an environment".
 
 With chapter 7 done, the full **"How is it built and how does it run"** group is complete.
 
-Next up is the **"Reusables, decisions, and qualities"** group, starting with arc42 chapter 8, "Concepts",
+Next up is the **"Reusables, decisions, and qualities"** group, starting with [arc42 chapter 8, "Concepts"][CH8],
 where we document the reusable cross-cutting ideas (auth, logging, error handling) without duplicating them in every scenario.
 
 [PITSTOP_ARC42]: https://gist.github.com/eNeRGy164/90f63e78d3e528f7b8490538a6781b5f
 [ARC42]: https://arc42.org/
 [CH5]: /2026/02/10/arc42-chapter-5-building-block-view/
 [CH6]: /2026/02/11/arc42-chapter-6-runtime-view/
+[CH8]: /2026/02/17/arc42-chapter-8-cross-cutting-concepts/

@@ -2,7 +2,7 @@
 id: 2125
 title: "The Art of Simple Software Architecture Documentation (with arc42) - a practical series"
 date: 2026-02-01T21:50:00+01:00
-updated: 2026-02-16T22:00:00+01:00
+updated: 2026-02-17T20:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   After my "The Art of Simple Software Architecture Documentation" talk,
@@ -156,12 +156,9 @@ Each chapter post will follow the same pattern:
 
 That way you can skim when you are busy, or go deeper when you are implementing it.
 
-## Where to start (today)
+## Where to start
 
-I am not publishing the entire series at once.
-This post is the hub, and I will add links here as each article is published.
-
-If you only write 3 things, write these first:
+This post is the hub for the series.
 
 ### If you only write 3 things, write these
 
@@ -182,9 +179,7 @@ Once those are clear, you can add:
 
 ## Series status
 
-This hub will be updated as posts go live:
-
-### Planned posts
+### Posts
 
 **Why & where:**
 
@@ -201,7 +196,7 @@ This hub will be updated as posts go live:
 
 **Reusables, decisions, & qualities:**
 
-- ⏳ 8. Cross-cutting concepts
+- ✅ 8. [Cross-cutting concepts][CH8]
 - ⏳ 9. Architecture decisions
 - ⏳ 10. Quality
 
@@ -239,3 +234,4 @@ where we turn vague intentions into a small set of concrete quality goals.
 [CH5]: /2026/02/10/arc42-chapter-5-building-block-view/
 [CH6]: /2026/02/11/arc42-chapter-6-runtime-view/
 [CH7]: /2026/02/16/arc42-chapter-7-deployment-view/
+[CH8]: /2026/02/17/arc42-chapter-8-cross-cutting-concepts/
