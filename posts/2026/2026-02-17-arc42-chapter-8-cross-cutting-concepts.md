@@ -2,6 +2,7 @@
 id: 2133
 title: "arc42 chapter 8: Cross-cutting concepts"
 date: 2026-02-17T20:00:00+01:00
+updated: 2026-02-18T21:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 8 is the patterns and practices chapter.
@@ -71,7 +72,7 @@ What does not belong here:
   Chapter 8 should explain what a setting _means_ and why it exists, not list every key in the system.
   The full reference is better placed in chapter [7][CH7] or a dedicated config reference.
 - Highly local implementation details that are unlikely to be reused.  
-  Those belong close to the code, or in an ADR when it is a decision with consequences (chapter 9).
+  Those belong close to the code, or in an ADR when it is a decision with consequences (chapter [9][CH9]).
 - Hard architectural constraints or enterprise policies.  
   Mandates like "Cloud First" or compliance rules belong in chapter [2][CH2].
   Chapter 8 documents the reusable patterns you designed, not the constraints you were forced to follow.
@@ -105,7 +106,7 @@ They might care when it explains system guarantees (auditability, safety, recove
 
 ### Chapter 8 vs. Chapter 9: Concepts vs. decisions
 
-A common question: when does something belong in chapter 8 versus chapter 9 (ADRs)?
+A common question: when does something belong in chapter 8 versus chapter [9][CH9] (ADRs)?
 
 The boundary is clearer than it first appears:
 
@@ -171,7 +172,7 @@ A few guardrails that help:
 - If a section becomes a wall of text, split it:
   move low-level specifics into a code-linked doc and keep chapter 8 as the overview.
 - When a concept evolves, document both the current standard and the migration path.
-  Mark old approaches explicitly as "legacy" or "deprecated" with a timeline, and link to the ADR (chapter 9) that explains why it changed.
+  Mark old approaches explicitly as "legacy" or "deprecated" with a timeline, and link to the ADR (chapter [9][CH9]) that explains why it changed.
   This prevents new code from following outdated patterns while giving teams visibility into what they need to update.
 
 ## The minimum viable version
@@ -390,7 +391,7 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
 
 🔲 The chapter contains concepts that are reused or intended to be reused over time.  
 🔲 Each concept includes at least one actionable rule, not only a description.  
-🔲 Concepts link to where they show up (chapters [5][CH5], [6][CH6], [7][CH7], and later ADRs in chapter 9).  
+🔲 Concepts link to where they show up (chapters [5][CH5], [6][CH6], [7][CH7], and later ADRs in chapter [9][CH9]).  
 🔲 The chapter helps keep runtime scenarios lean by avoiding repeated explanations.  
 🔲 A maintainer can implement a new feature without reinventing logging, retries, idempotency, or authorization.
 
@@ -406,7 +407,7 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
 Chapter 8 is where I capture the reusable solutions that make the rest of the document cheaper to maintain.
 It keeps the domain code focused, and it keeps chapter [6][CH6] readable.
 
-Next up: arc42 chapter 9, "Architectural decisions", where we record all the decisions that we made along the way.
+Next up: [arc42 chapter 9, "Architectural decisions"][CH9], where we record all the decisions that we made along the way.
 
 [PITSTOP_ARC42]: https://gist.github.com/eNeRGy164/90f63e78d3e528f7b8490538a6781b5f
 [ARC42]: https://arc42.org/
@@ -414,3 +415,4 @@ Next up: arc42 chapter 9, "Architectural decisions", where we record all the dec
 [CH5]: /2026/02/10/arc42-chapter-5-building-block-view/
 [CH6]: /2026/02/11/arc42-chapter-6-runtime-view/
 [CH7]: /2026/02/16/arc42-chapter-7-deployment-view/
+[CH9]: /2026/02/18/arc42-chapter-9-architectural-decisions/

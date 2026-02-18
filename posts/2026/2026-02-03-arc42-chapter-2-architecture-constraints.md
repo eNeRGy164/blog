@@ -2,7 +2,7 @@
 id: 2127
 title: "arc42 chapter 2: Architecture constraints"
 date: 2026-02-03T20:00:00+01:00
-updated: 2026-02-16T22:00:00+01:00
+updated: 2026-02-18T21:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 2 lists the non-negotiables that shape your design space.
@@ -57,7 +57,7 @@ What belongs here:
 
 What does not belong here:
 
-- Architecture choices you still get to make (save those for chapter [4][CH4] and chapter 9).
+- Architecture choices you still get to make (save those for chapter [4][CH4] and chapter [9][CH9]).
 - Personal preferences (<q>I like microservices</q>, <q>we always use Kafka</q>).
 - Detailed design, diagrams, protocols, or deployment layouts.
 
@@ -159,7 +159,7 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
 3. **Mixing constraints and decisions**  
    <q>We will use PostgreSQL</q> is usually a decision.  
    <q>We must use the company-managed PostgreSQL platform</q> is a constraint.  
-   If it is not truly non-negotiable, move it to chapter [4][CH4] or chapter 9.
+   If it is not truly non-negotiable, move it to chapter [4][CH4] or chapter [9][CH9].
 
 4. **No impact column**  
    A constraint without impact does not help the team.
@@ -205,3 +205,4 @@ Next up: [arc42 chapter 3, "Context and scope"][CH3], where we draw the boundary
 [ARC42]: https://arc42.org/
 [CH3]: /2026/02/04/arc42-chapter-3-context-and-scope/
 [CH4]: /2026/02/09/arc42-chapter-4-solution-strategy/
+[CH9]: /2026/02/18/arc42-chapter-9-architectural-decisions/

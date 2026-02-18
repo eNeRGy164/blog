@@ -2,7 +2,7 @@
 id: 2130
 title: "arc42 chapter 5: Building block view"
 date: 2026-02-10T20:00:00+01:00
-updated: 2026-02-16T22:00:00+01:00
+updated: 2026-02-18T21:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 5 turns strategy into structure using white-box decomposition.
@@ -332,7 +332,7 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
    If you do not answer this, production will answer it for you.
 
 6. **Using technology names as architecture**  
-   <q>Kafka</q> and <q>PostgreSQL</q> are implementation choices.
+   "Kafka" and "PostgreSQL" are implementation choices.
    Building blocks should describe responsibilities (message bus, persistence, state, integrations),
    so your diagrams remain useful when technology or deployment changes.
 
@@ -346,7 +346,7 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
 
 ## Next improvements backlog
 
-- Add ADR links when boundaries or decomposition are disputed (chapter 9).
+- Add ADR links when boundaries or decomposition are disputed (chapter [9][CH9]).
 - Add level 3 only for a few areas where deeper detail prevents misunderstandings.
 - Add links to code/docs where building blocks map cleanly to modules or repos.
 
@@ -364,3 +364,4 @@ Next up: [arc42 chapter 6, "Runtime view"][CH6], where we put this structure in 
 [CH3]: /2026/02/04/arc42-chapter-3-context-and-scope/
 [CH4]: /2026/02/09/arc42-chapter-4-solution-strategy/
 [CH6]: /2026/02/11/arc42-chapter-6-runtime-view/
+[CH9]: /2026/02/18/arc42-chapter-9-architectural-decisions/
