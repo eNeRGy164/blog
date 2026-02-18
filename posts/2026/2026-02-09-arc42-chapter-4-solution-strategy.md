@@ -2,7 +2,7 @@
 id: 2129
 title: "arc42 chapter 4: Solution strategy"
 date: 2026-02-09T19:00:00+01:00
-updated: 2026-02-16T22:00:00+01:00
+updated: 2026-02-18T21:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 4 opens the "How is it built and how does it run" group.
@@ -53,7 +53,7 @@ What belongs here:
   Major platform choices, integration strategy, monolith vs distributed, data approach, deployment style.
 - Trade-offs and rationale, linked back to earlier chapters where possible.
 - Consequences (direction and impact), so people understand what follows from the strategy.
-- Links to ADRs when they exist (chapter 9).
+- Links to ADRs when they exist (chapter [9][CH9]).
 
 If your list grows over time, group the strategy items into a few buckets that fit your scope
 (pick what matches your system), for example:
@@ -153,7 +153,7 @@ This is what chapter 4 looks like when filled in.
 
 > ## 4. Solution strategy
 >
-> Pitstop is designed as an operational <q>source of truth</q> for work orders and status,
+> Pitstop is designed as an operational "source of truth" for work orders and status,
 > with near real-time synchronization between planning and workshop execution.
 >
 > - **Modular monolith backend (initially)**  
@@ -224,7 +224,7 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
 ## Next improvements backlog
 
 - Review strategy statements with ops and key external stakeholders for realism.
-- Add links to ADRs as decisions become concrete (chapter 9).
+- Add links to ADRs as decisions become concrete (chapter [9][CH9]).
 - Add a short mapping from strategy to top quality goals.
 - Move unstable or controversial topics into "Open strategy questions" until decided.
 - Remove strategies that no longer serve stakeholder value (and document the change as an ADR).
@@ -243,3 +243,4 @@ where we describe the solution structure without diving into runtime sequencing 
 [CH2]: /2026/02/03/arc42-chapter-2-architecture-constraints/
 [CH3]: /2026/02/04/arc42-chapter-3-context-and-scope/
 [CH5]: /2026/02/10/arc42-chapter-5-building-block-view/
+[CH9]: /2026/02/18/arc42-chapter-9-architectural-decisions/

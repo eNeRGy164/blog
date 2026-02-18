@@ -2,7 +2,7 @@
 id: 2125
 title: "The Art of Simple Software Architecture Documentation (with arc42) - a practical series"
 date: 2026-02-01T21:50:00+01:00
-updated: 2026-02-17T20:00:00+01:00
+updated: 2026-02-18T21:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   After my "The Art of Simple Software Architecture Documentation" talk,
@@ -197,7 +197,7 @@ Once those are clear, you can add:
 **Reusables, decisions, & qualities:**
 
 - ✅ 8. [Cross-cutting concepts][CH8]
-- ⏳ 9. Architecture decisions
+- ✅ 9. [Architecture decisions][CH9]
 - ⏳ 10. Quality
 
 **Reality & shared language:**
@@ -235,3 +235,4 @@ where we turn vague intentions into a small set of concrete quality goals.
 [CH6]: /2026/02/11/arc42-chapter-6-runtime-view/
 [CH7]: /2026/02/16/arc42-chapter-7-deployment-view/
 [CH8]: /2026/02/17/arc42-chapter-8-cross-cutting-concepts/
+[CH9]: /2026/02/18/arc42-chapter-9-architectural-decisions/
