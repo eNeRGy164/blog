@@ -1071,7 +1071,6 @@ iframe,
 figure.wp-shadow iframe,
 figure.wp-shadow img,
 img.wp-shadow {
-  border: solid 1px #eee;
   box-shadow: 3px 3px 3px var(--color-border);
   box-sizing: content-box;
 }

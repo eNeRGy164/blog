@@ -2,6 +2,7 @@
 id: 2134
 title: "arc42 chapter 9: Architectural decisions"
 date: 2026-02-18T21:00:00+01:00
+updated: 2026-02-19T20:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 9 is your decision timeline.
@@ -289,7 +290,7 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
 🔲 Each entry has at least the decision and a short motivation.  
 🔲 Important decisions have considered options recorded.  
 🔲 Decisions link to where they show up (chapters [4][CH4]–[8][CH8]).  
-🔲 Quality trade-offs connect to quality scenarios in chapter 10.
+🔲 Quality trade-offs connect to quality scenarios in chapter [10][CH10].
 
 ## Next improvements backlog
 
@@ -303,9 +304,9 @@ Chapter 9 is the memory of your architecture.
 It keeps the reasoning visible, even when the team changes and the code evolves.
 
 Decisions and quality requirements reinforce each other.
-A decision often accepts a trade-off, and chapter 10 is where you make those trade-offs measurable.
+A decision often accepts a trade-off, and chapter [10][CH10] is where you make those trade-offs measurable.
 
-Next up: arc42 chapter 10, "Quality requirements", where we turn quality goals into concrete scenarios and checks.
+Next up: [arc42 chapter 10, "Quality requirements"][CH10], where we turn quality goals into concrete scenarios and checks.
 
 [PITSTOP_ARC42]: https://gist.github.com/eNeRGy164/90f63e78d3e528f7b8490538a6781b5f
 [ARC42]: https://arc42.org/
@@ -313,3 +314,4 @@ Next up: arc42 chapter 10, "Quality requirements", where we turn quality goals i
 [WILLEM_ADR_CLAUDE_BLOG]: https://www.beyondautocomplete.nl/how-i-use-claude-code-to-keep-my-architecture-decisions-on-track/
 [CH4]: /2026/02/09/arc42-chapter-4-solution-strategy/
 [CH8]: /2026/02/17/arc42-chapter-8-cross-cutting-concepts/
+[CH10]: /2026/02/19/arc42-chapter-10-quality-requirements/

@@ -5,6 +5,7 @@ ACRONYMS:
   ARM: Azure Resource Manager
   ASP: Active Server Pages
   AST: Abstract Syntax Tree
+  BDD: Behavior-Driven Development
   BFF: Backend For Frontend
   BPMN: Business Process Model and Notation
   CD: Continuous Deployment
@@ -24,6 +25,7 @@ ACRONYMS:
   HD: High-definition
   HTML: HyperText Markup Language
   HTTP: HyperText Transfer Protocol
+  IEC: International Electrotechnical Commission
   IIS: Internet Information Services
   IMAP: Internet Message Access Protocol
   IP: Internet Protocol
@@ -53,6 +55,7 @@ ACRONYMS:
   SFTP: Secure File Transfer Protocol
   SLA: Service Level Agreement
   SLO: Service Level Objective
+  SMART: Specific, Measurable, Achievable, Relevant, Time-bound
   SMS: Short Message Service
   SMSS: SQL Server Management Studio
   SMTP: Simple Mail Transfer Protocol
