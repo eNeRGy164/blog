@@ -2,7 +2,7 @@
 id: 2125
 title: "The Art of Simple Software Architecture Documentation (with arc42) - a practical series"
 date: 2026-02-01T21:50:00+01:00
-updated: 2026-02-19T20:00:00+01:00
+updated: 2026-02-23T22:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   After my "The Art of Simple Software Architecture Documentation" talk,
@@ -202,7 +202,7 @@ Once those are clear, you can add:
 
 **Reality & shared language:**
 
-- ⏳ 11. Risks and technical debt
+- ✅ 11. [Risks and technical debt][CH11]
 - ⏳ 12. Glossary
 
 You will also find all posts in the series navigation in the sidebar.
@@ -237,3 +237,4 @@ where we turn vague intentions into a small set of concrete quality goals.
 [CH8]: /2026/02/17/arc42-chapter-8-cross-cutting-concepts/
 [CH9]: /2026/02/18/arc42-chapter-9-architectural-decisions/
 [CH10]: /2026/02/19/arc42-chapter-10-quality-requirements/
+[CH11]: /2026/02/23/arc42-chapter-11-risks-and-technical-debt/
