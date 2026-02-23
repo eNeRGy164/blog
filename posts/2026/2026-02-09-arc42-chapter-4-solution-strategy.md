@@ -2,7 +2,7 @@
 id: 2129
 title: "arc42 chapter 4: Solution strategy"
 date: 2026-02-09T19:00:00+01:00
-updated: 2026-02-18T21:00:00+01:00
+updated: 2026-02-23T22:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 4 opens the "How is it built and how does it run" group.
@@ -142,7 +142,7 @@ Each item should make the rationale, impact, and link to a driver clear.>
 > Where you put open questions depends on how you work.  
 > If your process is **strategy-driven** (pick direction first, then refine), keeping them in chapter 4 works well.  
 > If your process is more **risk-driven** (track uncertainties and mitigation first),
-> you might prefer **chapter 11** and link to them from here.
+> you might prefer **chapter [11][CH11]** and link to them from here.
 
 ## Example (Pitstop)
 
@@ -219,7 +219,7 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
 🔲 Each statement has a short rationale and a clear impact.  
 🔲 Statements link back to goals/constraints/context (chapters [1][CH1], [2][CH2], [3][CH3]).  
 🔲 The choices feel stable enough to not change every sprint.  
-🔲 Open strategy questions are visible (here or in chapter 11), not hidden in someone's head.
+🔲 Open strategy questions are visible (here or in chapter [11][CH11]), not hidden in someone's head.
 
 ## Next improvements backlog
 
@@ -244,3 +244,4 @@ where we describe the solution structure without diving into runtime sequencing 
 [CH3]: /2026/02/04/arc42-chapter-3-context-and-scope/
 [CH5]: /2026/02/10/arc42-chapter-5-building-block-view/
 [CH9]: /2026/02/18/arc42-chapter-9-architectural-decisions/
+[CH11]: /2026/02/23/arc42-chapter-11-risks-and-technical-debt/

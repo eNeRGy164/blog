@@ -2,6 +2,7 @@
 id: 2135
 title: "arc42 chapter 10: Quality requirements"
 date: 2026-02-19T20:00:00+01:00
+updated: 2026-02-23T22:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 10 turns quality goals into testable quality scenarios.
@@ -131,7 +132,7 @@ when everything is marked as a top priority, that is the same as having no prior
 If you are short on time, aim for this:
 
 1. A small quality overview, grouped by ISO/IEC 25010:2023 headings.  
-  <small>(or your own headings if that reads better).</small>
+   <small>(or your own headings if that reads better).</small>
 2. Pick 3–6 top items and write quality scenarios for them.
 3. For each scenario, add a metric target you can validate later.
 
@@ -300,7 +301,7 @@ When a quality trade-off is accepted, document it here:
 note which quality was deprioritized, which won, and link to the decision in chapter [9][CH9] that captures the reasoning.
 You can start with rough scenarios, then refine them as you learn.
 
-Next up: arc42 chapter 11, "Risks and technical debt", where we capture the things that can still bite us later,
+Next up: [arc42 chapter 11, "Risks and technical debt"][CH11], where we capture the things that can still bite us later,
 and how we keep them visible.
 
 [PITSTOP_ARC42]: https://gist.github.com/eNeRGy164/90f63e78d3e528f7b8490538a6781b5f
@@ -313,3 +314,4 @@ and how we keep them visible.
 [CH7]: /2026/02/16/arc42-chapter-7-deployment-view/
 [CH8]: /2026/02/17/arc42-chapter-8-cross-cutting-concepts/
 [CH9]: /2026/02/18/arc42-chapter-9-architectural-decisions/
+[CH11]: /2026/02/23/arc42-chapter-11-risks-and-technical-debt/
