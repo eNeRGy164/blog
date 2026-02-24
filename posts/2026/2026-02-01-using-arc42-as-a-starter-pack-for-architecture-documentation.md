@@ -2,14 +2,14 @@
 id: 2125
 title: "The Art of Simple Software Architecture Documentation (with arc42) - a practical series"
 date: 2026-02-01T21:50:00+01:00
-updated: 2026-02-23T22:00:00+01:00
+updated: 2026-02-24T19:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   After my "The Art of Simple Software Architecture Documentation" talk,
   a surprising number of people asked for the slides because they saw the deck as a reference guide.
 
   This post is the starting point: why arc42 works so well, how I approach it in practice,
-  and how this series will grow over time, without pretending it is finished on day one.
+  and what each of the 12 chapters looks like when you fill them in for real.
 permalink: /2026/02/01/arc42-practical-series/
 image: /wp-content/uploads/2026/02/post-2026-02-01-thumbnail.jpg
 categories:
@@ -142,9 +142,9 @@ These chapters make the documentation useful in real life, long after the first 
 If you have only ever used arc42 as a template, try this grouping with your team.
 It tends to make the "why does this chapter exist" discussion much easier.
 
-## How the posts will be structured
+## How the posts are structured
 
-Each chapter post will follow the same pattern:
+Each chapter post follows the same pattern:
 
 - **What belongs in this chapter (and what does not)**
 - **The minimum viable version** (the smallest useful content)
@@ -203,7 +203,7 @@ Once those are clear, you can add:
 **Reality & shared language:**
 
 - ✅ 11. [Risks and technical debt][CH11]
-- ⏳ 12. Glossary
+- ✅ 12. [Glossary][CH12]
 
 You will also find all posts in the series navigation in the sidebar.
 
@@ -221,7 +221,7 @@ So if you are also using arc42 (or want to), consider this an open invitation to
 Because the real magic of architecture documentation is not in the template.
 It is in the conversations it forces you to have.
 
-Next up: [Chapter 1, "Introduction and goals"](/2026/02/02/arc42-chapter-1-introduction-and-goals/),
+Start reading: [Chapter 1, "Introduction and goals"](/2026/02/02/arc42-chapter-1-introduction-and-goals/),
 where we turn vague intentions into a small set of concrete quality goals.
 
 [ARC42]: https://arc42.org/
@@ -238,3 +238,4 @@ where we turn vague intentions into a small set of concrete quality goals.
 [CH9]: /2026/02/18/arc42-chapter-9-architectural-decisions/
 [CH10]: /2026/02/19/arc42-chapter-10-quality-requirements/
 [CH11]: /2026/02/23/arc42-chapter-11-risks-and-technical-debt/
+[CH12]: /2026/02/24/arc42-chapter-12-glossary/
