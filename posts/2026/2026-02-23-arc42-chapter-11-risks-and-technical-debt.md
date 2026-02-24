@@ -2,6 +2,7 @@
 id: 2136
 title: "arc42 chapter 11: Risks and technical debt"
 date: 2026-02-23T22:00:00+01:00
+updated: 2026-02-24T19:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 11 keeps uncomfortable truths visible.
@@ -225,7 +226,7 @@ To browse the full Pitstop arc42 sample, see my [GitHub Gist][PITSTOP_ARC42].
 Chapter 11 is what keeps the architecture document honest.
 You make risks and debt visible early, then refine them as you learn.
 
-Next up: arc42 chapter 12, "Glossary", where we build shared language so readers do not have to guess what terms mean.
+Next up: arc42 chapter [12][CH12], "Glossary", where we build shared language so readers do not have to guess what terms mean.
 
 [PITSTOP_ARC42]: https://gist.github.com/eNeRGy164/90f63e78d3e528f7b8490538a6781b5f
 [ARC42]: https://arc42.org/
@@ -237,3 +238,4 @@ Next up: arc42 chapter 12, "Glossary", where we build shared language so readers
 [CH8]: /2026/02/17/arc42-chapter-8-cross-cutting-concepts/
 [CH9]: /2026/02/18/arc42-chapter-9-architectural-decisions/
 [CH10]: /2026/02/19/arc42-chapter-10-quality-requirements/
+[CH12]: /2026/02/24/arc42-chapter-12-glossary/
