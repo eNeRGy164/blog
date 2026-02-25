@@ -2,6 +2,7 @@
 id: 2137
 title: "arc42 chapter 12: Glossary"
 date: 2026-02-24T19:00:00+01:00
+updated: 2026-02-25T20:30:00+01:00
 author: Michaël Hompus
 excerpt: >
   Chapter 12 builds shared language.
@@ -249,11 +250,11 @@ When the glossary is good, every other chapter becomes easier to read and easier
 This concludes the arc42 template itself.  
 The series is not done though.
 
-I will add a follow-up post with practical notes on using a workflow to keep the document alive,
-not a one-off deliverable.
+Next up: [After the 12 chapters: keep your arc42 docs alive][AFTER12], where I cover where to store the docs, how to review them, how to avoid drift, and how to use agents as guardrails.
 
 [PITSTOP_ARC42]: https://gist.github.com/eNeRGy164/90f63e78d3e528f7b8490538a6781b5f
 [ARC42]: https://arc42.org/
 [CH1]: /2026/02/02/arc42-chapter-1-introduction-and-goals/
 [CH3]: /2026/02/04/arc42-chapter-3-context-and-scope/
 [CH8]: /2026/02/17/arc42-chapter-8-cross-cutting-concepts/
+[AFTER12]: /2026/02/25/arc42-after-the-12-chapters/
