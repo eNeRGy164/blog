@@ -62,9 +62,14 @@ export async function getStaticPaths() {
       params: { slug: cat },
       props: {
         posts: categoryPosts,
-        category: menuData.menu.find(
-          (item) => urlifyToken(item.title) === cat || item.submenu?.some((sub) => urlifyToken(sub.title) === cat)
-        )?.title || cat, // Find the category title dynamically
+        category: (() => {
+          for (const item of menuData.menu) {
+            if (urlifyToken(item.title) === cat) return item.title;
+            const sub = item.submenu?.find((sub) => urlifyToken(sub.title) === cat);
+            if (sub) return sub.title;
+          }
+          return cat;
+        })(),
       },
     };
   });
