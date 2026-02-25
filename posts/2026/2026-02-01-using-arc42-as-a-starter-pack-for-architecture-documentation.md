@@ -2,7 +2,7 @@
 id: 2125
 title: "The Art of Simple Software Architecture Documentation (with arc42) - a practical series"
 date: 2026-02-01T21:50:00+01:00
-updated: 2026-02-24T19:00:00+01:00
+updated: 2026-02-25T20:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   After my "The Art of Simple Software Architecture Documentation" talk,
@@ -205,6 +205,10 @@ Once those are clear, you can add:
 - ✅ 11. [Risks and technical debt][CH11]
 - ✅ 12. [Glossary][CH12]
 
+**After the template:**
+
+- ✅ [After the 12 chapters: keep your arc42 docs alive][AFTER]
+
 You will also find all posts in the series navigation in the sidebar.
 
 ## The promise (so you do not get disappointed)
@@ -239,3 +243,4 @@ where we turn vague intentions into a small set of concrete quality goals.
 [CH10]: /2026/02/19/arc42-chapter-10-quality-requirements/
 [CH11]: /2026/02/23/arc42-chapter-11-risks-and-technical-debt/
 [CH12]: /2026/02/24/arc42-chapter-12-glossary/
+[AFTER]: /2026/02/25/arc42-after-the-12-chapters/
