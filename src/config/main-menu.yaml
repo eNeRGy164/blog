@@ -26,7 +26,7 @@ menu:
     submenu:
       - title: Office
         link: /category/office/
-      - title: CRM
+      - title: Dynamics CRM
         link: /category/dynamics-crm/
       - title: SharePoint
         link: /category/sharepoint/
