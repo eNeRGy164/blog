@@ -409,7 +409,7 @@ code,
 samp {
   padding: var(--spacing-ultra-tiny) var(--spacing-tiny);
   font-family: var(--font-monospace);
-  background-color: var(--color-highlight);
+  background-color: color-mix(in srgb, currentColor 12%, transparent);
   font-size: var(--font-size-small);
   white-space: pre;
 }
@@ -678,6 +678,44 @@ div.tags a:hover {
 
 .entry td:first-child {
   border-left: solid 1px var(--color-border);
+}
+
+/* Details/Summary (collapsible sections) */
+.entry details {
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  margin-bottom: 1em;
+  box-shadow: 3px 3px 3px var(--color-border);
+
+  & summary {
+    cursor: pointer;
+    font-weight: 600;
+    padding: var(--spacing-small);
+    border-radius: 0.25rem;
+    user-select: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &[open] summary {
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0.25rem 0.25rem 0 0;
+  }
+
+  & > :not(summary) {
+    margin: 0 var(--spacing-small);
+  }
+
+  & > table {
+    width: calc(100% - 2 * var(--spacing-small));
+    margin: var(--spacing-small);
+  }
+
+  & > :nth-child(2) {
+    margin-top: var(--spacing-small);
+  }
 }
 
 /*---------------------------------------
