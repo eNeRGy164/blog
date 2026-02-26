@@ -18,8 +18,8 @@ ACRONYMS:
   CSV: Comma-separated Values
   DLL: Dynamic Link Library
   DNS: Domain Name System
-  DTO: Data Transfer Object
   Dapr: Distributed Application Runtime
+  DTO: Data Transfer Object
   ETA: Estimated Time of Arrival
   GAC: Global Assembly Cache
   HD: High-definition
@@ -34,20 +34,21 @@ ACRONYMS:
   JSON: JavaScript Object Notation
   LF: Line Feed
   LIS: Linux Integration Services
-  MCSA: Microsoft Certified Solutions Associate
   MCSD: Microsoft Certified Solutions Developer
+  MCSA: Microsoft Certified Solutions Associate
   MSDN: Microsoft Developer Network
   MSI: Microsoft Installer
-  MVC: Model-View-Controller
   MVP: Most Valuable Professional
+  MVC: Model-View-Controller
   MX: Mail Exchanger
   NDA: Non-Disclosure Agreement
   NTP: Network Time Protocol
   ONNX: Open Neural Network Exchange
+  Perl: Practical Extraction and Reporting Language
   PHP: "PHP: Hypertext Preprocessor (recursive acronym)"
   POCO: Plain Old CLR Object
+  PPTX: PowerPoint Presentation (Open XML format)
   PSI: Project Server Interface
-  Perl: Practical Extraction and Reporting Language
   RBAC: Role-Based Access Control
   REST: Representational State Transfer
   RGB: Red, Green, and Blue
@@ -70,6 +71,7 @@ ACRONYMS:
   TSQL: Transact-SQL
   UI: User Interface
   URI: Uniform Resource Identifier
+  URN: Uniform Resource Name
   URL: Uniform Resource Locator
   UTF: Unicode Transformation Format
   UWP: Universal Windows Platform
@@ -80,3 +82,4 @@ ACRONYMS:
   WSS: Windows SharePoint Services
   XML: eXtensible Markup Language
   YAML: YAML Ain't Markup Language
+  ZIP: ZIP Archive (compressed file format)
