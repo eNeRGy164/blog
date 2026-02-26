@@ -347,16 +347,16 @@ All URNs share the common prefix `urn:microsoft.com/office/officeart/`. The tabl
 | **Basic Linear Process Numbered**        | `2016/7/layout/BasicLinearProcessNumbered`       |
 | **Linear Block Process Numbered**        | `2016/7/layout/LinearBlockProcessNumbered`       |
 | **Linear Arrow Process Numbered**        | `2016/7/layout/LinearArrowProcessNumbered`       |
-| **Repeating Bending Process New**        | `2016/7/layout/RepeatingBendingProcessNew`       |
 | **Vertical Down Arrow Process**          | `2016/7/layout/VerticalDownArrowProcess`         |
 | **Chevron Block Process**                | `2016/7/layout/ChevronBlockProcess`              |
-| **Accent Home Chevron Process**          | `2016/7/layout/AccentHomeChevronProcess`         |
+| **Repeating Bending Process New**        | `2016/7/layout/RepeatingBendingProcessNew`       |
 | **Basic Timeline**                       | `2016/7/layout/BasicTimeline`                    |
 | **Horizontal Path Timeline**             | `2017/3/layout/HorizontalPathTimeline`           |
 | **Horizontal Labels Timeline**           | `2017/3/layout/HorizontalLabelsTimeline`         |
 | **Drop Pin Timeline**                    | `2017/3/layout/DropPinTimeline`                  |
 | **Rounded Rectangle Timeline**           | `2016/7/layout/RoundedRectangleTimeline`         |
 | **Hexagon Timeline**                     | `2016/7/layout/HexagonTimeline`                  |
+| **Accent Home Chevron Process**          | `2016/7/layout/AccentHomeChevronProcess`         |
 
 </details>
 
