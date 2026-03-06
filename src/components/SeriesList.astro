@@ -4,7 +4,7 @@
  * Sidebar list of posts in the current series.
  */
 import type { CollectionEntry } from "astro:content";
-import { sortedPosts, urlifyToken } from "@/js/util.js";
+import { getSeriesWithPosts, urlifyToken } from "@/js/util.js";
 
 interface Props {
   currentPost: CollectionEntry<"posts">;
@@ -14,16 +14,20 @@ interface Props {
 const { currentPost, allPosts } = Astro.props;
 const series = currentPost.data.series;
 
-// Filter posts with the same series and sort by date (oldest first)
+// getSeriesWithPosts returns posts oldest-first per series
 const seriesPosts = series
-  ? sortedPosts(allPosts.filter((post) => post.data.series === series)).reverse()
+  ? (getSeriesWithPosts(allPosts).get(series) ?? [])
   : [];
 ---
 
 {
   seriesPosts.length > 1 && (
     <aside id="series-posts">
-      <h2><a href={`/series/${urlifyToken(series!)}/`}>Posts in this series</a></h2>
+      <h2>
+        <a href={`/series/${urlifyToken(series!)}/`}>
+          Posts in this series
+        </a>
+      </h2>
       <div>
         <nav aria-label="Series">
           <ol>

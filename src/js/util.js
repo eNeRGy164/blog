@@ -61,16 +61,16 @@ export function getSeriesWithPosts(paths) {
   const posts = sortedPosts(paths);
   const seriesMap = new Map(); // Use Map to preserve the order and avoid duplicates
 
-  // sortedPosts returns newest first; we reverse to build series lists oldest-first
-  [...posts].reverse().forEach((post) => {
-    const series = post.data.series;
+  // Iterate oldest-first so series lists are naturally in chronological order
+  for (let i = posts.length - 1; i >= 0; i--) {
+    const series = posts[i].data.series;
     if (series) {
       if (!seriesMap.has(series)) {
         seriesMap.set(series, []);
       }
-      seriesMap.get(series).push(post);
+      seriesMap.get(series).push(posts[i]);
     }
-  });
+  }
 
   return seriesMap;
 }

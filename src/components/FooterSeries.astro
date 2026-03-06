@@ -12,19 +12,14 @@ interface Props {
 
 const { posts } = Astro.props;
 
-const seriesMap = getSeriesWithPosts(posts);
-
-// Sort series by the date of their oldest post (oldest series first)
-const seriesSorted = Array.from(seriesMap.entries()).sort(
-  (a, b) =>
-    new Date(a[1][0].data.date).valueOf() - new Date(b[1][0].data.date).valueOf(),
-);
+// getSeriesWithPosts iterates oldest-first, so Map insertion order = oldest series first
+const seriesNames = Array.from(getSeriesWithPosts(posts).keys());
 ---
 
 <nav>
 	<h2>Series</h2>
 	<ul>
-		{seriesSorted.map(([seriesName]) =>
+		{seriesNames.map((seriesName) =>
 			<li><a rel="nofollow" href={`/series/${urlifyToken(seriesName)}/`}>{seriesName}</a></li>
 		)}
 	</ul>
