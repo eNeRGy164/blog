@@ -293,6 +293,11 @@ menu#nav {
   text-align: right;
 }
 
+#sidebar aside h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
 #sidebar aside div {
   padding: var(--spacing-medium);
 }
