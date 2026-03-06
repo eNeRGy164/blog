@@ -32,7 +32,7 @@ const posts = sortedPosts(unsortedPosts);
   <SidebarImage />
 
   {currentPost && currentPost.data.series && (
-    <SeriesList currentPost={currentPost} allPosts={unsortedPosts} />
+    <SeriesList currentPost={currentPost} allPosts={posts} />
   )}
 
   <TagCloud unsortedPosts={unsortedPosts} />
