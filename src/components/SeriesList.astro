@@ -14,7 +14,8 @@ interface Props {
 const { currentPost, allPosts } = Astro.props;
 const series = currentPost.data.series;
 
-// getSeriesWithPosts returns posts oldest-first per series
+// getSeriesWithPosts returns posts oldest-first per series when allPosts
+// is the sortedPosts() output (newest-first, drafts filtered)
 const seriesPosts = series
   ? (getSeriesWithPosts(allPosts).get(series) ?? [])
   : [];

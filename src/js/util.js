@@ -60,7 +60,8 @@ export function getTagsWithPosts(paths) {
 export function getSeriesWithPosts(posts) {
   const seriesMap = new Map(); // Use Map to preserve the order and avoid duplicates
 
-  // Iterate oldest-first so series lists are naturally in chronological order
+  // Expects posts sorted newest-first (e.g. via sortedPosts(), drafts filtered).
+  // Iterates in reverse so each series list is oldest-first (chronological order).
   for (let i = posts.length - 1; i >= 0; i--) {
     const series = posts[i].data.series;
     if (series) {
