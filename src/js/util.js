@@ -57,8 +57,7 @@ export function getTagsWithPosts(paths) {
   return tagsMap;
 }
 
-export function getSeriesWithPosts(paths) {
-  const posts = sortedPosts(paths);
+export function getSeriesWithPosts(posts) {
   const seriesMap = new Map(); // Use Map to preserve the order and avoid duplicates
 
   // Iterate oldest-first so series lists are naturally in chronological order

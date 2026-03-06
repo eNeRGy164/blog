@@ -1,10 +1,10 @@
 import { SITE_TITLE } from '@/config.ts'
 import { getCollection } from 'astro:content';
-import { urlifyToken, getSeriesWithPosts } from '@/js/util.js';
+import { urlifyToken, getSeriesWithPosts, sortedPosts } from '@/js/util.js';
 import { buildFeed } from '@/utils/rss.js';
 
 export async function getStaticPaths() {
-  const seriesMap = getSeriesWithPosts(await getCollection('posts'));
+  const seriesMap = getSeriesWithPosts(sortedPosts(await getCollection('posts')));
 
   return Array.from(seriesMap.entries()).map(([series, seriesPosts]) => ({
     params: {
