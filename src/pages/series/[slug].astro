@@ -1,0 +1,64 @@
+---
+import BasePageLayout from '@/layouts/BasePageLayout.astro';
+import ListItem from '@/components/ListItem.astro';
+import { urlifyToken, getSeriesWithPosts } from '@/js/util.js';
+import { SITE_TITLE, SITE_AUTHOR } from '@/config.ts';
+import { getCollection } from 'astro:content';
+
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  series: string;
+  posts: CollectionEntry<'posts'>[];
+}
+
+const { posts, series } = Astro.props;
+
+export async function getStaticPaths() {
+  const seriesMap = getSeriesWithPosts(await getCollection('posts'));
+
+  return Array.from(seriesMap.entries()).map(([series, seriesPosts]) => ({
+    params: {
+      slug: urlifyToken(series)
+    },
+    props: {
+      series: series,
+      posts: seriesPosts,
+    },
+  }));
+}
+
+const description = `Posts in the '${series}' series`;
+const feed = {
+  title: `${series} Series`,
+  link: `series/${urlifyToken(series)}/feed.xml`
+};
+---
+
+<BasePageLayout
+  title={`${series} | ${SITE_TITLE}`}
+  description={description}
+  classes={['archive']}
+  author={SITE_AUTHOR}
+  feed={feed}
+>
+  <main id="content" itemprop="mainEntity" itemscope itemtype="http://schema.org/CollectionPage" itemref="author">
+    <div class="post-box page-box">
+      <header class="post-header">
+        <div class="meta">
+          <h1 id="pagetitle" itemprop="name">{description}</h1>
+        </div>
+      </header>
+      <div>
+        <div class="entries" itemscope itemtype="http://schema.org/ItemList" itemprop="mainEntity">
+          <meta itemprop="itemListOrder" content="http://schema.org/ItemListOrderAscending">
+          <ul>
+            {posts.map(p =>
+              <ListItem post={p} />
+            )}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</BasePageLayout>

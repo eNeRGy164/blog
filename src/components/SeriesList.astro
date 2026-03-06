@@ -4,7 +4,7 @@
  * Sidebar list of posts in the current series.
  */
 import type { CollectionEntry } from "astro:content";
-import { sortedPosts } from "@/js/util.js";
+import { sortedPosts, urlifyToken } from "@/js/util.js";
 
 interface Props {
   currentPost: CollectionEntry<"posts">;
@@ -23,7 +23,7 @@ const seriesPosts = series
 {
   seriesPosts.length > 1 && (
     <aside id="series-posts">
-      <h2>Posts in this series</h2>
+      <h2><a href={`/series/${urlifyToken(series!)}/`}>Posts in this series</a></h2>
       <div>
         <nav aria-label="Series">
           <ol>

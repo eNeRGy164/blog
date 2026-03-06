@@ -57,6 +57,24 @@ export function getTagsWithPosts(paths) {
   return tagsMap;
 }
 
+export function getSeriesWithPosts(paths) {
+  const posts = sortedPosts(paths);
+  const seriesMap = new Map(); // Use Map to preserve the order and avoid duplicates
+
+  // sortedPosts returns newest first; we reverse to build series lists oldest-first
+  [...posts].reverse().forEach((post) => {
+    const series = post.data.series;
+    if (series) {
+      if (!seriesMap.has(series)) {
+        seriesMap.set(series, []);
+      }
+      seriesMap.get(series).push(post);
+    }
+  });
+
+  return seriesMap;
+}
+
 export function getPreviousAndNextPosts(currentPost, allPosts) {
   const posts = sortedPosts(allPosts);
   const currentIndex = posts.findIndex(
