@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.6",
-    "@astrojs/rss": "4.0.15",
+    "@astrojs/rss": "4.0.17",
     "@astrojs/sitemap": "3.7.0",
     "@expressive-code/plugin-line-numbers": "0.41.7",
     "@rollup/plugin-yaml": "4.1.2",
