@@ -2,7 +2,7 @@
 id: 2125
 title: "The Art of Simple Software Architecture Documentation (with arc42) - a practical series"
 date: 2026-02-01T21:50:00+01:00
-updated: 2026-02-25T20:00:00+01:00
+updated: 2026-03-20T14:00:00+01:00
 author: Michaël Hompus
 excerpt: >
   After my "The Art of Simple Software Architecture Documentation" talk,
@@ -34,12 +34,6 @@ arc42 is widely known, but it is hard to find practical guidance and shareable e
 
 <!--more-->
 
-> [!TIP]
-> I will be giving this talk March 11 at [Future Tech 2026][FUTURE_TECH] in Utrecht 🇳🇱.  
-> If you like this topic and want the full story live, come say hi.
->
-> [![Future Tech 2026 banner featuring Michaël Hompus and the session title "arc42: The Art of Simple Software Architecture Documentation"](/wp-content/uploads/2026/02/future-tech-2026-banner.jpg)][FUTURE_TECH]
-
 ## What this series is (and what it is not)
 
 This is a series of short, practical posts about **using arc42 to document software architecture**.
@@ -59,7 +53,7 @@ But that flexibility also creates a common problem:
 - fewer people agree on **what good content looks like**,
 - and almost nobody can share real examples because most architecture docs live behind company firewalls.
 
-So I am going to do two things:
+So this series does two things:
 
 1. **Explain how I fill each arc42 chapter in practice** (with guidance, pitfalls, and "done-when" checks).
 2. Use a small demo system (**Pitstop**) as a shareable example, so it does not stay abstract.
@@ -213,9 +207,9 @@ You will also find all posts in the series navigation in the sidebar.
 
 ## The promise (so you do not get disappointed)
 
-I am not going to claim this will be "the definitive arc42 guide".
+I am not going to claim this is "the definitive arc42 guide".
 
-It will be:
+It is:
 
 - a practical reference,
 - based on real usage,
@@ -230,7 +224,6 @@ where we turn vague intentions into a small set of concrete quality goals.
 
 [ARC42]: https://arc42.org/
 [BITBASH]: https://bitbash.nl/
-[FUTURE_TECH]: https://futuretech.nl/
 [CH1]: /2026/02/02/arc42-chapter-1-introduction-and-goals/
 [CH2]: /2026/02/03/arc42-chapter-2-architecture-constraints/
 [CH3]: /2026/02/04/arc42-chapter-3-context-and-scope/
