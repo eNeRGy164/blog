@@ -40,6 +40,7 @@
 
 ## Formatting
 
+- Wrap Markdown body text at 120 characters. Break lines at natural points: after punctuation (`.`, `,`, `;`) or before conjunctions (`and`, `or`, `but`). Do not break inside inline links or image markup.
 - Short paragraphs.
 - Backtick identifiers, classes, paths, and config keys.
 - Prefer tables for enumerations and constant lists.
@@ -247,8 +248,8 @@ Guidance:
 - `id` is a unique integer for the post, at least 1 higher than the last post.
 - `updated` is optional; include only when changed after publish.
 - `series` is optional; include only when the post is part of a series.
-- `thumbnail` is optional; include only for posts with generated thumbnails.
-  Omit for posts with custom-designed images.
+- `thumbnail` is optional; this is only included for old posts that have generated thumbnails.
+  Omit for (new) posts with custom-designed images.
 - Image filename pattern is `post-YYYY-MM-DD-thumbnail.(png|jpg)`.
 - If multiple posts share the same date, use numeric suffixes in publish order:
   oldest keeps no suffix, next uses `-2`, then `-3`, and so on.
@@ -284,8 +285,8 @@ thumbnail:
   `post-YYYY-MM-DD[-N]-thumbnail.(png|jpg)`.
 - If multiple posts are on the same day, suffix in publish order:
   oldest has no suffix, then `-2`, `-3`, etc.
-- For posts with generated thumbnails (`.png` with date pattern), add the optional
+- For old posts with generated thumbnails (`.png` with date pattern), add the optional
   `thumbnail` frontmatter block with a short `title` (max ~60 chars) and a
   descriptive `subtitle` (max ~120 chars) for the social image text.
-  Omit `thumbnail` for posts with custom-designed images.
+  Omit `thumbnail` for (new) posts with custom-designed images.
 - Thumbnail generation, layout, color mapping, and script commands are maintained in `AGENTS.md`.
