@@ -3,6 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -11,14 +14,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "5.18.0",
+    "astro": "6.1.0",
     "entities": "7.0.1",
     "typescript": "5.9.3"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.6",
-    "@astrojs/rss": "4.0.15",
-    "@astrojs/sitemap": "3.7.0",
+    "@astrojs/check": "0.9.2",
+    "@astrojs/rss": "4.0.18",
+    "@astrojs/sitemap": "3.7.2",
     "@expressive-code/plugin-line-numbers": "0.41.7",
     "@rollup/plugin-yaml": "4.1.2",
     "astro-expressive-code": "0.41.7",
