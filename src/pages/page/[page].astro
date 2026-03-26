@@ -13,7 +13,7 @@ export async function getStaticPaths() {
     .filter((page) => page > 1)
     .map((page) => {
       return {
-        params: { page },
+        params: { page: String(page) },
         props: {
           posts: posts.slice((page - 1) * 5, page * 5),
         },
