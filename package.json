@@ -14,7 +14,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "6.1.2",
+    "astro": "6.1.8",
     "entities": "7.0.1",
     "typescript": "5.9.3"
   },
