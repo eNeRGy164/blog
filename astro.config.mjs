@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import { unified } from "@astrojs/markdown-remark";
 import yaml from "@rollup/plugin-yaml";
 import yamlParser from "yaml";
 import { readFileSync } from "fs";
@@ -44,55 +45,57 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [
-      rehypeGithubAlerts,
-      rehypeCustomImage,
-      [
-        rehypeExternalLinks,
-        {
-          content: {},
-          rel: ["noopener", "noreferrer", "external"],
-          target: "_blank",
-          test: (node, _, __) => {
-            if (node.tagName !== "a") return false;
-            if (typeof node.properties.href !== "string") return false;
+    processor: unified({
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [
+        rehypeGithubAlerts,
+        rehypeCustomImage,
+        [
+          rehypeExternalLinks,
+          {
+            content: {},
+            rel: ["noopener", "noreferrer", "external"],
+            target: "_blank",
+            test: (node, _, __) => {
+              if (node.tagName !== "a") return false;
+              if (typeof node.properties.href !== "string") return false;
 
-            // Exclude links that wrap images/pictures (handled by rehypeCustomImage)
-            const hasImageChild = node.children?.some(
-              (child) => child.tagName === "img" || child.tagName === "picture"
-            );
-            if (hasImageChild) return false;
+              // Exclude links that wrap images/pictures (handled by rehypeCustomImage)
+              const hasImageChild = node.children?.some(
+                (child) => child.tagName === "img" || child.tagName === "picture"
+              );
+              if (hasImageChild) return false;
 
-            try {
-              const urlHost = new URL(node.properties.href).hostname;
+              try {
+                const urlHost = new URL(node.properties.href).hostname;
 
-              // Exclude exactly (www.)linkedin.com
-              if (urlHost === "linkedin.com" || urlHost === "www.linkedin.com") {
-                // Return false -> we do NOT treat it as an external link
+                // Exclude exactly (www.)linkedin.com
+                if (urlHost === "linkedin.com" || urlHost === "www.linkedin.com") {
+                  // Return false -> we do NOT treat it as an external link
+                  return false;
+                }
+
+                return true;
+              } catch {
+                // If URL parsing fails, treat it as not external or just fail safely
                 return false;
               }
-
-              return true;
-            } catch {
-              // If URL parsing fails, treat it as not external or just fail safely
-              return false;
             }
-          }
-        },
+          },
+        ],
+        [
+          rehypeAbbreviate,
+          {
+            acronyms: yamlParser.parse(
+              readFileSync("./src/config/acronyms.yaml", "utf8"),
+            ).ACRONYMS,
+          },
+        ],
+        [rehypeAddMvpContributorId, { contributorId: "AZ-MVP-5004268" }],
+        rehypeYouTubeEmbed,
+        rehypeAccessibleEmojis,
       ],
-      [
-        rehypeAbbreviate,
-        {
-          acronyms: yamlParser.parse(
-            readFileSync("./src/config/acronyms.yaml", "utf8"),
-          ).ACRONYMS,
-        },
-      ],
-      [rehypeAddMvpContributorId, { contributorId: "AZ-MVP-5004268" }],
-      rehypeYouTubeEmbed,
-      rehypeAccessibleEmojis,
-    ],
+    }),
     syntaxHighlight: false,
   },
   vite: {
