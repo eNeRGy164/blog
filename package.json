@@ -16,7 +16,7 @@
   "dependencies": {
     "astro": "7.3.5",
     "entities": "8.0.0",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "devDependencies": {
     "@astrojs/markdown-remark": "7.3.1",
