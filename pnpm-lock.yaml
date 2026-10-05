@@ -37,8 +37,8 @@ importers:
         specifier: 0.44.0
         version: 0.44.0(astro@7.3.5(@astrojs/markdown-remark@7.3.1)(@types/node@24.19.0)(yaml@2.9.0))
       fuse.js:
-        specifier: 7.4.2
-        version: 7.4.2
+        specifier: 7.5.0
+        version: 7.5.0
       moment:
         specifier: 2.31.0
         version: 2.31.0
@@ -1286,8 +1286,8 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
-  fuse.js@7.4.2:
-    resolution: {integrity: sha512-LVbzjD4WA6UP5B1UnP8wuaXJiLnqMdM/E4fiJXTJ5haJ5b/MBNsK29h2fm6swEoQaVQjvYFWKLE2RanyZIoRVQ==}
+  fuse.js@7.5.0:
+    resolution: {integrity: sha512-sQtrEfA+ez/3G0cCZecF70oqpCRttCexYUG4mUrtWL49ULUzUyxokt5kyqwtKzj1270RaKih+hcP3qLcumccow==}
     engines: {node: '>=10'}
 
   gemoji@4.2.1:
@@ -3327,7 +3327,7 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  fuse.js@7.4.2: {}
+  fuse.js@7.5.0: {}
 
   gemoji@4.2.1: {}
 
