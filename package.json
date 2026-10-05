@@ -21,7 +21,7 @@
   "devDependencies": {
     "@astrojs/markdown-remark": "7.3.1",
     "@astrojs/rss": "4.0.19",
-    "@astrojs/sitemap": "3.7.3",
+    "@astrojs/sitemap": "3.7.4",
     "@expressive-code/plugin-line-numbers": "0.44.0",
     "@rollup/plugin-yaml": "5.0.0",
     "astro-expressive-code": "0.44.0",
