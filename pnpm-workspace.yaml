@@ -2,3 +2,8 @@ allowBuilds:
   esbuild: false
   sharp: false
 minimumReleaseAgeExclude: []
+overrides:
+  http-cache-semantics: 4.3.0
+  postcss-selector-parser: 7.1.6
+  source-map-js: 1.2.2
+  vite: 8.3.1

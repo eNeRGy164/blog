@@ -99,6 +99,9 @@ export default defineConfig({
     syntaxHighlight: false,
   },
   vite: {
+    ssr: {
+      external: ["source-map-js"],
+    },
     plugins: [yaml()],
   },
   build: {
