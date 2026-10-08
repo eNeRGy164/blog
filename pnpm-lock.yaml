@@ -18,8 +18,8 @@ importers:
         specifier: 7.3.5
         version: 7.3.5(@astrojs/markdown-remark@7.3.1)(@types/node@24.19.0)(yaml@2.9.1)
       entities:
-        specifier: 8.0.0
-        version: 8.0.0
+        specifier: 8.1.0
+        version: 8.1.0
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -52,8 +52,8 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
       prettier:
-        specifier: 3.9.4
-        version: 3.9.4
+        specifier: 3.9.9
+        version: 3.9.9
       rehype-accessible-emojis:
         specifier: 0.3.2
         version: 0.3.2
@@ -1307,8 +1307,8 @@ packages:
     resolution: {integrity: sha512-aN97NXWF6AWBTahfVOIrB/NShkzi5H7F9r1s9mD3cDj4Ko5f2qhhVoYMibXF7GlLveb/D2ioWay8lxI97Ven3g==}
     engines: {node: '>=0.12'}
 
-  entities@8.0.0:
-    resolution: {integrity: sha512-zwfzJecQ/Uej6tusMqwAqU/6KL2XaB2VZ2Jg54Je6ahNBGNH6Ek6g3jjNCF0fG9EWQKGZNddNjU5F1ZQn/sBnA==}
+  entities@8.1.0:
+    resolution: {integrity: sha512-kxL7msIffSuh9aaFAMD7rxAIuTRMAHMeBtgHW2yUdWw732ZNh4MehkF2gdjvtdmikkaIP9bFDDJOPlsvm7avrA==}
     engines: {node: '>=20.19.0'}
 
   es-module-lexer@2.3.2:
@@ -1912,8 +1912,8 @@ packages:
     resolution: {integrity: sha512-RRuzqDtt5Y9h3quz5hWhK+TPnsmVs6WwSU6LkJMeY4HstUEDuYTG8UJSdawMRzmzAtV+KEoG8N3Qg2qLy5vM/A==}
     engines: {node: ^10 || ^12 || >=14}
 
-  prettier@3.9.4:
-    resolution: {integrity: sha512-yWG/o/4oJfo036EKAfK6ACAoDOfHeRHx4tuxkfBZiauURiaSmYwlpOr5LQqKtIkRD2z1PLteme2WoxEnj4tHTg==}
+  prettier@3.9.9:
+    resolution: {integrity: sha512-Z/CJHIkdujO/OtN7nXUii0Rf3VT5SRuhjBA82Xvu2XhBUgX3nhP67T0LHceBdQLex7OOFGTox+Q5Yg8Jk2Qivg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -3365,7 +3365,7 @@ snapshots:
 
   entities@6.0.1: {}
 
-  entities@8.0.0: {}
+  entities@8.1.0: {}
 
   es-module-lexer@2.3.2: {}
 
@@ -4355,7 +4355,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.2
 
-  prettier@3.9.4: {}
+  prettier@3.9.9: {}
 
   prismjs@1.30.0: {}
 
