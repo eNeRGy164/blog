@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "astro": "7.3.5",
-    "entities": "8.0.0",
+    "entities": "8.1.0",
     "typescript": "7.0.2"
   },
   "devDependencies": {
@@ -28,7 +28,7 @@
     "fuse.js": "7.5.0",
     "moment": "2.31.0",
     "node-fetch": "3.3.2",
-    "prettier": "3.9.4",
+    "prettier": "3.9.9",
     "rehype-accessible-emojis": "0.3.2",
     "rehype-external-links": "3.0.0",
     "rehype-github-alerts": "4.2.0",
