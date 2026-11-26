@@ -14,17 +14,17 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "7.4.12",
+    "astro": "7.4.13",
     "entities": "9.0.0",
     "typescript": "7.0.2"
   },
   "devDependencies": {
-    "@astrojs/markdown-remark": "7.3.9",
+    "@astrojs/markdown-remark": "7.3.10",
     "@astrojs/rss": "4.0.19",
-    "@astrojs/sitemap": "3.7.5",
-    "@expressive-code/plugin-line-numbers": "0.44.3",
+    "@astrojs/sitemap": "3.7.6",
+    "@expressive-code/plugin-line-numbers": "0.44.4",
     "@rollup/plugin-yaml": "5.0.1",
-    "astro-expressive-code": "0.44.3",
+    "astro-expressive-code": "0.44.4",
     "fuse.js": "7.5.0",
     "moment": "2.31.0",
     "node-fetch": "3.3.2",
@@ -35,14 +35,14 @@
     "rehype-semantic-blockquotes": "3.0.7",
     "rehype-slug": "6.0.0",
     "remark-gfm": "4.0.1",
-    "source-map-js": "1.2.2",
+    "source-map-js": "1.2.4",
     "unist-util-visit": "5.2.0",
     "yaml": "2.9.1"
   },
   "overrides": {
     "http-cache-semantics": "4.3.0",
     "postcss-selector-parser": "7.1.6",
-    "source-map-js": "1.2.2",
+    "source-map-js": "1.2.4",
     "vite": "8.3.1"
   }
 }
